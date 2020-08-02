@@ -1,7 +1,13 @@
 <nav>
-  {% for item in site.data.navigation %}
-  <a href="{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>
-    {{ item.name }}
-  </a>
-  {% endfor %}
+  <h1>
+    <a href="/">Chris Grossack's Website</a>
+  </h1>
+  <section class="main-links">
+    {% for item in site.data.navigation %}
+    <a href="{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>
+      {{ item.name }}
+    </a>
+    {% endfor %}
+  </section>
 </nav>
+<div class="clear" aria-hidden="true"></div>
