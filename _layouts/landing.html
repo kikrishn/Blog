@@ -1,0 +1,13 @@
+<!doctype html>
+<html>
+  <head>
+    {% include head.html %}
+    {% feed_meta %} <!-- Make RSS feed work (jekyll-feed plugin) -->
+    {% seo %}       <!-- Make SEO plugin work, despite not knowing what an SEO is -->
+  </head>
+  <body>
+    <main class="landing">
+      {{ content }}
+    </main>
+  </body>
+</html>
