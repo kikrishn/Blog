@@ -1,8 +1,15 @@
 nav {
   a {
-    color: #777;
-    text-decoration: none;
+    color: #555;
+    text-transform: uppercase;
+    margin-left: 0.5rem;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  .current {
+    color: $main-accent;
   }
 }
-
-.current { color: green; }
