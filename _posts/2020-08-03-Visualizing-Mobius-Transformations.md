@@ -33,7 +33,9 @@ and his Design Skills. Ok - onto the math.
 ---
 
 Let's say you're working with Möbius Transformations and you want to 
-"see what they do" for some reason. You know that they act nicely 
+"understand what they do". Getting visual intuition for what's happening 
+seems like a great place to start!
+You know that they act nicely 
 (i.e. by isometries) on the hyperbolic plane, but you want to actually _see_ 
 the action of a particular transformation $M$. 
 Some cursory googling shows you're out of luck 
@@ -233,8 +235,8 @@ def advancedPlot(M, showAxes, markedPoints, shadedRegion):
 @interact
 def _(M = input_grid(2,2, default = [[3,1],[1,1]], label='M=', to_value=matrix), 
 showAxes=True,
-markedPoints=input_box([1], width=20),
-shadedRegion=input_box([1 < x, x < 4], width=20)):
+markedPoints=input_box([1], width=20, label='Marked Points'),
+shadedRegion=input_box([1 < x, x < 4], width=20, label='Shaded Region')):
   # this is much more expensive, so I'm taking n to be fairly small.
   # if you want more frames in the animation, you might want to 
   # run this locally instead.
@@ -247,7 +249,7 @@ shadedRegion=input_box([1 < x, x < 4], width=20)):
   # idk if this is actually an optimization. Hopefully it 
   # keeps sage from computing the end position multiple times,
   # but who's really to say?
-  end = advancedPlot(M, showAxes)
+  end = advancedPlot(M, showAxes, markedPoints, shadedRegion)
   plots += [end, end, end, end, end]
 
   animate(plots).show()
