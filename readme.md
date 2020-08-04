@@ -1,4 +1,4 @@
-#Pages
+# Pages
 * landing
 * math blog
 * teaching
