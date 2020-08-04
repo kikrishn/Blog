@@ -6,9 +6,13 @@ title: Blog
 
 <ul>
   {% for post in site.posts %}
+    {% if post.tags contains 'draft' %}
+    <!-- Don't show drafts -->
+    {% else %}
     <li>
       <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
       {{ post.excerpt }}
     </li>
+    {% endif %}
   {% endfor %}
 </ul>

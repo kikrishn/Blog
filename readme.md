@@ -23,3 +23,14 @@ extremely cool.
 ---
 
 Thanks again <3 lmk if you want more references
+
+---
+
+*Edit*
+
+Could you also add a .boxed class that centers whatever's in it
+and puts a box around it? I made a rudimentary one already, but it's _bad_
+
+ooooh, also a "defn" thing for text, 
+(ideally coloring the text some shade of blue, and maybe bolding it a little?) 
+that I can use for definitions? Thank you <3
