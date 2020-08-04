@@ -52,11 +52,6 @@ the world of sage. We'll start off easy:
 from sage.geometry.hyperbolic_space.hyperbolic_model import moebius_transform
 H2 = HyperbolicPlane().UHP() # the Upper Half Plane model
 
-# We're going to plot geodesics (in different colors) so that we can follow the transformation.
-# What colors should we interpolate between?
-colorL = Color("#16365D") # This is a slate blue
-colorR = Color("#09B811") # This is a light green
-
 # How many (vertical) geodesics should we actually show?
 # I think showing from -2 to 10 seems sensible to start, but
 # if you're working with transformations that do stuff far
@@ -64,11 +59,24 @@ colorR = Color("#09B811") # This is a light green
 l = -2
 r = 10
 
+# We should also choose how high we want our plot to be. Again,
+# I chose something sensible for small examples, but you might want
+# to change this depending on what you're working with.
+yMin = 0
+yMax = 5
+
 
 # Now we start the real work:
 def basicPlot(M=None, showAxes=True):
     if M == None:
         M = matrix([[1,0],[0,1]])
+
+    # We're going to plot geodesics (in different colors) so that we 
+    # can follow the transformation.
+    # What colors should we interpolate between?
+    colorL = Color("#16365D") # This is a slate blue
+    colorR = Color("#09B811") # This is a light green
+
     
     toShow = plot([])
     for n in range(r-l):
@@ -90,7 +98,7 @@ def basicPlot(M=None, showAxes=True):
         # from the vertical ones after applying the transformation.
         toShow += g.plot(color=color.darker(), axes=showAxes)
         
-    toShow.set_axes_range(l,r,0,5)
+    toShow.set_axes_range(l,r,yMin,yMax)
     
     return toShow
 
@@ -122,9 +130,9 @@ and display some number of transformations from this interpolation. Then we
 can package all these images into a gif, and watch the transformation unfold!
 
 As a fun mathematical aside, this works because the space of 
-hyperbolic isometries ($\mathsf{PSL}_2(\mathbb{R})$) is connected, and its
+hyperbolic isometries, $\mathsf{PSL}_2 (\mathbb{R})$, is connected, and its
 action on the upper half plane is continuous in the choice of transformation.
-Actually _performaing_ a transformation $M$ corresponds to moving along some 
+Actually *performing* a transformation $M$ corresponds to moving along some 
 path from the identity to $M$. This is why we can't perform a 
 reflection in $\mathbb{R}^3$, even though it's a perfectly good symmetry. 
 Reflecting through a plane and the identity lie in different path components,
@@ -155,15 +163,16 @@ def animateTransformation(M,showAxes=True):
 
 @interact
 def _(M = input_grid(2,2, default = [[1,0],[0,1]], label='M=', to_value=matrix), axes=True):
-  animateTransformation(M,axes)
+  animateTransformation(M,axes).show()
 
 </script>
 </div>
 
 <div class="boxed">
 As another little game, you may have heard elements of 
-$\mathsf{PSL}_2(\mathbb{R})$ called _elliptic_, _parabolic_, or _hyperbolic_
-based on their trace. These are typically illustrated "without loss of generality"
+$\mathsf{PSL}_2(\mathbb{R})$ called <em> elliptic </em>, <em> parabolic </em>, 
+or <em> hyperbolic </em> based on their trace. These are typically illustrated 
+"without loss of generality"
 by showing what they look like after conjugating their fixed points to $0$ or
 $\infty$. If you've seen these pictures before, you might want to 
 play around with some other examples. Predict what it will look like
@@ -177,5 +186,70 @@ The reason I started working on these visualizations is because I was
 playing with fundamental domains of 
 [Fuchsian Groups](https://en.wikipedia.org/wiki/Fuchsian_group). Often 
 you want to know how the fundamental domain gets moved around by various
-transformations. This is the most taxing graphic of them all, but let's 
-add a region selector and shade it so we can see what happens!
+transformations. Additionally, there might be some points of interest whose
+motion you want to follow. This is the most taxing graphic of them all, 
+but let's add a shaded region and marked points!
+
+<div class="linked_auto">
+<script type="text/x-sage"> 
+def advancedPlot(M, showAxes, markedPoints, shadedRegion):
+    p = basicPlot(Mt, showAxes)
+    
+    # Start by adding the marked points
+
+    colors = rainbow(len(markedPoints)) # get different colors for each pt
+
+    def mkPoint(i):
+        p = markedPoints[i]
+        new_pt = moebius_transform(M,p)
+        # make the point big, add a legend saying where it started, and make sure
+        # it ends up _above_ the shading (that's what zorder is for)
+        return point(CC(new_pt), size=50, legend_label=p, color=colors[i], zorder=2)
+    
+    marked = sum([mkPoint(i) for i in range(len(markedPoints))])
+    
+    # Next we shade the region which was mapped to by the given region.
+    # That's another way of saying that a point p should be shaded whenever
+    # M^{-1}(p) was in the region. This turns out to be slightly easier to 
+    # implement.
+
+    x,y = var('x,y')
+    Mi = M.inverse()
+    
+    ptOld = moebius_transform(Mi,x+I*y)
+    (xOld, yOld) = (ptOld.real_part(), ptOld.imag_part())
+
+    # Substitute the preimage of (x,y) into the inequality 
+    newRegion = [ineq.subs(x=xOld, y=yOld) for ineq in shadedRegion]
+
+    # Now for the expensive bit. You can change "plot_points" to a smaller
+    # value to make the computation more efficient, but you lose out on
+    # how precise the shading looks surprisingly quickly.
+    shaded = region_plot(newRegion, (x,l,r), (y,yMin,yMax), incol='lightblue', bordercol='gray', plot_points=500)      
+    
+    # actually draw the figure
+    return p + marked + shaded
+
+@interact
+def _(M = input_grid(2,2, default = [[3,1],[1,1]], label='M=', to_value=matrix), 
+showAxes=True,
+markedPoints=input_box([1], width=20),
+shadedRegion=input_box([1 < x, x < 4], width=20)):
+  # this is much more expensive, so I'm taking n to be fairly small.
+  # if you want more frames in the animation, you might want to 
+  # run this locally instead.
+  n = 5 
+  I = matrix([[1,0],[0,1]])
+
+  plots = [advancedPlot(I + (i/n) * (M-I), showAxes) for i in range(n)]
+
+  # again, let's add some bonus frames of the end position
+  # idk if this is actually an optimization. Hopefully it 
+  # keeps sage from computing the end position multiple times,
+  # but who's really to say?
+  end = advancedPlot(M, showAxes)
+  plots += [end, end, end, end, end]
+
+  animate(plots).show()
+</script>
+</div>
