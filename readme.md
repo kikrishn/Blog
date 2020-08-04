@@ -9,13 +9,13 @@
 
 I made style customization easy with variables. Go to sass -> variables to adjust the color palette, font choices, content width, and mobile breakpoints.
 
-If you'd like to make your own variable, simply copy the syntax in the variable stylesheet and add your value. Whenever you want to call that value, the syntax is $variable-name;
+If you'd like to make your own variable, simply copy the syntax in the variable stylesheet and add your value. Whenever you want to call that value, the syntax is `$variable-name: variable-value;`
 
 # Individualized Layout Styling
 
 The "base" stylesheet applies to the entire site. The "nav" stylesheet applies to the nav bar across the site.
 
-All {{content}} is wrapped in <main> tags so it accesses base main content styling. Layouts with special formatting have a class added to their main tag. Those class names correspond to a stylesheet of the same name in the sass directory.
+All {{content}} is wrapped in `<main>` tags so it accesses base main content styling. Layouts with special formatting have a class added to their main tag. Those class names correspond to a stylesheet of the same name in the sass directory.
 
 The formatting in these layout stylesheets is layout-specific.
 
