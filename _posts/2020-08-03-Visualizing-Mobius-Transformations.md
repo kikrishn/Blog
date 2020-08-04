@@ -143,14 +143,14 @@ def animateTransformation(M,showAxes=True):
     # higher numbers <--> smoother animations <--> longer computation.
     # I wouldn't recommend going too high on this site, but I've found 50
     # is a good number when rendering it on a dedicated computer.
-    n = 10
+    n = 25
     I = matrix([[1,0],[0,1]])
     
     plots = [basicPlot(I + (i/n) * (M-I), showAxes) for i in range(n)]
-    if axes:
-      for p in plots:
-        p.axes(True)
 
+    # Let's actually add some extra frames of the ending position so we can
+    # focus on it better.
+    plots += [basicPlot(M, showAxes) for i in range(5)]
     return animate(plots)
 
 @interact
@@ -160,3 +160,22 @@ def _(M = input_grid(2,2, default = [[1,0],[0,1]], label='M=', to_value=matrix),
 </script>
 </div>
 
+<div class="boxed">
+As another little game, you may have heard elements of 
+$\mathsf{PSL}_2(\mathbb{R})$ called _elliptic_, _parabolic_, or _hyperbolic_
+based on their trace. These are typically illustrated "without loss of generality"
+by showing what they look like after conjugating their fixed points to $0$ or
+$\infty$. If you've seen these pictures before, you might want to 
+play around with some other examples. Predict what it will look like
+if you put the fixed points of a hyperbolic action at, say, $-2$ and $2$.
+Were you right? What about elliptic and parabolic actions?
+</div>
+
+---
+
+The reason I started working on these visualizations is because I was
+playing with fundamental domains of 
+[Fuchsian Groups](https://en.wikipedia.org/wiki/Fuchsian_group). Often 
+you want to know how the fundamental domain gets moved around by various
+transformations. This is the most taxing graphic of them all, but let's 
+add a region selector and shade it so we can see what happens!

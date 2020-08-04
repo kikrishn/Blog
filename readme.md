@@ -23,3 +23,6 @@ Thanks again <3 lmk if you want more references
 
 Could you also add a .boxed class that centers whatever's in it
 and puts a box around it? I made a rudimentary one already.
+
+ooooh, also a "emphasis" thing for text, (ideally coloring the text) 
+that I can use for definitions? Thank you <3
