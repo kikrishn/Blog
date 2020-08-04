@@ -27,7 +27,7 @@
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: 1px;
-    font-size: 15pt;
+    font-size: calc(#{$base-font-size} - 1pt);
     transition: .25s ease-in-out;
     cursor: pointer;
 
@@ -45,15 +45,19 @@
     padding: 1rem;
     background: #ededed;
     font-family: $heading-font;
-    font-size: 14pt;
-  }
+    font-size: calc(#{$base-font-size} - 1pt);
 
-  .linked_auto {
-    margin: 1rem 0;
+    em {
+      font-style: italic;
+    }
   }
 
   .defn {
     font-weight: 700;
     color: $definition;
+  }
+
+  .linked_auto {
+    margin: 1rem 0;
   }
 }
