@@ -52,8 +52,8 @@ H2 = HyperbolicPlane().UHP() # the Upper Half Plane model
 
 # We're going to plot geodesics (in different colors) so that we can follow the transformation.
 # What colors should we interpolate between?
-colorL = Color("#16365D")
-colorR = Color("#09B811")
+colorL = Color("#16365D") # This is a slate blue
+colorR = Color("#09B811") # This is a light green
 
 # How many (vertical) geodesics should we actually show?
 # I think showing from -2 to 10 seems sensible to start, but
@@ -69,20 +69,23 @@ def basicPlot(M=None):
         M = matrix([[1,0],[0,1]])
     
     toShow = plot([])
-    for i in range(r-l):
-        color = colorL.blend(colorR, i/(r-l))
+    for n in range(r-l):
+        color = colorL.blend(colorR, n/(r-l))
         
-        # The image of the vertical geodesic at point i
-        p1 = moebius_transform(M, l+i)
+        # The image of the vertical geodesic at point n
+        p1 = moebius_transform(M, l+n) # hit the point l+n with the transformation M
         p2 = moebius_transform(M, Infinity)
         
         g = H2.get_geodesic(p1,p2)
         toShow += g.plot(color=color)
         
-        # The image of a geodesic between points i and i+1
+        # The image of a geodesic between points n and n+1
         p1 = moebius_transform(M, l+i)
         p2 = moebius_transform(M, l+i+1)
         g = H2.get_geodesic(p1,p2)
+
+        # We darken the color of these geodesics to distinguish them
+        # from the vertical ones after applying the transformation.
         toShow += g.plot(color=color.darker())
         
     toShow.set_axes_range(l,r,0,5)
@@ -93,7 +96,20 @@ def basicPlot(M=None):
 # Finally, we'll use an interactive wrapper so that we don't have
 # to manually edit this code to do stuff with the visualizer!
 @interact
-def _(M = input_grid(2,2, default = [[1,7],[3,4]], label='M=', to_value=matrix), axes=True):
+def _(M = input_grid(2,2, default = [[1,0],[0,1]], label='M=', to_value=matrix), axes=True):
   basicPlot(matrix(M)).show(axes=axes)
 </script>
 </div>
+
+This cell is simple. It draws the geodesics from integer points on the boundary
+to infinity (these are the vertical lines). It also draws geodesics connecting
+adjacent integers. If you modify the matrix to $M$, it will show where these 
+geodesics map to under $M$ instead. This is a coarse visualization that
+lets you see where things start and end... But can we do better?
+
+<div class="boxed">
+  As a fun exercise to see that you understand the code, 
+  can you modify it to draw geodesics connecting $n$ to $n+2$ as well?
+</div>
+
+
