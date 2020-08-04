@@ -195,7 +195,7 @@ but let's add a shaded region and marked points!
 <div class="linked_auto">
 <script type="text/x-sage"> 
 def advancedPlot(M, showAxes, markedPoints, shadedRegion):
-    p = basicPlot(Mt, showAxes)
+    p = basicPlot(M, showAxes)
     
     # Start by adding the marked points
 
@@ -236,7 +236,8 @@ def advancedPlot(M, showAxes, markedPoints, shadedRegion):
 def _(M = input_grid(2,2, default = [[3,1],[1,1]], label='M=', to_value=matrix), 
 showAxes=True,
 markedPoints=input_box([1], width=20, label='Marked Points'),
-shadedRegion=input_box([1 < x, x < 4], width=20, label='Shaded Region')):
+shadedRegion=input_box([1 < x, x < 4], width=20, label='Shaded Region'),
+auto_update=False):
   # This is much more expensive, so actually animating it is out of the question.
   # It's a pretty easy exercise to combine this code with the previous cell 
   # to make an animated version locally, though ^_^
