@@ -9,7 +9,7 @@
 
 I made style customization easy with variables. Go to sass -> variables to adjust the color palette, font choices, content width, and mobile breakpoints.
 
-If you'd like to make your own variable, simply copy the syntax in the variable stylesheet and add your value. Whenever you want to call that value, the syntax is `$variable-name: variable-value;`
+If you'd like to make your own variable, the syntax is `$variable-name: variable-value;`. Whenever you want to call that value, the syntax is `css-selector: $variable-name;`
 
 # Individualized Layout Styling
 
