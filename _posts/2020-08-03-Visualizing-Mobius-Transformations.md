@@ -66,7 +66,7 @@ r = 10
 
 
 # Now we start the real work:
-def basicPlot(M=None):
+def basicPlot(M=None, showAxes=True):
     if M == None:
         M = matrix([[1,0],[0,1]])
     
@@ -79,7 +79,7 @@ def basicPlot(M=None):
         p2 = moebius_transform(M, Infinity)
         
         g = H2.get_geodesic(p1,p2)
-        toShow += g.plot(color=color)
+        toShow += g.plot(color=color, axes=showAxes)
         
         # The image of a geodesic between points n and n+1
         p1 = moebius_transform(M, l+n)
@@ -88,7 +88,7 @@ def basicPlot(M=None):
 
         # We darken the color of these geodesics to distinguish them
         # from the vertical ones after applying the transformation.
-        toShow += g.plot(color=color.darker())
+        toShow += g.plot(color=color.darker(), axes=showAxes)
         
     toShow.set_axes_range(l,r,0,5)
     
@@ -98,7 +98,7 @@ def basicPlot(M=None):
 # to manually edit this code to do stuff with the visualizer!
 @interact
 def _(M = input_grid(2,2, default = [[1,0],[0,1]], label='M=', to_value=matrix), axes=True):
-  basicPlot(matrix(M)).show(axes=axes)
+  basicPlot(matrix(M), showAxes=axes).show()
 </script>
 </div>
 
@@ -138,7 +138,7 @@ Ok, let's actually implement this:
 # If you're playing along at home, this code relies on the code from the
 # previous block. So make sure to copy that as well.
 
-def animateTransformation(M,axes=True):
+def animateTransformation(M,showAxes=True):
     # n is how many interpolations for the animation.
     # higher numbers <--> smoother animations <--> longer computation.
     # I wouldn't recommend going too high on this site, but I've found 50
@@ -146,7 +146,7 @@ def animateTransformation(M,axes=True):
     n = 10
     I = matrix([[1,0],[0,1]])
     
-    plots = [basicPlot(I + (i/n) * (M-I)) for i in range(n)]
+    plots = [basicPlot(I + (i/n) * (M-I), showAxes) for i in range(n)]
     if axes:
       for p in plots:
         p.axes(True)
@@ -155,7 +155,7 @@ def animateTransformation(M,axes=True):
 
 @interact
 def _(M = input_grid(2,2, default = [[1,0],[0,1]], label='M=', to_value=matrix), axes=True):
-  animateTransformation(matrix(M),axes=axes)
+  animateTransformation(M,axes)
 
 </script>
 </div>
