@@ -237,21 +237,10 @@ def _(M = input_grid(2,2, default = [[3,1],[1,1]], label='M=', to_value=matrix),
 showAxes=True,
 markedPoints=input_box([1], width=20, label='Marked Points'),
 shadedRegion=input_box([1 < x, x < 4], width=20, label='Shaded Region')):
-  # this is much more expensive, so I'm taking n to be fairly small.
-  # if you want more frames in the animation, you might want to 
-  # run this locally instead.
-  n = 5 
-  I = matrix([[1,0],[0,1]])
+  # This is much more expensive, so actually animating it is out of the question.
+  # It's a pretty easy exercise to combine this code with the previous cell 
+  # to make an animated version locally, though ^_^
 
-  plots = [advancedPlot(I + (i/n) * (M-I), showAxes) for i in range(n)]
-
-  # again, let's add some bonus frames of the end position
-  # idk if this is actually an optimization. Hopefully it 
-  # keeps sage from computing the end position multiple times,
-  # but who's really to say?
-  end = advancedPlot(M, showAxes, markedPoints, shadedRegion)
-  plots += [end, end, end, end, end]
-
-  animate(plots).show()
+  advancedPlot(M, showAxes, markedPoints, shadedRegion).show()
 </script>
 </div>
