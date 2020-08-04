@@ -226,17 +226,19 @@ def advancedPlot(M, showAxes, markedPoints, shadedRegion):
 
     # Now for the expensive bit. You can change "plot_points" to a smaller
     # value to make the computation more efficient, but you lose out on
-    # how precise the shading looks surprisingly quickly.
-    shaded = region_plot(newRegion, (x,l,r), (y,yMin,yMax), incol='lightblue', bordercol='gray', plot_points=500)      
+    # how precise the shading looks surprisingly quickly. Alternatively,
+    # if you're running this locally and your region doesn't look quite right,
+    # you can bump it a little to get some more definition.
+    shaded = region_plot(newRegion, (x,l,r), (y,yMin,yMax), incol='lightblue', bordercol='gray', plot_points=100)      
     
     # actually draw the figure
     return p + marked + shaded
 
 @interact
-def _(M = input_grid(2,2, default = [[3,1],[1,1]], label='M=', to_value=matrix), 
+def _(M = input_grid(2,2, default = [[5,-4],[1,3]], label='M=', to_value=matrix), 
 showAxes=True,
-markedPoints=input_box([1], width=20, label='Marked Points'),
-shadedRegion=input_box([1 < x, x < 4], width=20, label='Shaded Region'),
+markedPoints=input_box([1,2+I], width=20, label='Marked Points'),
+shadedRegion=input_box([0 < x, x < 1], width=20, label='Shaded Region'),
 auto_update=False):
   # This is much more expensive, so actually animating it is out of the question.
   # It's a pretty easy exercise to combine this code with the previous cell 
