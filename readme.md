@@ -1,3 +1,24 @@
+# Built-in Features
+
+* To access custom definition styling, use the format <span class="defn">content</span>
+* Call box styling with <div class="boxed">content</div>
+* All hard returns in markdown files automatically generate paragraph breaks with space between them.
+* By default, horizontal lines for section breaks are light grey with built in margin.  
+
+# Editing How-To
+
+I made style customization easy with variables. Go to sass -> variables to adjust the color palette, font choices, content width, and mobile breakpoints.
+
+If you'd like to make your own variable, simply copy the syntax in the variable stylesheet and add your value. Whenever you want to call that value, the syntax is $variable-name;
+
+# Individualized Layout Styling
+
+The "base" stylesheet applies to the entire site. The "nav" stylesheet applies to the nav bar across the site.
+
+All {{content}} is wrapped in <main> tags so it accesses base main content styling. Layouts with special formatting have a class added to their main tag. Those class names correspond to a stylesheet of the same name in the sass directory.
+
+The formatting in these layout stylesheets is layout-specific.
+
 # Pages
 * landing
 * math blog
@@ -31,6 +52,6 @@ Thanks again <3 lmk if you want more references
 Could you also add a .boxed class that centers whatever's in it
 and puts a box around it? I made a rudimentary one already, but it's _bad_
 
-ooooh, also a "defn" thing for text, 
-(ideally coloring the text some shade of blue, and maybe bolding it a little?) 
+ooooh, also a "defn" thing for text,
+(ideally coloring the text some shade of blue, and maybe bolding it a little?)
 that I can use for definitions? Thank you <3

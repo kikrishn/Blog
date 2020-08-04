@@ -20,12 +20,10 @@
   clear: both;
 }
 
-.boxed { border: 1px solid black; }
-
 body {
-  font-size: 14pt;
-  font-family: sofia-pro, sans-serif;
-  line-height: 1.3;
+  font-size: 15pt;
+  font-family: $body-font;
+  line-height: 1.4;
   color: $main-body;
 }
 
@@ -36,12 +34,18 @@ img, svg {
 a {
   color: $main-accent;
   text-decoration: none;
+  transition: .2s ease-in-out;
 
   &:hover,
   &:active,
   &:focus {
     color: black;
   }
+}
+
+h1, h2, h3 {
+  font-family: $heading-font;
+  padding-bottom: 0.5rem;
 }
 
 h1 {
@@ -59,4 +63,9 @@ h3 {
   text-transform: uppercase;
   letter-spacing: 0.03rem;
   color: $second-accent;
+}
+
+main {
+  max-width: $content-width;
+  margin: auto;
 }
