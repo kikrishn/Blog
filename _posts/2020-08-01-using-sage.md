@@ -14,7 +14,9 @@ This should be a sage cell
 <script type="text/x-sage"> 
 G = SymmetricGroup(3)
 for g in G:
-  print g
+  print(g)
 G.structure_description()
 </script>
 </div>
+
+And this should be some text afterwards
