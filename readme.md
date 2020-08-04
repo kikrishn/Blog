@@ -1,7 +1,7 @@
 # Built-in Features
 
-* To access custom definition styling, use the format <span class="defn">content</span>
-* Call box styling with <div class="boxed">content</div>
+* To access custom definition styling, use the format `<span class="defn">content</span>`
+* Call box styling with `<div class="boxed">content</div>`
 * All hard returns in markdown files automatically generate paragraph breaks with space between them.
 * By default, horizontal lines for section breaks are light grey with built in margin.  
 
