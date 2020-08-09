@@ -11,7 +11,6 @@ Welcome to the inaugural post of this blog! As a quick preface, I plan
 to post about math, particularly math that I'm struggling with, and hopefully
 we can work through some stuff together ^_^.
 
-<span class="defn">Testing the styling of definitions.</span>
 I've noticed there can be a lack of examples for certain topics,
 and I hope to use this blog in part to catalogue some examples that I
 struggled to find elsewhere.
