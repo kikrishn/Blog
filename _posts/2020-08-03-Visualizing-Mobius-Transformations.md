@@ -2,7 +2,9 @@
 layout: post
 title: Visualizing Hyperbolic Isometries
 tags:
-  - draft
+  - geometry
+  - sage
+  - visualization
 ---
 
 Welcome to the inaugural post of this blog! As a quick preface, I plan
