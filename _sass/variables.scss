@@ -12,4 +12,9 @@ $base-font-size: 14pt;
 
 //Other
 $content-width: 60%;
+$mobile-content-width: 90%;
 $nav-width: 1500px;
+
+//Mobile Breakpoints
+$mobile: #{max-width:} 767.98px;
+$tablet: #{max-width:} 1023.98px;

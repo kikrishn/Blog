@@ -50,11 +50,18 @@ h1, h2, h3 {
 
 h1 {
   font-size: 3.25rem;
+  @media only screen and #{$mobile} {
+    font-size: 2.75rem;
+    line-height: 1.25;
+  }
   font-weight: 900;
 }
 
 h2 {
-  font-size: 2.5rem;
+  font-size: 2.25rem;
+  @media only screen and #{$mobile} {
+    font-size: 1.66rem;
+  }
 }
 
 h3 {
@@ -67,6 +74,9 @@ h3 {
 
 main {
   max-width: $content-width;
+  @media only screen and #{$mobile} {
+    max-width: $mobile-content-width;
+  }
   margin: auto;
   // This fixed value makes it so the footer
   // sticks to the bottom of the screen.
@@ -86,4 +96,5 @@ em {
 hr {
   margin: 2.5rem 0;
   color: #ccc;
+  height: 1px;
 }

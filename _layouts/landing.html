@@ -6,9 +6,17 @@
     {% seo %}       <!-- Make SEO plugin work, despite not knowing what an SEO is -->
   </head>
   <body>
-    {% include navigation.html %}
+    <!-- {% include navigation.html %}-->
     <main class="landing">
       {{ content }}
+
+      <section class="landing-links">
+        {% for item in site.data.navigation %}
+        <a href="{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>
+          {{ item.name }}
+        </a>
+        {% endfor %}
+      </section>
     </main>
   </body>
 </html>
