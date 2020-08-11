@@ -13,11 +13,6 @@
     padding-bottom: 1rem;
   }
 
-  hr {
-    margin: 2.5rem 0;
-    color: #ccc;
-  }
-
   button {
     margin: 0.5rem 0 1rem 0;
     background: $main-accent;
@@ -32,7 +27,7 @@
     cursor: pointer;
 
     &:hover {
-      background: $second-accent;
+      background: $dark-grey;
       border: 0;
       color: white;
       font-weight: 700;
@@ -43,7 +38,7 @@
     text-align: center;
     box-sizing: border-box;
     padding: 1rem;
-    background: #ededed;
+    background: $light-grey;
     font-family: $heading-font;
     font-size: calc(#{$base-font-size} - 1pt);
 

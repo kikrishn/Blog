@@ -45,7 +45,7 @@ a {
 
 h1, h2, h3 {
   font-family: $heading-font;
-  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
 }
 
 h1 {
@@ -62,14 +62,28 @@ h3 {
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.03rem;
-  color: $second-accent;
+  color: $dark-grey;
 }
 
 main {
   max-width: $content-width;
   margin: auto;
+  // This fixed value makes it so the footer
+  // sticks to the bottom of the screen.
+  // The value feels a bit arbitrary but it worked
+  // in testing.
+  min-height: calc(100vh - 19rem);
+}
+
+p {
+  padding-bottom: 0.5rem;
 }
 
 em {
   font-style: italic;
+}
+
+hr {
+  margin: 2.5rem 0;
+  color: #ccc;
 }
