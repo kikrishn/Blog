@@ -49,8 +49,8 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-size: 3.25rem;
-  @media only screen and #{$mobile} {
+  font-size: 3.15rem;
+  @media only screen and (max-width: $mobile) {
     font-size: 2.75rem;
     line-height: 1.25;
   }
@@ -59,7 +59,7 @@ h1 {
 
 h2 {
   font-size: 2.25rem;
-  @media only screen and #{$mobile} {
+  @media only screen and (max-width: $mobile) {
     font-size: 1.66rem;
   }
 }
@@ -74,15 +74,15 @@ h3 {
 
 main {
   max-width: $content-width;
-  @media only screen and #{$mobile} {
+  @media only screen and (max-width: $mobile) {
     max-width: $mobile-content-width;
   }
   margin: auto;
+  min-height: calc(100vh - 14rem);
   // This fixed value makes it so the footer
   // sticks to the bottom of the screen.
-  // The value feels a bit arbitrary but it worked
-  // in testing.
-  min-height: calc(100vh - 19rem);
+  // It's set to twice the height of the viewport
+  // minus twice the height of the footer.
 }
 
 p {
@@ -95,6 +95,6 @@ em {
 
 hr {
   margin: 2.5rem 0;
-  color: #ccc;
+  color: $light-grey;
   height: 1px;
 }

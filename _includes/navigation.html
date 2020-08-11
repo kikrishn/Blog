@@ -2,7 +2,11 @@
   <h1>
     <a href="/">Chris Grossack's Website</a>
   </h1>
-  <section class="main-links">
+
+  <!-- Mobile nav -->
+  <div id="mobile-nav"><i class="fas fa-bars"></i></div>
+
+  <section id="main-links">
     {% for item in site.data.navigation %}
     <a href="{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>
       {{ item.name }}
