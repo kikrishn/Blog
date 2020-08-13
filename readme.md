@@ -29,32 +29,13 @@ The formatting in these layout stylesheets is layout-specific.
 * CV
 * quotes
 
-I really like the clean white background with pale accent colors aesthetic.
-Lots of whitespace, etc.
-
-[sheaves.github.io](https://sheaves.github.io) is a very simple blog that looks good,
-and you can actually see the jekyll code
-[here](https://github.com/sheaves/sheaves.github.io).
-
-Here's another one that I like, but this website doesn't really exist,
-so I can't directly link it to you :(
-
-![genimi](https://scontent-lax3-1.xx.fbcdn.net/v/t1.15752-9/116453290_710388332858870_8931857397901942835_n.png?_nc_cat=105&_nc_sid=b96e70&_nc_ohc=Nq_p-L4G3BkAX8fofYI&_nc_ht=scontent-lax3-1.xx&oh=809c439ae500c77abf727c0516494aba&oe=5F4B33A5)
-
-You probably remember [maayanalbert.com](https://maayanalbert.com), but I also think that design is
-extremely cool.
-
 ---
 
-Thanks again <3 lmk if you want more references
+New notes:
 
----
+I actually think it makes sense to merge the "quotes" page into the "about" page, 
+so if that stylesheet doesn't exist yet, that's fine. 
 
-*Edit*
-
-Could you also add a .boxed class that centers whatever's in it
-and puts a box around it? I made a rudimentary one already, but it's _bad_
-
-ooooh, also a "defn" thing for text,
-(ideally coloring the text some shade of blue, and maybe bolding it a little?)
-that I can use for definitions? Thank you <3
+As for links, I don't think we need any. The only thing I considered linking
+was my math stackexchange account, but that's hallasurvivor, and I want to 
+make people work _slightly_ harder to figure out that connection.
