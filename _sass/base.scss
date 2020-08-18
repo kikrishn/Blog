@@ -85,6 +85,7 @@ main {
   // minus twice the height of the footer.
 }
 
+//default paragraph styling
 p {
   padding-bottom: 0.5rem;
 }
@@ -93,8 +94,33 @@ em {
   font-style: italic;
 }
 
+sup {
+  vertical-align: super;
+  font-size: smaller;
+}
+
+//grey section lines
 hr {
   margin: 2.5rem 0;
   color: $light-grey;
   height: 1px;
+}
+
+//default list styling
+ul, ol {
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+
+  li {
+    margin-left: 1rem;
+  }
+}
+
+ul li {
+  list-style-type: disc;
+}
+
+ol li {
+  list-style-type: decimal;
 }

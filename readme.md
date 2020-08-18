@@ -3,7 +3,8 @@
 * To access custom definition styling, use the format `<span class="defn">content</span>`
 * Call box styling with `<div class="boxed">content</div>`
 * All hard returns in markdown files automatically generate paragraph breaks with space between them.
-* By default, horizontal lines for section breaks are light grey with built in margin.  
+* By default, horizontal lines for section breaks are light grey with built in margin.
+* To create new footnotes section, insert a horizontal line at the bottom of your blog post. 
 * Mobile compatible
 
 # Editing How-To
@@ -33,9 +34,9 @@ The formatting in these layout stylesheets is layout-specific.
 
 New notes:
 
-I actually think it makes sense to merge the "quotes" page into the "about" page, 
-so if that stylesheet doesn't exist yet, that's fine. 
+I actually think it makes sense to merge the "quotes" page into the "about" page,
+so if that stylesheet doesn't exist yet, that's fine.
 
 As for links, I don't think we need any. The only thing I considered linking
-was my math stackexchange account, but that's hallasurvivor, and I want to 
+was my math stackexchange account, but that's hallasurvivor, and I want to
 make people work _slightly_ harder to figure out that connection.
