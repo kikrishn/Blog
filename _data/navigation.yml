@@ -1,10 +1,13 @@
 - name: Blog
   link: /blog.html
-- name: Teaching
-  link: /teaching.html
-- name: Quotes
-  link: /quotes.html
+# once I have some teaching resources to link, I'll add this.
+# - name: Teaching
+#   link: /teaching.html
+# once I have some music I feel happy posting online, I'll add this too.
+# - name: Music
+#   link: /music.html
 - name: About
   link: /about.html
-- name: CV
-  link: /cv.html
+# we'll add the CV when I'm feeling more inspired
+# - name: CV
+#   link: /cv.html

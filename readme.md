@@ -29,14 +29,3 @@ The formatting in these layout stylesheets is layout-specific.
 * teaching
 * CV
 * quotes
-
----
-
-New notes:
-
-I actually think it makes sense to merge the "quotes" page into the "about" page,
-so if that stylesheet doesn't exist yet, that's fine.
-
-As for links, I don't think we need any. The only thing I considered linking
-was my math stackexchange account, but that's hallasurvivor, and I want to
-make people work _slightly_ harder to figure out that connection.
