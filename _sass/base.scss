@@ -82,11 +82,12 @@ main {
     max-width: $mobile-content-width;
   }
   margin: auto;
-  min-height: calc(100vh - 15rem);
+  padding-bottom: 1rem;
+  min-height: calc(100vh - 16rem);
   // This fixed value makes it so the footer
   // always sticks to the bottom of the screen.
   // The 15rem comes from [($footer-height * 2) + 1rem]
-  // since main has a 1rem of spacing at the bottom.
+  // since main has a 2rem of spacing at the bottom.
   // 100vh = the height of the viewport.
 }
 
@@ -148,4 +149,16 @@ ol li {
     list-style-type: none;
     margin-left: 0;
   }
+}
+
+//boxed styling
+.boxed {
+  text-align: center;
+  box-sizing: border-box;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  background: $light-grey;
+  font-family: $heading-font;
+  font-size: calc(#{$base-font-size} - 1pt);
 }

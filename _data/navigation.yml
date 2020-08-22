@@ -1,5 +1,5 @@
 - name: Blog
-  link: /blog.html
+  link: /blog
 # once I have some teaching resources to link, I'll add this.
 # - name: Teaching
 #   link: /teaching.html
@@ -7,7 +7,7 @@
 # - name: Music
 #   link: /music.html
 - name: About
-  link: /about.html
+  link: /about
 # we'll add the CV when I'm feeling more inspired
 # - name: CV
 #   link: /cv.html
