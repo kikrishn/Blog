@@ -6,24 +6,32 @@ nav {
   margin-bottom: 2rem;
   padding: 1.5rem;
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: space-between;
 
   #mobile-nav {
     display: none;
   }
 
-  h1 {
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 1.25rem;
+  .info {
+    font-family: $heading-font;
 
-    a {
-      color: $main-accent;
+    h1 {
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 1.5rem;
 
-      &:hover {
+      a {
         color: $main-accent;
+
+        &:hover {
+          color: $main-accent;
+        }
       }
+    }
+
+    p {
+      font-size: 1rem;
     }
   }
 
