@@ -4,7 +4,7 @@
 * Call box styling with `<div class="boxed">content</div>`
 * All hard returns in markdown files automatically generate paragraph breaks with space between them.
 * By default, horizontal lines for section breaks are light grey with built in margin.
-* To create a separate footnotes section, insert a horizontal line at the bottom of your blog post. 
+* To create a separate footnotes section, insert a horizontal line at the bottom of your blog post.
 * Mobile compatible
 
 # Editing How-To
@@ -23,9 +23,6 @@ All {{content}} is wrapped in `<main>` tags so it accesses base main content sty
 
 The formatting in these layout stylesheets is layout-specific.
 
-# Pages
-* landing
+# Current Pages
 * math blog
-* teaching
-* CV
-* quotes
+* about
