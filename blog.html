@@ -4,7 +4,7 @@ title: Blog
 ---
 <h1>Latest Posts</h1>
 
-<ul>
+<ul class="post-list">
   {% for post in site.posts %}
     {% if post.tags contains 'draft' %}
     <!-- Don't show drafts -->

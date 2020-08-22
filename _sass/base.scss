@@ -9,6 +9,7 @@
 }
 
 //thank you css-tricks for the preload trick
+//stops transitions from firing on page load
 .preload * {
   -webkit-transition: none !important;
   -moz-transition: none !important;
@@ -31,6 +32,7 @@ img, svg {
   max-width: 100%;
 }
 
+//link styling
 a {
   color: $main-accent;
   text-decoration: none;
@@ -43,6 +45,7 @@ a {
   }
 }
 
+//default headers styling
 h1, h2, h3 {
   font-family: $heading-font;
   padding-top: 0.5rem;
@@ -58,7 +61,7 @@ h1 {
 }
 
 h2 {
-  font-size: 2.25rem;
+  font-size: 2rem;
   @media only screen and (max-width: $mobile) {
     font-size: 1.66rem;
   }
@@ -72,20 +75,22 @@ h3 {
   color: $dark-grey;
 }
 
+//base styling for all content sections
 main {
   max-width: $content-width;
   @media only screen and (max-width: $mobile) {
     max-width: $mobile-content-width;
   }
   margin: auto;
-  min-height: calc(100vh - 14rem);
+  min-height: calc(100vh - 15rem);
   // This fixed value makes it so the footer
-  // sticks to the bottom of the screen.
-  // It's set to twice the height of the viewport
-  // minus twice the height of the footer.
+  // always sticks to the bottom of the screen.
+  // The 15rem comes from [($footer-height * 2) + 1rem]
+  // since main has a 1rem of spacing at the bottom.
+  // 100vh = the height of the viewport.
 }
 
-//default paragraph styling
+// gives each paragraph a lil room to breathe
 p {
   padding-bottom: 0.5rem;
 }
@@ -99,11 +104,18 @@ sup {
   font-size: smaller;
 }
 
+sub {
+  vertical-align: sub;
+  font-size: smaller;
+}
+
 //grey section lines
 hr {
-  margin: 2.5rem 0;
-  color: $light-grey;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+  color: $section-line;
   height: 1px;
+  border-top: 0;
 }
 
 //default list styling
@@ -117,10 +129,23 @@ ul, ol {
   }
 }
 
+//defaults bullet points to solid circles
 ul li {
   list-style-type: disc;
 }
 
+//defaults lists to 1, 2, 3...
 ol li {
   list-style-type: decimal;
+}
+
+//list styling exception for list of posts on blog.html
+//so it doesn't generate as a bullet point list
+.post-list {
+  margin-left: 0;
+
+  li {
+    list-style-type: none;
+    margin-left: 0;
+  }
 }
