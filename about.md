@@ -2,7 +2,8 @@
 title: About
 ---
 
-Hello! I'm Chris, a nonbinary math PhD student at UC Riverside. I got my 
+Hello! I'm Chris, a [nonbinary](https://en.wikipedia.org/wiki/Non-binary_gender) 
+math PhD student at UC Riverside. I got my 
 undergraduate degree (in Discrete Math & Logic) from Carnegie Mellon, where I 
 also studied music and computer science. If you want to reach me, always feel 
 free to email. Following in the great mathematical tradition, I
