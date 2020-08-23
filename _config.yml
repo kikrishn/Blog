@@ -12,3 +12,5 @@ defaults:
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+
+url: https://grossack.site
