@@ -1,13 +1,18 @@
 ---
-layout: landing
+layout: default
 title: Home
 ---
-<h1>{{ "Chris Grossack" }}</h1>
+<h1>Latest Posts</h1>
 
-<section class="desc">
-  Math/Music.
-
-  They/Them.
-</section>
-
-<div class="diag"></div>
+<ul class="post-list">
+  {% for post in site.posts %}
+    {% if post.tags contains 'draft' %}
+    <!-- Don't show drafts -->
+    {% else %}
+    <li>
+      <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+      <p>{{ post.excerpt }}</p>
+    </li>
+    {% endif %}
+  {% endfor %}
+</ul>
