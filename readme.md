@@ -15,6 +15,8 @@ If you'd like to make your own variable, the syntax is `$variable-name: variable
 
 All sizing, aside from base font size and fixed widths, is sized in rems. These are relative units that scale using the base font size as their constant (1rem = base font size). Sticking to rems when adjusting your sizing ensures your site is more responsive and proportionally constant across various screen and window sizes.
 
+The logo svg file (icon.svg) affects both the navigation logo and the browser icon. To change the color, open the svg file and change `fill:#00b595` to your new accent color. To change the color of the alef itself, change `stroke:#fff`, and to make it thicker or thinner, change `stroke-width:8px`.
+
 # Individualized Layout Styling
 
 The "base" stylesheet applies to the entire site. The "nav" stylesheet applies to the nav bar across the site.
