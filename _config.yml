@@ -14,4 +14,3 @@ plugins:
   - jekyll-seo-tag
 
 url: https://grossack.site
-header: https://grossack.site/assets/images/default_og.png
