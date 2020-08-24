@@ -73,6 +73,8 @@ nav {
 //Mobile nav
 @media only screen and (max-width: $mobile) {
   nav {
+    max-width: 100%;
+
     #mobile-nav {
       display: inline-block;
       position: absolute;
@@ -83,13 +85,20 @@ nav {
       cursor: pointer;
     }
 
+    .info {
+
+        h1 {
+          font-size: 1.25rem;
+        }
+      }
+
     #main-links {
       background-color: $main-accent;
       width: auto;
       height: auto;
       position: absolute;
       right: 1.5rem;
-      top: 4rem;
+      top: 6rem;
       padding: .75rem;
       line-height: 1.5;
       display: none;
