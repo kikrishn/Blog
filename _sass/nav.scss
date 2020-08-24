@@ -74,6 +74,8 @@ nav {
 @media only screen and (max-width: $mobile) {
   nav {
     max-width: 100%;
+    padding: 0;
+    padding-top: 4rem;
 
     #mobile-nav {
       display: inline-block;
