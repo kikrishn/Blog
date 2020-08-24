@@ -5,6 +5,7 @@
 * All hard returns in markdown files automatically generate paragraph breaks with space between them.
 * By default, horizontal lines for section breaks are light grey with built in margin.
 * To create a separate footnotes section, insert a horizontal line at the bottom of your blog post.
+* To designate a page-specific social image, use `header: url-path-to-image` in your liquid. NOTE: only insert the portion of the path after the images directory. `https://grossack.site/assets/images/` is included by default.
 * Mobile compatible
 
 # Editing How-To
