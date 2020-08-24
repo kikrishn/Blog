@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Chris Grossack's blog">
 <meta property="og:url" content="{{ site.url }}{{ page.url }}">
 <!-- If blog post designates header image, use it. Otherwise, use site logo. -->
-<meta property="og:image" content="{% if page.image %}{{ site.url }}/assets/images/{{ page.image }}{% else %}{{ site.url }}/assets/images/icon_og.png{% endif %}">
+<meta property="og:image" content="{% if page.image %}{{ site.url }}/assets/images/{{ page.image }}{% else %}{{ site.header }}{% endif %}">
 <meta property="og:description" content="Chris Grossack's math blog and professional website.">
 <meta property="fb:app_id" content=""/>
 
