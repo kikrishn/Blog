@@ -83,16 +83,28 @@ nav {
       right: 0;
       color: $main-accent;
       font-size: 1.75rem;
-      padding: 1rem 2rem 0 0;
+      padding-right: 2rem;
       cursor: pointer;
     }
 
     .info {
 
+      img {
+        height: 2.25rem;
+        margin: 1rem 0.5rem 0 1rem;
+      }
+
+      .title {
+
         h1 {
           font-size: 1.25rem;
         }
+
+        p {
+          font-size: 0.9rem;
+        }
       }
+    }
 
     #main-links {
       background-color: $main-accent;
