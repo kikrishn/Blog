@@ -20,6 +20,14 @@ as well as their similarities and differences, so that we can have a better
 idea of what categorical constructions are available to us when we study
 the raag functor.
 
+As a tl;dr for future reference here is a table summarizing the various
+categories:
+
+---
+
+
+---
+
 
 TODO: detail graph categories and their properties
 
