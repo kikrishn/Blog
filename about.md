@@ -2,6 +2,8 @@
 title: About
 ---
 
+<img src="/assets/images/headshot.jpg" aligh="center" alt="A photo of me" width=200px/>
+
 Hello! I'm Chris, a [nonbinary](https://en.wikipedia.org/wiki/Non-binary_gender) 
 math PhD student at UC Riverside. I got my 
 undergraduate degree (in Discrete Math & Logic) from Carnegie Mellon, where I 
