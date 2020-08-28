@@ -69,5 +69,5 @@ every day. He answered "Because I think I'm making progress."
 always to suspect an impressive sounding Theorem if it does not have a 
 special case which is both simple and non-trivial." -- Sir Michael Atiyah
 
-- "Dedication is the difference between what you want now and what you 
-want more" --
+- "Discipline is the difference between what you want now and what you 
+want more" -- Darryl Bott
