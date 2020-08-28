@@ -151,6 +151,52 @@ ol li {
   }
 }
 
+//tables
+
+table {
+
+  box-sizing: border-box;
+
+  //table headings
+  th {
+    font-weight: bold;
+    font-family: $heading-font;
+    background-color: $main-accent;
+    font-size: calc(#{$base-font-size} - 2pt);
+    color: white;
+    padding: 1rem;
+    vertical-align: middle;
+    //border-box is being the worst
+    //so cheating to make everything the same width
+    border: 1px solid $main-accent;
+  }
+
+  //table body
+  tbody {
+    font-size: calc(#{$base-font-size} - 2pt);
+    background-color: #f5f5f5;
+
+    //table rows
+    tr {
+      vertical-align: middle;
+      //put a border on the bottom of every row
+      border-bottom: 1px solid $section-line;
+    }
+
+    //table items
+    td {
+      text-align: left;
+      padding: 0.75rem;
+      box-sizing: border-box;
+      vertical-align: middle;
+      box-sizing: border-box;
+      //put borders on the left and right of all body items
+      border-left: 1px solid $section-line;
+      border-right: 1px solid $section-line;
+    }
+  }
+}
+
 //boxed styling
 .boxed {
   text-align: center;
