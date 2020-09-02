@@ -2,7 +2,7 @@
 title: About
 ---
 
-<img src="/assets/images/headshot.jpg" alt="A photo of me" class="profile"/>
+<img src="/assets/images/headshot-cropped.jpg" alt="A photo of me" class="profile"/>
 
 Hello! I'm Chris, a [nonbinary](https://en.wikipedia.org/wiki/Non-binary_gender)
 math PhD student at UC Riverside. I got my
@@ -54,6 +54,9 @@ It provides the bedrock of belief." -- Sir Michael Atiyah.
 
 Perhaps less spitefully, here are some other quotes that I find impactful:
 
+- "Discipline is the difference between what you want now and what you
+want more" -- Darryl Bott
+
 - "You should feel free to skip lightly over, or 'read for culture', explanatory
 material which seems difficult, or which uses idea of which you have not yet
 heard... You should think of them as something to return to when more of the
@@ -66,6 +69,3 @@ every day. He answered "Because I think I'm making progress."
 - "The most useful piece of advice I would give to a mathematics student is
 always to suspect an impressive sounding Theorem if it does not have a
 special case which is both simple and non-trivial." -- Sir Michael Atiyah
-
-- "Discipline is the difference between what you want now and what you
-want more" -- Darryl Bott
