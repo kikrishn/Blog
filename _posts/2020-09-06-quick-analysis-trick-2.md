@@ -65,7 +65,7 @@ So here's the actual theorem proven in the lecture:
 <div class="boxed" markdown=1>
   Let $E$ be a Banach Space, and let $T : E \to E$ be an 
   invertible linear contraction. Let $e : E \to E$ (for <b>e</b>rror)
-  be lipschitz with constant $\lambda \leq ||T^{-1}||^{-1}$. Then 
+  be lipschitz with constant $\lambda < ||T^{-1}||^{-1}$. Then 
   $T + e$ is still a homeomorphism.
 </div>
 
