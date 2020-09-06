@@ -96,7 +96,7 @@ $$
 So a hypothetical inverse $x$ must be a fixed point of $f_y(x) = T^{-1}(y-ex)$.
 Notice $f_y(x)$ is jointly continuous in $y$ and $x$, since subtraction is. 
 So by our previous theorem, it suffices to show each $f_y$ is a contraction,
-and that there is a uniform contraction constant. Of course
+and that there is a uniform contraction constant. Of course (independtly of $y$)
 
 $$
 \begin{align*}
