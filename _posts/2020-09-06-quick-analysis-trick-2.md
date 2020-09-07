@@ -114,5 +114,5 @@ Here the last inequality came from our (previously mysterious) condition on
 the lipschitz constant of $e$. Putting ourselves in the shoes of someone trying
 to prove this in their research, it is now clear how that condition arose
 in the first place. We might try to work through this proof, and in the last
-step realize that we need this condition on $e$. Then we add it as a hypothesis,
-and pretend we knew in advance that this was the right condition. Aren't we smart?
+step realize that we need this condition on $e$. So we add it as a hypothesis,
+and pretend we knew in advance that this was the right condition. Aren't we smart!
