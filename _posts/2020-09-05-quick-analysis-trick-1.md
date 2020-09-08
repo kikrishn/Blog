@@ -40,11 +40,8 @@ In proposition 4 of chapter 1, Helemskii proves
   and let $F$ be a closed subspace. For any $y \in E \setminus F$ and $x \in F$, we 
   have the following estimate (which is uniform in $x$!):
 
-  $$|| \lambda y + x || = \Omega_y(|\lambda|)$$
+  $$|| \lambda y + x || \geq C_y |\lambda|$$
 </div>
-
-(I have taken the liberty of rephrasing the theorem slightly. 
-Notably Helemskii does not use $\Omega$ notation)
 
 The idea that I want to take from this proof is simple: 
 If $y$ were able to get arbitrarily close to $F$, then since $F$ 
@@ -58,5 +55,4 @@ In the interest of completeness, we then see
 
 $$|| \lambda y + x || = |\lambda| \; ||y - (-\lambda^{-1}x)|| \geq C |\lambda|$$
 
-and so $|| \lambda y + x || = \Omega(|\lambda|)$, where the constant $C$ 
-depends on $y$ but not $x$.
+where the constant $C$ can depend on $y$ but not $x$.
