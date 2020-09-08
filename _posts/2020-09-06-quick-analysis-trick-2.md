@@ -48,8 +48,10 @@ But as $\eta \to \omega$, the right hand side goes to $0$
 showing $\omega \mapsto p_\omega$ is continuous.
 
 Notice that the above proof uses the notation of a Banach Space, but never uses
-anything more than the metric-ness of $|x-y|$. This is a proof for arbitrary
-metric spaces, despite what the notation might lead you to believe.
+the linear algebraic structure. Even thoguh I wrote $|x-y|$, the proof only 
+uses the fact that $|x-y|$ is a complete metric, and you could write $d(x,y)$
+throughout instead. This is a proof for arbitrary (complete) metric spaces, 
+despite what the notation might lead you to believe.
 
 ---
 
