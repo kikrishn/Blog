@@ -151,6 +151,18 @@ ol li {
   }
 }
 
+//code outside of sage cells
+code {
+  display: inline-block;
+  font-family: "Courier New", Courier, monospace;
+  background: $light-grey;
+  border: 1px solid $dark-grey;
+  box-sizing: border-box;
+  padding: .25rem;
+  margin: .25rem 0;
+  word-wrap: break-word;
+}
+
 //tables
 
 table {
