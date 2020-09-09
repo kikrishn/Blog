@@ -229,7 +229,7 @@ To check that this deserves the name "exponential", you should check that
 $ - \times (V,E) \dashv (-)^{(V,E)}$
 </div>
 
-Finally, we get to the <span class="defn">Subobject Classifier</span>. 
+Finally, we get to the [Subobject Classifier](https://en.wikipedia.org/wiki/Subobject_classifier). 
 In $\mathsf{Set}$, there is a bijection between the subsets of $X$ and
 the functions in $2^X$. This bijection identifies $A \subseteq X$ with
 the function 
