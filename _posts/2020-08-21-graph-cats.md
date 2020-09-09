@@ -241,8 +241,8 @@ are all pullbacks of $$T : \{1\} \rightarrowtail 2$$ along a map $\chi_A : X \to
 
 ![subobject pullback in set](/assets/images/graph-cats/subobject-set.png){:height="20%" width="20%"}
 
-In $\mathsf{DiGph}$, we can similarly identify full subgraphs of $(V,E)$
-with functions in $\Omega^{(V,E)}$ where $\Omega$ is the graph below:
+In $\mathsf{DiGph}$, we can similarly identify full subgraphs of $(X,E)$
+with functions in $\Omega^{(X,E)}$ where $\Omega$ is the graph below:
 
 ![subobject classifier](/assets/images/graph-cats/digraph-subobject-classifier.png)
 
@@ -251,6 +251,9 @@ We can do this with a similar pullback diagram:
 ![subobject pullback in digph](/assets/images/graph-cats/subobject-digph.png){:height="30%" width="30%"}
 
 This endows $\mathsf{DiGph}$ with the structure of a [quasitopos](https://ncatlab.org/nlab/show/quasitopos).
+This is abstract-nonsense speak for "extremely nice category". It behaves like 
+$\mathsf{Set}$, the category against which all others are compared, in basically
+every situation.
 
 ---
 
