@@ -303,11 +303,11 @@ there's actually one in $X$ which does the job.
   model with an elementary submodel _must_ be infinite.
 </div>
 
-One easy example of an elementary submodel is $(2\mathbb{Z},\leq)$ as a
-submodel of $(\mathbb{Z},\leq)$. These two (directed) graphs are _isomorphic_,
-and thus satisfy the same first order theory. 
-
-TODO: pictures of $\mathbb{Z}$ and $2\mathbb{Z}$.
+One easy example of an elementary submodel is $K_{\mathbb{N}}$, the complete
+graph with one vertex for each natural number, as a submodel of $K_{\mathbb{Z}}$,
+the complete graph with one vertex for each integer. These are both isomorphic
+to $K_{\aleph_0}$, and thus they are isomorphic to each other. It is clear,
+then, that they have the same first order theory.
 
 Since an elementary submodel
 $\mathfrak{X}$ must look almost exactly like the full structure $\mathfrak{M}$,
@@ -315,17 +315,34 @@ you might think that this is the only possibility. We must have an isomorphismm
 $\mathfrak{X} \cong \mathfrak{M}$. Thankfully this is false! This is the source
 of lots of interesting mathematics.
 
-As an example of an elementary submodel which isn't isomorphic to the full 
-model, consider complete graphs. Let $K_{\aleph_0}$ be the complete graph
-with one vertex for each natural number. Let $K_{\mathfrak{c}}$ be the
-complete graph with one vertex for each real number.
+To get an example of this phenomenon, we can generalize the above example 
+slightly. Look at $K_\mathbb{N}$ again, but now viewed as a subgraph of 
+$K_{\mathbb{R}}$ (the complete graph with one vertex for each real number).
 
-Clearly $K_{\aleph_0}$ is not isomorphic to $K_{\mathfrak{c}}$, since they
+Clearly these aren't isomorphic, since they
 have different cardinalities. On the other hand, it is intuitively clear
 that they look _extremely_ similar, especially since any fixed formula
 can only refer to finitely many vertices (or, with a quantifier, all vertices at once).
 This is a good mental picture for an elementary submodel. It is a substructure
 that, as far as logic can tell, might as well be the full structure.
+
+As a second, less trivial example, consider the following graph of integers,
+where $x$ and $y$ are adjacent whenever their difference is $\pm 1$.
+
+
+We can also consider the disjoint union of two such graphs
+
+
+It turns out these two graphs are elementary equivalent 
+(can you show this with the Tarski-Vaught Test?), which means 
+that no first order logic formula can detect disconnectedness.
+Intuitively, this is because any first order formula can only say
+"there is no path of length n", which doesn't exclude the possibility 
+of some longer path. If you choose to prove the first graph is an elementary
+submodel of the second using vaught's test, you'll make this intuition formal.
+Any existential statement which is witnessed by something in the other copy
+of $\mathbb{Z}$ can actually be witnessed by something in the same copy of 
+$\mathbb{Z}$ that's far enough away.
 
 This becomes extremely useful when we can see the differences "from the outside".
 For instance, we might take a complicated structure, and find a countable 
@@ -340,23 +357,5 @@ $${}^* \! \mathbb{R}$$ has true infinitessimals, and so we can prove
 analytical facts in this extended setting, and "transfer" them back to
 $\mathbb{R}$ as long as the thing we proved is expressible as a formula 
 $\varphi$.
-
-As one last example of an elementary substructure, consider $(\mathbb{Z}, \leq)$
-and the disjoint union $(\mathbb{Z},\leq) \sqcup (\mathbb{Z}, \leq)$ shown below:
-
-
-
-
-
-It turns out these two graphs are elementary equivalent 
-(can you show this with the Tarski-Vaught Test?), which means 
-that no first order logic formula can detect disconnectedness.
-Intuitively, this is because any first order formula can only say
-"there is no path of length n", which doesn't exclude the possibility 
-of some longer path. If you choose to prove the first graph is an elementary
-submodel of the second using vaught's test, you'll make this intuition formal.
-Any existential statement which is witnessed by something in the other copy
-of $\mathbb{Z}$ can actually be witnessed by something in the same copy of 
-$\mathbb{Z}$ that's far enough away.
 
 ---
