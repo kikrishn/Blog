@@ -29,7 +29,7 @@ defined in terms of the operations given. For the natural numbers $\mathbb{N}$
 we often restrict our attention to the constants $0$ and $1$, as well as binary
 functions $+$ and $\times$, and a relation $\leq \subseteq \mathbb{N}^2$. An
 example that we will refer to for the rest of this post will be graphs. A 
-graph has a single binary relation $E$.
+graph has a single binary relation $E$ -- the edge relation.
 
 When studying any fixed branch of math, the discourse is usually confied to
 formulas involving only some collection of symbols. Often we prove things
@@ -112,16 +112,20 @@ a footnote [^2].
     - Variables $x_i$ are interpreted as the identity function.
     - Constants $c$ are interpreted as the $c^\mathfrak{M}$ specified by the model.
     - A term $f(t_1,\ldots,t_n)$ is interpreted as the composite $f^\mathfrak{M} \circ (t_1^\mathfrak{M},\ldots,t_n^\mathfrak{M})$. 
-    
-    When multiple terms are involved, we may assume that they have the same set of variables. 
-    It may be the case that some of these inputs are ignored when actually computing the function,
-    but this will simplify matters in the next definition.
+
+    Notice that we can assume $t_1, \ldots, t_n$ all have the same input
+    variables. There must be a biggest $x_m$ referred to by any of the terms,
+    and we can view each $t_j$ as a function of all the $x_i$ with $i \leq m$.
+    We simply ignore any unnecessary inputs, just like $f(x,y) = x^2$ is still
+    a function of $y$. This observation makes the composition well defined,
+    and will be useful again in the definition of formulas.
     
     Next, we interpret _formulas_ as subsets of $M^n$, where $n$ is tne number
     of free variables in the formula. Here a _free_ variable is a variable 
     that is not "quantified away". Notice a formula with no free variables
-    correpsonds to a subset of $M^0$. We think of $\emptyset \subseteq M^0$ 
-    as "false" and $M^0 \subseteq M^0$ as "true".
+    correpsonds to a subset of $$M^0 = \{ \star \}$$. 
+    We think of $\emptyset \subseteq M^0$ as "false" and $$\{ \star \} \subseteq M^0$$ 
+    as "true".
     
     - $$(t_1 = t_2)^\mathfrak{M} = \{ (a_1,\ldots,a_n) \in M^n \mid t_1^\mathfrak{M}(a_1,\ldots,a_n) = t_2^\mathfrak{M}(a_1,\ldots,a_n) \}$$
     - $$r(t_1,\ldots,t_n)^\mathfrak{M} = \{ (a_1,\ldots,a_n) ~|~ (t_1(a_1,\ldots,a_n), \ldots, t_n(a_1,\ldots,a_n)) \in r^\mathfrak{M} \}$$
@@ -129,13 +133,27 @@ a footnote [^2].
     - $$(\varphi_1 \land \varphi_2)^\mathfrak{M} = \varphi_1^\mathfrak{M} \cap \varphi_2^\mathfrak{M}$$
     - $$(\exists x_i . \varphi)^\mathfrak{M} = \{ (a_1, \ldots, a_{i-1}, a_{i+1}, \ldots a_n) ~|~ \text{For some } a_i, \varphi^\mathfrak{M}(a_1,\ldots,a_n) \}$$
 
+    Again, we can always choose the free variables as $x_i$ with $i \leq m$
+    for some $m$, by allowing some $\varphi$ to ignore some of their inputs.
+    This is necessary, for instance, to make sure
+    $\varphi_1^\mathfrak{M} \cap \varphi_2^\mathfrak{M}$ is well defined.
+
     Since the other symbols $\lor$, $\forall$, etc. are defined in terms of
     these, this suffices to interpret _all_ formulas.
 
     Finally, we write $\mathfrak{M} \models \varphi(a_1,\ldots,a_n)$ 
     if and only if $(a_1,\ldots,a_n) \in \varphi^\mathfrak{M}$. In particular,
     if $\varphi$ has no free variables, then $\mathfrak{M} \models \varphi$
-    if and only if $\varphi^\mathfrak{M}$ is _true_ in $\mathfrak{M}$.
+    if and only if $$\varphi^\mathfrak{M} = \{ \star \}$$.
+
+    As a (possibly fun) exercise, fix a signature $\sigma$ and write some code 
+    which takes in a formula (with no free variables) and a model as input, 
+    and tells you if the formula is true or false in that model. If you're 
+    feeling particularly ambitious, try to make it take a signature as input
+    too. As some advice, I think this exercise is _much_ easier in a 
+    functional language than an imperative one. This is what
+    [algebraic data types](https://en.wikipedia.org/wiki/Algebraic_data_type)
+    are made for.
 
 Let's look at the signature $\sigma$ with one constant $0$, a binary function $+$,
 and a binary relation $\leq$. Then we can take the set $\mathbb{N}$ with
@@ -216,12 +234,15 @@ in $\Gamma_3$ must also be adjacent in $\Gamma$, but clearly there
 are relations in $\Gamma$ which are not in $\Gamma_3$.
 
 As an algebraic example, consider the natural homomorphism $p$ from a group to its 
-abelianization. For two fixed elements $g$ and $h$ which don't commute in $G$,
-we will have $G \not \models gh = hg$, while $G^{\text{ab}} \models p(g)p(h) = p(h)p(g)$.
-Notice how important _positivity_ is in this theorem. We have
-$G \models gh \neq hg$, but this is clearly _not_ preserved by $p$! 
-Again, I will go more in depth into model-theoretic homomorphisms
-in a later blog post.
+abelianization. If some element $g$ is of order $n$, then its image $p(g)$
+will still be of order $n$. We can think of this is reflecting that whenever
+$G \models g^n = 1$, we also have $G^{\text{ab}} \models p(g)^n = 1$. Any 
+relations among the elements of $g$ are preserved by the homomorphism. These
+are the "positive formulas". Statements about what things _aren't_ related,
+though, might fail to be preserved. For instance, if $g$ and $h$ don't commute 
+in $G$, we will have $G \models gh \neq hg$, while 
+$G^{\text{ab}} \models p(g)p(h) = p(h)p(g)$. Existing relations must be 
+preserved, but homomorphisms are allowed to _add_ new relations. 
 
 Submodels, though (and more generally [embeddings](https://proofwiki.org/wiki/Definition:Embedding_(Model_Theory)))
 preserve positive _and_ negative formulas. Phrased differently, submodels both
@@ -319,5 +340,23 @@ $${}^* \! \mathbb{R}$$ has true infinitessimals, and so we can prove
 analytical facts in this extended setting, and "transfer" them back to
 $\mathbb{R}$ as long as the thing we proved is expressible as a formula 
 $\varphi$.
+
+As one last example of an elementary substructure, consider $(\mathbb{Z}, \leq)$
+and the disjoint union $(\mathbb{Z},\leq) \sqcup (\mathbb{Z}, \leq)$ shown below:
+
+
+
+
+
+It turns out these two graphs are elementary equivalent 
+(can you show this with the Tarski-Vaught Test?), which means 
+that no first order logic formula can detect disconnectedness.
+Intuitively, this is because any first order formula can only say
+"there is no path of length n", which doesn't exclude the possibility 
+of some longer path. If you choose to prove the first graph is an elementary
+submodel of the second using vaught's test, you'll make this intuition formal.
+Any existential statement which is witnessed by something in the other copy
+of $\mathbb{Z}$ can actually be witnessed by something in the same copy of 
+$\mathbb{Z}$ that's far enough away.
 
 ---
