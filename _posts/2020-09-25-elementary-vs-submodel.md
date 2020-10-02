@@ -209,29 +209,27 @@ $r^\mathfrak{X} = r^\mathfrak{M} \cap X^n$.
 The only important (and sometimes counterintuitive) part of this definition
 is the notion of relation. This is best shown by a graph theoretic example.
 
-Consider the following graph, which we view as a $G$-model:
+Consider the following graph $\Gamma$, which we view as a $G$-model:
 
-
-
+![A triangle with an extra edge](/assets/images/elementary-vs-submodel/graph1.png)
 
 Then submodels are the _induced_ or _full_ subgraphs. Notably this is a submodel:
 
+![the induced triangle subgraph](/assets/images/elementary-vs-submodel/graph2.png)
+
+While this (the tripod $T$) isn't:
+
+![A subgraph that removes an edge](/assets/images/elementary-vs-submodel/graph3.png)
 
 
-
-While this isn't:
-
-
-
-
-This fails to be a submodel beacsue $E^3 \neq E^1 \cap X^2$. As an aside,
-model theory has a way to talk about these kinds of "almost submodels". 
-The inclusion $i : X \hookrightarrow V$ is a _homomorphism_ of models,
+This fails to be a submodel beacsue its edge relation $E^T$ is _not_ equal
+to $$E^\Gamma \cap \{a,b,c,d\}^2$$.
+Model theory has a way to talk about these kinds of "almost submodels", though.
+The inclusion $i : T \hookrightarrow \Gamma$ is a _homomorphism_ of models,
 and homomorhpisms have to preserve "positive formulas" 
 (roughly, the formulas with no $\lnot$ and no quantifiers). The converse
-fails, however. In the graph above, for instance, we know two adjacent vertices
-in $\Gamma_3$ must also be adjacent in $\Gamma$, but clearly there
-are relations in $\Gamma$ which are not in $\Gamma_3$.
+fails, however, and we can see $T \models \lnot bEc$ while 
+$\Gamma \not \models \lnot i(b) E i(c)$.
 
 As an algebraic example, consider the natural homomorphism $p$ from a group to its 
 abelianization. If some element $g$ is of order $n$, then its image $p(g)$
@@ -267,13 +265,11 @@ does not. Perhaps even more agressively, we have $G \models \exists x. x \neq e$
 while the trivial subgroup $1 \leq G$ doesn't!
 
 We can see similar behavior in graphs. For instance, the following graph has
-$\Gamma \models \exists x . \forall y . xEy$. 
+$\Gamma \models \exists x . \forall y . x \neq y \to xEy$. 
 
+![a graph which is held together by t](/assets/images/elementary-vs-submodel/graph6.png)
 
-
-
-
-However, the submodel which excludes $t$ doesn't. 
+However, the submodel which excludes $t$ does _not_ satisfy that formula.
 
 ---
 
@@ -291,7 +287,7 @@ if and only if for every $a_1, \ldots, a_n \in X$ and for every $\varphi$:
 whenever some $m \in M$ satisfies $\varphi(m,a_1,\ldots,a_n)$, there is already
 a $m' \in X$ which also satisfies $\varphi(m',a_1,\ldots,a_n)$.
 This says that anytime we can find an element in $M$ that makes a formula true,
-there's actually one in $X$ which does the job.
+we can actually do it without leaving $X$.
 
 <div class="boxed" markdown=1>
   It turns out there's a reason there aren't many simple examples of
@@ -311,31 +307,35 @@ then, that they have the same first order theory.
 
 Since an elementary submodel
 $\mathfrak{X}$ must look almost exactly like the full structure $\mathfrak{M}$,
-you might think that this is the only possibility. We must have an isomorphismm
-$\mathfrak{X} \cong \mathfrak{M}$. Thankfully this is false! This is the source
-of lots of interesting mathematics.
+you might think that this is the only possibility. You might think there must be 
+an isomorphismm $\mathfrak{X} \cong \mathfrak{M}$. Thankfully (and surprisingly!) this is false! 
+This is the source of lots of interesting mathematics.
 
 To get an example of this phenomenon, we can generalize the above example 
 slightly. Look at $K_\mathbb{N}$ again, but now viewed as a subgraph of 
 $K_{\mathbb{R}}$ (the complete graph with one vertex for each real number).
-
 Clearly these aren't isomorphic, since they
 have different cardinalities. On the other hand, it is intuitively clear
 that they look _extremely_ similar, especially since any fixed formula
 can only refer to finitely many vertices (or, with a quantifier, all vertices at once).
-This is a good mental picture for an elementary submodel. It is a substructure
-that, as far as logic can tell, might as well be the full structure.
 
-As a second, less trivial example, consider the following graph of integers,
-where $x$ and $y$ are adjacent whenever their difference is $\pm 1$.
+As a second, less trivial example, consider the following graph $\Gamma$ of integers,
+where $x$ and $y$ are adjacent whenever their difference is $\pm 1$. Obviously
+the graphic shows only a finite part of the infinite graph.
 
+![A fragment of the integers](/assets/images/elementary-vs-submodel/graph4.png)
 
-We can also consider the disjoint union of two such graphs
+We can also consider the disjoint union $\Gamma + \Gamma$ of two such graphs. 
+Again, we only show a finite part of this graph.
 
+![A fragment of two copies of the integers](/assets/images/elementary-vs-submodel/graph5.png)
 
-It turns out these two graphs are elementary equivalent 
-(can you show this with the Tarski-Vaught Test?), which means 
-that no first order logic formula can detect disconnectedness.
+It turns out $\Gamma$ and $\Gamma + \Gamma$ are elementary equivalent!
+(can you show this with the Tarski-Vaught Test?) Then no first order logic 
+formula can detect disconnectedness. If $G \models \varphi$ were true if and only if
+$G$ is connected, then $\Gamma \models \varphi$ while $\Gamma + \Gamma \not \models \varphi$.
+But since $\Gamma$ and $\Gamma + \Gamma$ have the same first order theory,
+no such $\varphi$ can exist!
 Intuitively, this is because any first order formula can only say
 "there is no path of length n", which doesn't exclude the possibility 
 of some longer path. If you choose to prove the first graph is an elementary
