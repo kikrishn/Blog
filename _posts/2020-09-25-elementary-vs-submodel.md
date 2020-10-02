@@ -5,7 +5,7 @@ tags:
   - logic
 ---
 
-I'm giving a GSS talk later this week in the hopes of introducing myself to 
+I'm giving a GSS talk next week in the hopes of introducing myself to 
 my new department. More importantly, I am giving this talk to try and showcase
 the utility of model theory in combinatorics and algebra. 
 While writing this talk, I've been thinking about the best way to discuss 
@@ -100,7 +100,7 @@ Now that we know how to _interpret_ the symbols of $\sigma$, it is intuitively
 clear how to bootstrap our way to an interpretation of the formulas of $\mathcal{L}(\sigma)$.
 One uses the traditional meantings of the extra symbols, and asks whether 
 the resulting formula is true in $M$. This is perhaps best given as a 
-"definition by example", but I have again left a formal definition as
+"definition by example" (which I'll provide in the next paragraph), but I have again left a formal definition as
 a footnote [^2].
 
 [^2]:
@@ -176,10 +176,10 @@ every $x$ and $y$, and $$\leq^{\tilde{\mathbb{N}}} = \{(4,5)\}$$. Then we see
 $\tilde{\mathbb{N}} \not \models \varphi$, and $\tilde{\mathbb{N}} \models \psi$
 (why?). We could even work with a totally different set, and look at 
 $$M = \{a,b,c\}$$ with $0^\mathfrak{M} = a$, $$\leq^\mathfrak{M} = \{(a,b),(c,b)\}$$,
-and $x+^\mathfrak{M}y = b$. Obviously this example was arbitrary, but you can
+and $x+^\mathfrak{M}y = b$. Obviously this example was arbitrary, so you can
 imagine the diversity of possible models.
 
-In practice, we almost never work with bare models. We always ask that our
+In practice, though, we almost never work with bare models. We always ask that our
 models satisfy some axioms $A \subseteq \mathcal{L}(\sigma)$. These axioms
 greatly restrict which models we view as worthy of study, but we still view
 them abstractly. A very common technique in model theory is to add symbols
@@ -344,18 +344,25 @@ Any existential statement which is witnessed by something in the other copy
 of $\mathbb{Z}$ can actually be witnessed by something in the same copy of 
 $\mathbb{Z}$ that's far enough away.
 
-This becomes extremely useful when we can see the differences "from the outside".
-For instance, we might take a complicated structure, and find a countable 
-elementary substructure. Then we might have an easier time using tools like
-induction to prove facts about it. We might also go the other way, and 
-embed our structure of interest as an elementary substructure of some
-bigger object. This is the case in 
+There are lots of reasons elementary submodels are useful
+(for a famous example, see
 [nonstandard analysis](https://en.wikipedia.org/wiki/Nonstandard_analysis)
-where we embed $\mathbb{R}$ as an elementary substructure of an 
-enormous object called $${}^* \! \mathbb{R}$$. This is useful becase
-$${}^* \! \mathbb{R}$$ has true infinitessimals, and so we can prove
-analytical facts in this extended setting, and "transfer" them back to
-$\mathbb{R}$ as long as the thing we proved is expressible as a formula 
-$\varphi$.
+), but it's important
+to keep straight the difference between homomorphic images, submodels, and
+elementary submodels. I know I was tripped up by this for a long time, and
+a younger me would have been helped by these toy examples from graph theory.
+
+<div class="boxed" markdown=1>
+  As a last exercise, there is a strengthening of these results. Can you show
+  that, whenever $\mathfrak{A}$ is a submodel of $\mathfrak{B}$ and 
+  $\varphi$ is quantifier-free, we have the following:
+
+  - if $\mathfrak{B} \models \forall x . \varphi$, so does $\mathfrak{A}$
+  - if $\mathfrak{A} \models \exists x . \varphi$, so does $\mathfrak{B}$
+
+  In words, _universal_ formulas are "preserved downwards", and _existential_
+  formulas are "preserved upwards".
+
+</div>
 
 ---
