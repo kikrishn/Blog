@@ -133,11 +133,21 @@ ul, ol {
 //defaults bullet points to solid circles
 ul li {
   list-style-type: disc;
+
+  //makes sure nested lists display correctly
+  ol li {
+    list-style-type: decimal;
+  }
 }
 
 //defaults lists to 1, 2, 3...
 ol li {
   list-style-type: decimal;
+
+  //makes sure nested lists display correctly
+  ul li {
+    list-style-type: disc;
+  }
 }
 
 //list styling exception for list of posts on blog.html
