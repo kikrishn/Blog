@@ -67,3 +67,13 @@ every day. He answered "Because I think I'm making progress."
 - "The most useful piece of advice I would give to a mathematics student is
 always to suspect an impressive sounding Theorem if it does not have a
 special case which is both simple and non-trivial." -- Sir Michael Atiyah
+
+- "Never be happy with where you are, but always be happy with 
+where you came from" -- Dan D'Addio
+
+- I see mathematics, the part of human knowledge that I call mathematics, 
+as one thing—one great, glorious thing. Whether it is differential topology, 
+or functional analysis, or homological algebra, it is all one thing. ... 
+They are intimately interconnected, they are all facets of the same thing. 
+That interconnection, that architecture, is secure truth and is beauty. 
+That's what mathematics is to me.” -- Paul Halmos
