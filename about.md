@@ -77,3 +77,7 @@ or functional analysis, or homological algebra, it is all one thing. ...
 They are intimately interconnected, they are all facets of the same thing. 
 That interconnection, that architecture, is secure truth and is beauty. 
 That's what mathematics is to me.” -- Paul Halmos
+
+- "just a quick reminder that a society exists to serve teh people within it.
+there's no such thing as a person being "useless" to a society, only a society
+that is useless to a person" -- Twitter User @HTHRFLWRS
