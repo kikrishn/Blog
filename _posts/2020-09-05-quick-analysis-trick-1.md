@@ -10,8 +10,9 @@ This is the start of a series of short posts which will come sporadically.
 To say that I struggle with analysis would be akin to saying that 
 Stravinsky's "Rite of Spring" wasn't well received during its premiere. 
 While technically true, the reality is much 
-[more chaotic](https://www.bl.uk/20th-century-literature/articles/the-riot-at-the-rite-the-premiere-of-the-rite-of-spring) 
-than you might expect. I'm OK at it, but it's definitely not my strong suit
+[more dramatic](https://www.bl.uk/20th-century-literature/articles/the-riot-at-the-rite-the-premiere-of-the-rite-of-spring) 
+than you might expect. I'm obviously being a bit hyperbolic here, but it
+really is something that I find quite difficult
 (this is probably due in part to lack of exposure).
 
 That said, I recognize the importance of analysis, and I wouldn't make a very
