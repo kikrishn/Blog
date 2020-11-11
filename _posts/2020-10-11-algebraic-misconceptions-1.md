@@ -6,8 +6,8 @@ tags:
   - groups
 ---
 
-I spend a lot of time on [math stackexchange](math.stackexchange.com), and I
-periodically see "simple" questions that totally shatter a misconception that
+I spend a lot of time on [math stackexchange](https://math.stackexchange.com) (mse), 
+and I periodically see "simple" questions that totally shatter a misconception that
 I didn't know I even held.
 
 My first time experiencing this was when I learned that normal subgroups 
@@ -18,18 +18,26 @@ need not be transitive. That is,
   (in general) that $N \vartriangleleft G$.
 </div>
 
-For cultural growth, this transitivity happens whenever $N$ is
+For cultural growth, we _do_ have transitivity whenever $N$ is 
 [characteristically normal](https://en.wikipedia.org/wiki/Characteristic_subgroup)
 in $H$. Symbolically, $N \vartriangleleft^c H$. 
 
-Not only do we have $N \vartriangleleft^c H$ and $H \vartriangleleft G$ 
-implies $N \vartriangleleft G$. We also have proper transitivity in this
-setting: $N \vartriangleleft^c H$ and $H \vartriangleleft^c G$ implies
-$N \vartriangleleft^c G$.
+In fact, not only is $\vartriangleleft^c$ transitive, we recover some amount
+of transitivity with the regular "normal subgroup" relation too. That is, 
+in addition to transitivity
 
-I forget exactly when I first saw this, but it was shocking. Even though
+$$N \vartriangleleft^c H \vartriangleleft^c G \implies N \vartriangleleft^c G$$
+
+we _also_ have a "weak transitivity"
+
+$$N \vartriangleleft^c H \vartriangleleft G \implies N \vartriangleleft G$$
+
+I forget exactly when I first saw that normal subgroup-ness isn't transitive, 
+but I remember it was shocking. Even though
 in hindsight it is obvious how normalcy fails to be transitive, it was never
-something I explicitly saw. I had this realiziation long enough ago that I 
+something I explicitly saw. Moreover, the notation is so suggestive of a
+transitive relation, it felt more "obvious" than it probably should have.
+I had this realiziation long enough ago that I 
 no longer have the mse post where I first saw it. However, I have had two 
 similar realizations in recent memory, and I figured I would include them
 here as quick posts analogous to my "quick analysis trick" series.
