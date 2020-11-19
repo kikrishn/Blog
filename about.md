@@ -98,3 +98,7 @@ through a volume of work that you will close that gap, and your work will be
 as good as your ambitions. And I took longer to figure out how to do this than 
 anyone I’ve ever met. It’s gonna take awhile. It’s normal to take awhile. 
 You’ve just gotta fight your way through.”  -- Ira Glass
+
+- "Learning mathematics is like climbing a cliff that's sheer vertical
+in front of you and horizontal behind you." -- David Epstin, via Twitter
+user @nij4
