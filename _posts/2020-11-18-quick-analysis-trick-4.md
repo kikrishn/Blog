@@ -144,8 +144,11 @@ While this is technically _true_, I would argue it isn't _useful_ yet. We can cl
 
 The important observation is that, for $k \geq 4$, $\frac{\ln(k)}{k}$ is monotone decreasing.
 Then we do the old "approximate by the nearest power of $2$" trick that we use to prove the
-harmonic series diverges. But we do it on the _other_ side because in this case
-we want an upper bound instead of a lower one:
+harmonic series diverges[^3]:
+
+[^3]:
+    As a quick exercise, why do we get an upper bound here? 
+    We prove the harmonic series diverges by _lower_ bounding it...
 
 $$
 \begin{align*}
