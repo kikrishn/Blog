@@ -175,7 +175,8 @@ Importantly, this error bound is _different_ from the error bound of our origina
 As expected, this converges slightly slower (by a log factor) because it's being
 weighed down by earlier terms in the series.
 
-But now we can finally put a nice bow on things: How quickly does the limit converge?
+Why go through this pain, though? Because now we can finally put a nice bow on things: 
+How quickly does the limit converge?
 
 <!-- 
   Note: We have the \pm here because I've glossed over the fact 
