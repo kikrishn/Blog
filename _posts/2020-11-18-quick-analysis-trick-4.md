@@ -5,6 +5,8 @@ tags:
   - quick analysis tricks
   - limits
   - cesaro summation
+  - asymptotics
+  - error bounds
 ---
 
 To the surprise of no one, I was on math stackexchange earlier and saw an 
