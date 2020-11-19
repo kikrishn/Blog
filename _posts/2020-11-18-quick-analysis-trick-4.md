@@ -174,7 +174,12 @@ Importantly, this error bound is _different_ from the error bound of our origina
 As expected, this converges slightly slower (by a log factor) because it's being
 weighed down by earlier terms in the series.
 
-But now we can finally put a nice bow on things: How quickly does the limit converge to $1$?
+But now we can finally put a nice bow on things: How quickly does the limit converge?
+
+<!-- 
+  Note: We have the \pm here because I've glossed over the fact 
+  that we need to multiply out (1 + O((log n)^2/n))(1/2 - O(1/n))
+-->
 
 $$
 \left ( 1 + \sqrt{2} + \sqrt[3]{3} + \ldots + \sqrt[n]{n} \right ) \ln \left ( \frac{2n+1}{2n} \right ) 
