@@ -13,8 +13,8 @@ To the surprise of no one, I was on math stackexchange earlier and saw an
 interesting analysis question. I have a weird fascination with tricky limit
 questions because I feel like I've always been bad at them. I like working
 on them for the same reason I like practicing the difficult parts of 
-pieces of music -- it makes me feel like I'm improving in a "no pain no gain"
-kind of way.
+pieces of music -- it makes me feel like I'm improving 
+(in a "no pain no gain" kind of way).
 
 Anyways, [the question][1] was as follows (paraphrased):
 
@@ -25,7 +25,7 @@ Anyways, [the question][1] was as follows (paraphrased):
 </div>
 
 The beginning of the solution makes sense: We want to approximate the $\ln$, so we rewrite it as 
-$\ln \left ( 1 + \frac{1}{2n} \right )$ and approximate[^1] that as $\frac{1}{2n} - O(\frac{1}{n^2})$.
+$\ln \left ( 1 + \frac{1}{2n} \right )$ and approximate that[^1] as $\frac{1}{2n} - O(\frac{1}{n^2})$.
 
 [^1]:
     A notational quirk I picked up from [Ryan O'Donnell][2] that my brain likes: I will only ever
@@ -33,7 +33,7 @@ $\ln \left ( 1 + \frac{1}{2n} \right )$ and approximate[^1] that as $\frac{1}{2n
     $\text{blah} + O \left ( \frac{1}{n} \right )$ and $\text{blah} - O \left ( \frac{1}{n} \right )$.
 
     This is a pretty minor thing, but it's led to notably more comfort on my part, since my brain tends to
-    implicitly make positivity assumptions when I'm not looking. Explicitly writing down when thinggs can
+    implicitly make positivity assumptions when I'm not looking. Explicitly writing down when things can
     be negative forces my brain to pay extra attention to it.
 
 Then (rewriting as a summation as well) we get
@@ -43,7 +43,7 @@ $$\lim_{n \to \infty} \left ( \sum_{k \leq n} k^\frac{1}{k} \right ) \left ( \fr
 Now here's the clever idea: We use [Cesàro Averages][3] backwards! This is mentioned in a comment on the original mse question, and
 it's a trick I'll absolutely have to remember!
 
-To explain what I mean, we take a quick detour into the world of Cesàro Averages:
+To explain what I mean, let's take a quick detour into the world of Cesàro Averages:
 
 ---
 
@@ -51,11 +51,11 @@ To explain what I mean, we take a quick detour into the world of Cesàro Average
   If $(x_n)$ is a sequence, then the <span class="defn">Cesàro Average</span> $a_k$ is the average of the
   first $k$ terms:
 
-  $$a_k = \frac{1}{k} \sum_{j \leq k} a_j$$
+  $$a_k = \displaystyle \frac{1}{k} \displaystyle \sum_{j \leq k} x_j$$
 </div>
 
 People care about the Cesàro averages because it's possible for the Cesàro averages to converge even if the original series doesn't.
-Moreover, the notion of "averaging" in this way comes up very naturally in Fourier Analysis (see [here][4]) and in
+Moreover, the notion of "averaging" in this way comes up very naturally in Fourier Analysis (see [here][4]) and
 Ergodic Theory (see [here][5]).
 
 The fundamental theorem in this area is this:
@@ -65,15 +65,15 @@ The fundamental theorem in this area is this:
 </div>
 
 So the notion of Cesàro convergence is a true generalization of the original notion of convergence.
-It allows us to evaluate certain sequences that used to be divergent, but it doesn't mess up any
-sequences that already converged.
+It allows us to evaluate certain limits that used to be divergent, but it doesn't mess up any
+limits that already converged.
 
 ---
 
 And now we get to the application here:
 
 We recognize $\frac{1}{n} \sum_{k \leq n} k^\frac{1}{k}$ as a Cesàro average of the sequence $k^\frac{1}{k}$.
-Since we know $k^\frac{1}{k} \to 1$, we conclude the same is true of the Cesàro averages, and so
+Since we know $k^\frac{1}{k} \to 1$, we conclude the same is true of the Cesàro averages. So
 
 $$
 \begin{align*}
@@ -81,6 +81,7 @@ $$
 &= \lim_{n \to \infty} \frac{\sum_{k \leq n} k^\frac{1}{k}}{n} \left ( \frac{1}{2} - O \left ( \frac{1}{n} \right ) \right ) \\
 &= \lim_{n \to \infty} 1 \left ( \frac{1}{2} - O \left ( \frac{1}{n} \right ) \right )\\
 &\to \frac{1}{2}
+\end{align*}
 $$
 
 ---
@@ -103,10 +104,10 @@ we kept track of the big-Oh for the whole problem.
     Ryan went on to tell us about the [Berry-Esseen Theorem][7], which gives good error bounds on the 
     convergence guaranteed by the Central Limit Theorem.
 
-But we just slickly substituted $n^\frac{1}{n} \to 1$. If we're careful, it's not too hard to get
+But above we just substituted $n^\frac{1}{n} \to 1$. If we're careful, it's not too hard to get
 error bounds for the convergence of this series... But who's to say what the error bounds will
 be for the Cesàro averages? These averages keep track of terms earlier in the series. It's reasonable
-to worry that the convergence might be slower. We can get around this, though:
+to worry that the convergence might be slower, and this worry turns out to be legitimate:
 
 Say $x_n = L \pm O(e(n))$. That is, $x_n$ converges to a limit $L$, and we can bound the _error_ by
 $O(e)$. Then
@@ -125,7 +126,7 @@ Let's see how this comes up in our analysis of this particular problem.
 
 ---
 
-First, we need to know the error bounds on $n^\frac{1}{n}$. This isn't too hard to figure out, though:
+First, we need to know the error bounds on $n^\frac{1}{n}$. This isn't too hard to figure out:
 
 $$n^\frac{1}{n} = e^{\frac{1}{n}\ln(n)} = 1 + O \left ( \frac{\ln(n)}{n} \right )$$
 
@@ -147,11 +148,9 @@ harmonic series diverges:
 
 $$
 \begin{align*}
-\frac{\ln(4)}{4} + \frac{\ln(5)}{5} + \frac{\ln(6)}{6} + \frac{\ln(7)}{7} + \frac{\ln(8)}{8} + \frac{\ln(9)}{9} + \ldots + \frac{\ln(15)}{15} + \frac{\ln(16)}{16} + \ldots \\
-&\leq 
-\frac{\ln(4)}{4} + \frac{\ln(4)}{4} + \frac{\ln(4)}{4} + \frac{\ln(4)}{4} + \frac{\ln(8)}{8} + \frac{\ln(8)}{8} + \ldots + \frac{\ln(8)}{8} + \frac{\ln(16)}{16} + \ldots \\
-&=
-\ln(4) + \ln(8) + \ln(16) + \ldots
+&\quad \frac{\ln(4)}{4} + \frac{\ln(5)}{5} + \frac{\ln(6)}{6} + \frac{\ln(7)}{7} + \frac{\ln(8)}{8} + \frac{\ln(9)}{9} + \ldots + \frac{\ln(15)}{15} + \frac{\ln(16)}{16} + \ldots \\
+&\leq \frac{\ln(4)}{4} + \frac{\ln(4)}{4} + \frac{\ln(4)}{4} + \frac{\ln(4)}{4} + \frac{\ln(8)}{8} + \frac{\ln(8)}{8} + \ldots + \frac{\ln(8)}{8} + \frac{\ln(16)}{16} + \ldots \\
+&= \ln(4) + \ln(8) + \ln(16) + \ldots
 \end{align*}
 $$
 
@@ -163,7 +162,7 @@ $\frac{\ln(3)}{3}$ by $\frac{\ln(2)}{2}$ to make the sum more uniform.
 $$
 \begin{align*}
 O \left ( \frac{1}{n} \sum_{k \leq n} \frac{\ln(k)}{k} \right )
-&= O \left ( \frac{1}{n} (\frac{\ln(2)}{2} + \frac{\ln(3)}{3} + \ln(4) + \ln(8) + \ldots + \ln(n) ) \right ) \\
+&= O \left ( \frac{1}{n} \left ( \frac{\ln(2)}{2} + \frac{\ln(3)}{3} + \ln(4) + \ln(8) + \ldots + \ln(n) \right ) \right ) \\
 &= O \left ( \frac{1}{n} \sum_{i \leq \log_2 n} \ln(2^i) \right ) \\
 &= O \left ( \frac{1}{n} \sum_{i \leq \log_2 n} i \ln(2) \right ) \\
 &= O \left ( \frac{1}{n} \sum_{i \leq \log_2 n} i \right ) \\
@@ -177,7 +176,10 @@ weighed down by earlier terms in the series.
 
 But now we can finally put a nice bow on things: How quickly does the limit converge to $1$?
 
-$$(1 + \sqrt{2} + \sqrt[3]{3} + \ldots + \sqrt[n]{n}) \ln \left ( \frac{2n+1}{2n} \right ) = 1 + O \left \frac{\log n)^2}{n} \right )$$
+$$
+\left ( 1 + \sqrt{2} + \sqrt[3]{3} + \ldots + \sqrt[n]{n} \right ) \ln \left ( \frac{2n+1}{2n} \right ) 
+= \frac{1}{2} \left ( 1 \pm O \left ( \frac{( \log n )^2}{n} \right ) \right )
+$$
 
 ---
 
