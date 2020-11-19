@@ -143,8 +143,9 @@ $$
 While this is technically _true_, I would argue it isn't _useful_ yet. We can clean it up.
 
 The important observation is that, for $k \geq 4$, $\frac{\ln(k)}{k}$ is monotone decreasing.
-Then we do the old "approximate by the previous power of $2$" trick that we use to prove the
-harmonic series diverges:
+Then we do the old "approximate by the nearest power of $2$" trick that we use to prove the
+harmonic series diverges. But we do it on the _other_ side because in this case
+we want an upper bound instead of a lower one:
 
 $$
 \begin{align*}
