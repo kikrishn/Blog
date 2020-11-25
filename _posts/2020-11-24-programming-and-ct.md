@@ -43,7 +43,9 @@ latexing these slides from 11pm - 6am the day of the talk... oops.
 I knew after giving the talk that it was only OK. It was still a fine talk,
 but it didn't live up to my standards. It took me a little while to piece
 together why, though, which is why I'm uploading this post on the following day.
-Here are some critiques for myself, which you may or may not enjoy reading:
+Here are some critiques for myself, which you may or may not enjoy reading.
+Either way, it's cathartic for me to put this into words. Hopefully this will
+also help me avoid similar mistakes when writing future talks ^_^.
 
 The big thing that I think slipped through the cracks was my section on 
 Categorical Semantics. My sleep deprived brain was really worried about
