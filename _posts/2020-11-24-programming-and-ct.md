@@ -80,3 +80,9 @@ polymorphic function, which encodes the notion of a natural transformation.
 The talk slides are [here](/assets/docs/programming-and-ct/talk.pdf).
 Again, there's some typos (most notably $𝟙 \xrightarrow[x]{A}$ should be 
 $𝟙 \xrightarrow{x} A$). 
+
+**Edit:**
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PSiyBm4OdaQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+If you want to download the talk directly, it is available [here](/assets/docs/programming-and-ct/talk.mp4)
