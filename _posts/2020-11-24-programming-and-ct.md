@@ -81,7 +81,10 @@ The talk slides are [here](/assets/docs/programming-and-ct/talk.pdf).
 Again, there's some typos (most notably $𝟙 \xrightarrow[x]{A}$ should be 
 $𝟙 \xrightarrow{x} A$). 
 
-**Edit:**
+---
+
+**Edit:** I just got sent the recording. I uploaded it on youtube, and I'm
+including an embedding below.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/PSiyBm4OdaQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
