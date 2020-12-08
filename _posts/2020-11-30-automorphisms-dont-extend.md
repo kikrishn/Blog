@@ -76,8 +76,8 @@ By the time I checked again, there were already some counterexamples floating
 around. Ancientmathematician mentions $\mathfrak{S}_6 \leq \mathfrak{S}_7$,
 and uses some "well known" facts about their orders 
 (which happened to be not-so-well-known to me :P). Moreover, in a comment
-on my answer, Derek Holt mentions $C_2 \times C_2 \leq D_8$ but again,
-the automorphisms can't work out. 
+on my answer, Derek Holt mentions $C_2 \times C_2 \leq D_8$, where again
+the automorphisms can't work out (though again this wasn't immediately obvious to me). 
 
 I was still interested in verifying this by hand, and since sage doesn't seem
 to have a way to compute automorphism groups directly[^4] I decided making
@@ -91,6 +91,7 @@ get some (naive) code working:
 
 <div class="gap">
 <script type="text/x-sage">
+
   # Some code to find a counterexample to the mse question here:
   # https://math.stackexchange.com/q/3928573/655547
   #
