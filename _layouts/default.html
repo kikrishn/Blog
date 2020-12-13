@@ -43,7 +43,14 @@
     <script>sagecell.makeSagecell({"inputLocation": ".sage"});</script>
   </head>
   <body>
+    <!--Hidden skip to main content link for ADA compliance-->
+    <a href="#main-content" class="skip-main">Skip to main content</a>
+
     {% include navigation.html %}
+
+    <!--Skip to main content jumps to here-->
+    <a name="main-content" tabindex="-1"></a>
+
     <main>
       {{ content }}
     </main>
