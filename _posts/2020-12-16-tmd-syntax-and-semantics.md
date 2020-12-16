@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Trans Math Day talk -- Syntax and Semantics
+title: Talk - Syntax and Semantics (Trans Math Day 2020)
 tags:
   - my talks
   - logic
