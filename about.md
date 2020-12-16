@@ -102,3 +102,5 @@ You’ve just gotta fight your way through.”  -- Ira Glass
 - "Learning mathematics is like climbing a cliff that's sheer vertical
 in front of you and horizontal behind you." -- David Epstin, via Twitter
 user @nij4
+
+- "Works of art make rules; rules do not make works of art."  -- Claude Debussy
