@@ -2,8 +2,7 @@
 layout: post
 title: Quick Analysis Trick 1
 tags:
-  - quick analysis tricks
-  - lower bounds
+  - quick-analysis-tricks
 ---
 
 This is the start of a series of short posts which will come sporadically.

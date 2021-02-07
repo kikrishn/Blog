@@ -4,7 +4,7 @@ title: Visualizing Hyperbolic Isometries
 tags:
   - geometry
   - sage
-  - visualization
+  - intuition
 ---
 
 Welcome to the inaugural post of this blog! As a quick preface, I plan

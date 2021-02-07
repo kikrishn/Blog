@@ -2,9 +2,10 @@
 layout: post
 title: Talk - Programming and Category Theory
 tags:
-  - my talks
-  - category theory
-  - pl theory
+  - my-talks
+  - category-theory
+  - pl-theory
+  - logic
 ---
 
 Yesterday I gave a talk at the UCR Category Theory Seminar. I ended up putting
@@ -87,5 +88,3 @@ $𝟙 \xrightarrow{x} A$).
 including an embedding below.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/PSiyBm4OdaQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-If you want to download the talk directly, it is available [here](/assets/docs/programming-and-ct/talk.mp4)

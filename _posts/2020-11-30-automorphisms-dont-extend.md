@@ -4,8 +4,6 @@ title: Automorphisms Don't Extend
 tags:
   - mse
   - algebra
-  - group theory
-  - automorphism group
   - gap
 ---
 

@@ -2,8 +2,9 @@
 layout: post
 title: Algebraic Misconceptions 1
 tags:
-  - algebraic misconceptions
-  - groups
+  - algebraic-misconceptions
+  - algebra
+  - mse
 ---
 
 I spend a lot of time on [math stackexchange](https://math.stackexchange.com) (mse), 

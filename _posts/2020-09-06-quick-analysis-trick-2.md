@@ -2,8 +2,7 @@
 layout: post
 title: Quick Analysis Trick 2
 tags:
-  - quick analysis tricks
-  - fixed point theorems
+  - quick-analysis-tricks
 ---
 
 While watching [this](https://www.youtube.com/watch?v=dpBb55MtbPs&list=PLLq_gUfXAnkmC-VWIJ_HW8cdOZLEtHfXJ&index=11)

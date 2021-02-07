@@ -2,11 +2,8 @@
 layout: post
 title: Quick Analysis Trick 4
 tags:
-  - quick analysis tricks
-  - limits
-  - cesaro summation
+  - quick-analysis-tricks
   - asymptotics
-  - error bounds
 ---
 
 To the surprise of no one, I was on math stackexchange earlier and saw an 

@@ -2,8 +2,7 @@
 layout: post
 title: 
 tags:
-  - quick analysis tricks
-  - limits
+  - quick-analysis-tricks
 ---
 
 I'm in a measure theory class right now, and I think it's important to be 

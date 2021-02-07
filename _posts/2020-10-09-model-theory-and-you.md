@@ -2,7 +2,7 @@
 layout: post
 title: Talk - Model Theory and You
 tags:
-  - my talks
+  - my-talks
   - logic
 ---
 

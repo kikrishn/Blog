@@ -2,8 +2,8 @@
 layout: post
 title: Nilpotentizing Groups
 tags:
-  - Group Theory
-  - Universal Algebra
+  - algebra
+  - universal-algebra
 ---
 
 I really like group theory, and I've spent a lot of time reading about groups
