@@ -130,7 +130,42 @@ around to build your function, but the pieces don't quite fit together right.
   Uh oh.
 </div>
 
+Obviously the above argument isn't entirely rigorous. It does do a good job
+outlining what problem cohomology solves, though. We had only one choice
+at every step, and at every step nothing could go wrong. Yet somehow, when
+we got back where we started, our function was no longer well defined.
 
+The cohomology group of a space is, in a sense, the group of all functions
+that you can define locally modulo the functions that extend to the whole space.
+Since we mod out by the functions that _do_ extend, what we're left with are
+precisely the functions which _don't_ extend. That is, the cohomology group
+is (roughly) the group of all locally well-defined functions whose pieces 
+don't glue together nicely.[^2]
+
+[^2]:
+    If you're familiar with [sheaves](https://en.wikipedia.org/wiki/Sheaf_(mathematics)),
+    you'll see why people care so much about "sheaf cohomology". This notion
+    of a function that can be defined locally is made precise by sheaves.
+
+Magically, cohomology groups have a tendency to be finitely generated. This
+means that every function whose pieces don't fit together nicely is actually
+a linear combination of finitely many "basic" such functions. Oftentimes
+we say that the generators are the "obstructions" to gluing things together,
+and even if it's obvious to most people, it took me a while to realize why, 
+so I'd like to take a moment to say why.
+
+Every locally-definable function $f$ can be written as a sum 
+$f_{\text{good}} + f_{\text{bad}}$, where $f_\text{good}$ extends to the
+whole space and $f_{\text{bad}}$ doesn't. Here $f_{\text{bad}}$ is the 
+cohomology class of $f$, since $f_{\text{good}} = 0$ in the cohomology group.
+So then we can check if a function extends to the whole space by computing
+its cohomology class. If the class is $0$, then we win! Our function can 
+already extend to a function on the whole space. If the cohomology class is
+_not_ $0$, then $f_\text{bad}$ is the _obstruction_, since if it were not there
+we _would_ be able to extend it. 
+
+Importantly, since these groups tend to be finitely generated, there are only
+finitely many obstructions that we need to understand! 
 
 ---
 
