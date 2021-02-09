@@ -17,9 +17,18 @@ on mse the other day...
 Anyways, somebody [asked a question][1] about finding generators
 in cohomology groups. I think understanding how to compute the generators
 is important, but it's equally important to understand what that computation
-is doing. Regrettably, while there's some very nice visual intuition for 
+is doing. Regrettably, while there's some very nice visual intuition[^1] for 
 homology classes and what they represent, cohomology groups tend to feel a bit
 more abstract.
+
+[^1]: 
+    See, for instance, [this](https://jeremykun.com/2013/04/03/homology-theory-a-primer/) 
+    wonderful series by Jeremy Kun, and even the 
+    [wikipedia page](https://en.wikipedia.org/wiki/Homology_(mathematics)#Background).
+    The basic idea is that homology groups correspond to "holes" in your space.
+    These correspond to subsurfaces that aren't "filled in". That is, they
+    aren't the boundary of another subsurface. This is where the "boundary"
+    terminology comes from.
 
 [1]: https://math.stackexchange.com/q/4011756/655547
 
@@ -33,12 +42,12 @@ so it's far from prerequisite reading.
 In particular, we're going to go over two useful case studies of cohomology:
 
  - [De Rham Cohomology][3]
- - [Simplicial Cohomology][4][^1]
+ - [Simplicial Cohomology][4][^2]
 
 [3]: https://en.wikipedia.org/wiki/De_Rham_cohomology
 [4]: https://en.wikipedia.org/wiki/Simplicial_homology
 
-[^1]: 
+[^2]: 
     I know this is a link to simplicial _homology_, but there's no 
     good overview page (at least on the first page of google) for 
     simplicial cohomology. It's close enough, though, especially since
@@ -143,16 +152,16 @@ We thus come to the following obvious question:
 
 It turns out the answer is "yes"! Our local solutions come from a global
 solution exactly when the "cohomology class" associated to our function
-vanishes[^2].
+vanishes[^3].
 
-[^2]:
+[^3]:
     If you've heard of [sheaves](https://en.wikipedia.org/wiki/Sheaf_(mathematics))
     before, this is also why we care about sheaves! They are the right
     "data structure" for keeping track of these "locally defined functions"
     that we've been talking about.
 
 Depending on exactly what kinds of functions you're trying to define, there's
-a bit of a zoo of cohomology theories[^3]. They all have the property that you
+a bit of a zoo of cohomology theories[^4]. They all have the property that you
 can glue your local solutitions into a global solution exactly when your
 local solution has cohomology class $0$. Then the nonzero cohomology classes 
 are all of the different "obstructions" to piecing your solutions together.
@@ -160,7 +169,7 @@ Rather magically, cohomology groups tend to be finite dimensional, and so
 there are finitely many "basic" obstructions which are responsible for all
 the ways you might fail to glue your pieces together.
 
-[^3]:
+[^4]:
     We can tell we're onto something important, though, because for nice
     spaces, all the different definitions secretly agree! Often when you
     have a topic that is very robust under changes of definition, it means
@@ -182,3 +191,6 @@ which makes it easier to play around with.
 
 ---
 
+The machinery 
+
+---
