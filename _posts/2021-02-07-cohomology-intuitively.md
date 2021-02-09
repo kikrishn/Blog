@@ -19,7 +19,7 @@ in cohomology groups. I think understanding how to compute the generators
 is important, but it's equally important to understand what that computation
 is doing. Regrettably, while there's some very nice visual intuition for 
 homology classes and what they represent, cohomology groups tend to feel a bit
-more abstract and magical.
+more abstract.
 
 [1]: https://math.stackexchange.com/q/4011756/655547
 
@@ -63,7 +63,7 @@ With that out of the way, let's get started ^_^
 
 ---
 
-First things first. Let's give a _very_ high level description of what
+First things first. Let's give a high level description of what
 cohomology does for us. 
 
 Say you have a geometric object, and you want to define a function 
@@ -130,42 +130,55 @@ around to build your function, but the pieces don't quite fit together right.
   Uh oh.
 </div>
 
-Obviously the above argument isn't entirely rigorous. It does do a good job
-outlining what problem cohomology solves, though. We had only one choice
+Obviously the above argument isn't entirely rigorous. That said, it does a 
+good job outlining what problem cohomology solves. We had only one choice
 at every step, and at every step nothing could go wrong. Yet somehow, when
 we got back where we started, our function was no longer well defined.
+We thus come to the following obvious question: 
 
-The cohomology group of a space is, in a sense, the group of all functions
-that you can define locally modulo the functions that extend to the whole space.
-Since we mod out by the functions that _do_ extend, what we're left with are
-precisely the functions which _don't_ extend. That is, the cohomology group
-is (roughly) the group of all locally well-defined functions whose pieces 
-don't glue together nicely.[^2]
+<div class=boxed markdown=1>
+  If you have a way to solve your problem _locally_, can we tell if those local
+  solutions patch together to form a _global_ solution?
+</div>
+
+It turns out the answer is "yes"! Our local solutions come from a global
+solution exactly when the "cohomology class" associated to our function
+vanishes[^2].
 
 [^2]:
-    If you're familiar with [sheaves](https://en.wikipedia.org/wiki/Sheaf_(mathematics)),
-    you'll see why people care so much about "sheaf cohomology". This notion
-    of a function that can be defined locally is made precise by sheaves.
+    If you've heard of [sheaves](https://en.wikipedia.org/wiki/Sheaf_(mathematics))
+    before, this is also why we care about sheaves! They are the right
+    "data structure" for keeping track of these "locally defined functions"
+    that we've been talking about.
 
-Magically, cohomology groups have a tendency to be finitely generated. This
-means that every function whose pieces don't fit together nicely is actually
-a linear combination of finitely many "basic" such functions. Oftentimes
-we say that the generators are the "obstructions" to gluing things together,
-and even if it's obvious to most people, it took me a while to realize why, 
-so I'd like to take a moment to say why.
+Depending on exactly what kinds of functions you're trying to define, there's
+a bit of a zoo of cohomology theories[^3]. They all have the property that you
+can glue your local solutitions into a global solution exactly when your
+local solution has cohomology class $0$. Then the nonzero cohomology classes 
+are all of the different "obstructions" to piecing your solutions together.
+Rather magically, cohomology groups tend to be finite dimensional, and so
+there are finitely many "basic" obstructions which are responsible for all
+the ways you might fail to glue your pieces together.
 
-Every locally-definable function $f$ can be written as a sum 
-$f_{\text{good}} + f_{\text{bad}}$, where $f_\text{good}$ extends to the
-whole space and $f_{\text{bad}}$ doesn't. Here $f_{\text{bad}}$ is the 
-cohomology class of $f$, since $f_{\text{good}} = 0$ in the cohomology group.
-So then we can check if a function extends to the whole space by computing
-its cohomology class. If the class is $0$, then we win! Our function can 
-already extend to a function on the whole space. If the cohomology class is
-_not_ $0$, then $f_\text{bad}$ is the _obstruction_, since if it were not there
-we _would_ be able to extend it. 
+[^3]:
+    We can tell we're onto something important, though, because for nice
+    spaces, all the different definitions secretly agree! Often when you
+    have a topic that is very robust under changes of definition, it means
+    you're studying something real. We see a similar robustness in, for 
+    instance, the notion of computable function. There's at least a half
+    dozen useful definitions of computability, and it's often useful to
+    switch between them fluidly to solve a given problem. Analogously, we
+    have a bunch of definitions of cohomology theories which are known to
+    be equivalent in many contexts. It's similarly useful to keep multiple
+    in your head at once and use the one best suited to a given problem.
 
-Importantly, since these groups tend to be finitely generated, there are only
-finitely many obstructions that we need to understand! 
+<span class="defn">De Rham Cohomology</span> makes this precise by looking at
+certain differential equations which can be solved locally. Then the cohomology
+theory tells us which differential equations admit a global solution. In this 
+post, though, we're going to spend our time thinking about 
+<span class="defn">Simplicial Cohomology</span>. Simplicial Cohomology doesn't
+have quite as snappy a description, but it's more combinatorial in nature,
+which makes it easier to play around with.
 
 ---
 
