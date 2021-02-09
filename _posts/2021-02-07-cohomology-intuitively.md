@@ -150,7 +150,7 @@ We thus come to the following obvious question:
   solutions patch together to form a _global_ solution?
 </div>
 
-It turns out the answer is "yes"! Our local solutions come from a global
+It turns out the answer is yes! Our local solutions come from a global
 solution exactly when the "cohomology class" associated to our function
 vanishes[^3].
 
@@ -160,14 +160,14 @@ vanishes[^3].
     "data structure" for keeping track of these "locally defined functions"
     that we've been talking about.
 
-Depending on exactly what kinds of functions you're trying to define, there's
-a bit of a zoo of cohomology theories[^4]. They all have the property that you
-can glue your local solutitions into a global solution exactly when your
-local solution has cohomology class $0$. Then the nonzero cohomology classes 
-are all of the different "obstructions" to piecing your solutions together.
-Rather magically, cohomology groups tend to be finite dimensional, and so
-there are finitely many "basic" obstructions which are responsible for all
-the ways you might fail to glue your pieces together.
+There's a bit of a zoo of cohomology theories depending on exactly what kinds 
+of functions you're trying to define[^4]. They all work in a similar way, though:
+your local solutitions piece together exactly when their cohomology class is $0$. 
+So the nonzero cohomology classes are all of the different "obstructions" to 
+piecing your solutions together. Rather magically, cohomology groups tend to 
+be finite dimensional, and so there are finitely many "basic" obstructions 
+which are responsible for all the ways you might fail to glue your pieces 
+together.
 
 [^4]:
     We can tell we're onto something important, though, because for nice
@@ -191,6 +191,43 @@ which makes it easier to play around with.
 
 ---
 
-The machinery 
+Actually setting up cohomology requires a fair bit of machinery, so before
+go through the formalities I want to take a second to detail the problem
+we'll solve.
+
+Take your favorite graph, but make sure you label the vertices. 
+My favorite graph (at least for the purposes of explanation) is this one:
+
+TODO: A Triangle
+
+Now our problem will be to "integrate" a function defined on the edges
+to one defined on the vertices. What do I mean by this? Let's see some
+concrete examples:
+
+TODO: A Triangle with $e_{01} = 5 = e_{02}$ and $e_{12} = 0$
+
+Now we want to _find_ a function on the vertices whose difference 
+along each edge agrees with our function. Clearly the following works:
+
+TODO: A triangle as before, but with $v_0 = 3$ and $v_1 = v_2 = 8$
+
+Now $v_1$ gets assigned $8$ and $v_0$ gets assigned $3$, and
+their difference is $5$, which is what we wanted. 
+As a remark, this is why we had to order our vertices -- we needed a way to 
+consistently decide what direction to subtract.
+
+Notice we pick up an arbitrary constant when we do this -- 
+We can set $v_0 = C$ for any $C$ we want as long as $v_1 = v_2 = C+5$.
+This is one parallel with integration, and justifies our language.
+
+Let's look at a different function now:
+
+TODO: A triangle with $e_{01} = 5$, $e_{02} = e_{12} = 0$.
+
+You can quickly convince yourself that no matter how hard you try,
+you can't integrate this function. No function on the vertices can
+possibly be compatible with our function on the edges.
+
+
 
 ---
