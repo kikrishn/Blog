@@ -39,15 +39,19 @@ the theory, and has the added benefit of being extremely comprehensible!
     I've been enjoying that as well (ch 3,4). <br>
     Obviously I'm not only reading textbooks, though. I've spent lots
     of time with Terry Tao's lecture notes on the subject 
-    (see [here][2] for the first post in the series), as well as 
+    (see [here][4], and [here][2]), as well as 
     [this][3] PDF from Eugenia Malinnikova's measure theory course
     at Stanford. I was planning to read parts of Royden and Axler's new book
     as well, but didn't get around to it. 
 
 So, let's get started.
 
+Include some sage code that actually witnesses smooth functions as the
+difference monotone functions?
+
 
 
 [1]: https://en.wikipedia.org/wiki/Lebesgue_differentiation_theorem
 [2]: https://terrytao.wordpress.com/2009/01/04/245b-notes-1-signed-measures-and-the-radon-nikodym-lebesgue-theorem/
 [3]: http://web.stanford.edu/~eugeniam/math205a/L3.pdf
+[4]: https://terrytao.wordpress.com/2010/10/16/245a-notes-5-differentiation-theorems/
