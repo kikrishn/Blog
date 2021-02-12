@@ -579,11 +579,11 @@ is to work through examples, I've included some code to do just that!
 # Write the edges in the box. You can add isolated vertices by including an 'edge' with only one vertex
 @interact
 def _(Simplices = input_box([["a"],["b","c"],["c","d"],["b","d"]], width=50), auto_update=False):
-    print("The graph is:")
+    show("The graph is:")
     S = SimplicialComplex(Simplices)
     show(S.graph()) # I can't figure out how to directly draw the complex...
     
-    print("The chain complex is:")
+    show("The chain complex is:")
     
     # we did it over the reals in the post,
     # but if we use the reals here, sage will
@@ -592,12 +592,12 @@ def _(Simplices = input_box([["a"],["b","c"],["c","d"],["b","d"]], width=50), au
     C = S.chain_complex(base_ring=QQ)
     show(ascii_art(C))
     
-    print("Which dualizes to:")
+    show("Which dualizes to:")
     
     Cdual = C.dual()
     show(ascii_art(Cdual))
     
-    print("So the cohomology is:")
+    show("So the cohomology is:")
     
     # the cohomology of the original complex is
     # exactly the homology of the dual complex.
@@ -607,7 +607,7 @@ def _(Simplices = input_box([["a"],["b","c"],["c","d"],["b","d"]], width=50), au
     # Remember, the outputs here represent functions!
     # The entry in position i is the value that our
     # function assigns edge i
-    print("With generators:")
+    show("With generators:")
     for g in H1:
         show(g[1].vector(1))
 </script>
