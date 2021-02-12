@@ -576,7 +576,40 @@ is to work through examples, I've included some code to do just that!
 
 <div class="linked_auto">
 <script type="text/x-sage">
-# nothing
+# Write the edges in the box. You can add isolated vertices by including an 'edge' with only one vertex
+@interact
+def _(Simplices = input_box([["a"],["b","c"],["c","d"],["b","d"]], width=50), auto_update=False):
+    print("The graph is:")
+    S = SimplicialComplex(Simplices)
+    show(S.graph()) # I can't figure out how to directly draw the complex...
+    
+    print("The chain complex is:")
+    
+    # we did it over the reals in the post,
+    # but if we use the reals here, sage will
+    # print 1.00000000000000 instead of 1...
+    # so we're using the rationals instead
+    C = S.chain_complex(base_ring=QQ)
+    show(ascii_art(C))
+    
+    print("Which dualizes to:")
+    
+    Cdual = C.dual()
+    show(ascii_art(Cdual))
+    
+    print("So the cohomology is:")
+    
+    # the cohomology of the original complex is
+    # exactly the homology of the dual complex.
+    H1 = Cdual.homology(deg=1,generators=True)
+    show(QQ^(len(H1)))
+    
+    # Remember, the outputs here represent functions!
+    # The entry in position i is the value that our
+    # function assigns edge i
+    print("With generators:")
+    for g in H1:
+        show(g[1].vector(1))
 </script>
 </div>
 
