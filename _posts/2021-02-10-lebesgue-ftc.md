@@ -17,23 +17,29 @@ into a coherent narrative. It doesn't have to be linear
 some purpose, and fit together neatly. 
 I also struggle to care about theorems before I know what they do. This is
 part of why I care so much about examples, and it means the other half of
-finding a narrative is understanding what kinds of problems our techniques
-are good for. 
+finding a narrative is understanding what our techniques are used for.
 
-After a fair amount of reading and thinking[^1], I finally fit the puzzle 
-pieces together. Since I wrote it all down for myself as part of my studying, 
-I figured I would post it here as well in case other people find it useful. 
+After a fair amount of reading and thinking[^1], I think I've finally fit the 
+puzzle pieces together in a way that works for me. Since I wrote it all down 
+for myself as part of my studying, I figured I would post it here as well in 
+case other people find it useful. Keep in mind this is probably obvious to 
+anyone with an analytic mind. It's even obvious to me in hindsight. So I want
+to write this up while I still remember what it feels like for this to be 
+nonobvious.
 
-So then, let's get started!
+Let's get started!
 
 ---
 
 To start, we need to remember how to relate functions and measures. Everything
-we say here will be in $\mathbb{R}^1$.
+we say here will be in $\mathbb{R}$, and $m$ will be the ($1$-dimensional) 
+Lebesgue Measure.
 
 <div class=boxed markdown=1>
   If $F$ is increasing and continuous from the right, then there is a 
-  (unique!) regular borel maeasure $\mu_F$ so that 
+  (unique!) regular borel maeasure $\mu_F$ 
+  (called the [Lebesgue-Stieltjes Measure][7] associated to $F$)
+  so that 
 
   $$
   \mu_F((a,b]) = F(b) - F(a)
@@ -61,11 +67,11 @@ continuous, we need to assume our starting function is right continuous
 in order to guarantee $F_{\mu_F} = F$.
 
 This is not a big deal, though. A monotone function is automatically continuous
-except at a countable set (see [here][6], say) and at its countably many
+except at a countable set (see [here][6] for a proof) and at its countably many
 discontinuities, we can force right-continuity by defining 
 
 $$
-F_r(x_0) \triangleq \lim_{x \to x_0^+} F(x)
+\tilde{F}(x_0) \triangleq \lim_{x \to x_0^+} F(x)
 $$
 
 which agrees with $F$ wherever $F$ is continuous.
@@ -73,65 +79,63 @@ If we put our probabilist hat on, we say that $F_\mu$ is the
 <span class="defn">Cumulative Distribution Function</span> of $\mu$. 
 Here $F_\mu(x)$ represents the total (cumulative) mass we've seen so far.
 
-The measures $\mu_F$ are called [Lebesgue-Stieltjes Measures][7], and they're
-extremely concrete. Secretly this post is about manipulating Lebesgue-Stieltjes
-measures, and showing exactly how concrete they are[^2].
-
-There's a very important question which we have to ask ourselves now:
-How do we actually _compute_ with these measures? For instance,
-is there a simple way to evaluate integrals over these measures? 
-We've learned a lot about integration in our calculus classes, but do
-the techniques carry over to this new setting? If we could relate 
-$\mu_F$ to the lebesgue measure $m$ somehow, then we would be able to use
-all of our techniques from calculus! Enter the Lebesgue-Radon-Nikodym Theorem:
+It turns out that Lebesgue-Stieltjes measures are extremely concrete[^2], and
+a lot of this post is going to talk about computing with them. After all,
+it's entirely unclear which (if any!) techniques from a calculus class carry
+over when we try to actually integrate against some $\mu_F$. Before we can 
+talk about computation, though, we have to recall another (a priori unrelated)
+way to relate functions to measures:
 
 <div class=boxed markdown=1>
-Every measure $\mu$ decomposes as $d \mu = d \lambda + f dm$ where
-$\lambda \perp m$
+  Given a positive, locally $L^1$ function $f$, we can define the regular measure $m_f$ by
 
-People often write $f = \frac{d \mu}{dm}$, for reasons we will see shortly.
+  $$m_f(E) \triangleq \int_E f dm$$
+
+  Moreover, if $m_f = m_g$, then $f=g$ almost everywhere.
 </div>
 
-Ok, so we can decompose $\mu$ in some nice way... what does this really buy us?
-In practice, it means we can write 
+The locally $L^1$ conditions says that $\int_E f dm$ is finite 
+whenever $E$ is bounded. It's not hard to show that this is equivalent to
+the regularity of $m_f$, which we'll need shortly.
+
+So we have two ways of converting between measures and functions. It turns out
+we can put these together as follows:
 
 $$
-\int g d \mu = \int g d \lambda + \int g \cdot f dm
+f \rightsquigarrow m_f \rightsquigarrow F_{m_f}
 $$
 
-The first integral will require some finesse, but the second is just a 
-"classical" integral of a product of two functions! So now we're led to two
-new (natural) questions: 
+How does $f$ relate to $F = F_{m_f}$, though? Well...
 
- - How do we integrate against $\lambda \perp m$?
- - How do we compute $f$ from $\mu$?
+$$\int_a^b f dm = \int_{(a,b]} dm_f = F(b) - F(a)$$
 
-This machinery works for more general measures, but to keep things focused,
-let's see what this means for Lebesgue-Stieltjes measures $\mu_F$. 
-Moreover, we're not going to say how to integrate against a measure $\lambda$ 
-which is mutually singular to $m$. The case of 
-(linear combinations of) [dirac measures][8] is quite easy to handle,
-but there are lots of [pathologies][9] lurking which I'd rather not talk about.
-So, for the rest of this post at least, $F$ will be assumed continuous[^3].
-
-The second question, though, is answered by the following theorem:
+So we can view $F$ as a kind of "antiderivative" of $f$! There is still a 
+question nagging us, though. We know sending $F \rightsquigarrow \mu_F$ is
+faithful, in the sense that $F = F_{\mu_F}$ and $\mu_{F_\mu} = \mu$. We've
+now introduced the measure $m_f$, but we didn't say how to recover $f$ 
+from $m_f$... Is it even possible? The answer awaits:
 
 <div class=boxed markdown=1>
-For a regular measure $\mu$ which decomposes as $d\mu = d\lambda + f dm$,
-we see (for $m$-almost every $x$):
+Lebesgue-Radon-Nikodym Theorem:
 
-$$
-\lim_{r \to 0} \frac{\mu(B_r(x))}{m(B_r(x))} = f(x)
-$$
+Every measure $\mu$ decomposes (uniquely!) as 
+
+$$\mu = \lambda + m_f$$ 
+
+for some measure $\lambda \perp m$ and some function $f$.
+
+Moreover, we can recover $f$ from $\mu$ as[^3]
+
+$$f(x) = \lim_{r \to 0} \frac{\mu(B_r(x))}{m(B_r(x))}$$
+
+for almost every $x$. Here, as usual $B_r(x) = (x-r,x+r)$ is the ball of
+radius $r$ about $x$.
+
+People often write $f = \frac{d \mu}{dm}$, and call it the 
+<span class="defn">Radon-Nikodym Derivative</span>. Let's see why.
 </div>
 
-Here, as usual, $B_r(x)$ is the ball of radius $r$ around $x$. This gives
-us some control over the function $f$! If we have a good understanding of
-what $\mu$ looks like near a point, then we also know what $f$ should be.
-We can actually relax this constraint to a family that "shrinks nicely" to $x$, 
-though it's still a bit unclear to me what that means and what it buys us.
-
-In the case of Lebesgue-Stieltjes measures, though, this buys us something
+In the case of Lebesgue-Stieltjes measures, this buys us something
 almost magical:
 
 For almost every $x$, we see
@@ -147,9 +151,40 @@ f(x)
 $$
 
 Now we see why we might call this $f$ the Radon-Nikodym _derivative_. In 
-the special case of Lebesuge-Stieltjes measures, it literally _is_ the 
-derivative. You should think of $f = F'$ as being a kind of "density". Then
-we can recover our "mass" $\mu_F$ by integrating over $f$.
+the special case of Lebesgue-Stieltjes measures, it literally _is_ the 
+derivative. We saw earlier that $F$ acts like an antiderivative of $f$,
+and now we see the other direction works too!
+
+This also answers our earlier question about _computing_ with the measures
+$\mu_F$! It's easy to integrate against $m_f$, since monotone convergence buys
+us $\int g dm_f = \int g \cdot f dm$. 
+
+Then this buys us the (very memorable) formula:
+
+$$\int g d \mu_F = \int g \frac{d \mu_F}{dm} dm$$
+
+and now we're integrating against lebesgue measure, and all our years of 
+calculus experience is applicable!
+
+Of course, I've left out an important detail: Whatever happened to that
+measure $\lambda$? These are called [singular measures][11], and they can be
+pretty [pathological][9]. A good first intuition, though, is to think of them
+like [dirac measures][8], and that's the case that we'll focus on in this post[^4].
+
+Ok, so we can decompose $\mu$ in some nice way... what does this really buy us?
+In practice, it means we can write 
+
+$$
+\int g d \mu = \int g d \lambda + \int g \cdot f dm
+$$
+
+The first integral will require some finesse, but the second is just a 
+"classical" integral of a product of two functions! So now we're led to two
+new (natural) questions: 
+
+ - How do we integrate against $\lambda \perp m$?
+ - How do we compute $f$ from $\mu$?
+
 
 So, as a quick example, say $$F = \begin{cases} 0 & x \leq 0 \\ x^2 & x \geq 0 \end{cases}$$.
 Then, for total concreteness:
@@ -268,11 +303,17 @@ for example.
     Chapter 6 in particular is great for this, but the whole book is excellent.
 
 [^3]:
-    Again, if you want to see an excellent treatment of the computational
-    aspect of this material, "The Lebesgue-Stieltjes Integral: A Practical Introduction"
-    should really be your best friend.
+    We can actually relax this from balls $B_r(x)$ to a family $\{E_r\}$ 
+    that "shrinks nicely" to $x$, though it's still a bit unclear to me 
+    what that means and what it buys us. It seems like one important feature
+    is that the $E_r$ don't have to contain $x$ itself. It's enough to take up
+    a (uniformly) positive fraction of space near $x$.
 
-[^4]: 
+[^4]:
+    In no small part because I'm not sure how you would actually integrate
+    against a singular continuous measure in the wild...
+
+[^5]: 
     There's another way of viewing this theorem which is quite nice. I
     think I saw it on Terry Tao's blog, but now that I'm looking for it I 
     can't find it... Regardless, once we put on our nullset goggles, we
@@ -298,3 +339,4 @@ for example.
 [8]: https://en.wikipedia.org/wiki/Dirac_measure
 [9]: https://en.wikipedia.org/wiki/Cantor_distribution
 [10]: https://en.wikipedia.org/wiki/Bounded_variation
+[11]: https://en.wikipedia.org/wiki/Singular_measure
