@@ -213,28 +213,37 @@ $$
 
 ---
 
-Ok, I hear you saying. This gives us a really close connection between 
-continuous increasing functions $F$ on $\mathbb{R}$ and positive 
-integrable functions $f$ on $\mathbb{R}$... Doesn't that seem restrictive?
-Can we tweak this machinery to get it to say something about _signed_ functions?
+Ok, I hear you saying. There's a really tight connection between 
+increasing (right-)continuous functions $F$ on $\mathbb{R}$ and 
+positive integrable functions $f$. This connection is at its tightest
+wherever $F$ is actually continuous, as then the measures $\mu_F$ and $f dm$
+have a derivative relationship, which is reflected in the same derivative
+relationship of functions $F' = f$. Not only does this give us a way to 
+generalize the notion of derivative to functions that might not normally 
+have one, it gives us a concrete way of evaluating Lebesgue-Stieltjes integrals.
 
-Of course we can, dear reader! This is exactly why we care about signed
-(and complex!) measures. In fact, everything that we've just said goes 
-through in the more general setting where
+But doesn't this feel restrictive? There are lots of functions $F$ which aren't
+(right-)continuous or increasing that we might be interested in differentiating. 
+There are _also_ lots of nonpositive functions $f$ which we might be interested
+in integrating. Since we got a kind of "fundamental theorem of calculus" from
+these measure theoretic techniques, if we can show how to apply these techniques
+to a broader class of functions, we might be able to get a more general 
+fundamental theorem of calculus.
 
-- $F$ is of [bounded variation][10]
-- $f$ is $L^1$.
+Of course, to talk about more general functions $F$, we'll need to allow
+our measures to assign _negative_ mass to certain sets. That's ok, though,
+and we can even go so far as to allow _complex_ valued measures! In fact,
+from what I can tell, this really is the Raison d'être for signed and 
+complex measures. I was always a bit confused why we might care about these
+objects, but it's beginning to make more sense.
 
-Given a bounded variation function $F$, we can find a signed measure
-$\mu_F$. Moreover, if $F$ is continuous then integrating against $\mu_F$
-is exactly the same as integrating aginst $f = F'$! The points where $F$
-is discontinuous have something to do with singular mesaures $\lambda$ again,
-which we're ignoring for simplicity.
-
+This post is getting pretty long, though, so we'll talk about the signed
+case in a (much shorter, hopefully) part 2!
 
 TODO: say something about dirac measures?
-TODO: abs. cts
+
 TODO: lebesgue ftc
+
 TODO: say something about how this works for _any_ measures, not just
 L-S ones. That gives us a way of "doing calculus" with measures, 
 and can make precise the idea that $\delta_0$ is "infinitely dense at $0$",
