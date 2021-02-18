@@ -72,9 +72,165 @@ $$
 which agrees with $F$ wherever $F$ is continuous.
 If we put our probabilist hat on, we say that $F_\mu$ is the 
 <span class="defn">Cumulative Distribution Function</span> of $\mu$. 
-Here $F_\mu(x)$ represents the total cumulative mass we've seen so far.
+Here $F_\mu(x)$ represents the total (cumulative) mass we've seen so far.
 
-There's a very important question which we have to ask ourselves now.
+The measures $\mu_F$ are called [Lebesgue-Stieltjes Measures][7], and they're
+extremely concrete. Secretly this post is about manipulating Lebesgue-Stieltjes
+measures, and showing exactly how concrete they are[^2].
+
+There's a very important question which we have to ask ourselves now:
+How do we actually _compute_ with these measures? For instance,
+is there a simple way to evaluate integrals over these measures? 
+We've learned a lot about integration in our calculus classes, but do
+the techniques carry over to this new setting? If we could relate 
+$\mu_F$ to the lebesgue measure $m$ somehow, then we would be able to use
+all of our techniques from calculus! Enter the Lebesgue-Radon-Nikodym Theorem:
+
+<div class=boxed markdown=1>
+Every measure $\mu$ decomposes as $d \mu = d \lambda + f dm$ where
+$\lambda \perp m$
+
+People often write $f = \frac{d \mu}{dm}$, for reasons we will see shortly.
+</div>
+
+Ok, so we can decompose $\mu$ in some nice way... what does this really buy us?
+In practice, it means we can write 
+
+$$
+\int g d \mu = \int g d \lambda + \int g \cdot f dm
+$$
+
+The first integral will require some finesse, but the second is just a 
+"classical" integral of a product of two functions! So now we're led to two
+new (natural) questions: 
+
+ - How do we integrate against $\lambda \perp m$?
+ - How do we compute $f$ from $\mu$?
+
+This machinery works for more general measures, but to keep things focused,
+let's see what this means for Lebesgue-Stieltjes measures $\mu_F$. 
+Moreover, we're not going to say how to integrate against a measure $\lambda$ 
+which is mutually singular to $m$. The case of 
+(linear combinations of) [dirac measures][8] is quite easy to handle,
+but there are lots of [pathologies][9] lurking which I'd rather not talk about.
+So, for the rest of this post at least, $F$ will be assumed continuous[^3].
+
+The second question, though, is answered by the following theorem:
+
+<div class=boxed markdown=1>
+For a regular measure $\mu$ which decomposes as $d\mu = d\lambda + f dm$,
+we see (for $m$-almost every $x$):
+
+$$
+\lim_{r \to 0} \frac{\mu(B_r(x))}{m(B_r(x))} = f(x)
+$$
+</div>
+
+Here, as usual, $B_r(x)$ is the ball of radius $r$ around $x$. This gives
+us some control over the function $f$! If we have a good understanding of
+what $\mu$ looks like near a point, then we also know what $f$ should be.
+We can actually relax this constraint to a family that "shrinks nicely" to $x$, 
+though it's still a bit unclear to me what that means and what it buys us.
+
+In the case of Lebesgue-Stieltjes measures, though, this buys us something
+almost magical:
+
+For almost every $x$, we see
+
+$$
+\begin{aligned}
+f(x) 
+&= \lim_{r \to 0} \frac{\mu_F(B_r(x))}{m(B_r(x))} \\
+&= \lim_{r \to 0} \frac{F(x+r) - F(x-r)}{x+r - (x-r)} \\
+&= \lim_{r \to 0} \frac{F(x+r) - F(x-r)}{2r} \\
+&= F'(x)
+\end{aligned}
+$$
+
+Now we see why we might call this $f$ the Radon-Nikodym _derivative_. In 
+the special case of Lebesuge-Stieltjes measures, it literally _is_ the 
+derivative. You should think of $f = F'$ as being a kind of "density". Then
+we can recover our "mass" $\mu_F$ by integrating over $f$.
+
+So, as a quick example, say $$F = \begin{cases} 0 & x \leq 0 \\ x^2 & x \geq 0 \end{cases}$$.
+Then, for total concreteness:
+
+$$
+\int_{-\pi}^\pi \sin(x) d \mu_F = \int_{-\pi}^\pi \sin(x) \cdot F' dm
+$$
+
+We can compute $$F' = \begin{cases} 0 & x \leq 0 \\ 2x & x \geq 0 \end{cases}$$, 
+so we split up our integral as
+
+$$
+\int_{-\pi}^0 \sin(x) \cdot 0 dm + \int_0^\pi \sin(x) \cdot 2x dm
+$$
+
+Of course, the first integral is $0$, and the second integral is $2\pi$
+(integrating by parts). So then
+
+$$
+\int_{-\pi}^\pi \sin(x) d \mu_F = 2\pi
+$$
+
+That wasn't so bad, right?
+
+The relationship between $F'$ and $f$ is really exactly as you'd expect.
+For instance, let's look at the Lebesgue Differentiation Theorem:
+
+<div class=boxed markdown=1>
+For almost every $x$, we have:
+
+$$
+\lim_{r \to 0} \frac{1}{m B_r(x)} \int_{B_r(x)} f(t) dm = f(x)
+$$
+</div>
+
+Why is this called the _differentiation_ theorem? Well, remember
+we can associate a function $F$ to any regular borel measure. 
+In particular, we can associate a function $F$ to $d \mu = f dm$.
+
+For $x > 0$ (for simplicity), we have $F_\mu(x) = \mu((0,x]) = \int_{(0,x]} f dm$.
+So $F_\mu$ is a kind of integral of $f$. Then in this context, what does the
+differentiation theorem tell us?
+
+$$
+\begin{aligned}
+f(x) 
+&= \lim_{r \to 0} \frac{1}{m B_r(x)} \int_{B_r(x)} f dm \\
+&= \lim_{r \to 0} \frac{1}{(x+r) - (x-r)} \int_{x-r}^{x+r} f dm \\
+&= \lim_{r \to 0} \frac{1}{2r} \left ( \int_{0}^{x+r} f dm - \int_{0}^{x-r} f dm \right )\\
+&= \lim_{r \to 0} \frac{F_\mu(x+r) - F_\mu(x-r)}{2r} \\
+&= F_\mu'(x)
+\end{aligned}
+$$
+
+So this is giving us part of the fundamental theorem of calculus[^4]! This theorem
+(in the case of Lebesgue-Stieltjes measures) says exactly that (for almost every $x$)
+
+$$
+\left ( x \mapsto \int_0^x f dm \right )' = f(x)
+$$
+
+---
+
+Ok, I hear you saying. This gives us a really close connection between 
+continuous increasing functions $F$ on $\mathbb{R}$ and positive 
+integrable functions $f$ on $\mathbb{R}$... Doesn't that seem restrictive?
+Can we tweak this machinery to get it to say something about _signed_ functions?
+
+Of course we can, dear reader! This is exactly why we care about signed
+(and complex!) measures. In fact, everything that we've just said goes 
+through in the more general setting where
+
+- $F$ is of [bounded variation][10]
+- $f$ is $L^1$.
+
+Given a bounded variation function $F$, we can find a signed measure
+$\mu_F$. Moreover, if $F$ is continuous then integrating against $\mu_F$
+is exactly the same as integrating aginst $f = F'$! The points where $F$
+is discontinuous have something to do with singular mesaures $\lambda$ again,
+which we're ignoring for simplicity.
 
 
 ---
@@ -87,6 +243,33 @@ There's a very important question which we have to ask ourselves now.
     at Stanford. I read parts of Axler's new book, and while I meant to read
     some of Royden too, I didn't get around to it.
 
+[^2]:
+    As an aside, I really can't recommend Carter and van Brunt's 
+    "The Lebesgue-Stieltjes Integral: A Practical Introduction" enough. 
+    It spends a lot of time on concrete examples of computation, which is
+    exactly what many measure theory courses are regrettably missing.
+    Chapter 6 in particular is great for this, but the whole book is excellent.
+
+[^3]:
+    Again, if you want to see an excellent treatment of the computational
+    aspect of this material, "The Lebesgue-Stieltjes Integral: A Practical Introduction"
+    should really be your best friend.
+
+[^4]: 
+    There's another way of viewing this theorem which is quite nice. I
+    think I saw it on Terry Tao's blog, but now that I'm looking for it I 
+    can't find it... Regardless, once we put on our nullset goggles, we
+    can no longer evaluate functions. After all, for any particular point
+    of interest, I can change the value of my function there without changing
+    its equivalence class modulo nullsets. However, even with our nullset 
+    goggles on, the integral $\frac{1}{m B_r(x)} \int_{B_r(x)} f dm$ is well 
+    defined! So for almost every $x$, we can "evaluate" $f$ through this
+    (rather roundabout) approach. The benefit is that this notion of evaluation
+    does not depend on your choice of representative!
+
+
+
+
 
 [1]: https://en.wikipedia.org/wiki/Lebesgue_differentiation_theorem
 [2]: https://terrytao.wordpress.com/2009/01/04/245b-notes-1-signed-measures-and-the-radon-nikodym-lebesgue-theorem/
@@ -94,5 +277,7 @@ There's a very important question which we have to ask ourselves now.
 [4]: https://terrytao.wordpress.com/2010/10/16/245a-notes-5-differentiation-theorems/
 [5]: https://en.wikipedia.org/wiki/Carath%C3%A9odory%27s_extension_theorem
 [6]: https://math.stackexchange.com/questions/84870/how-to-show-that-a-set-of-discontinuous-points-of-an-increasing-function-is-at-m
-
-
+[7]: https://en.wikipedia.org/wiki/Lebesgue%E2%80%93Stieltjes_integration
+[8]: https://en.wikipedia.org/wiki/Dirac_measure
+[9]: https://en.wikipedia.org/wiki/Cantor_distribution
+[10]: https://en.wikipedia.org/wiki/Bounded_variation
