@@ -9,8 +9,7 @@ So I had an analysis exam last week which roughly covered the material in
 chapter 3 of Folland's "Real Analysis: Modern Techniques and Their Applications".
 I'm decently comfortable with the material, but a lot of it has always felt 
 kind of unmotivated. For example, why is the [Lebesgue Differentiation Theorem][1]
-called that? It obviously looks _something_ like a derivative... But I was 
-never able to quite make the connection feel solid. 
+called that? It doesn't _look_ like a derivative... At least not at first glance.
 
 A big part of my studying process is fitting together the various theorems
 into a coherent narrative. It doesn't have to be linear 
@@ -231,6 +230,15 @@ $\mu_F$. Moreover, if $F$ is continuous then integrating against $\mu_F$
 is exactly the same as integrating aginst $f = F'$! The points where $F$
 is discontinuous have something to do with singular mesaures $\lambda$ again,
 which we're ignoring for simplicity.
+
+
+TODO: say something about dirac measures?
+TODO: abs. cts
+TODO: lebesgue ftc
+TODO: say something about how this works for _any_ measures, not just
+L-S ones. That gives us a way of "doing calculus" with measures, 
+and can make precise the idea that $\delta_0$ is "infinitely dense at $0$",
+for example.
 
 
 ---
