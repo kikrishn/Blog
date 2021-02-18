@@ -157,11 +157,11 @@ and now we see the other direction works too!
 
 This also answers our earlier question about _computing_ with the measures
 $\mu_F$! It's easy to integrate against $m_f$, since monotone convergence buys
-us $\int g dm_f = \int g \cdot f dm$. 
+us $\int g dm_f = \int g f dm$. 
 
 Then this buys us the (very memorable) formula:
 
-$$\int g d \mu_F = \int g \frac{d \mu_F}{dm} dm$$
+$$\int g d \mu_F = \int g \frac{d \mu_F}{dm} dm = \int g F' dm$$
 
 and now we're integrating against lebesgue measure, and all our years of 
 calculus experience is applicable!
@@ -171,19 +171,19 @@ measure $\lambda$? These are called [singular measures][11], and they can be
 pretty [pathological][9]. A good first intuition, though, is to think of them
 like [dirac measures][8], and that's the case that we'll focus on in this post[^4].
 
-Ok, so we can decompose $\mu$ in some nice way... what does this really buy us?
-In practice, it means we can write 
+The above formula is true exactly when $F$ is continuous everywhere. At points
+where it is _discontinuous_ we need to change it slightly.
 
-$$
-\int g d \mu = \int g d \lambda + \int g \cdot f dm
-$$
+Let's write $$F = \begin{cases} 0 & x \lt 0 \\ 1 & 0 \leq x \end{cases}$$.
 
-The first integral will require some finesse, but the second is just a 
-"classical" integral of a product of two functions! So now we're led to two
-new (natural) questions: 
+TODO: talk about mass, density
 
- - How do we integrate against $\lambda \perp m$?
- - How do we compute $f$ from $\mu$?
+TODO: a photo of the heaviside function
+
+---
+
+TODO: the sin(x) example from below. But with pictures of the cumulative 
+function.
 
 
 So, as a quick example, say $$F = \begin{cases} 0 & x \leq 0 \\ x^2 & x \geq 0 \end{cases}$$.
@@ -208,6 +208,19 @@ $$
 $$
 
 That wasn't so bad, right?
+
+
+TODO: another example involving a discts function, maybe the one from the exam?
+Again, with pictures.
+
+
+
+
+
+
+
+
+
 
 The relationship between $F'$ and $f$ is really exactly as you'd expect.
 For instance, let's look at the Lebesgue Differentiation Theorem:
@@ -274,6 +287,13 @@ objects, but it's beginning to make more sense.
 
 This post is getting pretty long, though, so we'll talk about the signed
 case in a (much shorter, hopefully) part 2!
+
+
+
+
+
+
+
 
 TODO: say something about dirac measures?
 
