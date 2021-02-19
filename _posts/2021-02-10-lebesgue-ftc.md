@@ -124,26 +124,26 @@ People often write $f = \frac{d \mu}{dm}$, and call it the
 </div>
 
 In the case $\mu = m_f$, then this shows us how to recover 
-$f$ (uniquely) from $m_f$, and life is good: $\frac{d m_f}{dm} = f$.
+$f$ (uniquely) from $m_f$, and life is good: 
 
-The converse doesn't work quite as well. In order to say 
+$$\frac{d m_f}{dm} = f$$
+
+The converse needs a ~bonus condition~. In order to say 
 $\mu = m_{\frac{d\mu}{dm}}$, we need to know that $\mu$ is 
 [absolutely continuous][12] with respect to $m$, written $\mu \ll m$.
 
 <div class=boxed markdown=1>
-As an exercise, do you see why this is an obvious condition? If
+As an exercise, do you see why this condition is "obviously" necessary? If
 $\mu \not \ll m$, why don't we have a chance of writing $\mu = m_f$
-for any $f$?
+for any $f$? 
 </div>
 
-In the case of Lebesgue-Stieltjes measures, this buys us something
-almost magical:
-
-For almost every $x$, we see
+In the case of Lebesgue-Stieltjes measures, Lebesgue-Radon-Nikodym buys us 
+something almost magical. For almost every $x$, we see:
 
 $$
 \begin{aligned}
-f(x) 
+\frac{d\mu_F}{dm}
 &= \lim_{r \to 0} \frac{\mu_F(B_r(x))}{m(B_r(x))} \\
 &= \lim_{r \to 0} \frac{F(x+r) - F(x-r)}{x+r - (x-r)} \\
 &= \lim_{r \to 0} \frac{F(x+r) - F(x-r)}{2r} \\
@@ -153,8 +153,8 @@ $$
 
 Now we see why we might call this $f$ the Radon-Nikodym _derivative_. In 
 the special case of Lebesgue-Stieltjes measures, it literally _is_ the 
-derivative. We saw earlier that $F$ acts like an antiderivative of $f$,
-and now we see the other direction works too!
+derivative. We saw earlier that $F = F_{m_f}$ acts like an antiderivative of $f$,
+and now we see $f = \frac{d \mu_F}{dm}$ works as a derivative of $F$ as well!
 
 In fact, yet more analogies are true! Let's take a look at the 
 <span class="defn">Lebesgue Differentiation Theorem</span>
@@ -172,8 +172,7 @@ Let's look at $F_{m_f}$, which you should remember is a kind of antiderivative
 for $f$.
 
 For $x > 0$ (for simplicity), we have $F_{m_f}(x) = m_f((0,x]) = \int_{(0,x]} f dm$.
-Again, we see how $F_{m_f}$ is an integral of $f$. Moreover, if we rewrite
-the theorem in terms of $F_{m_f}$, what do we see?
+If we rewrite the theorem in terms of $F_{m_f}$, what do we see?
 
 $$
 \begin{aligned}
@@ -193,11 +192,41 @@ $$
 \left ( x \mapsto \int_0^x f dm \right )' = f(x)
 $$
 
+Let's take a moment to summarize the relationships we've seen. Then we'll
+use these relationships to actually _compute_ with Lebesgue-Stieltjes integrals.
 
+<div class=boxed markdown=1>
+$$
+ \bigg \{ \text{increasing, right-continuous functions $F$} \bigg \}
+ \leftrightarrow
+ \bigg \{ \text{regular borel measures $\mu_F$} \bigg \}
+$$
 
-This also answers our earlier question about _computing_ with the measures
-$\mu_F$! It's easy to integrate against $m_f$, since monotone convergence buys
-us $\int g dm_f = \int g f dm$. 
+$$
+  \bigg \{ \text{positive locally $L^1$ functions $f$} \bigg \}
+  \leftrightarrow
+  \bigg \{ \text{regular borel measures $m_f \ll m$} \bigg \}
+$$
+
+Moreover:
+
+ - By considering $F_{m_f}$ we see functions of the first kind are antiderivatives
+of functions of the second kind.
+
+ - By considering $\frac{d \mu_F}{dm}$, we see functions of the second kind
+are (almost everywhere) derivatives of functions of the first kind.
+
+ - Indeed, $\frac{d \mu_F}{dm} = F'$ almost everywhere.
+
+ - And $F_{m_f}' = f$ almost everywhere.
+</div>
+
+---
+
+Why should we care about these theorems? Well, Lebesgue-Stieltjes integrals
+arise fairly regularly in the wild, and these theorems let us actually 
+compute them! It's easy to integrate against $m_f$, since monotone convergence 
+gives us $\int g dm_f = \int g f dm$. 
 
 Then this buys us the (very memorable) formula:
 
@@ -209,8 +238,8 @@ calculus experience is applicable!
 Of course, I've left out an important detail: Whatever happened to that
 measure $\lambda$? 
 The above formula is true exactly when $F$ is continuous everywhere. At points
-where it is _discontinuous_ we need to change it slightly by using this 
-$\lambda \perp m$. These are called [singular measures][11], and they can be
+where it is _discontinuous_ we need to change it slightly by using
+$\lambda$. These are called [singular measures][11], and they can be
 pretty [pathological][9]. A good first intuition, though, is to think of them
 like [dirac measures][8], and that's the case that we'll focus on in this post[^4].
 
@@ -316,7 +345,9 @@ $$
 \int_{-1}^1 4 - x^2 d \delta_0 + \int_{-1}^1 (4 - x^2)f dm
 $$
 
-But we know how to handle dirac measures:
+we can handle the $\delta_0$ part and the $f dm$ part separately!
+
+We know how to handle dirac measures:
 
 $$
 \int_{-1}^1 4 - x^2 d \delta_0 = 
@@ -380,46 +411,6 @@ objects, but it's beginning to make more sense.
 
 This post is getting pretty long, though, so we'll talk about the signed
 case in a (much shorter, hopefully) part 2!
-
-
-
-
-
-
-
-
-
-
-
-
-
-So we have two ways of converting between measures and functions. It turns out
-we can put these together as follows:
-
-$$
-f \rightsquigarrow m_f \rightsquigarrow F_{m_f}
-$$
-
-But how does $f$ relate to $F = F_{m_f}$? Well...
-
-$$\int_a^b f dm = \int_{(a,b]} dm_f = F(b) - F(a)$$
-
-So we can view $F$ as a kind of antiderivative of $f$! 
-
-
-
-
-
-
-
-
-TODO: lebesgue ftc
-
-TODO: say something about how this works for _any_ measures, not just
-L-S ones. That gives us a way of "doing calculus" with measures, 
-and can make precise the idea that $\delta_0$ is "infinitely dense at $0$",
-for example.
-
 
 ---
 
