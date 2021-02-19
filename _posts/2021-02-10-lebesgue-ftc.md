@@ -176,18 +176,45 @@ where it is _discontinuous_ we need to change it slightly.
 
 Let's write $$F = \begin{cases} 0 & x \lt 0 \\ 1 & 0 \leq x \end{cases}$$.
 
-TODO: talk about mass, density
+<img src="/assets/images/lebesgue-ftc-1/heaviside.png">
 
-TODO: a photo of the heaviside function
+Recall our interpretation of this function: $F(x)$ is supposed to 
+represent the mass of $(-\infty, x]$. So as we scan from left to right,
+we see the mass is constantly $0$ until we hit the point $0$. Then suddenly
+we jump up to mass $1$. But once we get there, our mass stays constant again.
+
+So $F$ thinks that $0$ has mass $1$ all by itself, and thinks that there's
+no other mass at all! 
+
+Indeed, we see that
+
+$$
+\mu_F((a,b]) = F(b) - F(a) = \begin{cases} 1 & 0 \in (a,b] \\ 0 & 0 \not \in (a,b] \end{cases}
+$$
+
+So $\mu_F$ is just the dirac measure at $0$ (or $\delta_0$ to its friends)!
+
+Since we know $\int g d\delta_0 = g(0)$, this tells us how to integrate
+all increasing right-continuous Lebesgue-Stieltjes measures that are likely
+to arise in practice. Let's see some examples! If you want to see more,
+you really should look into Carter and van Brunt's 
+"The Lebesgue-Stieltjes Integral: A Practical Introduction". I mentioned
+it in a footnote earlier, but it really deserves a spotlight. It's full of
+concrete examples, and is extremely readable!
 
 ---
 
-TODO: the sin(x) example from below. But with pictures of the cumulative 
-function.
+Let's start with a continuous example. Say 
+$$F = \begin{cases} 0 & x \leq 0 \\ x^2 & x \geq 0 \end{cases}$$.
 
+<img src="/assets/images/lebesgue-ftc-1/example1.png">
 
-So, as a quick example, say $$F = \begin{cases} 0 & x \leq 0 \\ x^2 & x \geq 0 \end{cases}$$.
-Then, for total concreteness:
+So $\mu_F$ should think that everything is massless until we hit $0$. 
+From then on, we start gaining mass faster and faster as we move to the right.
+If you like, larger points are "more dense" than smaller ones, and thus 
+contribute more mass in the same amount of space.
+
+Say we want to compute
 
 $$
 \int_{-\pi}^\pi \sin(x) d \mu_F = \int_{-\pi}^\pi \sin(x) \cdot F' dm
@@ -200,7 +227,9 @@ $$
 \int_{-\pi}^0 \sin(x) \cdot 0 dm + \int_0^\pi \sin(x) \cdot 2x dm
 $$
 
-Of course, the first integral is $0$, and the second integral is $2\pi$
+But both of these are integrals against lebesgue measure $m$! So these are
+just "classical" integrals, and we can use all our favorite tools.
+So the first integral is $0$, and the second integral is $2\pi$ 
 (integrating by parts). So then
 
 $$
@@ -209,17 +238,78 @@ $$
 
 That wasn't so bad, right?
 
+---
 
-TODO: another example involving a discts function, maybe the one from the exam?
-Again, with pictures.
+Let's see another, slightly trickier one. Let's look at 
+$$F = \begin{cases} x & x \lt 0 \\ e^x & x \geq 0 \end{cases}$$
 
+<img src="/assets/images/lebesgue-ftc-1/example2.png">
 
+You should think through the intuition for what $\mu_F$ looks like. 
+You can then test your intuition against a computation:
 
+$$\mu_F = \lambda + m_f$$
 
+In the previous example, $\lambda$ was the $0$ measure since our function
+was differentiable everywhere. Now, though, we aren't as lucky. Our 
+function $F$ is not differentiable at $0$, so we will have to work with
+some nontrivial $\lambda$.
 
+Let's start with the places $F$ _is_ differentiable. This gives us the
+density function $$f = F' = \begin{cases} 1 & x \lt 0 \\ e^x & x \gt 0 \end{cases}$$.
 
+We can also see the point $0$ has mass $1$. In this case we can more or less
+read this off the graph (since we have a discontinuity where we jump up by $1$),
+but in more complex examples we would compute this by using
+$\mu_F(\{ 0 \}) = \lim_{r \to 0^+} F(r) - F(-r)$. You can see that this 
+does give us $1$ in this case, as expected. So we see (for $f$ as before)
 
+$$
+\mu_F = \delta_0 + m_f
+$$
 
+So to compute
+
+$$
+\int_{-1}^1 4 - x^2 d\mu_F = 
+\int_{-1}^1 4 - x^2 d(\delta_0 + m_f) =
+\int_{-1}^1 4 - x^2 d \delta_0 + \int_{-1}^1 (4 - x^2)f dm
+$$
+
+But we know how to handle dirac measures:
+
+$$
+\int_{-1}^1 4 - x^2 d \delta_0 = 
+\left . (4 - x^2) \right |_{x = 0} = 4
+$$
+
+And we also know how to handle "classical" integrals:
+
+$$
+\int_{-1}^1 (4 - x^2) f dm =
+\int_{-1}^0 (4 - x^2) dm + \int_0^1 (4 - x^2) e^x dm =
+\frac{11}{3} + (3e-2)
+$$
+
+So all together, we get $$\int_{-1}^1 4 - x^2 d\mu_f = 4 + \frac{11}{3} + (3e-2)$$.
+
+<div class=boxed markdown=1>
+As an exercise, say 
+$$F = \begin{cases} e^{3x} & x \lt 0 \\ 2 & 0 \leq x \lt 1 \\ 2x+1 & 1 \leq x \end{cases}$$
+
+Can you intuitively see how $\mu_F$ distributes mass? 
+
+Can you compute 
+
+$$\int_{-\infty}^2 e^{-2x} d\mu_F$$
+</div>
+
+<div class=boxed markdown=1>
+As another exercise, can you intuit how $\mu_F$ distributes mass when
+$F(x) = \lfloor x \rfloor$ is the floor function?
+
+What is $\int_1^\infty \frac{1}{x^2} d\mu_F$? What about $\int_1^\infty \frac{1}{x} d\mu_F$?
+</div>
 
 
 The relationship between $F'$ and $f$ is really exactly as you'd expect.
