@@ -244,6 +244,7 @@ pretty [pathological][9]. A good first intuition, though, is to think of them
 like [dirac measures][8], and that's the case that we'll focus on in this post[^4].
 
 Let's write $$F = \begin{cases} 0 & x \lt 0 \\ 1 & 0 \leq x \end{cases}$$.
+This us usually called the <span class="defn">heaviside function</span>.
 
 <img src="/assets/images/lebesgue-ftc-1/heaviside.png">
 
@@ -392,7 +393,8 @@ wherever $F$ is actually continuous, as then the measures $\mu_F$ and $f dm$
 have a derivative relationship, which is reflected in the same derivative
 relationship of functions $F' = f$. Not only does this give us a way to 
 generalize the notion of derivative to functions that might not normally 
-have one, it gives us a concrete way of evaluating Lebesgue-Stieltjes integrals.
+have one (as in the case of the heaviside function and the dirac delta), 
+it gives us a concrete way of evaluating Lebesgue-Stieltjes integrals.
 
 But doesn't this feel restrictive? There are lots of functions $F$ which aren't
 (right-)continuous or increasing that we might be interested in differentiating. 
