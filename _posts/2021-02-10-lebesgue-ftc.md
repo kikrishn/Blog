@@ -407,7 +407,7 @@ fundamental theorem of calculus.
 Of course, to talk about more general functions $F$, we'll need to allow
 our measures to assign _negative_ mass to certain sets. That's ok, though,
 and we can even go so far as to allow _complex_ valued measures! In fact,
-from what I can tell, this really is the Raison d'être for signed and 
+from what I can tell, this really is the raison d'être for signed and 
 complex measures. I was always a bit confused why we might care about these
 objects, but it's beginning to make more sense.
 
