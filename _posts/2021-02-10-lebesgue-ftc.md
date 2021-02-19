@@ -16,16 +16,14 @@ into a coherent narrative. It doesn't have to be linear
 (in fact, it typically isn't!), but it should feel like the theorems share
 some purpose, and fit together neatly. 
 I also struggle to care about theorems before I know what they do. This is
-part of why I care so much about examples, and it means the other half of
-finding a narrative is understanding what our techniques are used for.
+part of why I care so much about examples -- it's nice to know what problems
+a given theorem solves.
 
 After a fair amount of reading and thinking[^1], I think I've finally fit the 
 puzzle pieces together in a way that works for me. Since I wrote it all down 
 for myself as part of my studying, I figured I would post it here as well in 
 case other people find it useful. Keep in mind this is probably obvious to 
-anyone with an analytic mind. It's even obvious to me in hindsight. So I want
-to write this up while I still remember what it feels like for this to be 
-nonobvious.
+anyone with an analytic mind, but it certainly wasn't obvious to me!
 
 Let's get started!
 
@@ -50,9 +48,9 @@ Lebesgue Measure.
   $$
   F_\mu \triangleq 
   \begin{cases}
-     \mu((0,x]) & x > 0 \\
+     \mu((0,x]) & x \gt 0 \\
     0           & x = 0 \\
-    -\mu((x,0]) & x < 0
+    -\mu((x,0]) & x \lt 0
   \end{cases}
   $$
 
@@ -98,25 +96,15 @@ The locally $L^1$ conditions says that $\int_E f dm$ is finite
 whenever $E$ is bounded. It's not hard to show that this is equivalent to
 the regularity of $m_f$, which we'll need shortly.
 
-So we have two ways of converting between measures and functions. It turns out
-we can put these together as follows:
-
-$$
-f \rightsquigarrow m_f \rightsquigarrow F_{m_f}
-$$
-
-How does $f$ relate to $F = F_{m_f}$, though? Well...
-
-$$\int_a^b f dm = \int_{(a,b]} dm_f = F(b) - F(a)$$
-
-So we can view $F$ as a kind of "antiderivative" of $f$! There is still a 
-question nagging us, though. We know sending $F \rightsquigarrow \mu_F$ is
+Something is missing from the above theorem, though.
+We know sending $F \rightsquigarrow \mu_F$ is
 faithful, in the sense that $F = F_{\mu_F}$ and $\mu_{F_\mu} = \mu$. We've
 now introduced the measure $m_f$, but we didn't say how to recover $f$ 
-from $m_f$... Is it even possible? The answer awaits:
+from $m_f$... Is it even possible? The answer is yes, as a corollary of a
+much more powerful result:
 
 <div class=boxed markdown=1>
-Lebesgue-Radon-Nikodym Theorem:
+<span class="defn">Lebesgue-Radon-Nikodym Theorem</span>
 
 Every measure $\mu$ decomposes (uniquely!) as 
 
@@ -133,6 +121,19 @@ radius $r$ about $x$.
 
 People often write $f = \frac{d \mu}{dm}$, and call it the 
 <span class="defn">Radon-Nikodym Derivative</span>. Let's see why.
+</div>
+
+In the case $\mu = m_f$, then this shows us how to recover 
+$f$ (uniquely) from $m_f$, and life is good: $\frac{d m_f}{dm} = f$.
+
+The converse doesn't work quite as well. In order to say 
+$\mu = m_{\frac{d\mu}{dm}}$, we need to know that $\mu$ is 
+[absolutely continuous][12] with respect to $m$, written $\mu \ll m$.
+
+<div class=boxed markdown=1>
+As an exercise, do you see why this is an obvious condition? If
+$\mu \not \ll m$, why don't we have a chance of writing $\mu = m_f$
+for any $f$?
 </div>
 
 In the case of Lebesgue-Stieltjes measures, this buys us something
@@ -155,6 +156,45 @@ the special case of Lebesgue-Stieltjes measures, it literally _is_ the
 derivative. We saw earlier that $F$ acts like an antiderivative of $f$,
 and now we see the other direction works too!
 
+In fact, yet more analogies are true! Let's take a look at the 
+<span class="defn">Lebesgue Differentiation Theorem</span>
+
+<div class=boxed markdown=1>
+For almost every $x$, we have:
+
+$$
+\lim_{r \to 0} \frac{1}{m B_r(x)} \int_{B_r(x)} f(t) dm = f(x)
+$$
+</div>
+
+Why is this called the _differentiation_ theorem? 
+Let's look at $F_{m_f}$, which you should remember is a kind of antiderivative
+for $f$.
+
+For $x > 0$ (for simplicity), we have $F_{m_f}(x) = m_f((0,x]) = \int_{(0,x]} f dm$.
+Again, we see how $F_{m_f}$ is an integral of $f$. Moreover, if we rewrite
+the theorem in terms of $F_{m_f}$, what do we see?
+
+$$
+\begin{aligned}
+f(x) 
+&= \lim_{r \to 0} \frac{1}{m B_r(x)} \int_{B_r(x)} f dm \\
+&= \lim_{r \to 0} \frac{1}{(x+r) - (x-r)} \int_{x-r}^{x+r} f dm \\
+&= \lim_{r \to 0} \frac{1}{2r} \left ( \int_{0}^{x+r} f dm - \int_{0}^{x-r} f dm \right )\\
+&= \lim_{r \to 0} \frac{F_{m_f}(x+r) - F_{m_f}(x-r)}{2r} \\
+&= F_{m_f}'(x)
+\end{aligned}
+$$
+
+So this is giving us part of the fundamental theorem of calculus[^4]! This theorem
+(in the case of Lebesgue-Stieltjes measures) says exactly that (for almost every $x$)
+
+$$
+\left ( x \mapsto \int_0^x f dm \right )' = f(x)
+$$
+
+
+
 This also answers our earlier question about _computing_ with the measures
 $\mu_F$! It's easy to integrate against $m_f$, since monotone convergence buys
 us $\int g dm_f = \int g f dm$. 
@@ -167,12 +207,12 @@ and now we're integrating against lebesgue measure, and all our years of
 calculus experience is applicable!
 
 Of course, I've left out an important detail: Whatever happened to that
-measure $\lambda$? These are called [singular measures][11], and they can be
+measure $\lambda$? 
+The above formula is true exactly when $F$ is continuous everywhere. At points
+where it is _discontinuous_ we need to change it slightly by using this 
+$\lambda \perp m$. These are called [singular measures][11], and they can be
 pretty [pathological][9]. A good first intuition, though, is to think of them
 like [dirac measures][8], and that's the case that we'll focus on in this post[^4].
-
-The above formula is true exactly when $F$ is continuous everywhere. At points
-where it is _discontinuous_ we need to change it slightly.
 
 Let's write $$F = \begin{cases} 0 & x \lt 0 \\ 1 & 0 \leq x \end{cases}$$.
 
@@ -312,43 +352,6 @@ What is $\int_1^\infty \frac{1}{x^2} d\mu_F$? What about $\int_1^\infty \frac{1}
 </div>
 
 
-The relationship between $F'$ and $f$ is really exactly as you'd expect.
-For instance, let's look at the Lebesgue Differentiation Theorem:
-
-<div class=boxed markdown=1>
-For almost every $x$, we have:
-
-$$
-\lim_{r \to 0} \frac{1}{m B_r(x)} \int_{B_r(x)} f(t) dm = f(x)
-$$
-</div>
-
-Why is this called the _differentiation_ theorem? Well, remember
-we can associate a function $F$ to any regular borel measure. 
-In particular, we can associate a function $F$ to $d \mu = f dm$.
-
-For $x > 0$ (for simplicity), we have $F_\mu(x) = \mu((0,x]) = \int_{(0,x]} f dm$.
-So $F_\mu$ is a kind of integral of $f$. Then in this context, what does the
-differentiation theorem tell us?
-
-$$
-\begin{aligned}
-f(x) 
-&= \lim_{r \to 0} \frac{1}{m B_r(x)} \int_{B_r(x)} f dm \\
-&= \lim_{r \to 0} \frac{1}{(x+r) - (x-r)} \int_{x-r}^{x+r} f dm \\
-&= \lim_{r \to 0} \frac{1}{2r} \left ( \int_{0}^{x+r} f dm - \int_{0}^{x-r} f dm \right )\\
-&= \lim_{r \to 0} \frac{F_\mu(x+r) - F_\mu(x-r)}{2r} \\
-&= F_\mu'(x)
-\end{aligned}
-$$
-
-So this is giving us part of the fundamental theorem of calculus[^4]! This theorem
-(in the case of Lebesgue-Stieltjes measures) says exactly that (for almost every $x$)
-
-$$
-\left ( x \mapsto \int_0^x f dm \right )' = f(x)
-$$
-
 ---
 
 Ok, I hear you saying. There's a really tight connection between 
@@ -385,7 +388,30 @@ case in a (much shorter, hopefully) part 2!
 
 
 
-TODO: say something about dirac measures?
+
+
+
+
+
+So we have two ways of converting between measures and functions. It turns out
+we can put these together as follows:
+
+$$
+f \rightsquigarrow m_f \rightsquigarrow F_{m_f}
+$$
+
+But how does $f$ relate to $F = F_{m_f}$? Well...
+
+$$\int_a^b f dm = \int_{(a,b]} dm_f = F(b) - F(a)$$
+
+So we can view $F$ as a kind of antiderivative of $f$! 
+
+
+
+
+
+
+
 
 TODO: lebesgue ftc
 
@@ -450,3 +476,4 @@ for example.
 [9]: https://en.wikipedia.org/wiki/Cantor_distribution
 [10]: https://en.wikipedia.org/wiki/Bounded_variation
 [11]: https://en.wikipedia.org/wiki/Singular_measure
+[12]: https://en.wikipedia.org/wiki/Absolute_continuity#Absolute_continuity_of_measures
