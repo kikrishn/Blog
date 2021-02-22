@@ -104,3 +104,6 @@ in front of you and horizontal behind you." -- David Epstin, via Twitter
 user @nij4
 
 - "Works of art make rules; rules do not make works of art."  -- Claude Debussy
+
+- "Science is what we understand well enough to explain to a computer. 
+Art is everything else we do." -- Donald Knuth
