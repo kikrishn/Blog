@@ -36,7 +36,7 @@ Lebesgue Measure.
 
 <div class=boxed markdown=1>
   If $F$ is increasing and continuous from the right, then there is a 
-  (unique!) regular borel maeasure $\mu_F$ 
+  (unique!) regular borel measure $\mu_F$ 
   (called the [Lebesgue-Stieltjes Measure][7] associated to $F$)
   so that 
 
