@@ -1,11 +1,12 @@
 ---
 layout: post
-title: The Lebesgue Fundamental Theorem of Calculus
+title: Measure Theory and Differentiation (Part 1)
 tags:
   - analysis
 ---
 
-So I had an analysis exam last week which roughly covered the material in
+So I had an analysis exam <s>yesterday</s> <s>last week</s> a while ago 
+(this post took a bit of time to finish writing). It roughly covered the material in
 chapter 3 of Folland's "Real Analysis: Modern Techniques and Their Applications".
 I'm decently comfortable with the material, but a lot of it has always felt 
 kind of unmotivated. For example, why is the [Lebesgue Differentiation Theorem][1]
