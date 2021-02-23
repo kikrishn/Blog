@@ -371,7 +371,7 @@ $$
 \frac{11}{3} + (3e-2)
 $$
 
-So all together, we get $$\int_{-1}^1 4 - x^2 d\mu_f = 4 + \frac{11}{3} + (3e-2)$$.
+So all together, we get $$\int_{-1}^1 4 - x^2 d\mu_F = 4 + \frac{11}{3} + (3e-2)$$.
 
 <div class=boxed markdown=1>
 As an exercise, say 
