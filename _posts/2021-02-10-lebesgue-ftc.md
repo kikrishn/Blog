@@ -77,8 +77,8 @@ If we put our probabilist hat on, we say that $F_\mu$ is the
 <span class="defn">Cumulative Distribution Function</span> of $\mu$. 
 Here $F_\mu(x)$ represents the total (cumulative) mass we've seen so far.
 
-It turns out that Lebesgue-Stieltjes measures are extremely concrete[^2], and
-a lot of this post is going to talk about computing with them. After all,
+It turns out that Lebesgue-Stieltjes measures are extremely concrete, and
+a lot of this post is going to talk about computing with them[^2]. After all,
 it's entirely unclear which (if any!) techniques from a calculus class carry
 over when we try to actually integrate against some $\mu_F$. Before we can 
 talk about computation, though, we have to recall another (a priori unrelated)
@@ -133,7 +133,7 @@ $\mu = m_{\frac{d\mu}{dm}}$, we need to know that $\mu$ is
 [absolutely continuous][12] with respect to $m$, written $\mu \ll m$.
 
 <div class=boxed markdown=1>
-As an exercise, do you see why this condition is "obviously" necessary? If
+As an exercise, do you see why this condition is necessary? If
 $\mu \not \ll m$, why don't we have a chance of writing $\mu = m_f$
 for any $f$? 
 </div>
@@ -241,30 +241,37 @@ The above formula is true exactly when $F$ is continuous everywhere. At points
 where it is _discontinuous_ we need to change it slightly by using
 $\lambda$. These are called [singular measures][11], and they can be
 pretty [pathological][9]. A good first intuition, though, is to think of them
-like [dirac measures][8], and that's the case that we'll focus on in this post[^4].
+like [dirac measures][8], and that's the case that we'll focus on in this post[^5].
 
-Let's write $$F = \begin{cases} 0 & x \lt 0 \\ 1 & 0 \leq x \end{cases}$$.
+Let's write $$H = \begin{cases} 0 & x \lt 0 \\ 1 & 0 \leq x \end{cases}$$.
 This us usually called the <span class="defn">heaviside function</span>.
 
 <img src="/assets/images/lebesgue-ftc-1/heaviside.png">
 
-Recall our interpretation of this function: $F(x)$ is supposed to 
+Recall our interpretation of this function: $H(x)$ is supposed to 
 represent the mass of $(-\infty, x]$. So as we scan from left to right,
 we see the mass is constantly $0$ until we hit the point $0$. Then suddenly
 we jump up to mass $1$. But once we get there, our mass stays constant again.
 
-So $F$ thinks that $0$ has mass $1$ all by itself, and thinks that there's
+So $H$ thinks that $0$ has mass $1$ all by itself, and thinks that there's
 no other mass at all! 
 
 Indeed, we see that
 
 $$
-\mu_F((a,b]) = F(b) - F(a) = \begin{cases} 1 & 0 \in (a,b] \\ 0 & 0 \not \in (a,b] \end{cases}
+\mu_H((a,b]) = H(b) - H(a) = \begin{cases} 1 & 0 \in (a,b] \\ 0 & 0 \not \in (a,b] \end{cases}
 $$
 
-So $\mu_F$ is just the dirac measure at $0$ (or $\delta_0$ to its friends)!
+So $\mu_H$ is just the dirac measure at $0$ (or $\delta_0$ to its friends)!
+Notice this lets us say the "derivative" of $H$ is $\delta_0$, by analogy
+with the Lebesgue-Stieltjes case. Or conversely, that $H$ is the 
+"antiderivative" of $\delta_0$. This shows us that recasting calculus in
+this language actually buys us something new, since there's no way to make
+sense of $\delta_0$ as a traditional function.
 
-Since we know $\int g d\delta_0 = g(0)$, this tells us how to integrate
+It's _finally_ computation time! Since we know $\int g d\delta_0 = g(0)$, 
+and (discrete) singular measures look like (possibly infinite) linear 
+combinations of dirac measures, this lets us compute
 all increasing right-continuous Lebesgue-Stieltjes measures that are likely
 to arise in practice. Let's see some examples! If you want to see more,
 you really should look into Carter and van Brunt's 
@@ -300,7 +307,7 @@ $$
 But both of these are integrals against lebesgue measure $m$! So these are
 just "classical" integrals, and we can use all our favorite tools.
 So the first integral is $0$, and the second integral is $2\pi$ 
-(integrating by parts). So then
+(integrating by parts). This gives
 
 $$
 \int_{-\pi}^\pi \sin(x) d \mu_F = 2\pi
@@ -389,7 +396,7 @@ What is $\int_1^\infty \frac{1}{x^2} d\mu_F$? What about $\int_1^\infty \frac{1}
 Ok, I hear you saying. There's a really tight connection between 
 increasing (right-)continuous functions $F$ on $\mathbb{R}$ and 
 positive integrable functions $f$. This connection is at its tightest
-wherever $F$ is actually continuous, as then the measures $\mu_F$ and $f dm$
+wherever $F$ is actually continuous, as then the measures $\mu_F$ and $m_f$
 have a derivative relationship, which is reflected in the same derivative
 relationship of functions $F' = f$. Not only does this give us a way to 
 generalize the notion of derivative to functions that might not normally 
@@ -438,11 +445,7 @@ case in a (much shorter, hopefully) part 2!
     is that the $E_r$ don't have to contain $x$ itself. It's enough to take up
     a (uniformly) positive fraction of space near $x$.
 
-[^4]:
-    In no small part because I'm not sure how you would actually integrate
-    against a singular continuous measure in the wild...
-
-[^5]: 
+[^4]: 
     There's another way of viewing this theorem which is quite nice. I
     think I saw it on Terry Tao's blog, but now that I'm looking for it I 
     can't find it... Regardless, once we put on our nullset goggles, we
@@ -453,6 +456,10 @@ case in a (much shorter, hopefully) part 2!
     defined! So for almost every $x$, we can "evaluate" $f$ through this
     (rather roundabout) approach. The benefit is that this notion of evaluation
     does not depend on your choice of representative!
+
+[^5]:
+    In no small part because I'm not sure how you would actually integrate
+    against a singular continuous measure in the wild...
 
 
 
