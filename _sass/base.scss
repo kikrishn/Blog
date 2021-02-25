@@ -173,6 +173,14 @@ ol li {
   font-size: calc(#{$base-font-size} - 1pt);
 }
 
+//inline code styling
+code {font-family: $mono-font;}
+
+//sagecell styling
+.sagecell_output {
+  font-family: $mono-font;
+}
+
 /*Skip to main content hidden link for ADA complicance*/
 /*Courtsey of NC State University*/
 /*https://accessibility.oit.ncsu.edu/it-accessibility-at-nc-state/developers/accessibility-handbook/mouse-and-keyboard-events/skip-to-main-content/*/
