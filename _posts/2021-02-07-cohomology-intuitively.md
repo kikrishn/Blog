@@ -196,7 +196,7 @@ My favorite graph (at least for the purposes of explanation) is this one:
 Notice the edges are always oriented from the smaller vertex to the bigger one.
 This is not an accident, and keeping a consistent choice of orientation is
 important for what follows. The simplest approach is to order your vertices,
-then follow the convention of $\text{small} \to \text{large}$j
+then follow the convention of $\text{small} \to \text{large}$
 
 Now our problem will be to "integrate" a function defined on the edges
 to one defined on the vertices. What do I mean by this? Let's see some
@@ -204,7 +204,7 @@ concrete examples:
 
 <img src="/assets/images/cohomology-intuitively/coboundary.png" width="50%">
 
-Here we see a function defined on the vertices. Indeed, we could write this
+Here we see a function defined on the edges. Indeed, we could write this
 more formally as
 
 $$
@@ -239,13 +239,31 @@ Notice we pick up an arbitrary constant when we do this --
 We can set $v_0 = C$ for any $C$ we want as long as $v_1 = v_2 = C+5$.
 This is one parallel with integration, and helps justify our language.
 
+As some more justification, notice this obeys a kind of "fundamental theorem
+of calculus": If you want to know the total edge values along some path, 
+$$\displaystyle \sum_{v_{k_1} \to v_{k_2} \to \ldots \to v_{k_n}} f(e_{k_i, k_{i+1}})$$,
+that turns out to be exactly $F(k_n) - F(k_1)$ for some "antiderivative" $F$ of $f$. 
+
+<div class=boxed markdown=1>
+  As a (fun?) exercise, you might try to formulate and prove an analogue of the
+  other half of the fundamental theorem of calculus. That is, can you formulate
+  a kind of "derivative" $d$ which takes functions on the vertices to functions
+  on the edges? Once you have, can you show that differentiating an antideriavtive
+  gets you your original function?
+
+  For (entirely imaginary) bonus points, you might try to come up with a 
+  parallel between edge functions of the form $dF$ (that is, edge functions 
+  which have an antiderivative) and [conservative vector fields][8]. 
+</div>
+
+
 Let's look at a different function now:
 
 <img src="/assets/images/cohomology-intuitively/cocycle.png" width="50%">
 
 You can quickly convince yourself that no matter how hard you try,
-you can't integrate this function. No function on the vertices can
-possibly be compatible with our function on the edges.
+you can't integrate this function. There is no antiderivative in the sense that
+no function on the vertices can possibly be compatible with our function on the edges.
 
 After all, say we assign $v_0$ the value $C$. Then $v_1$ is forced into
 the value $C+5$ in order to agree with $e_{01}$. But then because of 
@@ -267,13 +285,17 @@ these choices _consistently_, which turns out to not always be possible!
   (modulo an equivalence relation) exactly the cohomology classes. So the 
   presence of a function which can't be integrated means there must be a cycle 
   in our graph, and it is in this sense that cohomology "detects holes".
+
+  This is entirely analogous to the fact that every (irrotational) vector 
+  field on a simply connected domain is conservative. It seems the presence
+  of some "hole" is the reason some functions don't have primitives.
 </div>
 
 ---
 
 Ok, so now we know what problem we're trying to solve. When can we 
-integrate one of these edge functions? The machinery ends up being
-a bit complicated, but that's in part because we're working with 
+find an antiderivative for one of these edge functions? The machinery ends up 
+being a bit complicated, but that's in part because we're working with 
 graphs, which are one dimensional simplicial complexes. 
 This _exact same setup_ works for spaces of arbitrary dimension,
 so it makes sense that it would feel a bit overpowered for our comparatively
@@ -372,8 +394,12 @@ When that happens, we'll have no choice but to go into more detail.
 <div class=boxed markdown=1>
 As a quick exercise: 
 
-What is the boundary $\partial (e_{01} + e_{12} - e_{02})$? What, 
-intuitively, does $e_{01} + e_{12} - e_{02}$ represent? Does it make sense why
+What is the boundary $\partial (e_{01} + e_{12})$? What, intuitively,
+does $e_{01} + e_{12}$ represent? Does it make sense why the _boundary_ of
+this figure should be what it is?
+
+What about $\partial (e_{01} + e_{12} - e_{02})$? Again, what does
+$e_{01} + e_{12} - e_{02}$ represent? Does it make sense why
 the _boundary_ of this figure should be what it is?
 </div>
 
@@ -387,7 +413,7 @@ $$
 \text{Hom}(0, \mathbb{R}) \leftarrow 
 \text{Hom}(0, \mathbb{R}) \leftarrow 
 \text{Hom}(\mathbb{Z}E, \mathbb{R}) \overset{\partial^T}{\longleftarrow} 
-\text{Hom}(\mathbb{Z}j, \mathbb{R})
+\text{Hom}(\mathbb{Z}V, \mathbb{R})
 $$
 
 We're now looking at all (linear) functions from 
@@ -435,7 +461,7 @@ $\partial^T$ is actually represented by the transpose of $\partial$!
 
   Moreover, you should check that a function $f$ on the edges 
   is in the image of $\partial^T$ exactly when it can be integrated.
-  Moreover, if $f = \partial^T F$, then $F$ _is_ an "antiderivative"
+  Moreover, if $f = \partial^T F$, then $F$ _is_ an antiderivative
   for $f$.
 </div>
 
@@ -576,7 +602,9 @@ is to work through examples, I've included some code to do just that!
 
 <div class="linked_auto">
 <script type="text/x-sage">
-# Write the edges in the box. You can add isolated vertices by including an 'edge' with only one vertex
+# Write the edges in the box. 
+# You can add isolated vertices by including 
+# an 'edge' with only one vertex
 @interact
 def _(Simplices = input_box([["a"],["b","c"],["c","d"],["b","d"]], width=50), auto_update=False):
     show("The graph is:")
@@ -623,5 +651,6 @@ def _(Simplices = input_box([["a"],["b","c"],["c","d"],["b","d"]], width=50), au
 [5]: https://en.wikipedia.org/wiki/Simplicial_homology
 [6]: https://en.wikipedia.org/wiki/Simplicial_homology#Boundaries_and_cycles
 [7]: https://en.wikipedia.org/wiki/Transpose_of_a_linear_map
+[8]: https://en.wikipedia.org/wiki/Conservative_vector_field
 
 
