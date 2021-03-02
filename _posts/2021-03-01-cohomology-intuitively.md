@@ -9,8 +9,7 @@ tags:
   - mse
 ---
 
-It feels like I've been opening a lot of posts this way lately, but I was
-on mse the other day... 
+So I was on mse the other day... 
 
 <img src="/assets/images/cohomology-intuitively/letterkenny.jpg">
 
@@ -37,10 +36,9 @@ is a much more reasonable setting for something a bit more rambling anyways.
 That said, everything contained in that answer will _also_ be discussed here,
 so it's far from prerequisite reading. 
 
-In particular, we're going to go over two useful case studies of cohomology:
-
- - [De Rham Cohomology][4]
- - [Simplicial Cohomology][5][^2]
+In particular, we're going to go over [Simplicial Cohomology][5][^2],
+but we'll steal language from [De Rham Cohomology][4], and our first 
+example will be a kind of informal cohomology just to get the idea across.
 
 [^2]: 
     I know this is a link to simplicial _homology_, but there's no 
@@ -597,6 +595,10 @@ is to work through examples, I've included some code to do just that!
   dimension obvious! If you want a bonus challenge, can you guess what the 
   generators will be? Keep in mind there's lots of generating sets, so you 
   may get a different answer from what sage tells you even if you're right.
+
+  You might also try to _implement_ the algorithm we described yourself,
+  at least for simple cases like graphs. You can then check yourself against
+  the built in sage code below!
 </div>
 
 
@@ -609,7 +611,7 @@ is to work through examples, I've included some code to do just that!
 def _(Simplices = input_box([["a"],["b","c"],["c","d"],["b","d"]], width=50), auto_update=False):
     show("The graph is:")
     S = SimplicialComplex(Simplices)
-    show(S.graph()) # I can't figure out how to directly draw the complex...
+    show(S.graph()) # It looks like there's no builtin way to draw complexes...
     
     show("The chain complex is:")
     
@@ -618,12 +620,28 @@ def _(Simplices = input_box([["a"],["b","c"],["c","d"],["b","d"]], width=50), au
     # print 1.00000000000000 instead of 1...
     # so we're using the rationals instead
     C = S.chain_complex(base_ring=QQ)
-    show(ascii_art(C))
+
+    # mathjax uses its own font and I'm too lazy to change it
+    # but it's not monospace, so the ascii_art looks silly
+    # when we `show` it...
+    # the solution is to print it instead, since I have
+    # control over non-mathjax fonts. 
+    # but printing doesn't flush the output buffer, so 
+    # things show up in a silly order! 
+    # we can fix this by manually flushing the buffer ourselves.
+
+    # this means the cell complexes are going to be left-aligned, though
+    # which we'll just have to deal with.
+
+    print(ascii_art(C))
+    sys.stdout.flush() 
+
     
     show("Which dualizes to:")
     
     Cdual = C.dual()
-    show(ascii_art(Cdual))
+    print(ascii_art(Cdual))
+    sys.stdout.flush()
     
     show("So the cohomology is:")
     
