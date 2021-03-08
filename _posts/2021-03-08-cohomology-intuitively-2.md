@@ -8,7 +8,7 @@ tags:
   - sage
 ---
 
-intro
+Don't forget to plug the ddg lectures!
 
 <div class="linked_auto">
 <script type="text/x-sage">
