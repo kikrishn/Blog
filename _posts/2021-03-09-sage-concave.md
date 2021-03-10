@@ -144,7 +144,7 @@ hacky solution that works fairly well in practice?
 Approximating every nonpolynomial by the first, say, 50 terms of its
 taylor series comes to mind, but I'm currently struggling to get sage
 to expand and simplify expressions in way that makes me happy, so 
-manipulating huge expressions like that is, at least for now, a bit beyond me.
+manipulating huge expressions like that is, at least for now, a bit beyond me[^2].
 
 Again, all ideas are welcome ^_^
 
@@ -157,6 +157,10 @@ Again, all ideas are welcome ^_^
     complicated. After all, it seems like there are [issues][4] with _much_ 
     simpler expressions than this one. If anyone knows how to make this kind
     of direct query work, I would love to hear about it!
+
+[^2]:
+    Wow. I know I speak (and write) in run-on sentences, but this one's on
+    another level. I feel like I need a swear jar but for commas.
 
 
 [1]: https://math.stackexchange.com/q/4055724/655547
