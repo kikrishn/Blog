@@ -1,8 +1,7 @@
 ---
 layout: post
-title: Quick Analysis Trick 5
+title: Checking Concavity with Sage
 tags:
-  - quick-analysis-tricks
   - sage
   - mse
 ---
@@ -25,7 +24,7 @@ Today someone asked [a question][1], which again I'll paraphrase here:
 
 It clearly _is_ concave. Here's a picture of it:
 
-<img src="/assets/images/quick-analysis-trick-5/desmos.png">
+<img src="/assets/images/sage-concave/desmos.png">
 
 Obviously it has an asymptote at $e$, and should always be $\lt e$, so 
 it really should be concave... showing that is a bit of a hassle, though.
