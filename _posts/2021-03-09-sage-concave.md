@@ -32,10 +32,10 @@ it really should be concave... showing that is a bit of a hassle, though.
 Thankfully, we can use [sage][3] to automate away most of the difficulties. I'll
 more or less be rehashing my answer here. The idea is to put this example of
 using sage "in the wild" somewhere a bit easier to find than a stray mse post.
+
 Showing that a function is convex (resp. concave) is routine but tedious, 
 especially when that function is twice differentiable. Then we can just check
 $\frac{d^2f}{dx^2} \geq 0$ (resp. $\leq 0$) on the region of interest.
-
 The issue here, of course, is that 
 $\frac{d^2}{dx^2} \left ( 1 + \frac{1}{x} \right )^x$ is... unpleasant. 
 Thankfully, sage doesn't care in the least! Let's see if we can bash out
@@ -67,7 +67,7 @@ Of course, these domains are far too complicated to be useful. We'll need to
 try something else.
 
 Let's look at the second derivative again. 
-Of course, we as humans can see how to clean it up a little.
+We as humans can see how to clean it up a little, so let's do that first:
 
 $$
 \left ( 1 + \frac{1}{x} \right )^x 
@@ -112,7 +112,7 @@ $$
 - \frac{1}{x^3 + 2x^2 + x} \lt 0 \quad \quad (\text{when } x \gt 0)
 $$
 
-and in the interest of offloading as much thinking as possible to the sage,
+and in the interest of offloading as much thinking as possible to sage,
 we see
 
 <div class="linked_auto">
