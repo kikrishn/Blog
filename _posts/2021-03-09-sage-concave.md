@@ -13,7 +13,7 @@ I was (very kindly) given an extension, and I'll be finishing it soon, though.
 
 I meant to do it today, but I got my second covid vaccination earlier and it
 really took a lot out of me. I'm feverish and have a pretty bad migraine, so
-I didn't want to  work on "real things"... but I still wanted to feel productive.
+I didn't want to  work on "real things", but I still wanted to feel productive...
 MSE it is.
 
 Today someone asked [a question][1], which again I'll paraphrase here:
