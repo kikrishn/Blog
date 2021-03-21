@@ -33,6 +33,9 @@ of a theorem I'm learning, I'll make a post so that future students will have an
 easier time finding some. I'll also post about my research, often with examples 
 of [sage](https://sagemath.org) code that I've used to play with the problem at hand.
 
+This website was designed by the incredible [Remy Davison](https://remydavison.com).
+Many thanks for both his friendship and his artistic skill.
+
 ---
 
 I have had some mathematicians tell me that I need to "get over" a

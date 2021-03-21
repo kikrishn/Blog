@@ -20,11 +20,11 @@ that I'm particularly excited about. Some of the posts here will be about
 those. These posts might be about research, classwork, or general observations
 that I want to make sure I write somewhere.
 
-Whenever possible, I'll try to include [sage](sagemath.org) code with
+Whenever possible, I'll try to include [sage](https://sagemath.org) code with
 computational examples of whatever we're discussing. I think sage is a
 fantastic resource for learning and doing mathematics, but I haven't seen
 many people talking about how they actually use it in the wild. One notable
-example is [sheaves.github.io](sheaves.github.io), which is a
+example is [sheaves.github.io](https://sheaves.github.io), which is a
 (tragically inactive) blog that gave me the idea to put sage code in my own
 blog. I'm far from a sage expert, but hopefully we can learn together.
 
