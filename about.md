@@ -107,3 +107,5 @@ user @nij4
 
 - "Science is what we understand well enough to explain to a computer. 
 Art is everything else we do." -- Donald Knuth
+
+- "Be ruthless with systems. Be kind with people" -- Michael Brooks
