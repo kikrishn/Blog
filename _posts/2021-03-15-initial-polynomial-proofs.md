@@ -6,20 +6,31 @@ tags:
 ---
 
 There are lots of ways in which good notation can make results seem obvious. 
-One particularly powerful way is by writing formal power series 
-(in weird settings) as the function that power series would "traditionally"
-represent. It turns out there is a general principle (the "permanence of identities")
-which underlies these results, and this is one place where category theory
-and model theory conspire to justify seemingly meaningless manipulations. 
+There are also lots of ways in which "illegally" manipulating expressions can
+give a meaningful answer at the end of the day.
+One particularly exciting example of _both_ of these phenomena comes from
+using formal power series in ways which are, at first glance, dubious.
+It turns out there is a general principle 
+(the <span class=defn>Permanence of Identities</span>) which underlies these
+results, and this is one place where category theory
+and model theory conspire in a particularly beautiful (and powerful) way.
 In fact, this is one application of category theory and model theory that
 working analysts use every day!
 
+In this post we'll talk about how to prove statements in general rings by
+proving analogous statements for polynomials with integer coefficients. 
+This is nice because we often have access to ~bonus tools~ when working in
+$\mathbb{Z}$, and it doesn't matter if we _use_ these bonus tools to prove
+the general result!
+
 Let's see a few examples to start. Once we have some ideas in hand, we can 
-see what ties everything together.
+talk about the general principle.
 
 ---
 
-Example 1 -- The matrix exponential
+## Example 1 -- The matrix exponential
+
+We define the matrix exponential as 
 
 $$\exp(A) \triangleq \sum_n \frac{1}{n!}A^n$$
 
@@ -27,123 +38,182 @@ This is well defined, since one can show (for any reasonable [matrix norm][1])
 that 
 
 $$
-\lVert \sum_n \frac{1}{n!}A^n \rVert \leq 
+\left \lVert \sum_n \frac{1}{n!}A^n \right \rVert \leq 
 \sum_n \frac{1}{n!} \lVert A \rVert^n \leq
 \exp(\lVert A \rVert).
 $$
 
 This tells us that our sum converges, and represents an honest-to-goodness matrix.
 
-You might guess by the notation and the definition (which is reminscent of the 
-"traditional" exponential function on $\mathbb{R}$) that things like
+Similarly, we can define the matrix logarithm 
+(for matrices with $\lVert A - I \rVert \lt 1$) by
 
- 1. $\exp(A)^2 = \exp(2A)$
+$$\log(A) \triangleq \sum_n \frac{(-1)^n}{n} A^n.$$
+
+You might guess by the notation and the definition (which is reminiscent of the 
+"traditional" exponential and logarithmic functions) that
+
+ 1. $\exp(\log(A)) = A$
  2. $\exp(A) \exp(B) = \exp(A+B)$
+ 3. $\exp(A)^2 = \exp(2A)$
+ 4. etc.
 
-It turns out that $(1)$ is always true, but $(2)$ is only true in some cases[^1].
-
----
-
-Example 2 -- The mobius function of a poset
-
-The [mobius function][4] $\mu$ of a poset is a useful tool in combinatorics. 
-Without getting into too many details, $\mu$ (and its inverse $\zeta$) lets us
-convert between functions of the form
-
-$$
-f(x) = \sum_{y \leq x} g(y)
-$$
-
-and functions of the form TODO
-
-On a combinatorics problem set, one of the problems amounted to showing
-
-$$
-\mu(x,y) = \sum_n (I - \zeta)^n
-$$
-
-where $I$ is some notion of "identity".
-But since we know that $\mu$ and $\zeta$ are inverses, we might notice
-
-$$
-\sum_n (I - \zeta)^n = \frac{1}{I - (I - \zeta)} = \frac{1}{\zeta} = \mu.
-$$
-
-In fact, this proof works!
+It turns out that $(1)$ and $(3)$ are always true, but $(2)$ is only 
+true in some cases[^1]. Indeed, it is true exactly when $A$ and $B$ commute!
+This is a warning that something nontrivial is going on, and because of it
+we're going to (mostly) look at commutative rings.
 
 ---
 
-Example 3 -- Euler-Maclaurin Summation 
+## Example 2 -- Seven Trees in One
 
-It is a common idea to approximate a sum $\sum_a^b f(k)$ by the integral
-$\int_a^b f(x)\ dx$. It's reasonable to try and bound the error of this 
-approximation, and near the end of Concrete Mathematics (ch. 9.5) we're 
-introduced to the Euler-Maclaurin Summation formula:
+The first paper I ever read[^2] opens with the following beautiful passage:
 
-TODO: find a way to write this as an asymptotic expansion so that we don't
-need to mess with the error term.
+> Consider the following absurd argument concerning planar, binary, rooted, 
+> unlabelled trees. Every such tree is either the trivial tree or consists of 
+> a pair of trees joined together at the root, so the set $T$ of trees is 
+> isomorphic to $1+T^2$. Pretend that $T$ is a complex number and solve the 
+> quadratic $T = 1+T^2$ to find that $T$ is a primitive sixth root of unity 
+> and so $T^6 = 1$. Deduce that $T^6$ is a one-element set; realize immediately 
+> that this is wrong. Notice that $T^7 \cong T$ is, however, not obviously 
+> wrong, and conclude that it is therefore right. In other words, conclude 
+> that there is a bijection $T^7 \cong T$ built up out of copies of the 
+> original bijection $T \cong 1 + T^2$: a tree is the same as seven trees.
+> The point of this paper is to show that ‘nonsense proofs’ of this kind are,
+> actually, valid.
+
+You can see that we've "proven" a claim about trees by proving a polynomial
+implication in $\mathbb{C}$. That is, the authors show
+
+$$T = 1+T^2 \implies T^7 = T.$$
+
+This shows the _spirit_ of what we're doing in this post, but is more general
+in two ways. Firstly, the authors of this paper consider polynomial 
+_implications_, whereas we will only consider equations. Secondly, the authors
+show that these implications remain true (under certain hypotheses) even in
+Rngs (that is, rings without inverses). In this post we're only going to 
+consider Rings 
+(indeed, we're going to consider _commutative_ rings almost exclusively).
+
+---
+
+## Example 3 -- Computing Inverses
+
+<div class=boxed markdown=1>
+Even in noncommutative rings[^3], if $1 - ab$ has an inverse, then 
+$1 - ba$ does too.
+</div>
+
+$\ulcorner$
 
 $$
-\sum_{a \leq k \lt b} f(k) 
-= \int_a^b f(x)\ dx + 
-\left . \sum_{k=1}^m \frac{B_k}{k!} f^{(k-1)}(x) \right |_a^b
-+ R_m
+\begin{aligned}
+(1-ba)^{-1} 
+&= 1 + ba + (ba)^2 + (ba)^3 + \ldots \\
+&= 1 + ba + baba + bababa + \ldots \\
+&= 1 + b(1 + ab + abab + \ldots)a \\
+&= 1 + b(1-ab)^{-1}a
+\end{aligned}
 $$
 
-Here $B_k$ is the $k$th [bernoulli number][5], 
-$f^{(k)}$ is the $k$th derivative of $f$,
-and $R_m$ is an error term[^2].
+<span style="float:right">$\lrcorner$</span>
 
-The authors provide a (genuinely shocking) proof of this claim:
+Of course, general rings don't have a notion of power series! So the
+above proof is meaningless... right? 
 
-We write $(\Delta f)(x) = f(x+1) - f(x)$ for the forward difference operator,
-which we should think of as a kind of inverse to $\sum$ in the same way 
-differentiation is a kind of inverse to $\int$. Indeed, 
-$\sum_a^b \Delta f$ telescopes, and gives $f(b+1) - f(a)$. This is a kind of 
-analogue for the fundamental theorem of calculus.
+Also, we said we were going to be considering commutative rings. Why
+are we suddenly allowing noncommutativity? Is there really some underlying
+principle that will let us know when we can and can't do things like this?
 
-But then if we write $f$ as a taylor series around $x$, we see:
+---
 
-$$f(x + \epsilon) = f(x) + \frac{f^{(1)}(x)}{1!}\epsilon + \frac{f^{(2)}(x)}{2!}\epsilon^2 + \ldots$$
+## Example 4 -- Euler-Maclaurin Summation 
 
-Then by setting $\epsilon = 1$, we find
+We've saved the most jaw dropping example for last. This "proof" of the
+[Euler-Maclaurin Summation Formula][8] comes from Graham, Knuth, and 
+Patashnik's fantastic book "Concrete Mathematics" (ch. 9.5). 
 
-$$\Delta f = f(x+1) - f(x) = \frac{f^{(1)}(x)}{1!} + \frac{f^{(2)}(x)}{2!} + \ldots$$ 
+We often approximate as sum $\sum_a^b f(k)$ by the integral $\int_a^b f(x)\ dx$.
+You may recognize this idea from the proof that 
+$\sum_n \frac{1}{n} \sim \ln(n)$.
 
-and if we write $D$ for the differentiation operator, we see
+What if we want to understand the _error_ of this approximation, though?
+Enter the Euler-Maclaurin Formula:
 
-$$\Delta f = (\frac{D}{1!} + \frac{D^2}{2!} + \ldots)f = (e^D - 1)f.$$
+<div class=boxed markdown=1>
+  If $f$ is smooth, we have an [asymptotic expansion][9]
 
-So obviously, if we want a formula for $\sum$, we simply need to invert $\Delta$.
+  $$
+  \sum_{n=a}^b f(n) \sim \int_a^b f(x)\ dx + 
+  \left . \sum_{k = 1}^\infty \frac{B_k}{k!} \frac{d^{k-1} f}{dx^k} \right |_a^b
+  $$
 
-$$\sum = \frac{1}{\Delta} = \frac{1}{e^D - 1}$$ 
+  Where $B_k$ is the $k$th [Bernoulli Number][5].
+</div>
 
-This is almost $\frac{z}{e^z - 1}$, whose taylor series is well known[^3]:
+The authors provide a (genuinely shocking) proof of this claim 
+(which I've copied almost verbatim).
+Here $(\Delta f)(x) = f(x+1) - f(x)$ is the [forward difference operator][10]
+and $Df = \frac{df}{dx}$ is differentiation.
 
-$$\frac{z}{e^z - 1} = \sum_n \frac{B_k}{k!}z^k.$$
+$\ulcorner$
 
-Then, continuing to play fast and loose with... well everything, really. We find
+We can express $\Delta$ in terms of $D$ using Taylor's formula as follows:
 
-$$\sum = \frac{1}{D} \frac{D}{e^D - 1} = \frac{B_0}{D} + \frac{B_1}{1!} + \frac{B_2}{2!} D + \frac{B_3}{3!} D^2 + \ldots$$
+$f(x + \epsilon) = f(x) + \frac{f'(x)}{1!}\epsilon + \frac{f''(x)}{2!}\epsilon^2 + \cdots$
 
-which, of course, gives
+Setting $\epsilon = 1$ tells us that
 
-$$\sum = \int + \sum_{k \geq 1} \frac{B_k}{k!} D^{k-1}.$$
+$$
+\begin{aligned}
+\Delta f(x) 
+&= f(x+1) - f(x) \\
+&= f'(x)/1! + f''(x)/2! + f'''(x)/3! + \cdots \\
+&= (D/1! + D^2/2! + D^3/3! + \cdots)f(x) \\
+&= (e^D - 1)f(x)
+\end{aligned}
+$$
 
-If you apply both sides to $f$ and add endpoints, you recover the 
-Euler-Maclaurin formula above, so even though every line of this argument
-seems to be based on nothing but hope and notation, we actually get a 
-reasonable answer out the other side[^4].
+Since summation and forward difference have a similar inverse relationship as
+integration and differentiation (do you see why?), 
+we might write $\sum = \Delta^{-1}$ and $\int = D^{-1}$. Arguing in this way, 
+we would expect
+
+$$
+\sum = \Delta^{-1} = \frac{1}{e^D - 1}
+$$
+
+Now $\frac{z}{e^z - 1} = \sum_k \frac{B_k}{k!} z^k$ is a known power series 
+(it is the exponential generating function for the bernoulli numbers).
+This tells us that
+
+$$
+\begin{aligned}
+\sum 
+&= \frac{1}{D} \frac{D}{e^D - 1} \\
+&= \frac{1}{D} \sum_k \frac{B_k}{k!} D^k \\
+&= \frac{1}{D} + \sum_{k \geq 1} \frac{B_k}{k!} D^{k-1} \\
+&= \int + \sum_{k \geq 1} \frac{B_k}{k!} D^{k-1}
+\end{aligned}
+$$
+
+Now we apply both operators to $f$, then evaluate at $a$ and $b$, we see
+
+$$
+\sum_{n=a}^b f(n) = \int_a^b f(x)\ dx + 
+\left . \sum_{k \geq 1} \frac{B_k}{k!} D^k f \right |_a^b
+$$
+
+Which is, frankly, black magic[^5].
+
+<span style="float:right">$\lrcorner$</span>
+
 
 ---
 
 In each of these examples, we're formally manipulating some expressions 
 as though they followed the rules of ordinary power series. Even though,
 at the face of it, there's little reason why it should be true! 
-
-As the first example showed, though, we need to be at least a little bit 
-careful, because even the innocuous looking $\exp(A) \exp(B) = \exp(A+B)$
-may fail in general! 
 
 So what's going on here? Why are these arguments working, and how do we know
 when it's safe to use them? To answer these questions, let's move to the 
@@ -194,7 +264,7 @@ a choice of $n \times n$ matrices $A$ and $B$ with entries in $R$.
 Now for the model theory. Ring homs _preserve truth_. Given a ring hom
 $f : R \to S$ and an equation $x=y$ in $R$, we _must_ have $f(x) = f(y)$ in $S$.
 
-So if we can show the claim in $\mathbb{Z}[\overline{a}, \overline{b}]$[^5],
+So if we can show the claim in $\mathbb{Z}[\overline{a}, \overline{b}]$[^6],
 that is, if we can show
 
 $$
@@ -284,9 +354,17 @@ nothing special about $\mathbb{Q}$. Maybe it's more useful to use some fact
 from complex analysis, and we can show the polynomial identity by using
 $\mathbb{Z} \subseteq \mathbb{C}$. That's entirely allowed!
 
+---
+
+What about power series, though? Is there a similar way for us to argue 
+that results we've proven for $\mathbb{Z} \llbracket \overline{x} \rrbracket$
+must be true in more general settings? I probably wouldn't be writing this
+post if the answer were no!
+
+
+
+TODO: write an exercise about computing the mobius function of a poset.
  
-TODO: talk about the paper objects in categories as concrete numbers as a 
-version of the same principle. Maybe in a footnote?
 
 
 [^1]:
@@ -294,19 +372,24 @@ version of the same principle. Maybe in a footnote?
     $[\cdot,\cdot]$ exists in Lie Algebras (cf. [TODO the fudge factor for exp(A+B)][3])
 
 [^2]:
-    For the interested, 
-    $$R_m = (-1)^{m+1} \int_a^b \frac{B_m(x - \lfloor x \rfloor)}{m!}f^{(m)}\ dx.$$
+    "Objects of Categories as Complex Numbers" by Fiore and Leinster. See
+    [here](https://arxiv.org/pdf/math/0212377.pdf) for an arxiv link. It's
+    _really_ excellent, and readable too!
 
-[^3]: 
+[^3]:
+    They still have $1$, though. We aren't animals. Jokes aside, I learned
+    about this on mse (where else?) in an [excellent post][7] by Bill Dubuque
+
+[^4]: 
     For certain definitions of "well known"
 
-[^4]:
+[^5]:
     I actually asked a question about this on mse (see [here][6]), but I 
     was still fairly new to the site at the time and accepted an answer too
     quickly. In many ways this blog post is the answer that I would write 
     myself if I could talk to a younger me.
 
-[^5]:
+[^6]:
     Life is too short to keep typing out all the variables.
 
 [1]: matrix norm
@@ -315,3 +398,7 @@ version of the same principle. Maybe in a footnote?
 [4]: mobius function
 [5]: bernoulli number
 [6]: my MSE question
+[7]: https://math.stackexchange.com/a/675128/655547
+[8]: https://en.wikipedia.org/wiki/Euler%E2%80%93Maclaurin_formula
+[9]: https://en.wikipedia.org/wiki/Asymptotic_expansion
+[10]: https://en.wikipedia.org/wiki/Finite_difference
