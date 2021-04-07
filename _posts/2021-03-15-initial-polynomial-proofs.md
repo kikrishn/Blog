@@ -5,6 +5,8 @@ tags:
   - 
 ---
 
+TODO: another example for datatype derivatives
+
 There are lots of ways in which good notation can make results seem obvious. 
 There are also lots of ways in which "illegally" manipulating expressions can
 give a meaningful answer at the end of the day.
