@@ -187,19 +187,19 @@ code {font-family: $mono-font;}
 blockquote{
   width:80%;
   margin:50px auto;
-  font-family:Open Sans;
-  color: #555555;
+  font-family: $heading-font;
   padding:1.2em 30px 1.2em 75px;
-  border-left:8px solid #78C0A8 ;
+  border-left:8px solid $main-accent;
   line-height:1.6;
   position: relative;
-  background:#EDEDED;
+  background: $light-grey;
+  font-size: calc(#{$base-font-size} - 1pt);
 }
 
 blockquote::before{
   font-family:Arial;
   content: "\201C";
-  color:#78C0A8;
+  color: $main-accent;
   font-size:4em;
   position: absolute;
   left: 10px;
