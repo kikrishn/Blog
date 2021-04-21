@@ -237,7 +237,7 @@ $\mathbb{Z} \subseteq \mathbb{C}$. That's entirely allowed!
 ---
 
 What about power series, though? Is there a similar way for us to argue 
-that results we've proven for $\mathbb{Z} \llbracket \overline{x} \rrbracket$
+that results we've proven for $\mathbb{Z} [ \\! [\overline{x} ] \\! ]$
 must be true in more general settings? I probably wouldn't be writing this
 post if the answer were no!
 
