@@ -244,6 +244,8 @@ post if the answer were no!
 
 TODO: write an exercise about computing the mobius function of a poset.
 
+---
+
 [^1]:
     Of course, the failure of $(2)$ is in some sense the reason the [Lie Bracket][2]
     $[\cdot,\cdot]$ exists in Lie Algebras (cf. [TODO the fudge factor for exp(A+B)][3])
