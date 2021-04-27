@@ -7,7 +7,7 @@ tags:
 
 ---
 
-I'm in a reading group with Elliott Vest and Jacob Garcia 
+I'm in a reading group with Elliott Vest and [Jacob Garcia][11]
 (supervised by [Matt Durham][1]) where we're talking about 
 CAT(0) Cube Complexes. We're reading a set of lecture notes 
 by sageev (pdf [here][2], for the interested) and we came across
@@ -318,3 +318,4 @@ If so, what does the covering action look like? If not, what goes wrong?
 [8]: https://en.wikipedia.org/wiki/M%C3%B6bius_transformation
 [9]: https://bookstore.ams.org/gsm-33
 [10]: https://math.stackexchange.com/q/4117907/655547
+[11]: https://sites.google.com/view/jacobgarcia/jacob-garcia
