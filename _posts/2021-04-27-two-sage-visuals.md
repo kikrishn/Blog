@@ -123,7 +123,7 @@ Be a bit careful with the disk model -- because I'm using the same sliders
 as the upper half plane model, you need to make sure that your center 
 stays in the unit circle.
 
-<div class="auto">
+<div class="sage">
 <script type="text/x-sage">
 
 x,y = var('x,y')
@@ -220,7 +220,7 @@ plotting the orbit of all of these regions and checking that they cover the
 whole plane 
 (barring the origin, of course. Do you see why we have to treat it specially?).
 
-<div class="linked_auto">
+<div class="auto">
 <script type="text/x-sage">
 x,y = var('x,y')
 
