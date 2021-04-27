@@ -3,6 +3,7 @@ layout: post
 title: Two Sage Visuals
 tags:
   - sage
+  - geometry
 
 ---
 
