@@ -20,8 +20,9 @@ This is nice because we often have access to ~bonus tools~ when working in
 $\mathbb{Z}$, and it doesn't matter if we _use_ these bonus tools to prove
 the general result!
 
-Let's see a few examples to start. Once we have some ideas in hand, we can 
-talk about the general principle.
+I think this technique is best shown by example, so I'll give a smattering
+of proofs using this idea. Hopefully by the end you'll be convinced of its
+flexibility ^_^. 
 
 ---
 
@@ -42,7 +43,7 @@ $\ulcorner$
 First we prove this identity in $\mathbb{Z}[a,b]$. Then we notice there is
 a (unique) ring hom $\varphi : \mathbb{Z}[a,b] \to R$ for each choice of $a$ and $b$
 in $R$. This is the category theory at work, since $\mathbb{Z}[a,b]$ is the 
-free (commutative) ring on two generators. But we have model theory too! 
+free (commutative) ring on two generators. Next, we use model theory: 
 Homomorphisms preserve truth, and so the true equation $p(a,b) = q(a,b)$ in
 $\mathbb{Z}[a,b]$ must stay true after we hit it with $\varphi$! 
 
@@ -75,7 +76,6 @@ Sylvester's identity says that
 $$\text{det}(1 + AB) = \text{det}(1 + BA)$$
 
 $\ulcorner$
-
 How can we prove this? Well, let's work in 
 $\mathbb{Z}[a_{ij}, b_{ij}]$, where we have one variable for each of the $2n^2$
 matrix entires. Now we have
@@ -90,7 +90,6 @@ really expressing the equality of polynomials with integer coefficients!
 So we have a polynomial equation $fh = hg$, and we can happily cancel the
 nonzero polynomial $h$ from both sides, since $\mathbb{Z}[a_{ij}, b_{ij}]$ 
 is a domain! Here $h$ is the polynomial $\text{det}(A)$, and we get the claim.
-
 <span style="float:right">$\lrcorner$</span>
 
 Notice that we've, again, used a special property of integer polynomials in 
@@ -98,7 +97,7 @@ this proof! We can cancel polynomials with reckless abandon because we're workin
 in a domain. Once we prove this polynomial identity, though, the result remains
 true after we evaluate! In particular, even if
 the specific $\text{det}(A)$ of interest is $0$, or the particular $R$ of 
-interest is _not_ a domain!
+interest is _not_ a domain! 
 
 Whatever tools we want to use inside $\mathbb{Z}[a_{ij}, b_{ij}]$ is totally ok,
 as long as we end our proof with a polynomial identity.
@@ -110,7 +109,72 @@ $A = n \times m$ and $B = m \times n$?
 
 ---
 
-## Example -- Seven Trees in One
+## Example -- Computing Inverses
+
+I said we would be focusing on commutative rings in this post, and that's true.
+But there's a really cool noncommutative example that follows the same
+principle and is worth showing.
+I learned about this on mse (where else?) in an [excellent post][7] by Bill Dubuque.
+
+<div class=boxed markdown=1>
+Even in noncommutative rings[^3], if $1 - ab$ has an inverse, then 
+$1 - ba$ does too.
+</div>
+
+$\ulcorner$
+We want to work in the ring of noncommutative polynoimals
+$\mathbb{Z} \langle a,b \rangle$, but it's not quite big enough. 
+We're making an assumption that $(1-ab)^{-1}$ exists, but it actually
+_doesn't_ in $\mathbb{Z} \langle a,b \rangle$. That said, we can freely add 
+such an inverse -- let's work in
+
+$$R = \mathbb{Z} \langle a, b, c \rangle \Bigg / (1 - ab)c = 1 = c(1-ab).$$
+
+Now for the clever trick: 
+we can embed this into the ring of noncommutative power series
+$$\mathbb{Z} \langle \! \langle a,b \rangle \! \rangle$$. 
+We send $a \mapsto a$, $b \mapsto b$, and $c \mapsto (1-ab)^{-1}$.
+
+In $$\mathbb{Z} \langle \! \langle a,b \rangle \! \rangle$$, we 
+can run the following argument 
+(which, of course, would be nonsensical in other settings):
+
+$$
+\begin{aligned}
+(1-ba)^{-1} 
+&= 1 + ba + (ba)^2 + (ba)^3 + \ldots \\
+&= 1 + ba + baba + bababa + \ldots \\
+&= 1 + b(1 + ab + abab + \ldots)a \\
+&= 1 + b(1-ab)^{-1}a \\
+\end{aligned}
+$$
+
+But this means in $$\mathbb{Z} \langle \! \langle a, b \rangle \! \rangle$$
+we have the identity
+
+$$ (1-ba) (1 + b(1-ab)^{-1}a) = 1 = (1 + b(1-ab)^{-1}a) (1-ba)$$
+
+which, under our embedding, gives us the following identity in 
+$R$:
+
+$$ (1-ba) (1+bca) = 1 = (1+bca) (1-ba) $$
+
+But then since this ring is initial
+among all noncommutative rings with $2$ free variables and an inverse 
+for $(1-ab)$, we find the identity holds in _every_ (noncommutative) ring $R$!
+<span style="float:right">$\lrcorner$</span>
+
+Notice the extra power we got, both by using quotient rings to model 
+some hypotheses in our theorem and by passing to formal power series.
+This is part of what's so nice about embeddings! They let us prove statements
+in some smaller setting by using techniques from a bigger setting[^8]. We've 
+been implicitly using this idea throughout the post, but I wanted to make it
+explicit at least once. After all, once we're aware of it, we can use it in other
+settings as well[^9]. 
+
+---
+
+## A Sentimental Interlude -- Seven Trees in One
 
 The first paper I ever read[^2] opens with the following beautiful passage:
 
@@ -132,42 +196,28 @@ implication in $\mathbb{C}$. That is, the authors show
 
 $$T = 1+T^2 \implies T^7 = T.$$
 
-This follows the _spirit_ of what we're doing in this post, but is more general
-in two ways. Firstly, the authors of this paper consider polynomial 
-_implications_, whereas we will only consider equations. Secondly, the authors
-show that these implications remain true (under certain hypotheses) even in
-rngs (that is, rings without inverses). In this post we're only going to 
-consider rings, but I wanted to include this result for sentimental reasons.
+In the paper, the authors show that homomorphisms of certain polynomial 
+_implications_ are also preserved[^10] for rigs (that is, rings without negatives).
+Here $\mathbb{N}[T]$ plays the role of the initial rng, which embeds in 
+$\mathbb{C}[T]$. Then we use complex analysis to show the above implication
+holds in $\mathbb{C}[T]$ and thus in $\mathbb{N}[T]$.
 
----
+Since the objects of a category (up to isomorphism) with products and coproducts
+forms a rng, this tells us there is a hom from $\mathbb{N}[T]$ to the category
+of, say, algebraic datatypes (up to isomorphism). 
 
-## Example -- Computing Inverses
+Since this polynomial implication is of the variety that's preserved, and in
+the category of datatypes we have $T \cong 1 + T^2$, we are allowed to conclude
+$T \cong T^7$! 
 
-<div class=boxed markdown=1>
-Even in noncommutative rings[^3], if $1 - ab$ has an inverse, then 
-$1 - ba$ does too.
-</div>
-
-$\ulcorner$
-
-$$
-\begin{aligned}
-(1-ba)^{-1} 
-&= 1 + ba + (ba)^2 + (ba)^3 + \ldots \\
-&= 1 + ba + baba + bababa + \ldots \\
-&= 1 + b(1 + ab + abab + \ldots)a \\
-&= 1 + b(1-ab)^{-1}a
-\end{aligned}
-$$
-
-<span style="float:right">$\lrcorner$</span>
-
-Of course, general rings don't have a notion of power series! So the
-above proof is meaningless... right? 
-
-Also, we said we were going to be considering commutative rings. Why
-are we suddenly allowing noncommutativity? Is there really some underlying
-principle that will let us know when we can and can't do things like this?
+This follows the _spirit_ of what we're doing in this post, but is a bit 
+more detailed because general homomorphisms _don't_ preserve all implications.
+A model theorist might jump straight to elementary embeddings, but that's 
+far too restrictive for our purposes here. The authors of the above paper do a
+great job finding (only slightly technical) conditions which make this 
+argument go through. I've included it both to show what's possible when you 
+extend the ideas in this post, and also because it was my first paper and I feel
+a certain amount of love for it.
 
 ---
 
@@ -188,7 +238,6 @@ we might think of a better way (especially since we've seen the rest of the
 post).
 
 $\ulcorner$
-
 We again look at $\mathbb{Z}[a_{ij}, b_{ij}]$.
 
 We first note that the entries of $AB$ are polynomials in the
@@ -210,39 +259,73 @@ _know_ the formula is true for matrices over a field! So the formula is true
 for us, and the claim follows for all rings.
 <span style="float:right">$\lrcorner$</span>
 
-<div class=boxed markdown=1>
-  Use this technique to prove the following:
-
-  - $\text{det}(I) = 1$
-  - $\text{det}(A^t) = \text{det}(A)$
-  - $\text{det}(A)$ is multilinear in the rows of $A$
-  - $\text{det}(A)$ swaps signs if you swap two rows
-
-  This technique isn't restricted to matrices either! 
-
-  - Show that, in any ring, $(a+b)^n = \sum_k \binom{n}{k} a^k b^{n-k}$
-</div>
-
-This technique is _extremely_ flexible. Since, at the end of the day,
-we only need to show a polynomial equality for infinitely many special cases,
-we have a _lot_ of leeway in choosing the cases. For instance, there are 
-infinitely many invertible, or diagonalizable matrices. So this technique 
-lets us prove things about _all_ matrices over _all_ rings by thinking only
-about invertible or diagonalizable matrices over $\mathbb{Z}$! Similarly, in 
-the above example we used $\mathbb{Z} \subseteq \mathbb{Q}$, but there's 
-nothing special about $\mathbb{Q}$. Maybe it's more useful to use some fact
-from complex analysis, and we can show the polynomial identity by using
-$\mathbb{Z} \subseteq \mathbb{C}$. That's entirely allowed!
+It turns out this exact example is _also_ worked out in Artin's "Algebra"
+(ch. 12.3) with a discussion of Permanence of Identities.
 
 ---
 
-What about power series, though? Is there a similar way for us to argue 
-that results we've proven for $\mathbb{Z} [ \\! [\overline{x} ] \\! ]$
-must be true in more general settings? I probably wouldn't be writing this
-post if the answer were no!
+This is a fun and powerful technique, and it's really useful in a lot of 
+situations! Here are some quick exercises for you to play around with,
+but I encourage you to look for your own as well!
 
+<div class=boxed markdown=1>
+  Pick your favorite two facts about matrix algebra and see if they're
+  true over arbitrary rings. If you stick to facts about determinants,
+  matrix multiplication, row operations, etc. you should be able to choose
+  pretty much anything!
+</div>
 
-TODO: write an exercise about computing the mobius function of a poset.
+<div class=boxed markdown=1>
+  Show that the quadratic formula always works, unless it obviously doesn't.
+
+  As a hint, you'll want to work in the ring
+
+  $$\mathbb{Z}\left [ a,b,c,d,a^{-1}, \frac{1}{2} \right ] \Bigg / d^2 = b^2 - 4ac$$
+</div>
+
+<div class=boxed markdown=1>
+  Show that $\mathbb{Z}[x_1, \ldots, x_n]$ embeds in 
+
+  - $C(\mathbb{R})$ (the ring of continuous functions on $\mathbb{R}$)
+  - $C(\mathbb{C})$ (the ring of continuous functions on $\mathbb{C}$
+  - $C^\infty(\mathbb{R})$ (the ring of smooth functions on $\mathbb{R}$)
+  - $C^\infty(\mathbb{C})$ (the ring of entire functions on $\mathbb{C}$)
+
+  so if we prove an polynomial identity using real or complex analysis it
+  is true in $\mathbb{Z}[x_1, \ldots, x_n]$ (and thus in all rings).
+</div>
+
+<div class=boxed markdown=1>
+  As another powerful tool in your arsenal, say you want to prove some
+  polynomial identity in one variable: $p(x) = q(x)$. 
+
+  1. Show that there's some finite number $N$ (depending on $p$ and $q$) 
+  so that $p(x) = q(x)$ if and only if it's true for $N$ many choices of $x$.
+
+  2. Show that that $$\binom{x}{3} \binom{3}{2} = \binom{x}{2} \binom{x-2}{1}$$ 
+      is a polynomial identity in $x$. Verify it by hand for $4$ choices of $x$.
+      Argue that this verification proves this identity holds in all rings 
+      where you can divide by $2$.
+
+  It's wild to me that some finite verification like this is enough to prove
+  an identity (even a simple one like this) for all rings. If you want to see
+  more of this proof technique you should check out Petkovšek, Wilf, and
+  Zeilberger's book [A = B][19] (section 1.4, to start).
+
+  Does this technique work for polynomials with more than one variable?
+</div>
+
+---
+
+As one last aside, I'm really interested in figuring out when we can do this
+with power series. Over a year ago now I asked [a question][6] about this,
+though I accepted the answer too quickly 
+(and in hindsight it isn't really the kind of answer I was looking for).
+
+With the extra year to think about it, though, I think I have a better idea
+how to make it work. I meant this to be a kind of prequel where we work in
+the simpler setting of polynomials to get practice before we jump into proving
+identities with power series.
 
 ---
 
@@ -256,8 +339,7 @@ TODO: write an exercise about computing the mobius function of a poset.
     _really_ excellent, and readable too!
 
 [^3]:
-    They still have $1$, though. We aren't animals. Jokes aside, I learned
-    about this on mse (where else?) in an [excellent post][7] by Bill Dubuque
+    They still have $1$, though. We aren't animals. 
 
 [^4]: 
     For certain definitions of "well known"
@@ -277,12 +359,47 @@ TODO: write an exercise about computing the mobius function of a poset.
     permutations of products of the entries. It's obviously a polynomial
     (albeit a gross one).
 
-[1]: matrix norm
-[2]: lie bracket
-[3]: the fudge factor
-[4]: mobius function
-[5]: bernoulli number
-[6]: my MSE question
+[^8]: 
+    If you like the model theoretic language, embeddings _reflect_ truth.
+
+[^9]:
+    We really do use this kind of machinery ALL the time, though. 
+    Whenver we use complex numbers to prove things about 
+    $\mathbb{R}$, $\mathbb{N}$, etc. for instance. 
+
+    More excitingly, this is part of the power of the 
+    yoneda lemma -- We embed any (small) category into a [topos][16]
+    of presheaves. Then if we can prove some fact 
+    (which doesn't refer to any topos-y things) using this high powered 
+    machinery, it reflects down to our original category!
+
+    This is also why model theorists care so much about 
+    [elementary embeddings][17], which I've given a quick introduction
+    to [here][18]. The tl;dr is that embeddings _don't_ need to preserve 
+    or reflect the truth of formulas involving quantifiers. Elementary 
+    embeddings, on the other hand, do both.
+
+[^10]:
+    In fact, we do this by quotienting by the assumptions of our impliction,
+    just like we did with the $(1-ba)^{-1}$ example. So the relevant rig 
+    for binary trees is $\mathbb{N}[T] \big / T^2 - T + 1$. 
+
+    The issue is that for some equations 
+    $\mathbb{Z}[x] \big / p=q$ (and also $\mathbb{N}[x] \big / p=q$) might
+    not _embed_ into $\mathbb{C}$! 
+
+    For instance, when we quotient by some non-monic identity, we get 
+    something that [isn't finitely generated][21] as a $\mathbb{Z}$-module.
+    This is a problem since in $\mathbb{C}$ the subfield generated by the 
+    roots of some integer polynomial will be finite dimensional over 
+    $\mathbb{Q}$, and thus _will_ satisfy some integer linear combination!
+
+    Since we no longer have an embedding, truth is no longer reflected! 
+    The core of Fiore and Leinster's paper is giving conditions where this 
+    doesn't happen.
+
+[4]: https://en.wikipedia.org/wiki/Incidence_algebra
+[6]: https://math.stackexchange.com/q/3500045/655547
 [7]: https://math.stackexchange.com/a/675128/655547
 [8]: https://en.wikipedia.org/wiki/Euler%E2%80%93Maclaurin_formula
 [9]: https://en.wikipedia.org/wiki/Asymptotic_expansion
@@ -290,3 +407,11 @@ TODO: write an exercise about computing the mobius function of a poset.
 [11]: https://math.stackexchange.com/users/242/bill-dubuque
 [12]: https://math.stackexchange.com/a/98365/655547
 [13]: https://en.wikipedia.org/wiki/Leibniz_formula_for_determinants
+[14]: https://en.wikipedia.org/wiki/Formal_power_series#Non-commuting_variables
+[15]: https://en.wikipedia.org/wiki/Free_algebra
+[16]: https://en.wikipedia.org/wiki/Topos
+[17]: https://en.wikipedia.org/wiki/Elementary_equivalence#Elementary_embeddings
+[18]: /2020/10/01/elementary-vs-submodel
+[19]: https://www2.math.upenn.edu/~wilf/AeqB.pdf
+[20]: https://en.wikipedia.org/wiki/Congruence_relation
+[21]: https://math.stackexchange.com/q/2230921/655547
