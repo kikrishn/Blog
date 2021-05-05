@@ -200,12 +200,12 @@ $$T = 1+T^2 \implies T^7 = T.$$
 
 In the paper, the authors show that homomorphisms of certain polynomial 
 _implications_ are also preserved[^10] for rigs (that is, rings without negatives).
-Here $\mathbb{N}[T]$ plays the role of the initial rng, which embeds in 
+Here $\mathbb{N}[T]$ plays the role of the initial rig, which embeds in 
 $\mathbb{C}[T]$. Then we use complex analysis to show the above implication
 holds in $\mathbb{C}[T]$ and thus in $\mathbb{N}[T]$.
 
 Since the objects of a category (up to isomorphism) with products and coproducts
-forms a rng, this tells us there is a hom from $\mathbb{N}[T]$ to the category
+forms a rig, this tells us there is a hom from $\mathbb{N}[T]$ to the category
 of, say, algebraic datatypes (up to isomorphism). 
 
 Since this polynomial implication is of the variety that's preserved, and in
