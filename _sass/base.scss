@@ -181,6 +181,45 @@ code {font-family: $mono-font;}
   font-family: $mono-font;
 }
 
+//blockquote styling
+//shamelessly based on
+//https://codepen.io/cliftwalker/pen/XJaEXY
+blockquote{
+  width:80%;
+  margin-left: 75px;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  font-family: $heading-font;
+  padding:1.2em 30px 1.2em 50px;
+  border-left:8px solid $main-accent;
+  line-height:1.6;
+  position: relative;
+  background: $light-grey;
+  font-size: calc(#{$base-font-size} - 1pt);
+}
+
+blockquote::before{
+  font-family:Arial;
+  content: "\201C";
+  color: $main-accent;
+  font-size:4em;
+  position: absolute;
+  left: 10px;
+  top:-10px;
+}
+
+blockquote::after{
+  content: '';
+}
+
+blockquote span{
+  display:block;
+  color:#333333;
+  font-style: normal;
+  font-weight: bold;
+  margin-top:1em;
+}
+
 /*Skip to main content hidden link for ADA complicance*/
 /*Courtsey of NC State University*/
 /*https://accessibility.oit.ncsu.edu/it-accessibility-at-nc-state/developers/accessibility-handbook/mouse-and-keyboard-events/skip-to-main-content/*/
