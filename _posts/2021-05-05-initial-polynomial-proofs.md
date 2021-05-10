@@ -116,7 +116,7 @@ $A = n \times m$ and $B = m \times n$?
 I said we would be focusing on commutative rings in this post, and that's true.
 But there's a really cool noncommutative example that follows the same
 principle and is worth showing.
-I learned about this on mse (where else?) in an [excellent post][7] by Bill Dubuque.
+I learned about this on mse (where else?) in a different [excellent post][7] by Bill Dubuque.
 
 <div class=boxed markdown=1>
 Even in noncommutative rings[^3], if $1 - ab$ has an inverse, then 
@@ -171,8 +171,8 @@ some hypotheses in our theorem and by passing to formal power series.
 This is part of what's so nice about embeddings! They let us prove statements
 in some smaller setting by using techniques from a bigger setting[^8]. We've 
 been implicitly using this idea throughout the post, but I wanted to make it
-explicit at least once. After all, once we're aware of it, we can use it in other
-settings as well[^9]. 
+explicit at least once. After all, once we're aware of it, we can intentionally 
+use it in other settings as well[^9]. 
 
 ---
 
@@ -227,8 +227,7 @@ a certain amount of love for it.
 
 Say we want to prove that $\text{det}(AB) = \text{det}(A) \text{det}(B)$.
 When we're working over a field, there are slick basis-dependent arguments
-to show this. See, for instance, Knapp's "Basic Algebra" (ch. II.7), which
-also spends some time talking about the Permanence of Identities in ch. V.2.
+to show this. See, for instance, Knapp's "Basic Algebra" (ch. II.7)[^11]. 
 
 These arguments don't go through for a general ring $R$, though, so you might
 think we should drink some caffeine, look up the definition of the determinant
@@ -260,9 +259,6 @@ But $\mathbb{Z}[a_{ij},b_{ij}] \subseteq \mathbb{Q}(a_{ij},b_{ij})$, and we
 _know_ the formula is true for matrices over a field! So the formula is true
 for us, and the claim follows for all rings.
 <span style="float:right">$\lrcorner$</span>
-
-It turns out this exact example is _also_ worked out in Artin's "Algebra"
-(ch. 12.3) with a discussion of Permanence of Identities.
 
 ---
 
@@ -401,6 +397,15 @@ identities with power series.
     Since we no longer have an embedding, truth is no longer reflected! 
     The core of Fiore and Leinster's paper is giving conditions where this 
     doesn't happen.
+
+[^11]:
+    Knapp also happens to spend some time talking about Permanence of Identities
+    (in ch. V.2), which is why I chose this book in particular to mention. 
+    It turns out the exact example we're about to work out is _also_ in Artin's
+    "Algebra" (ch. 12.3) alongside a discussion of Permanence of Identities! 
+    So if you want to see some other perspectives on this topic, you can read
+    about it there too.
+
 
 [4]: https://en.wikipedia.org/wiki/Incidence_algebra
 [6]: https://math.stackexchange.com/q/3500045/655547
