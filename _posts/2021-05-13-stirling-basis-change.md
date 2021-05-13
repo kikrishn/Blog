@@ -99,7 +99,7 @@ $$\Delta x^{\underline{n}} = n x^{\underline{n-1}}$$
 </div>
 
 This plus the fundamental theorem lets us quickly compute 
-"falling polynomials". As an example:
+sums of "falling polynomials". As an example:
 
 $$
 \begin{align}
@@ -108,7 +108,7 @@ $$
 &= \sum_a^b \Delta x^\underline{4} 
 - \frac{2}{3} \sum_a^b \Delta x^\underline{3} 
 + 4 \sum_a^b \Delta x^\underline{1} \\
-&= \left . x^\underline{4} - \frac{2}{3} x^\underline{3} + 4 x^\underline{1} \right |_a^b \\
+&= \left . x^\underline{4} - \frac{2}{3} x^\underline{3} + 4 x^\underline{1} \right |_a^{b+1} \\
 &= \left ( (b+1)^\underline{4} - a^\underline{4} \right )
 - \frac{2}{3} \left ((b+1)^\underline{3} - a^\underline{3} \right )
 + 4 \left ( (b+1) - a \right )
@@ -131,7 +131,7 @@ what is the degree of each $x^\underline{n}$?
 </div>
 
 And now we have a very obvious reason to care about change of basis, which
-I think a lot of young mathematicians would appreciate. I think there's a lot
+I think a lot of young mathematicians would appreciate. There's a lot
 of good pedagogy that one can do with this, since the new basis isn't contrived
 (it comes naturally out of a desire to compute sums), and it's an easy to 
 understand example. Plus it's obvious that we're representing the 
@@ -141,7 +141,7 @@ only the names we give them (i.e., their coordinates). This gives us an
 understandable example of that.
 
 As a sample exercise, we might ask our students to compute 
-$\sum_{x=1}^N x^2$. Once they know $x^2 = x^\underline{2} + x^\underline{1}$, 
+$\sum_{x=1}^n x^2$. Once they know $x^2 = x^\underline{2} + x^\underline{1}$, 
 (which can be worked out by hand without much effort) they can compute 
 
 $$
@@ -168,17 +168,12 @@ it turns out that
 $$x^n = \sum_k {n \brace k} x^\underline{k}$$
 
 which is almost usable! All we need now is a way to quickly compute 
-${n \brace k}$. Thankfully, there's actually an analogue of Pascal's Triangle
+${n \brace k}$. Thankfully, there's jn analogue of Pascal's Triangle
 that works for these coefficients!
-
-We start with a $1$.
-
-$$1$$
 
 Just like pascal's triangle, we have $1$s down the outside, and we build 
 the $n+1$th row by adding the two terms from the previous row which you 
 sit between.
-
 The only difference is the stirling numbers keep track of what _column_ you're
 in as well. Concretely, the recurrence is
 
@@ -213,7 +208,7 @@ $$1 \quad 15 \quad 25 \quad 10 \quad 1.$$
 Then the next row will be
 
 $$
-1 
+{\color{blue}1} 
 \quad 
 1 + {\color{blue}2} \times 15 
 \quad 
@@ -245,6 +240,8 @@ There's no substitute for doing: As an exercise, you should write out the
 first $10$ or so rows of the triangle. Use this to compute $\sum_a^b x^5$.
 </div>
 
+---
+
 Another good exercise I might give students one day is to 
 explicitly write down change of basis matrices for, say, polynomials of degree
 $4$. This more or less amounts to writing the above triangle as a matrix,
@@ -262,6 +259,17 @@ After conjugating by a change of basis matrix, though, we can figure this
 out! And the cool thing? Next time you want to compute a sum, you can just
 multiply by (a big enough finite part) of this matrix and evaluate at the 
 endpoints!
+
+If you're a teacher and end up using this, or maybe you already _were_ using 
+this, definitely let me know! I'd be excited to hear about this and other 
+ways that you try to make linear algebra feel more concrete to people 
+learning it for the first time.
+
+If you're a student, hopefully this was exciting! I know I get 
+geekier about this kind of stuff than a lot of people, but I think
+finite calculus is a really cool idea. Hopefully this post encourages you
+to go looking for other information about this technique, and maybe 
+shows that linear algebra is never very far away ^_^.
 
 ---
 
