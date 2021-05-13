@@ -35,7 +35,11 @@ There's a lot to say, but the tl;dr is this:
 Finite Calculus's raison dêtre is to compute sums with the same facility
 we compute integrals (and indeed, with analogous tools). If you've ever
 been mystified by [Summation by Parts][5][^2], you've already encountered 
-part of this machinery.
+part of this machinery. I won't go into much detail in this post, because
+I want to keep this short. But I highly encourage you to look into it if 
+you spend a lot of time computing sums. Nowadays I mainly use
+[sage](https://sagemath.org), but it's nice to know how to do some of these
+things by hand.
 
 We start with discrete differentiation:
 
@@ -49,32 +53,19 @@ We start with discrete differentiation:
   first to emphasize the parallel with the classical derivative.
 </div>
 
-This satisfies all the nice rules you might want a "derivative" to satisfy:
+This satisfies variants of the nice rules you might want a "derivative" to satisfy:
 
 <div class=boxed markdown=1>
-Write $(Eg)(x) = g(x+1)$ for the "shift" operator.
-
-As an exercise, show the following:
+As an exercise, show the following[^4]:
 
 $$
 \begin{align}
-  \text{(Linearity)} && \Delta(\alpha f + \beta g) &= \alpha \Delta f + \beta \Delta g \\
-  \text{(Leibniz)}   && \Delta(f \cdot g)          &= (\Delta f) \cdot g + f \cdot (\Delta g) + (\Delta f) \cdot (\Delta g) \\
-  \text{(Leibniz 2)} && \Delta(f \cdot g)          &= (\Delta f) \cdot (Eg) + f \cdot (\Delta g) \\
+  \text{(Linearity)}   && \Delta(\alpha f + \beta g) &= \alpha \Delta f + \beta \Delta g \\
+  \text{(Leibniz)} && \Delta(f \cdot g)          &= (\Delta f) \cdot g + f \cdot (\Delta g) + (\Delta f) \cdot (\Delta g) \\
 \end{align}
 $$
 
-If (Leibniz 2) looks silly, that's because it is. It's nice to have, because
-it's easier to use in summation by parts, but the fact that the left hand side
-is symmetric in $f$ and $g$ while the right hand side isn't is... offputting.
-
-I used to stress out trying to remember where the $E$ went, until I realized
-the formula _really is_ symmetric (since the left hand side is), so I can put
-the $E$ on either $f$ or $g$ without worrying. From that day forward I never
-forgot the summation by parts formula.
-
 As a tricky challenge, can you find a quotient rule? 
-
 As a _very_ tricky challenge, can you find a chain rule[^3]? 
 </div>
 
@@ -85,9 +76,6 @@ Theorem (Fundamental Theorem of Finite Calculus):
 
 $$\sum_a^b \Delta f = f(b+1) - f(a)$$
 </div>
-
-This gives summation by parts as an easy corollary: just sum both sides of
-Leibniz 2 above.
 
 ---
 
@@ -104,49 +92,57 @@ $$x^{\underline{n}} = (x-0) (x-1) (x-2) \cdots (x-(n-1))$$
 (at least when $n \gt 0$).
 </div>
 
-Then we have the following "power rule" for forward differences:
+Then we have the following "power rule" for forward differences[^5]:
 
 <div class=boxed markdown=1>
 $$\Delta x^{\underline{n}} = n x^{\underline{n-1}}$$
 </div>
 
-There are other "fundamental" forward differences worth knowing as well. 
-Here's a few to have in your pocket:
+This plus the fundamental theorem lets us quickly compute 
+"falling polynomials". As an example:
 
-- $\Delta 2^x = 2^x$
-- More generally, $\Delta r^x = (r-1) r^x$
-- $\Delta \binom{x}{n} = \binom{x}{n-1}$
-- If we define $x^{\underline{0}} = 1$ and $x^{\underline{-n}} = \frac{1}{(x+1)(x+2)\cdots(x+m)}$, then the power rule continues to work.
-- $\Delta H_x = x^{\underline{-1}}$, where $H_x$ are the [harmonic numbers][8]
-
-<div class=boxed markdown=1>
-  As a (fun?) exercise, use these to compute
-
-  - $\sum_a^b r^x$
-  - $\sum_a^b x^{\underline{k}}$
-  - $\sum_a^b x 2^x$
-  - $\sum_a^b x H_x$
-</div>
-
----
+$$
+\begin{align}
+\sum_a^b 4 x^\underline{3} - 2 x^\underline{2} + 4
+&= \sum_a^b 4 x^\underline{3} - \sum_a^b 2 x^\underline{2} + \sum_a^b 4 \\
+&= \sum_a^b \Delta x^\underline{4} 
+- \frac{2}{3} \sum_a^b \Delta x^\underline{3} 
++ 4 \sum_a^b \Delta x^\underline{1} \\
+&= \left . x^\underline{4} - \frac{2}{3} x^\underline{3} + 4 x^\underline{1} \right |_a^b \\
+&= \left ( (b+1)^\underline{4} - a^\underline{4} \right )
+- \frac{2}{3} \left ((b+1)^\underline{3} - a^\underline{3} \right )
++ 4 \left ( (b+1) - a \right )
+\end{align}
+$$
 
 This is great, but we don't often see $x^{\underline{k}}$ in the wild. 
-Most of the time we want to sum the "classical" $x^k$. Surely finite calculus
-won't be useful here!
+Most of the time we want to sum "classical" polynomials with terms like $x^k$. 
+If only we had a way to easily convert back and forth between "classical" 
+polynomials and "falling" polynomials...
 
-Now it's time for the main point of this post: We know the space of polynomials
+Of course, that's the punchline! We know the space of polynomials
 has a standard basis $$\{x^0, x^1, x^2, x^3, \ldots \}$$. But notice the 
 polynomials $$\{x^\underline{0}, x^\underline{1}, x^\underline{2}, x^\underline{3}, \ldots \}$$
-is _also_ a basis! After all, we still get one basis element in each degree.
+_also_ form a basis! 
 
-Now we see the idea! Given a polynomial $p = \sum p_i x^i$, we can compute
-$\sum_a^b p$ by first rewriting $p = \sum \tilde{p_i} x^\underline{i}$,
-then applying finite calculus to this sum to find that
+<div class=boxed markdown=1>
+If this isn't obvious, you should do it as an easy exercise. As a hint, 
+what is the degree of each $x^\underline{n}$?
+</div>
 
-$$\sum_a^b p = \sum \tilde{p_i} \left . \frac{x^\underline{i+1}}{i+1} \right |_a^{b+1}$$
+And now we have a very obvious reason to care about change of basis, which
+I think a lot of young mathematicians would appreciate. I think there's a lot
+of good pedagogy that one can do with this, since the new basis isn't contrived
+(it comes naturally out of a desire to compute sums), and it's an easy to 
+understand example. Plus it's obvious that we're representing the 
+_same polynomial_ in multiple ways. In my experience a lot of students struggle
+with the idea that changing bases doesn't actually change the vectors themselves,
+only the names we give them (i.e., their coordinates). This gives us an 
+understandable example of that.
 
-For instance, once we know $x^2 = x^\underline{2} + x^\underline{1}$, we can
-compute 
+As a sample exercise, we might ask our students to compute 
+$\sum_{x=1}^N x^2$. Once they know $x^2 = x^\underline{2} + x^\underline{1}$, 
+(which can be worked out by hand without much effort) they can compute 
 
 $$
 \sum_1^n x^2 
@@ -155,16 +151,117 @@ $$
 = \frac{(n+1)^\underline{3} - 1^\underline{3}}{3} + \frac{(n+1)^\underline{2} - 1^\underline{2}}{2}
 $$
 
-You can check (with sage, say) that this agrees with the [usual formula][9].
+They can then check (with sage, say) that this agrees with the [usual formula][9].
 
 ---
 
-Ok. So at this point we can tell that this alternate basis is useful for
-computing these sums (this is the point that I would drive home to my hypothetical students). 
-How do we actually _change_ basis though? If you give me some polynomial written
-in terms of $x^i$, how can I figure out how to represent it using the $x^\underline{i}$?
+At this point, we're probably sold on the idea that this alternate basis is
+useful for computing these sums. But it's not yet clear how effective this is. 
+If I ask you to compute, say, $\sum_a^b x^5$, how would you go about doing it?
+We need to know how to actually _compute_ this change of basis[^6]. 
 
-Enter, rather magically, the [stirling numbers][10].
+Enter the [stirling numbers][10]. There's a lot of very pretty combinatorics
+here, but let's focus on what's relevant for our linear algebra. 
+We write ${n \brace k}$ for the "stirling numbers of the second kind", and 
+it turns out that
+
+$$x^n = \sum_k {n \brace k} x^\underline{k}$$
+
+which is almost usable! All we need now is a way to quickly compute 
+${n \brace k}$. Thankfully, there's actually an analogue of Pascal's Triangle
+that works for these coefficients!
+
+We start with a $1$.
+
+$$1$$
+
+Just like pascal's triangle, we have $1$s down the outside, and we build 
+the $n+1$th row by adding the two terms from the previous row which you 
+sit between.
+
+The only difference is the stirling numbers keep track of what _column_ you're
+in as well. Concretely, the recurrence is
+
+$${n+1 \brace k} = {n \brace k-1} + k {n \brace k}$$
+
+So you add the number above you and to your left to $k$ times the number
+above you and to your right. You increase $k$ with every step. Let's do some
+sample rows together: 
+
+Say our previous row was
+
+$$1 \quad 7 \quad 6 \quad 1$$
+
+Then our next row will be
+
+$$
+{\color{blue}1} 
+\quad 
+1 + {\color{blue}2} \times 7 
+\quad 
+7 + {\color{blue}3} \times 6 
+\quad 
+6 + {\color{blue}4}  \times 1 
+\quad 
+1
+$$
+
+which is, of course
+
+$$1 \quad 15 \quad 25 \quad 10 \quad 1.$$
+
+Then the next row will be
+
+$$
+1 
+\quad 
+1 + {\color{blue}2} \times 15 
+\quad 
+15 + {\color{blue}3} \times 25 
+\quad 
+25 + {\color{blue}4} \times 10 
+\quad 
+10 + {\color{blue}5} \times 1 
+\quad 
+1
+$$
+
+In the above example you can see the blue multiplier is just increasing by $1$
+each time. We're always combining the two entries above the current one, just
+like in pascal's version.
+
+<br>
+
+Finally, to be super clear, if we know the $4$th row of our triangle is
+
+$$1 \quad 7 \quad 6 \quad 1$$ 
+
+that tells us that 
+
+$$x^4 = x^\underline{4} + 7 x^\underline{3} + 6 x^\underline{2} + x^\underline{1}.$$
+
+<div class=boxed markdown=1>
+There's no substitute for doing: As an exercise, you should write out the
+first $10$ or so rows of the triangle. Use this to compute $\sum_a^b x^5$.
+</div>
+
+Another good exercise I might give students one day is to 
+explicitly write down change of basis matrices for, say, polynomials of degree
+$4$. This more or less amounts to writing the above triangle as a matrix,
+but hopefully it will give students something to play with to better understand
+how the change of basis matrices interact with the vectors. 
+
+I really think this example has staying power throughout the course as well.
+Once we know $\Delta$ is linear, we know it must have a representation as a
+matrix. Computing that representation in the falling power basis and in the
+standard basis would be another good exercise. One could also introduce
+[indefinite summation][11] (say by picking constant term $0$).
+Again, we know what its matrix looks like in the falling powers basis,
+but it's not at all clear what it looks like in the standard basis. 
+After conjugating by a change of basis matrix, though, we can figure this
+out! And the cool thing? Next time you want to compute a sum, you can just
+multiply by (a big enough finite part) of this matrix and evaluate at the 
+endpoints!
 
 ---
 
@@ -179,7 +276,7 @@ Enter, rather magically, the [stirling numbers][10].
     but I find it _so_ interesting to see how things like that used to be done!
 
 [^2]:
-    And who among us _wasn'T_ when we first heard about it? I remember seeing it
+    And who among us _wasn't_ when we first heard about it? I remember seeing it
     in Baby Rudin, at which point I got really excited. Then really confused.
     Then (after some deep thinking) really excited again. It took me a long time
     to understand some quirks of the formula, though.
@@ -197,6 +294,42 @@ Enter, rather magically, the [stirling numbers][10].
     keep this post somewhat low-effort. I would love to hear someone else's
     thoughts on this, though.
 
+[^4]:
+    This actually isn't how you often see the leibniz rule written. Even though
+    it's objectively better than the alternative. Almost every reference I've
+    seen writes the leibniz rule as
+
+    $$\Delta(f \cdot g) = (\Delta f) \cdot (Eg) + f \cdot (\Delta g)$$
+
+    where $(Eg)(x) = g(x+1)$ is the "shift operator".
+
+    I assume this is because summing both sides of this equation gives
+    the summation by parts formula, but the fact that the left hand side
+    is symmetric in $f$ and $g$ while the right hand side isn't is... offputting.
+
+[^5]:
+    There are other "fundamental" forward differences worth knowing as well. 
+    Here's a few to have in your pocket:
+
+    - $\Delta 2^x = 2^x$
+    - More generally, $\Delta r^x = (r-1) r^x$
+    - $\Delta \binom{x}{n} = \binom{x}{n-1}$
+    - If we define $x^{\underline{0}} = 1$ and $x^{\underline{-n}} = \frac{1}{(x+1)(x+2)\cdots(x+n)}$, then the power rule continues to work.
+    - $\Delta H_x = x^{\underline{-1}}$, where $H_x$ are the [harmonic numbers][8]
+
+[^6]:
+    This is the kind of thing that I would probably just tell my 
+    hypothetical students, but I might post a video or send them a blog 
+    post where I go through it in detail as extra material for anyone 
+    who's interested. Introducing stirling numbers and proving properties
+    about them is really the regime of a combinatorics class, but I think
+    it doesn't take too much time to show them the analogue of pascal's 
+    triangle so that they can actually _use_ this technique should the need
+    arise.
+
+
+
+
 [1]: https://www.math.cmu.edu/~clintonc/
 [2]: /2021/05/05/initial-polynomial-proofs
 [3]: https://en.wikipedia.org/wiki/Finite_difference
@@ -206,4 +339,5 @@ Enter, rather magically, the [stirling numbers][10].
 [7]: https://en.wikipedia.org/wiki/Tangent_bundle
 [8]: https://en.wikipedia.org/wiki/Harmonic_number
 [9]: https://math.stackexchange.com/questions/48080/sum-of-first-n-squares-equals-fracnn12n16
-[10]: https://en.wikipedia.org/wiki/Stirling_numbers_of_the_second_kind
+[10]: https://en.wikipedia.org/wiki/Stirling_number
+[11]: https://en.wikipedia.org/wiki/Indefinite_sum
