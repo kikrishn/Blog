@@ -25,10 +25,9 @@ exhibit some pattern which you can make mathematically precise.
 
 Of course, once you're making one or two sets of pictures, you might as well 
 make a framework for making them. I also like showing off sage on this blog,
-so it only makes sense to put my code here so that future students can play
-around with these pictures. 
+so it only makes sense to put my code here for future students to play around with.
 
-Keep in mind, though, though, that most polynomials have the whole symmetric
+Keep in mind, though, though, that [most polynomials][4] have the whole symmetric
 group as their group of symmetries! So when you plot those pictures you're 
 likely to get factorially many in the degree!
 
@@ -101,3 +100,4 @@ def _(f=input_box(x^2+1, width=20, label="$f$"), auto_update=False):
 [1]: https://en.wikipedia.org/wiki/Galois_theory
 [2]: https://cs.uwaterloo.ca/~cbright/reports/computing-galois-group.pdf
 [3]: www.cs.cmu.edu/~sutner/
+[4]: https://mathoverflow.net/questions/58397/the-galois-group-of-a-random-polynomial
