@@ -26,10 +26,14 @@ exhibit some pattern which you can make mathematically precise.
 Of course, once you're making one or two sets of pictures, you might as well 
 make a framework for making them. I also like showing off sage on this blog,
 so it only makes sense to put my code here for future students to play around with.
+Some of the arrows are a little messed up, but my basic algorithm actually 
+makes a lot of them look quite nice ^_^.
 
-Keep in mind, though, though, that [most polynomials][4] have the whole symmetric
-group as their group of symmetries! So when you plot those pictures you're 
-likely to get factorially many in the degree!
+As one quick word of caution: keep in mind that [most polynomials][4] have the 
+whole symmetric group as their group of symmetries! So when you plot those 
+pictures you're likely to get factorially many in the degree! Be careful 
+plotting any polynomials of degree $> 4$ if you want to keep the computation
+somewhat quick.
 
 <div class="linked_auto">
 <script type="text/x-sage">
