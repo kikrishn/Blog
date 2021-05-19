@@ -95,6 +95,13 @@ def _(f=input_box(x^5-2, width=20, label="$f$"), auto_update=False):
 </script>
 </div>
 
+<div class=boxed markdown=1>
+As a (fun?) exercise, can you modify the above code to pick a generating
+set for the galois group and plot the generators in red rather than blue?
+Or what about _only_ plotting the generators? That might let you visualize
+galois groups of larger polynomials.
+</div>
+
 ---
 
 [^1]:
