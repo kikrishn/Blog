@@ -85,7 +85,7 @@ def draw_all_actions(f):
         show(out)
 
 @interact
-def _(f=input_box(x^2+1, width=20, label="$f$"), auto_update=False):
+def _(f=input_box(x^5-2, width=20, label="$f$"), auto_update=False):
     f = R(f)
     draw_all_actions(f)
 </script>
