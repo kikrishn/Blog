@@ -15,13 +15,13 @@ This is listed as formula $(130)$ at the bottom of the wolfram mathworld page on
 [formulas for $\pi$](https://mathworld.wolfram.com/PiFormulas.html),
 where it is called "A fascinating result due to Gosper".
 There are $3$ citations for Gosper on that page, but I can't actually figure
-out how to _see_ any of them. That's fine, though. We'll just have to prove 
+out how to _see_ any of them. That's fine, though -- We'll just have to prove 
 it ourselves. I ended up heavily using computer tools 
 (by which, of course, I mean [sage](https://sagemath.org)) to crack this,
 and it almost felt like cheating (since I knew my friend was doing it by hand).
 But I hope that, in addition to showing off a cool formula, this blog post
 can showcase how one might use sage to solve problems in the wild
-(even though I really didn't do anything special for this problem).
+(even though in this case we used sage in a fairly mundane way).
 
 ---
 
