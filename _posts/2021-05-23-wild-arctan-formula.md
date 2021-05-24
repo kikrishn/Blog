@@ -58,7 +58,7 @@ series expansion at $0$, but for some reason it doesn't work with this[^1]:
 So we do some googling for $\arctan(1/x)$, and we land on the following 
 really fun formula:
 
-$$\arctan(x) + \arctan(1/x) = \pi / 2 \quad \quad (\text{for $x > 0$)}).$$
+$$\arctan(x) + \arctan(1/x) = \pi / 2 \quad \quad (\text{for $x > 0$}).$$
 
 This is really neat (and has a [nice geometric proof](https://math.stackexchange.com/a/2147689/655547)),
 and lets us rewrite our function as
