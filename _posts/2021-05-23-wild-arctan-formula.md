@@ -67,7 +67,7 @@ $$
 f(x) = \log \left ( \frac{\pi}{2 (\pi /2 - \arctan(x))} \right ).
 $$
 
-Sage will happily taylor expand _this_ and we learn
+Sage will happily give us a series expansion of _this_ and we learn
 
 $$
 f(x) = \frac{2x}{\pi} + O(x^2),
@@ -76,7 +76,7 @@ $$
 so our sum becomes
 
 $$
-\lim_{n \to \infty} \sum_{k=n}^{2n} f(1/k) = \lim_{n \to \infty} \sum_{k=n}^{2n} \frac{2}{\pi k} + O(1/k^2).
+\lim_{n \to \infty} \sum_{k=n}^{2n} f(1/k) = \lim_{n \to \infty} \sum_{k=n}^{2n} \left ( \frac{2}{\pi k} + O(1/k^2) \right ).
 $$
 
 But now we're basically done! Our error term vanishes in the limit, since
