@@ -105,7 +105,7 @@ finitely many terms anyways, this tells us
 <div class=boxed markdown=1>
 Life Pro Tip:
 
-If $x_n \to r$ a fixed point of $f$ with $\lvert f'(r) \rvert \lt 1$, then
+If $x_n \to r$ (a fixed point of $f$) with $\lvert f'(r) \rvert \lt 1$, then
 $x_n \to r$ exponentially quickly. More precisely, for any $\epsilon$ you want[^5]
 
 $$x_n = r \pm O((\lvert a_1 \rvert + \epsilon)^n)$$
