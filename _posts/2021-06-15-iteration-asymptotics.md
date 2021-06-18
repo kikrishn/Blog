@@ -5,78 +5,67 @@ tags:
   - sage
 ---
 
-And so ends my first year of grad school. I'm pretty tired, and my mental
-health has taken a turn for the worse, though it's hard to piece together if
-the last few weeks were tiring because my mental health was declining, or if
-my mental health is in decline because the last few weeks were tiring. Probably
-a little bit of both. Anyways, I have some free time again and a backlog of
-ideas for blog posts. I also have a paper to revise, but hopefully I'm able to
-put up some more of my ramblings here. I really enjoy it, and maybe someday 
-it will be interesting for someone.
-
-What is today about, then? I really like recurrences, and the kind of asymptotic
+I really like recurrences, and the kind of asymptotic
 analysis that shows up in combinatorics and computer science. I think I'm drawn
 to it because it melds something I enjoy (combinatorics and computer science)
 with something I historically struggle with (analysis). 
 
-Lots of recurrences can be solved with [generating functions][1], 
-from basic tools for linear recurrences[^1] (which nowadays I just solve with [sage][3])
-to quite sophisticated tools involving functional equations, 
-[lagrange inversion][4], etc. Plus, even if your sequence doesn't admit a nice
-closed form, you can often get a good handle on the asymptotics by doing
-complex analysis to the generating function[^2].
+My usual tool for handling reccurences (particularly for getting asymptotic
+information about their solutions) is [generating functions][1]. They slaughter
+linear recurrences (which nowadays I just solve with [sage][3]), but through
+functional equations, [lagrange inversion][4], and complex analysis, they form
+an extremely sophisticated theory[^2]. Plus, I would be lying if I didn't say
+I was drawn to them because of how cool they are conceptually. I'm a sucker for
+applying one branch of math to another, so the combination of complex analysis
+and enumerative combinatorics is irresistable.
 
-Because of their flexibility (and also because 
-they're very cool conceptually), generating functions are my goto approach
-for solving a lot of recurrence and enumeration problems. Unfortunately,
-it seems like they're less amenable to solving another kind of recurrence,
-which is going to be the topic of today's post.
+Unfortunately, you can't solve all asymptotics problems with generating 
+functions, and it's good to have some other tools around as well. Today
+we'll be working with the following question:
 
-Let's take a simple problem I found on mse the other day. I can't actually find
-the original question I saw, but it looks like it's been asked [a few times now][6]:
+<div class=boxed markdown=1>
+  If $f$ is some function, what are the asymptotics of 
+
+  $$x_{n+1} = f(x_n)$$
+
+  where we allow $x_0$ and $n$ to vary?
+</div>
+
+If $f$ is continuous and $x_n \to r$, it's clear that $r$ must be a fixed
+point of $f$. If moreover, $f'(r)$ exists, and $|f'(r)| \lt 1$, then anything
+which starts out near $r$ will get pulled into $r$. Also, we might as well 
+assume $r = 0$, since we can replace $f$ by $f(x+r) - r$ without loss of 
+generality. 
+
+These observations tell us we should restrict attention to
+those systems where $f(x) = a_1 x + a_2 x^2 + \ldots$ is 
+analytic at $0$ with $f(0) = 0$ and $|a_1| \lt 1$. Indeed, we'll focus
+on exactly this case for the rest of the post[^4].
+
+As a case study, let's take a simple problem I found on mse the other day.
+I can't actually find the question I saw anymore, or else I'd link it. 
+It looks like it's been asked [a few times now][6], but none of the options
+are recent enough to be the one I saw. Oh well.
 
 <div class=boxed markdown=1>
   Define $x_0 = 2$, $x_{n+1} = \frac{x_n + 3}{3 x_n + 1}$. What is 
   $\lim_{n \to \infty} x_n$?
-
-  Of course, we care about more than just the limit. What are the asymptotics like?
 </div>
 
-I've seen these sorts of problems a handful of times, but only now am I really
-feeling like I understand how to actually tackle them. I haven't found many
-worked out examples of a problem like this, so here we are ^_^.
+The original problem is fairly routine, and we can solve it using 
+[cobweb diagrams][8]. The asymptotics are more interesting, though.
+It turns out we can read the asymptotics right off of $f$, which is 
+super cool! I guess I hadn't seen any examples because people who are in the 
+know feel like it's too obvious to talk about, but that makes it the perfect 
+topic for a blog post!
 
-As a helpful way of reframing the question, we start by considering
-$f(x) = \frac{x + 3}{3x + 1}$. Then $x_{n+1} = f(x_n)$, and understanding
-$f$ will be a good first step towards understanding this recurrence. This is
-actually enough to solve the problem, since if the limit exists, then by 
-taking limits of both sides we find $x_\infty = f(x_\infty)$, and our limit
-is a fixed point of $f$. Solving this equation immediately gives us $x_\infty = 1$,
-and it's not hard to see that starting at $x_0 = 2$ we really do limit to $1$.
-Can we say anything about _how quickly_ $x_n \to 1$, though? 
+Notice $f(x) = \frac{x+3}{3x+1}$ has a fixed point at $1$, so we'll need to
+translate it to the origin. We'll replace $f$ by 
+$g(x) = f(x+1) - 1 = \frac{-2x}{3x+4}$, remembering to replace $x_0 = 2$
+by $y_0 = x_0 - 1 = 1$ as well.
 
-More generally, we're going to be ineterested in studying the asymptotics of 
-recurrences of the form $x_{n+1} = f(x_n)$ for our favorite function $f$. 
-We're going to be implementing the approach described in chapter $8$ of 
-de Bruijn's _Asymptotic Methods in Analysis_, and de Bruijn makes some 
-simplifying assumptions. Namely:
-
-1. The fixed point of $f$ should be $0$
-2. $f$ should be analytic at $0$, given by $f(x) = 0 + a_1 x + a_2 x^2 + \ldots$
-3. $ \lvert a_1 \rvert \lt 1$
-
-The first assumption is without loss of generality, since we can always replace
-$f(x)$ with fixed point $c$ by $f(x+c) - c$ to move the fixed point to $0$.
-
-The second assumption is mainly helpful in obtaining an asymptotic expansion
-for $x_n$. In the "Simple Asymptotics" section, you'll see we only need 
-$C^1$-ness of $f$. We use analyticity in order to get progressively more
-powerful asymptotic approximations in the "Asymptotic Expansion" section.
-
-The third assumption tells us that $f$ is contracting near $0$, which is 
-necessary if we want to get any kind of convergence at all. In his book,
-de Bruijn treats the $|a_1| = 1$ case as well, but it's more delicate and we
-won't go into it here.
+Notice $g(x) = - \frac{1}{2} x + \frac{3}{8}x^2 - O(x^3)$ is analytic at $0$
+with $| - \frac{1}{2} | \lt 1$. 
 
 Let's get started!
 
@@ -86,52 +75,47 @@ Let's get started!
 
 <br>
 
-For us, then, we'll replace our function
-$f(x) = \frac{x + 3}{3x + 1}$ by $g(x) = f(x+1) - 1 = \frac{-2x}{3x+4}$.
-Next, we taylor expand (or more likely, have sage taylor expand for us)
-and we find $g(x) = \frac{-1}{2} x + \frac{3}{8}x^2 - O(x^3)$. Notice 
-$|a_1| = \left | \frac{-1}{2} \right | \lt 1$, so we're happy.
+We'll be following de Bruijn's _Asymptotic Methods in Analysis_ in both
+this section and the next. In the interest of showcasing how to actually 
+_use_ these tools, I'm going to gloss over a lot of details. You can find
+everything made precise in chapter $8$.
 
-To start, choose $b$ so that $|a_1| \lt b \lt 1$. For concreteness, 
-let's work with $b = \frac{3}{4}$, though $b = \frac{1}{2} + \epsilon$ 
-will work for any small $\epsilon$.
-
-Now since $x^{-1} g = a_1 + a_2 x + \ldots$, for $ \lvert x \rvert \ll 1$ we must have
-$|x^{-1} g(x)| \lt b$. That is, $|x_1| = |g(x_0)| \lt b |x_0|$. An easy induction 
-shows $|x_n| \lt b^n |x_0|$, and so we've solved the basics of our problem!
-
-Let's return to our concrete example. We had $y_0 = 2$ before we translated
-$f$ to move the fixed point from $1$ to $0$, so with respect to this _new_
-function we should have $x_0 = y_0 - 1 = 1$. Then 
+First, if $x \approx 0$, then $f(x) \approx f'(0) \cdot x$. Since we are 
+assuming $|f'(0)| \lt 1$, if $x_n \approx 0$, then 
+$x_{n+1} \approx f'(0) x_n \approx 0$ too. An easy induction then shows that
 
 $$
-|x_n| \lt |x_0| \left ( \frac{3}{4} \right )^n = \left ( \frac{3}{4} \right )^n
+x_n \approx (f'(0))^n x_0.
 $$
 
-and translating this back _away_ from the origin now, we get the answer to our
-original problem:
+But now we have our asymptotics! If we formalize all of the $\approx$ signs
+above, we find
 
-$$
-|y_n - 1| \lt \left ( \frac{3}{4}  \right )^n.
-$$
+<div class=boxed markdown=1>
+For each $|f'(0)| \lt b \lt 1$, there is a radius $\delta$ so that as long
+as $x_0 \in (-\delta, \delta)$ we're guaranteed
 
-Equivalently,
+$$|x_n| \lt b^n |x_0|$$
+</div>
 
-$$y_n = 1 \pm O \left ( \left ( \frac{3}{4} \right )^n \right )$$
-
-where actually we can take any $\frac{1}{2} + \epsilon$ instead of $\frac{3}{4}$.
-
-Morally, what have we learned from this? 
+Since $x_n \to 0$, we're guaranteed that eventually our $x_n$s will be inside
+however tight a radius we want! Since big-oh notation ignores the first
+finitely many terms anyways, this tells us
 
 <div class=boxed markdown=1>
 Life Pro Tip:
 
-Let $f$ have a fixed point $r$ with $0 \lt \lvert f'(r) \rvert \lt 1$. 
-Consider the recurrence $x_{n+1} = f(x_n)$, and pick $x_0 \approx r$.
-Then $x_n \to r$ with exponential decay governed by $f'(r)$:
+If $x_n \to r$ a fixed point of $f$ with $\lvert f'(r) \rvert \lt 1$, then
+$x_n \to r$ exponentially quickly. More precisely, for any $\epsilon$ you want[^5]
 
-$$x_n \approx r \pm O_{x_0} \left ( (f'(r))^n \right )$$
+$$x_n = r \pm O((\lvert a_1 \rvert + \epsilon)^n)$$
 </div>
+
+What about our concrete example? We know $f$ has $1$ as a fixed point,
+and $f'(1) = - \frac{1}{2}$. Then for $x_0 = 2$, we get 
+(by choosing $\epsilon = 0.00001$) that $x_n = 1 \pm O ( 0.50001^n )$.
+Which is fast enough convergence for most practical purposes.
+
 
 ---
 
@@ -151,8 +135,8 @@ $$
 $$
 
 In the proof that $\omega$ exists (which you can find in de Bruijn's book),
-it is clear that it is actually analytic whenever $f$ is. Then using
-[lagrange inversion][4], we can find an analytic $\Omega$ so that 
+we also show that $\omega$ is analytic whenever $f$ is!
+Then using [lagrange inversion][4], we can find an analytic $\Omega$ so that 
 $\Omega(\omega(x)) = x$.
 
 But now we can get a great approximation for $x_n$! By repeatedly applying
@@ -169,10 +153,22 @@ x_n = \Omega(a_1^n \omega(x_0)).
 $$
 
 If we use the first, say, $5$ terms of the expansion of $\Omega$, this will
-give us accuracy up to $\tilde{O}(a_1^{5n})$. There are some lower order terms
-which come from how much of $\omega$ we use, which I'm sweeping under the $\tilde{O}$.
+give us accuracy up to $\tilde{O}(a_1^{5n})$. There are also some lower order terms
+which come from how much of $\omega$ we use, but I'm sweeping under the $\tilde{O}$.
 
 How do we actually do this in practice, though? The answer is "with sage"!
+
+This code will take a function $f$ like we've been discussing, and will
+recursively compute the first $N$ coefficients of $\omega$. It turns out
+the $j$th coefficient of $\omega$ depends only on the first $j-1$ coefficients plus
+equation $(\star)$. Then it will lagrange invert to get the first $N$
+terms of $\Omega$, and it will use these to compute an asymptotic expansion
+for $x_n$ in terms of $n$ and $x_0$ (which it's writing as $x$).
+
+Since I had to (rather brutally) convert back and forth between symbolic
+and ordinary power series, sage wasn't able to keep track of the error
+term for us. Thankfully, it's pretty easy to see that the error term is
+always $O(a_1^n x_0^N)$, so I just manually wrote it in.
 
 <div class="linked_auto">
 <script type="text/x-sage">
@@ -262,10 +258,12 @@ def stats(f,n=10,N=5):
 
     tests += [cur - guess]
 
-  avg_diff = sum([abs(t) for t in tests]) / 1000
+  avg_diff = mean([abs(t) for t in tests])
   max_diff = max([abs(t) for t in tests])
+  median_diff = median([abs(t) for t in tests])
   show("maximum error: ", max_diff)
-  show("average error: ", avg_diff)
+  show("mean error:    ", avg_diff)
+  show("median error:  ", median_diff)
 
   show(histogram(tests, bins=50, title="frequency of various signed errors (actual $-$ approximation)"))
 
@@ -296,21 +294,50 @@ def _(f=input_box(-2*x / (3*x + 4), width=20, label="$f$"),
 </script>
 </div>
 
+<div class=boxed markdown=1>
+As a nice exercise, you might try to modify the above code to work with
+functions with a fixed point at $r \neq 0$. You can do this either by
+taylor expanding at $r$ directly, or by translating $r$ to $0$, then using
+this code, then translating back.
+
+Be careful, though! We get much more numerical precision near $0$, so if you
+do things near $r$ you might want to work with [arbitrary precision reals][9].
+</div>
+
+So, in our last moments together, let's finish up that concrete example in
+far more detail than anyone ever wanted. The default function that I put in
+the code above is our function translated to $0$. If you look at the first $10$
+terms of the sequence (that is, set $N=5$) and work with $x_0 - 1 = 1$ 
+(since we translated everything left by $1$) we find
+
+$$
+x_n - 1 \approx
+\frac{5}{8} \left ( \frac{-1}{2} \right )^{n} +
+\frac{3}{8} \left ( \frac{-1}{2} \right )^{2n} -
+\frac{1}{8} \left ( \frac{-1}{2} \right )^{3n} +
+\frac{1}{8} \left ( \frac{-1}{2} \right )^{4n}
+$$
+
+For $n = 10$, say, we would expect 
+
+$$x_n \approx 1.0006107$$
+
+the actual answer is 
+
+$$x_n = 1.0006512$$
+
+which, seeing as $x_0 = 2$ is pretty far away from $1$ (the limit), 
+$5$ is a pretty small number of terms to use, 
+and $10$ really isn't _that_ many iterations, is good enough for me.
+
+Of course, you should look at the statistics in the output of the code above 
+to see how close we get for $n=100$, or any other number you like ^_^.
+
 
 ---
 
-[^1]:
-    There's actually a really cool connection with [formal languages][2] here
-    as well. My undergrad research was in automata theory, and I've always loved
-    formal languages, so I'm definitely planning to talk about this in the 
-    near future. As a teaser, the fact that some people call 
-    [regular languages][5] "rational" is not a coincidence! There's actually
-    no sage package for working with regular languages and rational series,
-    and I'm considering writing a package to do some of the basics. Obviously
-    if this happens, I'll talk all about it in another post!
-
 [^2]:
-    I know the basics of this, but there's some real black magic people are 
+    I know the basics, but there's some real black magic people are 
     able to do by considering what type of singularities your function has. 
     This seems to be outlined in Flajolet and Sedgewick's _Analytic Combinatorics_,
     but every time I've tried to read that book I've gotten quite lost quite 
@@ -321,6 +348,15 @@ def _(f=input_box(-2*x / (3*x + 4), width=20, label="$f$"),
 [^3]:
     Which is apparently called [Schröder's equation][7]
 
+[^4]:
+    It turns out you can sometimes say things if $|a_1| = 1$. But convergence
+    is slow (if you get it at all) and the entire discussion is a bit more 
+    delicate. You should see de Bruijn's _Asymptotic Methods in Analysis_
+    (chapter $8$) for more details.
+
+[^5]:
+    Notice these techniques can't remove the $\epsilon$. For instance, 
+    $n C^n = O((C+\epsilon)^n)$ for each $\epsilon$, but is _not_ $O(C^n)$.
 
 [1]: https://en.wikipedia.org/wiki/Generating_function
 [2]: https://en.wikipedia.org/wiki/Formal_language
@@ -329,3 +365,5 @@ def _(f=input_box(-2*x / (3*x + 4), width=20, label="$f$"),
 [5]: https://en.wikipedia.org/wiki/Regular_language
 [6]: https://approach0.xyz/search/?q=%24a_%7Bn%2B1%7D%20%3D%20%5Cfrac%7Ba_n%20%2B%203%7D%7B3a_n%20%2B%201%7D%24&p=1
 [7]: https://en.wikipedia.org/wiki/Schr%C3%B6der%27s_equation
+[8]: https://en.wikipedia.org/wiki/Cobweb_plot
+[9]: https://doc.sagemath.org/html/en/reference/rings_numerical/sage/rings/real_mpfr.html
