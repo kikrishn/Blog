@@ -1,6 +1,6 @@
 ---
 layout: post
-title: A wild arctan formula
+title: A Wild Arctan Formula
 tags:
   - 
 ---
