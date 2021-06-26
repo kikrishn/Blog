@@ -3,7 +3,6 @@ layout: post
 title: Checking Concavity with Sage
 tags:
   - sage
-  - mse
 ---
 
 I haven't been on MSE lately, because I've been fairly burned out from a 

@@ -3,6 +3,7 @@ layout: post
 title: Making Pretty Pictures for Galois Theory
 tags:
   - sage
+  - pretty-pictures
 ---
 
 So in my algebra class we're doing [galois theory][1], a subject which 

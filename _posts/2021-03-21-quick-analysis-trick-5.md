@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quick Analysis Trick 5
+title: Remembering the Reverse Triangle Inequality
 tags:
   - quick-analysis-tricks
 ---

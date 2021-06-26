@@ -2,11 +2,8 @@
 layout: post
 title: Cohomology Intuitively
 tags:
-  - cohomology
-  - geometry
-  - algebra
+  - cohomology-intuitively
   - sage
-  - mse
 ---
 
 So I was on mse the other day... 

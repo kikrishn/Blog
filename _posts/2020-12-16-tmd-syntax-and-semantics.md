@@ -3,7 +3,6 @@ layout: post
 title: Talk - Syntax and Semantics (Trans Math Day 2020)
 tags:
   - my-talks
-  - logic
 ---
 
 I've been busy with some assignments and grading, so it took me a while to

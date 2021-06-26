@@ -2,9 +2,7 @@
 layout: post
 title: Automorphisms Don't Extend
 tags:
-  - mse
-  - algebra
-  - gap
+  - sage
 ---
 
 I was on mse last night (later than I should have been...) when I saw a really

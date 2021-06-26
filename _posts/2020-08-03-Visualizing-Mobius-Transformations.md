@@ -2,9 +2,8 @@
 layout: post
 title: Visualizing Hyperbolic Isometries
 tags:
-  - geometry
   - sage
-  - intuition
+  - pretty-pictures
 ---
 
 Welcome to the inaugural post of this blog! As a quick preface, I plan

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quick Analysis Trick 1
+title: Lower Bounds from Closed Sets
 tags:
   - quick-analysis-tricks
 ---

@@ -1,8 +1,6 @@
 ---
 layout: post
 title: Submodels vs Elementary Submodels
-tags:
-  - logic
 ---
 
 I'm giving a GSS talk next week in the hopes of introducing myself to 

@@ -1,10 +1,8 @@
 ---
 layout: post
-title: Quick Analysis Trick 4
+title: Quantitative Cesaro Sums
 tags:
   - quick-analysis-tricks
-  - asymptotics
-  - mse
 ---
 
 To the surprise of no one, I was on math stackexchange earlier and saw an 

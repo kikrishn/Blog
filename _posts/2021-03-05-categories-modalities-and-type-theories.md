@@ -3,9 +3,6 @@ layout: post
 title: "Talk - Categories, Modalities, and Type Theories: Oh My"
 tags:
   - my-talks
-  - logic
-  - category-theory
-  - HoTT
 ---
 
 Last week I gave a talk at CMU's Graduate Student Workshop on

@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Measure Theory and Differentiation (Part 1)
-tags:
-  - analysis
+  - measure-theory-and-differentiation
 ---
 
 So I had an analysis exam <s>yesterday</s> <s>last week</s> a while ago 

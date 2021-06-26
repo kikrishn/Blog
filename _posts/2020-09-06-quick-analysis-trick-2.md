@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quick Analysis Trick 2
+title: Existence through Fixed Points
 tags:
   - quick-analysis-tricks
 ---

@@ -1,10 +1,6 @@
 ---
 layout: post
 title: Reducing to $\mathbb{Z}$ -- Permanence and Concrete Proofs
-tags:
-  - category-theory
-  - model-theory
-  - algebra
 ---
 
 There are lots of ways in which good notation can make results seem obvious. 

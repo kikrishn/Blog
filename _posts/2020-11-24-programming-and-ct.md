@@ -3,9 +3,6 @@ layout: post
 title: Talk - Programming and Category Theory
 tags:
   - my-talks
-  - category-theory
-  - pl-theory
-  - logic
 ---
 
 Yesterday I gave a talk at the UCR Category Theory Seminar. I ended up putting

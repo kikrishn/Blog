@@ -3,7 +3,6 @@ layout: post
 title: Talk - Model Theory and You
 tags:
   - my-talks
-  - logic
 ---
 
 Today I gave my first talk at my new department. I was pretty nervous going

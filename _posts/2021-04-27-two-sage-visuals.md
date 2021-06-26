@@ -3,8 +3,7 @@ layout: post
 title: Two Sage Visuals
 tags:
   - sage
-  - geometry
-
+  - pretty-pictures
 ---
 
 I'm in a reading group with Elliott Vest and [Jacob Garcia][11]

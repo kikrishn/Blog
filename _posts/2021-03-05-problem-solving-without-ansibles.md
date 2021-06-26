@@ -3,7 +3,6 @@ layout: post
 title: Talk - Problem Solving Without Ansibles -- An Introduction to Communication Complexity
 tags:
   - my-talks
-  - cs
 ---
 
 Wow, two talk posts in one day! Thankfully the actual talks were a week apart!
