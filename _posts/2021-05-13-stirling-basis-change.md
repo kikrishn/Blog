@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Finite Calculus, Stirling Numbers. and Cleverly Changing Basis
+title: Finite Calculus, Stirling Numbers, and Cleverly Changing Basis
 ---
 
 I'm TAing a linear algebra class right now, and the other day a student came
