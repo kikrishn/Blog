@@ -97,12 +97,12 @@ in the definition can be handled in this way.
 That actually _includes_ infinite connectives! For instance, say we have a 
 sequence of functions $(f_n)_{n \in \mathbb{N}}$. Then
 
-- $\{x \mid \biglor_{n \in \mathbb{N}} f_n x = 0\} = \bigcup_{n \in \mathbb{N}} \{ x \mid f_n x = 0\}$ is $F_\sigma$.
+- $\{x \mid \bigvee_{n \in \mathbb{N}} f_n x = 0\} = \bigcup_{n \in \mathbb{N}} \{ x \mid f_n x = 0\}$ is $F_\sigma$.
 
 A countable conjunction/disjunction is often viewed as a _countable quantifier_ since 
 
-- $\exists n \in \mathbb{N} . \varphi(n) \iff \biglor_{n \in \mathbb{N}} \varphi(n)$
-- $\forall n \in \mathbb{N} . \varphi(n) \iff \bigland_{n \in \mathbb{N}} \varphi(n)$
+- $\exists n \in \mathbb{N} . \varphi(n) \iff \bigvee_{n \in \mathbb{N}} \varphi(n)$
+- $\forall n \in \mathbb{N} . \varphi(n) \iff \bigwedge_{n \in \mathbb{N}} \varphi(n)$
 
 Now we've extended our syntax to be more expressive. We can now use 
 countable conjunctions/disjunctions, or equivalently countable quantifiers.
@@ -190,25 +190,62 @@ $x$ and $y$ are reals? This turns out to be independent of $\mathsf{ZFC}$!
 TODO: say something about the projective hierarchy, large cardinals, and
 determinacy.
 
+---
 
 ## Restricting the Syntax of an Algebraic Structure
 
-5. word problem regular iff finite / context free iff virtually free
-  - examples?
+Say we have a group $G = \langle g_1, \ldots, g_n \mid R_1, \ldots, R_m \rangle$ 
+defined by generators and relations. This is a _syntactic_ description of the 
+group, since it tells us what symbols to use and what the rules are for 
+pushing those symbols around.
+
+It's often the case in algebra that we have some syntactic description of an
+algebraic object like this. A general life pro tip in this situation is to 
+try to make restrictions on the syntax. Oftentimes this will give you 
+surprisingly powerful restrictions on how complicated your object itself is.
+That is, powerful restrictions on the _semantics_.
+
+Again, let's start easy. The <span class="defn">Word Problem</span> for a 
+group $G = \langle S \mid R \rangle$ is the
+set of words[^2] $w \in S^*$ which equal the identity in $G$. 
+What can we say about $G$ if we assume the word problem isn't too complicated?
+
+The word problem is a subset $W \subseteq S^*$, which we can view as a 
+[formal language][12]. There are a few well known classes of languages,
+of increasing complexity, and we can ask what must be true of our group if we
+assume $W$ falls into each of these classes.
+
+- $W$ is [regular][13] if and only if $G$ is finite.
+- $W$ is [context free][14] if and only if $G$ is [virtually free][15]
+- $W$ is [computable][16] (that is, the word problem is decidable, or solvable)
+    if and only if it can be embedded in a simple group embedding in a 
+    finitely presented group.
+- Alternatively, $W$ is computable if and only if it embeds into every 
+    [algebraically closed group][17].
+- $W$ is _always_ [computably enumerable][18], so this does not actually
+    pose any restrictions on $G$.
+
+Notice how natural restrictions on the syntax of $G$ correspond to 
+(relatively) natural restrictions on the semantics of $G$.
+
+One particularly famous result in this vein is Gromov's theorem on groups of
+polynomial growth. This theorem says that a group $G$ has "polynomial growth"
+(a syntactic condition) if and only if $G$ is virtually nilpotent.
+
+This is also leaving aside all of the work done on [one relator groups][19].
+Mostly I'm leaving this aside because I'm not particularly familiar with 
+this area. I know that there _are_ theorems of this form, though. For instance,
+if the one relator is not a proper power, then $G$ is torsion free. If anyone
+is more familiar than me with one relator groups (and this is not a high bar to clear)
+I would love to hear about other examples!
 
 
-6. not an _exact_ fit, but polynomial growth iff virtually nilpotent
-
-9. groups w/ solvable word problem are exactly those which embed into each EC group?
 
 12. monomial ideals
 
 13. other stuff in combinatorial commutative algebra?
 
-14. one relator groups
-
-life pro tip: anytime you have some kind of "presentation" of your object,
-ask what happens when you restrict attention to certain "nice" presentations
+---
 
 ## Definable Functions
 
@@ -264,6 +301,8 @@ right?
     the [diagram][5] of a model, and you can see a simple example of this 
     in [my talk][6] about model theory.
 
+[^2]:
+    Let's assume $S = S^{-1}$ is closed under inverses for simplicity.
 
 [1]: https://terrytao.wordpress.com/2020/09/08/zarankiewiczs-problem-for-semilinear-hypergraphs/
 [2]: /2020/12/16/tmd-syntax-and-semantics.html
@@ -276,3 +315,11 @@ right?
 [9]: uniformization theorems... maybe lusin-novikov in particular?
 [10]: universally measurable
 [11]: property of baire
+[12]: formal language
+[13]: regular language
+[14]: context free
+[15]: https://en.wikipedia.org/wiki/Virtually
+[16]: https://en.wikipedia.org/wiki/Computable_set
+[17]: https://en.wikipedia.org/wiki/Algebraically_closed_group
+[18]: https://en.wikipedia.org/wiki/Recursively_enumerable_language
+[19]: one relator group
