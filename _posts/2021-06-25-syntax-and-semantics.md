@@ -5,8 +5,6 @@ tags:
   - 
 ---
 
-TODO: fix the links
-
 I've been promising a blog post on syntax and semantics for a long time now.
 There's a _lot_ to say, as this duality underlies much of mathematical logic,
 but I want to focus on one particular instance of the syntax/semantics 
@@ -119,8 +117,8 @@ $\varphi$.
 
 A big part of [descriptive set theory][7] is trying to turn real-valued 
 quantifiers into countable quantifiers. For a high powered example, you
-might want to look into [uniformization theorems][9], but for a simple one
-let's look at the following classic analysis exercise:
+might want to look into [uniformization theorems][9] (like lusin-novikov), 
+but for a simple one let's look at the following classic analysis exercise:
 
 <div class=boxed markdown=1>
 Let $(f_n : X \to \mathbb{R})_{n \in \mathbb{N}}$ be a sequence of measurable functions.
@@ -279,20 +277,20 @@ right?
 
 [1]: https://terrytao.wordpress.com/2020/09/08/zarankiewiczs-problem-for-semilinear-hypergraphs/
 [2]: /2020/12/16/tmd-syntax-and-semantics.html
-[3]: model theory wikipedia page
-[4]: logical compactness
-[5]: diagram of a model
+[3]: https://en.wikipedia.org/wiki/Model_theory
+[4]: https://en.wikipedia.org/wiki/Compactness_theorem
+[5]: https://en.wikipedia.org/wiki/Diagram_(mathematical_logic)
 [6]: /2020/10/09/model-theory-and-you.html
-[7]: descriptive set theory
-[8]: borel hierarchy
-[9]: uniformization theorems... maybe lusin-novikov in particular?
-[10]: universally measurable
-[11]: property of baire
-[12]: formal language
-[13]: regular language
-[14]: context free
+[7]: https://en.wikipedia.org/wiki/Descriptive_set_theory
+[8]: https://en.wikipedia.org/wiki/Borel_hierarchy
+[9]: https://en.wikipedia.org/wiki/Uniformization_(set_theory)
+[10]: https://en.wikipedia.org/wiki/Universally_measurable_set
+[11]: https://en.wikipedia.org/wiki/Property_of_Baire
+[12]: https://en.wikipedia.org/wiki/Formal_language
+[13]: https://en.wikipedia.org/wiki/Regular_language
+[14]: https://en.wikipedia.org/wiki/Context-free_language
 [15]: https://en.wikipedia.org/wiki/Virtually
 [16]: https://en.wikipedia.org/wiki/Computable_set
 [17]: https://en.wikipedia.org/wiki/Algebraically_closed_group
 [18]: https://en.wikipedia.org/wiki/Recursively_enumerable_language
-[19]: one relator group
+[19]: https://en.wikipedia.org/wiki/One-relator_group
