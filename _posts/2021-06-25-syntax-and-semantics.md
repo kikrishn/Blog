@@ -60,8 +60,8 @@ TODO: spend some time revising the introduction.
 
 Let's start simple. Say $f, g : X \to \mathbb{R}$ are continuous. Then
 
-  - $\{x \mid fx =    gx \}$ and $\{ x \mid fx \leq gx \}$ are closed
-  - $\{x \mid fx \neq gx \}$ and $\{ x \mid fx \lt  gx \}$ are open
+  - $$\{x \mid fx =    gx \}$$ and $$\{ x \mid fx \leq gx \}$$ are closed
+  - $$\{x \mid fx \neq gx \}$$ and $$\{ x \mid fx \lt  gx \}$$ are open
 
   This is the kind of theorem that you probably know intuitively, but you 
   might have never thought about formally. Notice that just by looking at the 
@@ -72,8 +72,8 @@ Let's start simple. Say $f, g : X \to \mathbb{R}$ are continuous. Then
   As a simple exercise, if you've never seen this before you should prove this!
 
   You should recall that $\mathbb{R}$ is hausdorff, so 
-  $\Delta = \{ (x,x) \}$ is closed in $\mathbb{R}^2$. 
-  Similarly, notice $\{ (x,y) \mid x \leq y \}$ is closed in $\mathbb{R}^2$.
+  $$\Delta = \{ (x,x) \}$$ is closed in $\mathbb{R}^2$. 
+  Similarly, notice $$\{ (x,y) \mid x \leq y \}$$ is closed in $\mathbb{R}^2$.
   
   Do you see how to use this to show the claim?
   </div>
@@ -86,9 +86,9 @@ First, let's look at things that are quantifier free. We can turn logical
 symbols in the definition of a set into boolean operations on sets themselves.
 So
 
-- $\{x \mid fx = 0 \land gx = 0\} = \{ x \mid fx = 0 \} \cap \{ x \mid gx = 0 \}$
-- $\{x \mid fx = 0 \lor gx = 0 \} = \{ x \mid fx = 0 \} \cup \{ x \mid gx = 0 \}$
-- $\{x \mid \lnot (fx = 0) \} = \{x \mid fx = 0 \}^c$
+- $$\{x \mid fx = 0 \land gx = 0\} = \{ x \mid fx = 0 \} \cap \{ x \mid gx = 0 \}$$
+- $$\{x \mid fx = 0 \lor gx = 0 \} = \{ x \mid fx = 0 \} \cup \{ x \mid gx = 0 \}$$
+- $$\{x \mid \lnot (fx = 0) \} = \{x \mid fx = 0 \}^c$$
 
 Using the fact from earlier that $fx=0$ is a closed condition, we can immediately
 see that the first two sets are closed, and the third is open. Any connectives
@@ -97,7 +97,7 @@ in the definition can be handled in this way.
 That actually _includes_ infinite connectives! For instance, say we have a 
 sequence of functions $(f_n)_{n \in \mathbb{N}}$. Then
 
-- $\{x \mid \bigvee_{n \in \mathbb{N}} f_n x = 0\} = \bigcup_{n \in \mathbb{N}} \{ x \mid f_n x = 0\}$ is $F_\sigma$.
+- $$\{x \mid \bigvee_{n \in \mathbb{N}} f_n x = 0\} = \bigcup_{n \in \mathbb{N}} \{ x \mid f_n x = 0\}$$ is $F_\sigma$.
 
 A countable conjunction/disjunction is often viewed as a _countable quantifier_ since 
 
@@ -112,7 +112,7 @@ more complex sets in this way.
 <div class=boxed markdown=1>
 As another fun exercise, you should check that every set definable with 
 countable quantifiers is borel. In fact, there's a [hierarchy][8] of complexity
-for borel sets, and the position of $\{x \mid \varphi \}$ in this hierarchy is
+for borel sets, and the position of $$\{x \mid \varphi \}$$ in this hierarchy is
 _exactly_ in correspondence with the (countable) quantifier complexity of 
 $\varphi$.
 </div>
@@ -123,54 +123,27 @@ might want to look into [uniformization theorems][9], but for a simple one
 let's look at the following classic analysis exercise:
 
 <div class=boxed markdown=1>
-Let $f : X \to \mathbb{R}$ be _any_ function. Show the set of points where
-$f$ is continuous is borel (indeed, $G_\delta$).
+Let $(f_n : X \to \mathbb{R})_{n \in \mathbb{N}}$ be a sequence of measurable functions.
+Show the set of $x$ where $f_n(x)$ converges is measurable.
 </div>
 
-Notice
+We can solve this by writing down what it means to be convergent, and converting
+this syntactic definition into a semantic one. Since we're gunning for borel,
+we know we're only allowed to use natural number quantifiers. This leads to
+the following argument:
 
 $$
 \begin{aligned}
-\{ x \mid f \text{ is continuous at } x \} 
-&= \{ x \mid 
-      \forall \epsilon . 
-      \exists \delta . 
-      \forall y . 
-      |x - y| \lt \delta \to |fx - fy| \lt \epsilon 
-   \} \\
-&\overset{(1)}{=} \{ x \mid
-      \forall k \in \mathbb{N} .
-      \exists r \in \mathbb{N} .
-      \forall y .
-      |x - y| \lt \frac{1}{r} \to |fx - fy| \lt \frac{1}{k}
-   \} \\
-&\overset{(2)}{=} 
-   \bigcap_{k \in \mathbb{N}} 
-   \bigcup_{r \in \mathbb{N}}
-   \{ \forall y . |x-y| \lt \frac{1}{r} \to |fx - fy| \lt \frac{1}{k} \} \\
-&\overset{(3)}{=}
-   \bigcap_{k \in \mathbb{N}} 
-   \bigcup_{r \in \mathbb{N}}
-   \{ \forall y \in B_{\frac{1}{r}}(x) . fy \in B_{\frac{1}{k}}(fx) \} \\
+\{ x \mid f_n x \text{ converges} \}
+&= \left \{ x \ \middle | \ \forall k . \exists N . \forall m, n \geq N . | f_n x - f_m x| \leq \frac{1}{k} \right \} \\
+&= \bigcap_k \bigcup_N \bigcap_{m,n \geq N} \left \{ x \ \middle | \ | f_n x - f_m x| \leq \frac{1}{k} \right \} \\
+&= \bigcap_k \bigcup_N \bigcap_{m,n \geq N} \left \{ x \ \middle | \ x \in | f_n - f_m |^{-1} \left [ 0, \frac{1}{k} \right ] \right \}
 \end{aligned}
 $$
 
-TODO: sort this example out. How does implication work? It's some sort of
-subset relation... Maybe "bounded" real quantifiers are OK?
-
-TODO: write a quick description of each of these steps. Leave another 
-problem of this type as an exercise?
-
-<div class=boxed markdown=1>
-Notice nothing we've done so far _really_ uses continuity of $f$. Knowing
-$f$ is continuous lets us get very precise bounds on the borel complexity
-of a definable set, but if $f$ is merely measurable then all of these ideas
-go through unchanged if you only want to show a definable set is measurable.
-
-If this isn't obvious, as a quick exercise you should convince yourself of it!
-</div>
-
-TODO: phrase the above as a life pro tip?
+Since $|f_n - f_m|$ is measurable, the set at the end is measurable, which 
+makes our whole set measurable too. If the $f_n$ are assumed to be continuous
+instead, then we can get a more precise bound: The set is $\mathbf{\Pi^0_3}$.
 
 You might be wondering what happens if we _do_ allow real valued quantifiers.
 It turns out there are _still_ theorems in this vein! 
