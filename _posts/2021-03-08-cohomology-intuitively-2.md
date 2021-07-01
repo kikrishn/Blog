@@ -2,11 +2,21 @@
 layout: post
 title: Cohomology Intuitively 2
 tags:
-  - cohomology
-  - geometry
-  - algebra
+  - cohomology-intuitively
   - sage
 ---
+
+Last time on Cohomology Intuitively, we focused on the cohomology of 
+graphs. We had a <span class="defn">boundary map</span> from edges to
+vertices, and used this in order to construct the cohomology group
+$H^1$, which (intuitively) is made of the functions defined on edges,
+modulo those that can be "integrated" to a function on the vertices.
+It turns out the "obstruction" to integrating a function is the presence
+of a cycle in your graph. That is, a "hole" in your space. This is the 
+sense in which cohomology detects holes.
+
+Today, we'll spend some more time playing with cohomology. In particular,
+we'll 
 
 Don't forget to plug the ddg lectures!
 
