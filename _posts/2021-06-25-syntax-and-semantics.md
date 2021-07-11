@@ -150,16 +150,20 @@ Sets with only existential real quantifiers are called
 <span class="defn">Analytic</span>, and sets with only universal real quantifiers
 are called <span class="defn">Coanalytic</span>. A (very!) nontrivial theorem 
 in descriptive set theory says that both classes of sets are 
-[universally measurable][10], have the [property of baire][11], etc.
-
-TODO: describe universally measurable.
+[universally measurable][10], have the [property of baire][11], etc.[^3]
 
 But _now_ you might be wondering if we allow alternating quantifiers! For instance,
 what if we allow sets defined by $\forall x . \exists y . \varphi(x,y)$ where
 $x$ and $y$ are reals? This turns out to be independent of $\mathsf{ZFC}$!
 
-TODO: say something about the projective hierarchy, large cardinals, and
-determinacy.
+The relevant search term is [projective determinacy][20], which follows from
+certain large cardinal axioms. I was planning to write up a blog post about
+this, but I've been beaten to the punch! There's a great introduction at
+the blog **Complex Projective $4$ Space** (which you can read [here][21]),
+and if you find set theory and large cardinals interesting, you might want to
+read Tom Leinster's take on set theory [here][22]. It's a great introduction
+so far, and is phrased in a way that I suspect will be a bit more accessible 
+to the generic mathematician than a traditional set theoretic reference might be.
 
 ---
 
@@ -294,3 +298,6 @@ right?
 [17]: https://en.wikipedia.org/wiki/Algebraically_closed_group
 [18]: https://en.wikipedia.org/wiki/Recursively_enumerable_language
 [19]: https://en.wikipedia.org/wiki/One-relator_group
+[20]: https://en.wikipedia.org/wiki/Axiom_of_projective_determinacy
+[21]: https://cp4space.hatsya.com/2021/07/10/determinacy/
+[22]: https://golem.ph.utexas.edu/category/2021/06/large_sets_1.html
