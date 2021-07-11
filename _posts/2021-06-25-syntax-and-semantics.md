@@ -193,10 +193,7 @@ assume $W$ falls into each of these classes.
 - $W$ is [regular][13] if and only if $G$ is finite.
 - $W$ is [context free][14] if and only if $G$ is [virtually free][15]
 - $W$ is [computable][16] (that is, the word problem is decidable, or solvable)
-    if and only if it can be embedded in a simple group embedding in a 
-    finitely presented group.
-- Alternatively, $W$ is computable if and only if it embeds into every 
-    [algebraically closed group][17].
+    if and only if it embeds into every [algebraically closed group][17].
 - $W$ is _always_ [computably enumerable][18], so this does not actually
     pose any restrictions on $G$.
 
@@ -214,7 +211,16 @@ if the one relator is not a proper power, then $G$ is torsion free. If anyone
 is more familiar than me with one relator groups (and this is not a high bar to clear)
 I would love to hear about other examples!
 
+But why stop at group theory? The notion of "presentation" exists in 
+commutative algebra as well. Can we find similar theorems there[^4]?
 
+Obviously the answer is "yes", and a plethora of great example comes from
+[stanley-reisner theory][23]. 
+
+The idea here is to look at rings $k[x_1, \ldots, x_n] / I$. We know $I$ is
+finitely generated, so we can ask for $I$ to have a "simple" set of generators.
+Ideally, simple generators should lead to simple rings 
+(in the non-technical sense).
 
 12. monomial ideals
 
@@ -279,6 +285,14 @@ right?
 [^2]:
     Let's assume $S = S^{-1}$ is closed under inverses for simplicity.
 
+[^4]:
+    Arguably certain homological conditions are "syntactic" too, since we're putting
+    restrictions on the number of generators/relators/higher syzygies 
+    (or, more commonly, on how long we need a resolution to be). This feels a 
+    little bit more abstract than the rest of the post, though, so I'm relegating
+    it to a footnote. The stuff in the body is a little bit more down to earth,
+    and is also obviously "syntactic" in a way that homological conditions aren't.
+
 [1]: https://terrytao.wordpress.com/2020/09/08/zarankiewiczs-problem-for-semilinear-hypergraphs/
 [2]: /2020/12/16/tmd-syntax-and-semantics.html
 [3]: https://en.wikipedia.org/wiki/Model_theory
@@ -301,3 +315,4 @@ right?
 [20]: https://en.wikipedia.org/wiki/Axiom_of_projective_determinacy
 [21]: https://cp4space.hatsya.com/2021/07/10/determinacy/
 [22]: https://golem.ph.utexas.edu/category/2021/06/large_sets_1.html
+[23]: https://en.wikipedia.org/wiki/Stanley%E2%80%93Reisner_ring
