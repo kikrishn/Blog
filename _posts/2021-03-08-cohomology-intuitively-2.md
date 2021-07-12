@@ -16,9 +16,15 @@ of a cycle in your graph. That is, a "hole" in your space. This is the
 sense in which cohomology detects holes.
 
 Today, we'll spend some more time playing with cohomology. In particular,
-we'll 
+we'll show how to extend what we were doing to higher dimensional geometric
+objects called [simplicial complexes][1]. We'll keep going with the calculus
+metaphor, and we'll see again that the dimensions of the cohomology groups
+count "holes" in the complex. For a really stellar description of the 
+connection between this and calculus, you should watch (TODO: spelling)
+Keenen Krane's lectures on Discrete Differential Geometry 
+[here][2]!
 
-Don't forget to plug the ddg lectures!
+
 
 <div class="linked_auto">
 <script type="text/x-sage">
@@ -50,3 +56,6 @@ def _(Simplices = input_box([['a','w','x','y'], ['b', 'c', 'd'], ['b','c','e'], 
     
 </script>
 </div>
+
+[1]: simplicial complex
+[2]: ddg lectures
