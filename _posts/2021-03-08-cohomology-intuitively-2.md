@@ -20,8 +20,8 @@ we'll show how to extend what we were doing to higher dimensional geometric
 objects called [simplicial complexes][1]. We'll keep going with the calculus
 metaphor, and we'll see again that the dimensions of the cohomology groups
 count "holes" in the complex. For a really stellar description of the 
-connection between this and calculus, you should watch (TODO: spelling)
-Keenen Krane's lectures on Discrete Differential Geometry 
+connection between this and calculus, you should watch 
+[Keenan Crane][3]'s lectures on Discrete Differential Geometry 
 [here][2]!
 
 
@@ -59,3 +59,4 @@ def _(Simplices = input_box([['a','w','x','y'], ['b', 'c', 'd'], ['b','c','e'], 
 
 [1]: simplicial complex
 [2]: ddg lectures
+[3]: https://www.cs.cmu.edu/~kmcrane/
