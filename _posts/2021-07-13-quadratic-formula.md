@@ -172,7 +172,7 @@ $$
   in terms of $\mathbb{Q}$, $\omega$, and radicals. 
 
   Show that this is no obstruction: Every $n$th root of unity 
-  can be written with radicals.
+  can be written with radicals[^2].
 </div>
 
 ---
@@ -317,6 +317,20 @@ show(r in f.roots(multiplicities=False))
     I got the degree $3$ polynomial in the codeblock in exactly the same way,
     but using $\zeta$ a 7th root of unity instead.
 
+[^2]:
+    As a hint, first show that it suffices to build the $p$th roots of unity
+    for $p$ prime.
+
+    Then, recall we just solved for $\zeta + \zeta^{-1}$ 
+    (where $\zeta$ is an $11$th root of unity) in terms of $\omega$ 
+    (a $5$th root of unity). Indeed, we showed $\zeta + \zeta^{-1} = \alpha_0$, 
+    and so $\zeta^2 - \alpha_0 \zeta + 1 = 0$. Now we can get $\zeta$ with 
+    radicals and the quadratic formula.
+
+    In general, to build a $p$th root of unity $\zeta$, try looking at 
+    $\zeta + \zeta^{-1}$. This will be of degree $\frac{p-1}{2}$ 
+    (do you see why?), so inductively we only need smaller roots of unity to 
+    construct it.
 
 [1]: https://www.youtube.com/watch?v=UaeJNQ5x17g&list=PL8yHsr3EFj53Zxu3iRGMYL_89GDMvdkgt&index=15
 [2]: https://en.wikipedia.org/wiki/Elementary_symmetric_polynomial
