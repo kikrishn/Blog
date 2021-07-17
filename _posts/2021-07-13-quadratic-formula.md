@@ -132,17 +132,62 @@ This is where the insight from Gaal's book comes in. We'll _force_ this
 expression to be symmetric by considering the polynomial
 
 $$
-\psi = \prod_{\tau : S_5} (Y - \tau \cdot v_1^5)
+\psi = \prod_{i=1}^5 (Y - v_i^5) = \prod_{\text{some } \tau : S_5} (Y - \tau v_1^5)
 $$
 
-where $\tau$ acts on $v_1^5$ by permuting the $\alpha_i$ inside it.
+where $\tau$ acts on $v_1^5$ by permuting the $\alpha_i$ inside it. It turns out
+each $v_i$ is $\tau v_1$ for some (possibly multiple) $\tau$, and we take
+exactly one of each.
 
-Since we know abstractly that $v_1^5$ is in the base field, we know that
-$(Y - v_1^5)$ is a factor of $\psi$ _in the base field_! So all we have to do
-is factor $\psi$, and then we'll finally get our hands on $v_1^5$!
+Since the coefficients of $\psi$ really _are_ symmetric in the $\alpha_i$, 
+we can write them in terms of elementary symmetric polynomials, and thus,
+in terms of the coefficients of our defining polynomial. This tells us how
+to write $\psi$ with actual numbers as the coefficients!
 
-This is getting a bit hard to do by hand, though, so let's turn to [sage][3]
-to finish this off:
+Then, since we know abstractly that each $v_i^5$ is in the base field, we know 
+that $\psi$ will factor into linear parts _in the base field_! So all we have 
+to do is factor $\psi$, and then we'll finally get our hands on the $v_i^5$!
+
+This is getting a bit hard to do by hand, but [sage][3] tells us that
+
+$$
+\begin{aligned}
+v_0 &= -1 \\
+v_1^5 &= \\
+v_2^5 &= \\
+v_3^5 &= \\
+v_4^5 &= 
+\end{aligned}
+$$
+
+And we finally learn that
+
+$$
+\alpha_0 = .
+$$
+
+<div class=boxed markdown=1>
+  As a tricky exercise, throughout this post we have been working in
+  $\mathbb{Q}(\omega)$. So we're only guaranteed to get an expression
+  in terms of $\mathbb{Q}$, $\omega$, and radicals. 
+
+  Show that this is no obstruction: Every $n$th root of unity 
+  can be written with radicals.
+</div>
+
+---
+
+For reference, here's the sage code I used to figure that out. 
+Keep in mind this is quite brittle, so you shouldn't just plug
+your favorite polynomial in and see what happens. I'm fairly sure
+it only works on polynomials with a cyclic galois group. It's possible
+that it only works on polynomials with a cyclic galois group of prime order.
+
+As an aside, it seems like getting this to work for an arbitrary solvable
+polynomial is [still missing from sage][4], and if this code didn't take
+literally 30 hours for the polynomial of degree $5$, I would try to polish 
+this and submit it. As it stands, I'll probably play around with this a 
+little bit more and try to get a faster implementation.
 
 <div class="linked_auto">
 <script type="text/x-sage">
@@ -258,9 +303,6 @@ show(r in f.roots(multiplicities=False))
 </script>
 </div>
 
-<div class=boxed markdown=1>
-  As a (slightly tedious) exercise, 
-</div>
 
 ---
 
@@ -279,4 +321,4 @@ show(r in f.roots(multiplicities=False))
 [1]: https://www.youtube.com/watch?v=UaeJNQ5x17g&list=PL8yHsr3EFj53Zxu3iRGMYL_89GDMvdkgt&index=15
 [2]: https://en.wikipedia.org/wiki/Elementary_symmetric_polynomial
 [3]: https://sagemath.org
-[4]: https://sagemath.org
+[4]: https://trac.sagemath.org/ticket/17516
