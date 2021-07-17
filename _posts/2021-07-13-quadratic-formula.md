@@ -37,7 +37,7 @@ clever insight:
 - $\alpha + \beta$ is fixed by $C_2$ (since $\sigma (\alpha + \beta) = \sigma \alpha + \sigma \beta = \beta + \alpha$)
 - $\alpha - \beta$ is _almost_ fixed by $C_2$ ($\sigma (\alpha - \beta) = \beta - \alpha$)
 
-We can rememdy the second situation by looking at $(\alpha - \beta)^2$, which _is_ fixed by $C_2$.
+We can remedy the second situation by looking at $(\alpha - \beta)^2$, which _is_ fixed by $C_2$.
 
 Thus we should have $\alpha + \beta$ and $(\alpha - \beta)^2$ as elements of $\mathbb{Q}$.
 We know that $(x - \alpha)(x - \beta) = x^2 + bx + c$, and by expanding the 
@@ -61,7 +61,7 @@ Of course, the reason I was thinking about this is because I was trying to
 explicitly solve equations by radicals provided their galois group is solvable.
 This is another situation where I haven't actually seen many people give
 explicit examples of this machinery in use, so I want to include one here as 
-well. I was first given a hint of how to do this in Rachard E Borcherds'
+well. I was first given a hint of how to do this in Richard E Borcherds'
 (characteristically excellent) [youtube video][1], but while writing up this
 blog post I realized I wasn't able to fill in some of the details that he
 omitted. After finally giving up, I eventually found Gaal's 
