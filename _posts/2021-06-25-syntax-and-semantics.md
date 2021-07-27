@@ -150,11 +150,12 @@ Sets with only existential real quantifiers are called
 <span class="defn">Analytic</span>, and sets with only universal real quantifiers
 are called <span class="defn">Coanalytic</span>. A (very!) nontrivial theorem 
 in descriptive set theory says that both classes of sets are 
-[universally measurable][10], have the [property of baire][11], etc.[^3]
+[universally measurable][10], have the [property of baire][11], etc.
 
 But _now_ you might be wondering if we allow alternating quantifiers! For instance,
-what if we allow sets defined by $\forall x . \exists y . \varphi(x,y)$ where
-$x$ and $y$ are reals? This turns out to be independent of $\mathsf{ZFC}$!
+what if we have a set of the form 
+$$\{ z \mid \forall x . \exists y . \varphi(x,y,z) \}$$ 
+where $x$ and $y$ are reals? This turns out to be independent of $\mathsf{ZFC}$!
 
 The relevant search term is [projective determinacy][20], which follows from
 certain large cardinal axioms. I was planning to write up a blog post about
@@ -244,8 +245,13 @@ and geometric conditions on this complex get turned into syntactic conditions
 on the monomials generating the ideal (and also into semantic theorems on the
 ideal and the quotient ring).
 
-One deep open problem in commutative algebra is the question "when do the
-[symbolic powers][31] $I^{(n)}$ of an ideal agree with the ordinary powers $I^n$"? 
+One deep open problem in commutative algebra is the question 
+
+<div class=boxed markdown=1>
+When do the [symbolic powers][31] $I^{(n)}$ of an ideal 
+agree with the ordinary powers $I^n$? 
+</div>
+
 There is a conjecture that for squarefree monomial ideals, we get a particularly 
 simple syntactic answer to this problem: The symbolic and ordinary powers coincide
 if and only if $I$ is "packed[^7]". This is called the Packing Problem, and
