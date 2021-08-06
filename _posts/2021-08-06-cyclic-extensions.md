@@ -1,8 +1,9 @@
 ---
 layout: post
-title: Solving Solvable Polynomials with Galois Theory
+title: Solving Solvable Polynomials with Galois Theory (Part 1)
 tags:
   - sage
+  - solving-solvable-polynomials
 --- 
 
 I'm super excited to be writing this post up! It's been haunting me for 
