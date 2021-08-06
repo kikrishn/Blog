@@ -75,7 +75,7 @@ figure out which numbers the $\psi_k$ really are.
 This is where Gaal's book was first helpful -- it introduced me to the following
 idea:
 
-Consider the polynomial (which I later learned is called the [galois resolvent][4])
+Consider the polynomial (which I now know is called the [galois resolvent][4])
 
 $$
 \mathcal{L}(t) = 
