@@ -284,9 +284,11 @@ really impressively slow. You've been warned.
 
 
 <div class=boxed markdown=1>
-As a quick ending exercise, we're assuming throughout that we have access
+As a slightly tricky exercise, we're assuming throughout that we have access
 to roots of unity... But how do we know that we can write roots of unity
-in terms of radicals?
+in terms of radicals? 
+
+Show that roots of unity can always be written in terms of radicals[^6].
 </div>
 
 
@@ -331,6 +333,15 @@ in terms of radicals?
     Sage tells us the minimal polynomial of $\zeta + \zeta^{-1}$ is 
     $x^5 + x^4 - 4x^3 - 3x^2 + 3x + 1$, and so we can use this code to write
     $\zeta + \zeta^{-1}$ as:
+
+[^6]:
+    As a hint, let $\zeta$ be an $n$th root of unity for $n$ odd. 
+    First show that you can recover $\zeta$ from $\zeta + \zeta^{-1}$,
+    and that $\zeta + \zeta^{-1}$ satisfies a (cyclic) equation of degree $\frac{n-1}{2}$.
+    Then, inductively, we can solve this by radicals, and then get $\zeta$ 
+    with one more square root.
+
+    Do you see how to do the $n$ even case as well?
 
 
 [1]: https://youtu.be/UaeJNQ5x17g
