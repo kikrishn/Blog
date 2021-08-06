@@ -82,7 +82,8 @@ $$
 \prod \{ t - \tilde{\psi} \mid \tilde{\psi} \in \mathfrak{S}_n \cdot \psi_1 \}.
 $$
 
-This product ranges over an orbit of $\psi_1$. Notice that each of the $\psi_k$
+This product ranges over the orbit of $\psi_1$ under the action of the symmetric 
+group (which permutes the $\alpha_j$ inside $\psi_1$). Notice that each of the $\psi_k$
 for $k \neq 0$ are in this orbit (do you see why?) so each nonzero $\psi_k$ 
 is a root of $\mathcal{L}$.
 
