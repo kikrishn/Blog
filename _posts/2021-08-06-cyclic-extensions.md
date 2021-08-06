@@ -335,6 +335,41 @@ Show that roots of unity can always be written in terms of radicals[^6].
     $x^5 + x^4 - 4x^3 - 3x^2 + 3x + 1$, and so we can use this code to write
     $\zeta + \zeta^{-1}$ as:
 
+    $$
+    \begin{aligned}
+    -\frac{\alpha^3 + 4 \alpha^2 + 16 \alpha + 64}{320} \, 
+    {\left(
+      -\frac{165}{64} \, 
+      {\alpha}^{3} 
+      - \frac{385}{16} \, {\alpha}^{2} 
+      - \frac{275}{4} \, \alpha - 451
+    \right)}^{\frac{1}{5}} \\ 
+    + \frac{\alpha}{20} \, 
+    {\left(-\frac{55}{32} \, 
+      {\alpha}^{3} 
+      + \frac{55}{8} \, {\alpha}^{2} 
+      + \frac{275}{4} \, \alpha - 176
+    \right)}^{\frac{1}{5}} \\
+    + \frac{1}{10} \, 
+      {\left(
+        \frac{385 \, {\alpha}^{3} + 440 \, {\alpha}^{2} + 3520 \, \alpha - 4224}{2}
+      \right)}^{\frac{1}{5}}\\
+    + \frac{1}{5} \, 
+    {\left(-\frac{55}{32} \, 
+      {\alpha}^{3} 
+      + \frac{165}{16} \, {\alpha }^{2} 
+      - 55 \, \alpha - 286
+    \right)}^{\frac{1}{5}} \\
+    - \frac{1}{5}
+    \end{aligned}
+    $$
+
+    where $\alpha = \sqrt{5} + i \, \sqrt{2 \, \sqrt{5} + 10} - 1$.
+
+    NB: I made the substitution for $\alpha$ myself, so there might be a minor
+    arithmetic error in the above expression... Though I don't think that's 
+    actually very important :P
+
 [^6]:
     As a hint, let $\zeta$ be an $n$th root of unity for $n$ odd. 
     First show that you can recover $\zeta$ from $\zeta + \zeta^{-1}$,
