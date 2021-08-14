@@ -29,7 +29,7 @@ and answer the questions that get asked. We typically denote this with the
 symbol $\models$ which is read "models" or "satisfies". 
 
 As an example, $\mathbb{Z} \models \forall x . \forall y . xy = yx$, but 
-$\mathbb{S_3} \not \models \forall x . \forall y . xy=yx$.
+$\mathfrak{S}_3 \not \models \forall x . \forall y . xy=yx$.
 
 This is a very [model theoretic][3] notion of syntax and semantics, but I think
 it's a good fundamental example[^1]. The kind of theorem that I'm going to focus
@@ -117,7 +117,7 @@ $\varphi$.
 
 A big part of [descriptive set theory][7] is trying to turn real-valued 
 quantifiers into countable quantifiers. For a high powered example, you
-might want to look into [uniformization theorems][9] (like lusin-novikov), 
+might want to look into the Lusin-Novikov Theorem[^9]
 but for a simple one let's look at the following classic analysis exercise:
 
 <div class=boxed markdown=1>
@@ -383,6 +383,21 @@ Maybe that's something to look forward to!
     to be called syntactic. See chapter $3$ of Marker's _Model Theory: An Introduction_
     for a more detailed account of why.
 
+[^9]:
+    In general, if $A \subseteq \mathbb{R}^2$ is borel, then the projection
+    $\pi_2 A \subseteq \mathbb{R}$ need only be [analytic][37], 
+    since we have a real valued quantifer 
+    $\pi_2 A = \{ y \mid \exists x . (x,y) \in A \}$. 
+
+    However, if $\pi_2$ has _countable fibres_, that is, if $\pi_2^{-1} y$ is
+    countable for each $y$, then the <span class="defn">Lusin-Novikov Theorem</span> 
+    says $\pi_2 A$ is actually borel! This is morally because we can turn the
+    real valued quantifier $\exists x$ into a countable quantifier in each fibre.
+
+    It's actually kind of hard to find a reference to this theorem 
+    (or else I would have linked one), but you can find a proof in 
+    Section $II.18.C$ of Kechris's _Classical Descriptive Set Theory_.
+
 
 [1]: https://terrytao.wordpress.com/2020/09/08/zarankiewiczs-problem-for-semilinear-hypergraphs/
 [2]: /2020/12/16/tmd-syntax-and-semantics.html
@@ -420,3 +435,4 @@ Maybe that's something to look forward to!
 [34]: https://en.wikipedia.org/wiki/Semialgebraic_set
 [35]: https://math.stackexchange.com/questions/176279/all-real-functions-are-continuous
 [36]: /2021/01/23/why-think.html
+[37]: https://en.wikipedia.org/wiki/Analytic_set
