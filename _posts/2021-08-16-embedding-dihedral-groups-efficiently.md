@@ -136,7 +136,7 @@ that shrink rapidly as the number of principal divisors of $m$ increases
 (provided each is not individually too small).
 
 <div class=boxed markdown=1>
-As an exercise, can you show that this is optimal? That is, if
+As a (fun?) exercise, can you show that this is optimal? That is, if
 $$D_{2m}$$ embeds in $$\mathfrak{S}_n$$, show that $n \geq \sum P_i$
 (where, as before, $m = \prod P_i$)?
 
