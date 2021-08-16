@@ -136,9 +136,12 @@ that shrink rapidly as the number of principal divisors of $m$ increases
 (provided each is not individually too small).
 
 <div class=boxed markdown=1>
-As a (fun?) exercise, can you show that this is optimal? That is, if
-$$D_{2m}$$ embeds in $$\mathfrak{S}_n$$, show that $n \geq \sum P_i$
-(where, as before, $m = \prod P_i$)?
+We've shown that $$D_{2m} \hookrightarrow \mathfrak{S}_{s^*(m)}$$,
+but maybe we can do even better!
+
+As a (fun?) exercise, can you show that that isn't the case?
+That is, if $$D_{2m}$$ embeds in $$\mathfrak{S}_n$$, show that 
+$n \geq s^*(m)$, so our construction here was best possible.
 
 The proof is similar to how we showed $$D_{2p^k}$$ can't embed in 
 $$\mathfrak{S}_n$$ for $n \lt p^k$. 
