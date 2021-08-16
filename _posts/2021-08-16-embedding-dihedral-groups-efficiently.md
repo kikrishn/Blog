@@ -144,6 +144,8 @@ The proof is similar to how we showed $$D_{2p^k}$$ can't embed in
 $$\mathfrak{S}_n$$ for $n \lt p^k$. 
 </div>
 
+---
+
 [^1]:
     This is actually a special case of a very hard problem. In general 
     for a group $G$ we have very little idea what the minimal $n$ with
