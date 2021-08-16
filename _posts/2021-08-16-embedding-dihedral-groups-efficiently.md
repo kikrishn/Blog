@@ -25,7 +25,7 @@ looking at the vertices/edges/faces individually.
 
 Since a picture is worth a thousand words, I'll steal pjs36's picture:
 
-<img src="/assets/images/d12s5/stolen-image.png">
+<img src="/assets/images/embedding-dihedral-groups-efficiently/stolen-image.png">
 
 If you know where these $5$ subpolygons get sent, you actually know where the
 whole hexagon gets sent! This witnesses $D_{12} \leq \mathfrak{S}_5$ in a 
@@ -33,7 +33,7 @@ starkly beautiful way.
 
 It got me wondering, though. Can we run a similar argument to get 
 $D_{2m} \leq \mathfrak{S}_n$ for other choices of $m$? Since you've read
-the title of this blog post, you know the answer is "yes". But at this point
+the title of this blog post, you know the answer is "yes"[^1]. But at this point
 I should issue a quick clarification: This (very clever!) idea is not actually 
 my own -- I found it in yet another [mse post][3]. I was already planning on
 writing up a blog post about this problem, but when I found the solution I knew
@@ -143,6 +143,12 @@ $$D_{2m}$$ embeds in $$\mathfrak{S}_n$$, show that $n \geq \sum P_i$
 The proof is similar to how we showed $$D_{2p^k}$$ can't embed in 
 $$\mathfrak{S}_n$$ for $n \lt p^k$. 
 </div>
+
+[^1]:
+    This is actually a special case of a very hard problem. In general 
+    for a group $G$ we have very little idea what the minimal $n$ with
+    $G \hookrightarrow \mathfrak{S}_n$ is. It's super cool that we can 
+    solve this explicitly for dihedral groups!
 
 
 [1]: https://math.stackexchange.com/q/4225528/655547
