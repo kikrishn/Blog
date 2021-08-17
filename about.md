@@ -42,16 +42,14 @@ I have had some mathematicians tell me that I need to "get over" a
 "reliance" on concrete examples. Out of spite, or perhaps to clarify my views
 on the topic, here is a quote that I deeply identify with:
 
-<div class="boxed" markdown="1">
-"If you are, like me, someone who prefers large vistas and powerful theories
-(I was influenced but not converted by Grothendieck), then it is essential to
-be able to test general results by applying them to simple examples....
-These are examples where one can do concrete calculations, sometimes with
-elaborate formulas, that help to make the general theory understandable.
-They keep your feet on the ground.... [M]ost of all a good example is a thing
-of beauty. It shines and convinces. It gives insight and understanding.
-It provides the bedrock of belief." -- Sir Michael Atiyah.
-</div>
+> "If you are, like me, someone who prefers large vistas and powerful theories
+> (I was influenced but not converted by Grothendieck), then it is essential to
+> be able to test general results by applying them to simple examples....
+> These are examples where one can do concrete calculations, sometimes with
+> elaborate formulas, that help to make the general theory understandable.
+> They keep your feet on the ground.... [M]ost of all a good example is a thing
+> of beauty. It shines and convinces. It gives insight and understanding.
+> It provides the bedrock of belief." -- Sir Michael Atiyah.
 
 Perhaps less spitefully, here are some other quotes that I find impactful:
 
