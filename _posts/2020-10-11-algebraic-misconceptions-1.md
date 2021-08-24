@@ -2,7 +2,7 @@
 layout: post
 title: $H_1 \cong H_2$ doesn't mean $G / H_1 \cong G / H_2$!
 tags:
-  - algebraic-misconceptions
+  - 
 ---
 
 I spend a lot of time on [math stackexchange](https://math.stackexchange.com) (mse), 
