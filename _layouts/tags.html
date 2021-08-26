@@ -7,9 +7,10 @@ layout: default
   <br>
 
   <ul>
-  {% for post in site.posts %}
+  {% for post in site.posts reversed %}
     {% if post.tags contains page.tag-name %}
     <li>
+      {{ post.date | date: "%b %Y" }}
       <a href={{site.baseurl | append: post.url}}>
         {{ post.title }}
       </a>
