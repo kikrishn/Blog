@@ -114,7 +114,7 @@ is a function $\nu : \mathcal{A} \to \mathbb{C}$ so that
 
 1. $\nu \ \emptyset = 0$
 2. $\nu \left ( \bigcup E_n \right ) = \sum \nu E_n$ for any disjoint $E_n$. 
-Moreover, we require this sum to converge absolutely.
+Importantly, this sum automatically converges absolutely[^13]. 
 
 Notice $\nu E$ is never allowed to be $\infty$! This is an important difference
 between complex and positive measures[^12].
@@ -537,6 +537,9 @@ then $F$ is differentiable almost everywhere[^11].
     this a little bit by using [signed measures][16], but I won't be going
     into that in this post.
 
+[^13]:
+    By the [Riemann Rearrangement Theorem][17].
+
 
 [1]: https://math.stackexchange.com/q/1523829/655547
 [2]: https://en.wikipedia.org/wiki/Rademacher%27s_theorem
@@ -554,3 +557,4 @@ then $F$ is differentiable almost everywhere[^11].
 [14]: https://en.wikipedia.org/wiki/Counting_measure
 [15]: https://en.wikipedia.org/wiki/Riesz%E2%80%93Markov%E2%80%93Kakutani_representation_theorem#The_representation_theorem_for_the_continuous_dual_of_C0(X)
 [16]: https://en.wikipedia.org/wiki/Signed_measure
+[17]: https://en.wikipedia.org/wiki/Riemann_series_theorem
