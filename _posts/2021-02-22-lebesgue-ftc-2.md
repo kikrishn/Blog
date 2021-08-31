@@ -101,44 +101,42 @@ we work with _all_ (complex valued) locally $L^1$ functions!
 
 The correspondence says to take $f$ and send it to the measure 
 $m_f(E) \triangleq \int_E f \ dm$. Of course, now that $f$ is complex valued,
-this integral might take complex values as well! Let's start small and see if
-we can make sense of measures which are real valued, but might be negative.
-Afterwards, we can be brave and introduce
-<span class="defn">Complex Valued Measures</span> and see how much of measure
-theory we're able to recover. 
+this integral might take complex values as well! To that end, let's introduce
+the idea of [Complex Valued Measures][9]
+and see how much of measure theory we're able to recover.
 
-So then, we want to define a "measure" $m_f$ for a real valued function $f$.
-If we meditate on its properties for a bit, we're led to the following definition:
+If we meditate on what properties $m_f$ will have, we land on the following 
+definition:
 
 <div class=boxed markdown=1>
-A <span class=defn>Signed Measure</span> on a $\sigma$-algebra $\mathcal{A}$
-is a $\sigma$-additive function $\nu : \mathcal{A} \to [-\infty,\infty]$.
+A <span class=defn>Complex Measure</span> on a $\sigma$-algebra $\mathcal{A}$
+is a function $\nu : \mathcal{A} \to \mathbb{C}$ so that
 
-Notice if $E_1$ and $E_2$ are disjoint sets with $\nu E_1 = \infty$ and 
-$\nu E_2 = - \infty$, we're going to have trouble with 
-$\nu \left ( E_1 \cup E_2 \right ) = \infty - \infty$ (which is undefined). 
+1. $\nu \ \emptyset = 0$
+2. $\nu \left ( \bigcup E_n \right ) = \sum \nu E_n$ for any disjoint $E_n$. 
+Moreover, we require this sum to converge absolutely.
 
-Rather than deal with this problem, we define our way out of it and say that
-$\nu$ can have sets of measure $\infty$ or sets of measure $-\infty$ (or neither),
-but never both.
+Notice $\nu E$ is never allowed to be $\infty$! This is an important difference
+between complex and positive measures.
 </div>
 
-Notice this is _precisely_ cooked up so that if $f : X \to [-\infty,\infty]$
-is measurable, and $\int f^+$ and $\int f^-$ are not _both_ infinite[^2], then
-$m_f$ defines a signed measure on $X$! 
+⚠ Be careful! Now that our measures allow nonpositive values, we might 
+"accidentally" have $\nu E = 0$. If $E$ is the disjoint union of 
+$E_+$ and $E_-$, where $\nu E_+ = 3$ and $\nu E_- = -3$ (say), then
+$\nu E = 0$, even though we really shouldn't call it a nullset!
+
+Because of this, we redefine the notion of nullset to be more restrictive:
+We say $E$ is <span class=defn>$\nu$-null</span> if and only if 
+$\nu A = 0$ for every $A \subseteq E$.
 
 <div class=boxed markdown=1>
-⚠ Be careful! Now that our measures are signed, we might "accidentally"
-have $\nu E = 0$ because $E = E^+ \cup E^-$ with $\nu E^- = - \nu E^+ \neq 0$.
-Because of this, we redefine the notion of nullset to be more restrictive:
-
-We say $E$ is $\nu$-null if and only if $\nu A = 0$ for every $A \subseteq E$.
 
 As an exercise, can you come up with a concrete signed measure $\nu$ for 
 which $\nu E = 0$ even though $E$ is _not_ null?
 
 As another exercise, why does this agree with our original definition of
 nullsets when we restrict to positive measures?
+
 </div>
 
 Now, we _could_ try to build measure theory entirely from scratch in this 
@@ -146,68 +144,111 @@ setting. But it seems like a waste, since we've already done so much measure
 theory already... It would be nice if there were a way to relate signed measures
 to ordinary (unsigned) measures and leverage our previous results!
 
-We know that $m_{f+g} = m_f + m_g$ in the unsigned case. So in the signed
-case, we probably want that linearity to extend further! Then if we write
-$f = f^+ - f^-$, we should have $m_f = m_{f^+} - m_{f^-}$! But each of these
-are positive measures, which we know how to handle! Moreover, these have the
-_bonus property_ that $m_{f^+}$ and $m_{f^-}$ have disjoint support. That is,
-$m_{f^+}$ gets all its mass from $$\{ x \mid fx \gt 0 \}$$ and $m_{f^-}$ gets
-all _its_ mass from $$\{ x \mid fx \lt 0 \}$$. These sets are disjoint, so
-we might have a picture in our head like this:
+We know that $m_{f+g} = m_f + m_g$ in the unsigned case. So in the complex
+case, it's natural to try and get this linearity to go further! But we know
+we can write any complex function $f : X \to \mathbb{C}$ as a linear combination
+of $4$ positive functions, by breaking up into real and imaginary parts,
+then positive and negative parts:
 
-TODO: a potato cut in half.
+$$
+f = (f_R^+ - f_R^-) + i (f_I^+ - f_I^-)
+$$
 
-Precisely, we can write $X$ as a disjoint union $X = P \cup N$ so that
-$N$ is $m_{f^+}$-null and $P$ is $m_{f^-}$-null. Whenever we can partition $X$
-in this way, we will say that $m_{f^+}$ and $m_{f^-}$ are 
-<span class="defn">Mutually Singular</span>, written $m_{f^+} \perp m_{f^-}$.
+So we should expect 
 
-Can we actually decompose every signed measure in this way? The answer,
-it turns out, is _yes_[^3]!
+$$
+m_f = m_{f_R^+} - m_{f_R^-} + i (m_{f_I^+} - m_{f_I^-})
+$$
+
+and the [Jordan Decomposition Theorem][10], which says[^5] that every complex
+measure $\nu$ decomposes uniquely into a sum of finite measures
+$\nu = (\nu_R^+ - \nu_R^-) + i (\nu_I^+ - \nu_I^-)$ with the bonus property
+that $\nu_R^+ \perp \nu_R^-$ and $\nu_I^+ \perp \nu_I^-$. Here, as usual,
+$\perp$ means that two measures are [mutually singular][11], which we should
+intuitively think of as having disjoint support. 
+
+It can still be nice to work with an unsigned measure directly sometimes, 
+rather than having to split our measure into $4$ parts. Thankfully
+we have a convenient way of doing so!
+
+There is a positive measure $|\nu|$, called the 
+[Total Variation][12] of $\nu$, which is defined so that
+
+$$
+|m_f| = m_{|f|}.
+$$
+
+This posesses all the amenities the notation suggests, including:
 
 <div class=boxed markdown=1>
-<span class="defn">Jordan Decomposition Theorem</span>
-
-If $\nu$ is a signed measure, then there exist (unique!) positive 
-measures $\nu^+$ and $\nu^-$ so that
-
-1. $\nu = \nu^+ - \nu^-$
-2. $\nu^+ \perp \nu^-$
-
-We call $\nu^+$ (resp. $\nu^-$) the <span class="defn">Positive Variation</span>
-(resp. <span class="defn">Negative Variation</span>) of $\nu$.
-</div>
-
-We write $|\nu| \triangleq \nu^+ + \nu^-$, called the 
-<span class="defn">Total Variation</span> of $\nu$. We note this is a positive
-measure, and we'll say that $\nu$ is finite (resp. $\sigma$-finite) exactly
-when $|\nu|$ is.
-
-<div class=boxed markdown=1>
-Ok, that was a _lot_ of information! To make sure you're following, prove
-for a $L^1$ function $f : X \to [-\infty,\infty]$ that
-
-  1. $m_f^+ = m_{f^+}$
-  2. $m_f^- = m_{f^-}$
-  3. $\lvert m_f \rvert = m_{\lvert f \rvert}$
-
-Prove these are still true in the more general case that at most one of 
-$\int f^+$ or $\int f^-$ is infinite.
+1. (Triangle Inequality) $\lvert \nu + \mu \rvert \leq \lvert \nu \rvert + \lvert \mu \rvert$
+2. (Operator Inequality) $\lvert \nu E \rvert \leq \lvert \nu \rvert E$
+3. (Continuity) $\nu \ll \lvert \nu \rvert$
 </div>
 
 ---
 
-Let's recap. We've shown that we can relate signed measures to unsigned 
-measures in a variety of ways. This lets us redevelop a fair amount of 
-measure theory in this more general setting. But let's remember _why_ we
-were interested in this. Can we extend the differentiation theorems from
-last time into this setting? Of course!
+Ok. This has been a lot of information. How do we actually _compute_
+with a complex measure? Thankfully, the answer is easy: We use the 
+Jordan Decomposition. We _define_ 
+
+$$
+\int f \ d\nu \triangleq 
+\left ( \int f \ d\nu^+_R - \int f \ d\nu^-_R \right )
++ i \left ( \int f \ d\nu^+_I - \int f \ d\nu^-_I \right ).
+$$
+
+In particular, in order to make sense of this integral, we need to know
+that $f$ is in $L^1$ for each of these measures. So again, we just _define_
+
+$$
+L^1(\nu) \triangleq L^1(\nu^+_R) \cap L^1(\nu^-_R) \cap L^1(\nu^+_I) \cap L^1(\nu^-_I).
+$$
+
+<div class=boxed markdown=1>
+As an easy exercise, show that the dominated convergence theorem is true
+when we're integrating against $\nu$! 
+</div>
+
+We _can_ split up $\nu$ if we need to, but oftentimes we don't. Remember
+that if $\nu = m_f$ (which is the whole reason we embarked on this journey!)
+we should have $\int g \ d\nu = \int gf \ dm$. 
+
+<div class=boxed markdown=1>
+Show using the definition of $\int g \ d\nu$ that we gave that 
+$\int g \ dm_f = \int gf \ dm$ actually holds.
+</div>
+
+So, as a quick example computation:
+
+$$
+\int_0^{2\pi} x^2 \ dm_{e^{ix}} = \int_0^{2\pi} x^2 e^{ix} dm = 4 \pi - 4 I \pi^2
+$$
+
+Notice, as usual, that once we've phrased the integral in terms of $dm$,
+we can simply use integration by parts, or any other tricks we know 
+(such as asking [sage](https://sagemath.org)) to compute the integral. 
+
+---
+
+Now, that example might have felt overly simplistic. After all, it was
+mainly a matter of moving the $e^{ix}$ from downstairs below the $m$ to
+upstairs inside the integral. What if we needed to integrate against a more 
+complicated complex measure? Thankfully, up to singular measures, 
+_every_ measure is of this simple form!
+
+Remember last time, we had a structure theorem that told us _every_ measure is
+of the form $m_f$, possibly plus a "singular" part $\lambda$. Moreover, the function
+$f$ so that $\nu = m_f + \lambda$ was the "derivative" of $\nu$, and this
+led us to the fruitful connection between measure theoretic and classical 
+derivatives. Thankfully, the same theorem is still true in the complex 
+setting!
 
 <div class=boxed markdown=1>
 <span class="defn">Lebesuge-Radon-Nikodym Theorem</span>
 
 If $\nu$ is a $\sigma$-finite signed measure and $\mu$ is a
-$\sigma$-finite _positive_ measure, then $\nu$ decomposes uniquely as
+$\sigma$-finite _positive_ measure[^6], then $\nu$ decomposes uniquely as
 
 $$\nu = \lambda + \mu_f$$
 
@@ -232,9 +273,12 @@ it's not too bad.
 
 </div>
 
-So now we have a measure theoretic notion of "derivative", and we have half of
-our correspondence: Given a locally $L^1$ function 
-$f : \mathbb{R} \to [-\infty,\infty]$ we can build a measure $m_f$.
+At last, we have a complex measure theoretic notion of "derivative",
+as well as half of the correspondence we're trying to generalize:
+
+Given a locally $L^1$ function $f : \mathbb{R} \to \mathbb{C}$ 
+we can build a (complex) measure $m_f$.
+
 But which functions will generalize the increasing right continuous ones?
 The answer is Functions of [Bounded Variation][8]!
 
@@ -275,11 +319,6 @@ The answer is Functions of [Bounded Variation][8]!
     continuity by replacing $F$ with $F^+(x) = \lim_{y \to x^+} F(y)$,
     and checking that $F = F^+$ almost everywhere.
 
-[^2]:
-    Here, as usual, $f^+$ and $f^-$ are the 
-    <span class="defn">positive and negative parts</span> of $f$. That is,
-    $f^+ = \max(f,0)$ and $f^- = -\min(f,0)$, so that $f = f^+ - f^-$.
-
 [^3]:
     The proof, at least in Folland, goes through a _separate_ decomposition
     theorem. I'll include it here for completeness:
@@ -316,6 +355,32 @@ The answer is Functions of [Bounded Variation][8]!
     This is great, since it means to integrate against some product measure
     on $\mathbb{R}^2$, we can separately integrate against each component.
 
+[^5]:
+    Really it's a statement about real valued signed measures, and so it 
+    allows for either $\pm \infty$ (but not both!) to occur. We won't need
+    this extra flexibility, though.
+
+    I went back and forth for a long time on whether to include a discussion
+    about signed measures in this post. Eventually, I decided it made the 
+    post too long, and it encouraged me to include details that obscure the
+    main points. I want these posts to show the forest rather than the trees,
+    and here we are.
+
+[^6]:
+    Notice for us $\mu$ will almost always be lebesgue measure. The theorem
+    is true much more broadly, though, and we might ask 
+    "why do we care about more general measures?". The answer is that there
+    are other measures which are _also_ easy to compute in practice
+    ([haar measures][13], and [counting measures][14] on countable sets come to mind).
+
+    With this generality, we can know for sure that we can work in any 
+    space which admits an effectively computable ($\sigma$-finite) measure
+    (and there are lots of such spaces besides $\mathbb{R}^n$).
+
+    Any space with a computable notion of integration _also_ admits a computable
+    notion of integrating complex measures by application of Radon-Nikodym!
+
+
 
 [1]: https://math.stackexchange.com/q/1523829/655547
 [2]: https://en.wikipedia.org/wiki/Rademacher%27s_theorem
@@ -325,3 +390,9 @@ The answer is Functions of [Bounded Variation][8]!
 [6]: https://en.wikipedia.org/wiki/Lebesgue_differentiation_theorem
 [7]: https://en.wikipedia.org/wiki/Product_measure
 [8]: https://en.wikipedia.org/wiki/Bounded_variation
+[9]: https://en.wikipedia.org/wiki/Complex_measure
+[10]: https://en.wikipedia.org/wiki/Hahn_decomposition_theorem#Jordan_measure_decomposition
+[11]: https://en.wikipedia.org/wiki/Singular_measure
+[12]: https://en.wikipedia.org/wiki/Total_variation#Total_variation_norm_of_complex_measures
+[13]: https://en.wikipedia.org/wiki/Haar_measure
+[14]: https://en.wikipedia.org/wiki/Counting_measure
