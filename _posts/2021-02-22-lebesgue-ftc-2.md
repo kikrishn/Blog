@@ -95,9 +95,9 @@ to _integrate_.
 
 Previously we were restricting ourselves to positive locally $L^1$ functions.
 Since we want to meaningfully integrate our new class, it seems 
-unwise to try and lift the "locally $L^1$" condition. Positivity, however, 
+unwise to try and lift the $L^1$ condition. Positivity, however, 
 seems like a natural thing to drop. Let's be optimistic and see what happens if 
-we work with _all_ (complex valued) locally $L^1$ functions!
+we work with _all_ (complex valued) $L^1$ functions!
 
 The correspondence says to take $f$ and send it to the measure 
 $m_f(E) \triangleq \int_E f \ dm$. Of course, now that $f$ is complex valued,
@@ -106,7 +106,7 @@ the idea of [Complex Valued Measures][9]
 and see how much of measure theory we're able to recover.
 
 If we meditate on what properties $m_f$ will have, we land on the following 
-definition:
+definition[^7]:
 
 <div class=boxed markdown=1>
 A <span class=defn>Complex Measure</span> on a $\sigma$-algebra $\mathcal{A}$
@@ -117,7 +117,7 @@ is a function $\nu : \mathcal{A} \to \mathbb{C}$ so that
 Moreover, we require this sum to converge absolutely.
 
 Notice $\nu E$ is never allowed to be $\infty$! This is an important difference
-between complex and positive measures[^7].
+between complex and positive measures[^12].
 </div>
 
 ⚠ Be careful! Now that our measures allow nonpositive values, we might 
@@ -283,32 +283,115 @@ But which functions will generalize the increasing right continuous ones?
 The answer is Functions of [Bounded Variation][8]!
 
 ---
----
 
-- Signed Measures
-  - "Pos/Neg Variations" -- basically monotone functions. 
-  - _Bounded Variation_ is the right thing to consider for measures.
-  - NBV, put in a footnote that this isn't an issue, just add a constant: $F(-\infty)$.
+To see why bounded variation functions are the right things to look at,
+let's remember how the correspondence went in the unsigned case:
+We took an unisgned measure $\mu$ and looked at (up to sign of $x$)
+the (increasing, right continuous) function $F_\mu(x) = \mu \left ( (0,x] \right )$. 
 
-- Our machinery from before furnishes $\mu_F = \lambda + m_f$
-  - What must $\lambda$ look like?
-    - give an example of a negative discontinuity
-  - What must $f$ look like?
-    - It is exactly $F'$ a.e. again!
+Now, for a _complex_ measure $\nu$, we know we can write it as a combination
+of unsigned functions, $\nu = (\nu_R^+ - \nu_R^-) + i (\nu_I^+ - \nu_I^-)$.
+So what would happen if we just... did our old construction to each of these
+individually, then put them back together?
 
-- Summarize: (state for complex measures)
-  - NBV <--> signed measures $F \mapsto \mu_F$
-  - locally integrable <--> absolutely continuous measures $f \mapsto m_f$
-  - NBV --diff--> locally integrable
-  - locally integrable --int--> NBV
-  - We've lifted almost all the silly restrictions from last time! 
-  - We get a perfect correspondence if we restrict to $F$ absolutely continuous
+Then if we look at the real part, we would be looking at functions
+$F_{\nu_R^+} - F_{\nu_R^-}$, where each $F_{\nu_R^\pm}$ is increasing and
+right continuous. Moreover, since complex measures are finite, we know that
+each of these functions is _bounded_ as well.
+We could define bounded variation functions as exactly
+this class! That is, $f$ is bounded variation if and only if its real and
+imaginary parts are both a difference of bounded increasing functions!
 
-- Lebesgue FTC
+Of course, nothing in life is so simple, and for what I assume are historical
+reasons, this is not the definition you're likely to see 
+(despite being equivalent).
 
-- Example integral against $\mu_F$
+The more common definition of bounded variation is slightly technical, 
+and is best looked up in a reference like Folland. The idea, though, is 
+that $F$'s ability to wiggle should be bounded -- whence the name[^9].
 
-- locally lipschitz ==> differentiable (add a footnote on [Rademacher's Thm][2])
+For instance, $F(x) = x^2\sin \left ( \frac{1}{x} \right )$ is bounded variation,
+while $G(x) = x^2 \sin \left ( \frac{1}{x^2} \right )$ is _not_. A picture
+is worth a thousand words, and indeed $F$ has a maximum rate of wiggle:
+
+<img src="/assets/images/lebesgue-ftc-2/F.png">
+
+Even though $F$ wiggles faster and faster as $x \to 0$, the vertical distance
+it travels gets small fast enough to compensate. Contrast that with $G$:
+
+<img src="/assets/images/lebesgue-ftc-2/G.png">
+
+whose wiggle-density is obviously less controlled[^8]. 
+
+We also get some results that will be familiar from the last post. 
+These are akin to the properties of monotone functions that relate them
+to increasing right continuous functions, and thus measures.
+
+<div class=boxed markdown=1>
+1. If $F$ is bounded variation, then it has at most countably many discontinuities
+2. If $F$ is bounded variation, then it can be made right continuous by 
+    looking at $F^+(x) \triangleq \lim_{y \to x} F(y)$. By (1) these are 
+    equal almost everywhere.
+</div>
+
+Lastly, if $F$ is bounded variation, then $\lim_{x \to - \infty} F(x)$ exists
+and is finite. We say $F$ is <span class=defn>Normalized</span> if 
+$\lim_{x \to -\infty} F(x) = 0$. We can always normalize $F$ by replacing it
+with $F^N = F - \lim_{x \to -\infty} F(x)$. Notice $F$ and $F^N$ have the 
+same derivative (since they differ by a constant).
+
+This brings us to our punchline!
+
+<div class=boxed markdown=1>
+If $\nu$ is a complex borel measure on $\mathbb{R}$, then 
+
+$$F_\nu(x) \triangleq \nu \left ( (-\infty, x] \right )$$
+
+is normalized bounded variation.
+
+Conversely, if $F$ is normalized bounded variation, then there exists a 
+unique complex borel measure $\nu_F$ so that $F = F_{\nu_F}$.
+</div>
+
+So we have correspondences:
+
+<div class=boxed markdown=1>
+$$
+ \bigg \{ \text{normalized bounded variation functions $F$} \bigg \}
+ \longleftrightarrow
+ \bigg \{ \text{regular complex borel measures $\nu_F$} \bigg \}
+$$
+
+$$
+  \bigg \{ \text{$L^1$ functions $f$} \bigg \}
+  \longleftrightarrow
+  \bigg \{ \text{regular complex borel measures $m_f \ll m$} \bigg \}
+$$
+</div>
+
+Moreover, $F_{m_f}$ is the antiderivative of $f$, and if $\nu_F \ll m$
+then $\frac{d \nu_F}{dm} = F'$ almost everywhere. In this case, $F'$ is
+$L^1$ and $F(x) = \int_{-\infty}^x F'$.
+
+In fact, the class of functions $F$ so that $\nu_F \ll m$ is the largest 
+class of functions making the (lebesgue) fundamental theorem of calculus true[^10]:
+
+<div class=boxed markdown=1>
+The Following Are Equivalent for a function $F : [a,b] \to \mathbb{C}$:
+
+1. $\nu_F \ll m$ on $[a,b]$.
+2. $F(x) - F(a) = \int_a^x f \ dm$ for some $f \in L^1([a,b])$
+3. $F$ is differentiable almost everywhere on $[a,b]$, $F'$ is in $L^1([a,b])$,
+and $F(x) - F(a) = \int_a^x F' \ dm$
+</div>
+
+<div class=boxed markdown=1>
+As one last exercise for the road, you should use this machinery to prove
+[Rademacher's Theorem][2]. 
+
+If $F : \mathbb{R} \to \mathbb{C}$ is locally lipschitz, 
+then $F$ is differentiable almost everywhere[^11].
+</div>
 
 ---
 
@@ -413,6 +496,35 @@ The answer is Functions of [Bounded Variation][8]!
     feeling too lazy to work it out myself right now... Maybe one day a kind
     reader will leave a comment letting me know?
 
+[^8]:
+    Another way of viewing the issue (particularly in light of the upcoming theorem)
+    is that $G'$ is _not_ $L^1$. It turns out that a $C^1$ function is bounded
+    variation if and only if its derivative is $L^1$. That is, if and only if
+    $\int \lvert G' \rvert \lt \infty$.
+
+[^9]:
+    Mathematicians like to use words like "variation" and "oscillation" 
+    rather than "wiggliness". I can't imagine why.
+
+[^10]:
+    There is actually a characterization of $\nu_F \ll m$ that doesn't refer
+    to $\nu_F$. If $F$ satisfies this condition, then $F$ is called 
+    absolutely continuous. Thankfully, any $F$ which satisfies this is 
+    automatically bounded variation.
+
+[^11]:
+    For this, it might be useful to look up the more technical definitions of 
+    "bounded variation" and "absolutely continuous" that I've omitted in this 
+    post. Both cam be found in Chapter $3.6$ of Folland's 
+    _Real Analysis: Modern Techniques and their Applications_.
+
+[^12]:
+    In fact, since $\nu$ can never be infinite, we will focus our attention
+    on functions $f$ which are $L^1$, rather than just _locally_ $L^1$
+    as we were able to do before. If $f$ is real valued, then we can relax
+    this a little bit by using [signed measures][16], but I won't be going
+    into that in this post.
+
 
 [1]: https://math.stackexchange.com/q/1523829/655547
 [2]: https://en.wikipedia.org/wiki/Rademacher%27s_theorem
@@ -429,3 +541,4 @@ The answer is Functions of [Bounded Variation][8]!
 [13]: https://en.wikipedia.org/wiki/Haar_measure
 [14]: https://en.wikipedia.org/wiki/Counting_measure
 [15]: https://en.wikipedia.org/wiki/Riesz%E2%80%93Markov%E2%80%93Kakutani_representation_theorem#The_representation_theorem_for_the_continuous_dual_of_C0(X)
+[16]: https://en.wikipedia.org/wiki/Signed_measure
