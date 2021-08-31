@@ -9,10 +9,10 @@ tags:
 This post has been sitting in my drafts since Feb 22, and has been mostly
 done for a _long_ time. But, with my upcoming analysis qual, I've finally
 been spurred into finishing it. My plan is to put up a new blog post every
-day this week, each going throug some aspect of the analysis that's going to
+day this week, each going through some aspect of the analysis that's going to
 be on the qual. Selfishly, this will be great for my own preparation 
 (I definitely learn through teaching) but hopefully this will also help future
-students who want to see a fairly application heavy treatment of the standard
+students who want to see a motivated treatment of the standard
 analysis curriculum. 
 
 The first half of this post is available [here](/2021/02/21/lebesgue-ftc-1.html),
@@ -86,12 +86,12 @@ were "no", so let's see how to proceed!
 
 ---
 
-We've been using differentiation as the motivating target, but integration
+Differentiation is a nice motivation, but integration
 is theoretically much simpler. We can't expect to be able to differentiate
 most functions, but it is reasonable to want to integrate them. With this
 in mind, rather than trying to guess the class of functions we'll be able
 to differentiate, let's try to guess the class of functions we'll be able
-to _integrate_. 
+to _integrate_. Then we can work backwards to figure out what we can differentiate.
 
 Previously we were restricting ourselves to positive locally $L^1$ functions.
 Since we want to meaningfully integrate our new class, it seems 
@@ -160,8 +160,11 @@ $$
 m_f = m_{f_R^+} - m_{f_R^-} + i (m_{f_I^+} - m_{f_I^-})
 $$
 
-and the [Jordan Decomposition Theorem][10], which says[^5] that every complex
-measure $\nu$ decomposes uniquely into a sum of finite measures
+and the [Jordan Decomposition Theorem][10] says[^5] that we can decompose
+every complex measure $\nu$ in exactly this way!
+
+Formally, it says that every complex measure $\nu$ decomposes uniquely into 
+a linear combination of finite positive measures
 $\nu = (\nu_R^+ - \nu_R^-) + i (\nu_I^+ - \nu_I^-)$ with the bonus property
 that $\nu_R^+ \perp \nu_R^-$ and $\nu_I^+ \perp \nu_I^-$. Here, as usual,
 $\perp$ means that two measures are [mutually singular][11], which we should
@@ -178,13 +181,17 @@ $$
 |m_f| = m_{|f|}.
 $$
 
-This posesses all the amenities the notation suggests, including:
+This possesses all the amenities the notation suggests, including:
 
 <div class=boxed markdown=1>
 1. (Triangle Inequality) $\lvert \nu + \mu \rvert \leq \lvert \nu \rvert + \lvert \mu \rvert$
 2. (Operator Inequality) $\lvert \nu E \rvert \leq \lvert \nu \rvert E$
 3. (Continuity) $\nu \ll \lvert \nu \rvert$
+
+In fact, the collection of complex measures on $X$ assembles into a 
+Banach Space under the norm $\lVert \nu \rVert \triangleq \lvert \nu \rvert X$.
 </div>
+
 
 ---
 
@@ -245,7 +252,7 @@ derivatives. Thankfully, the same theorem is still true in the complex
 setting!
 
 <div class=boxed markdown=1>
-<span class="defn">Lebesuge-Radon-Nikodym Theorem</span>
+<span class="defn">Lebesgue-Radon-Nikodym Theorem</span>
 
 If $\nu$ is a $\sigma$-finite signed measure and $\mu$ is a
 $\sigma$-finite _positive_ measure[^6], then $\nu$ decomposes uniquely as
@@ -260,7 +267,7 @@ As in the unsigned case, we write $f = \frac{d\nu}{d\mu}$.
 
 I realized while writing this post that last time I forgot to mention an 
 important aspect of the Radon-Nikodym derivative! It satisfies the obvious
-laws you would expect a "derivitave" to satisfy[^4]. For instance:
+laws you would expect a "derivative" to satisfy[^4]. For instance:
 
 <div class=boxed markdown=1>
 
@@ -276,8 +283,9 @@ it's not too bad.
 At last, we have a complex measure theoretic notion of "derivative",
 as well as half of the correspondence we're trying to generalize:
 
-Given a locally $L^1$ function $f : \mathbb{R} \to \mathbb{C}$ 
-we can build a (complex) measure $m_f$.
+Given an $L^1$ function $f : \mathbb{R} \to \mathbb{C}$ 
+we can build a (complex) measure $m_f$, and given a complex measure 
+$m_f \ll m$, we can recover $f$ as the derivative $\frac{d m_f}{dm}$.
 
 But which functions will generalize the increasing right continuous ones?
 The answer is Functions of [Bounded Variation][8]!
@@ -286,7 +294,7 @@ The answer is Functions of [Bounded Variation][8]!
 
 To see why bounded variation functions are the right things to look at,
 let's remember how the correspondence went in the unsigned case:
-We took an unisgned measure $\mu$ and looked at (up to sign of $x$)
+We took an unsigned measure $\mu$ and looked at (up to sign of $x$)
 the (increasing, right continuous) function $F_\mu(x) = \mu \left ( (0,x] \right )$. 
 
 Now, for a _complex_ measure $\nu$, we know we can write it as a combination
@@ -304,7 +312,7 @@ imaginary parts are both a difference of bounded increasing functions!
 
 Of course, nothing in life is so simple, and for what I assume are historical
 reasons, this is not the definition you're likely to see 
-(despite being equivalent).
+(despite it being equivalent).
 
 The more common definition of bounded variation is slightly technical, 
 and is best looked up in a reference like Folland. The idea, though, is 
@@ -334,11 +342,13 @@ to increasing right continuous functions, and thus measures.
     equal almost everywhere.
 </div>
 
-Lastly, if $F$ is bounded variation, then $\lim_{x \to - \infty} F(x)$ exists
+Lastly, if $F$ is bounded variation, then 
+$\displaystyle \lim_{x \to - \infty} F(x)$ exists
 and is finite. We say $F$ is <span class=defn>Normalized</span> if 
-$\lim_{x \to -\infty} F(x) = 0$. We can always normalize $F$ by replacing it
-with $F^N = F - \lim_{x \to -\infty} F(x)$. Notice $F$ and $F^N$ have the 
-same derivative (since they differ by a constant).
+$\displaystyle \lim_{x \to -\infty} F(x) = 0$. 
+We can always normalize $F$ by replacing it
+with $\displaystyle F^N = F - \lim_{x \to -\infty} F(x)$. 
+Notice $F$ and $F^N$ have the same derivative (since they differ by a constant).
 
 This brings us to our punchline!
 
@@ -369,25 +379,27 @@ $$
 $$
 </div>
 
-Moreover, $F_{m_f}$ is the antiderivative of $f$, and if $\nu_F \ll m$
-then $\frac{d \nu_F}{dm} = F'$ almost everywhere. In this case, $F'$ is
-$L^1$ and $F(x) = \int_{-\infty}^x F'$.
+Here, $F_{m_f}$ is the antiderivative of $f$, and each $F$ is differentiable
+with $F' = \frac{d \nu_F}{dm}$ almost everywhere. Moreover, $F'$ is $L^1$,
+and if $\nu_F \ll m$ we have $F(x) = \int_{-\infty}^x F'$. 
 
 In fact, the class of functions $F$ so that $\nu_F \ll m$ is the largest 
-class of functions making the (lebesgue) fundamental theorem of calculus true[^10]:
+class of functions making the fundamental theorem of calculus true[^10]:
 
 <div class=boxed markdown=1>
+<span class=defn>Lebesgue Fundamental Theorem of Calculus</span>
+
 The Following Are Equivalent for a function $F : [a,b] \to \mathbb{C}$:
 
-1. $\nu_F \ll m$ on $[a,b]$.
-2. $F(x) - F(a) = \int_a^x f \ dm$ for some $f \in L^1([a,b])$
-3. $F$ is differentiable almost everywhere on $[a,b]$, $F'$ is in $L^1([a,b])$,
+1. $F$ is differentiable almost everywhere on $[a,b]$, $F'$ is in $L^1([a,b])$,
 and $F(x) - F(a) = \int_a^x F' \ dm$
+2. $F(x) - F(a) = \int_a^x f \ dm$ for some $f \in L^1([a,b])$
+3. $F$ is bounded variation and $\nu_F \ll m$ on $[a,b]$.
 </div>
 
 <div class=boxed markdown=1>
 As one last exercise for the road, you should use this machinery to prove
-[Rademacher's Theorem][2]. 
+[Rademacher's Theorem][2]:
 
 If $F : \mathbb{R} \to \mathbb{C}$ is locally lipschitz, 
 then $F$ is differentiable almost everywhere[^11].
