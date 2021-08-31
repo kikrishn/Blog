@@ -144,7 +144,7 @@ something almost magical. For almost every $x$, we see:
 
 $$
 \begin{aligned}
-\frac{d\mu_F}{dm}
+\frac{d\mu_F}{dm}(x)
 &= \lim_{r \to 0} \frac{\mu_F(B_r(x))}{m(B_r(x))} \\
 &= \lim_{r \to 0} \frac{F(x+r) - F(x-r)}{x+r - (x-r)} \\
 &= \lim_{r \to 0} \frac{F(x+r) - F(x-r)}{2r} \\
@@ -154,10 +154,12 @@ $$
 
 Now we see why we might call this $f$ the Radon-Nikodym _derivative_. In 
 the special case of Lebesgue-Stieltjes measures, it literally _is_ the 
-derivative. We saw earlier that $F = F_{m_f}$ acts like an antiderivative of $f$,
-and now we see $f = \frac{d \mu_F}{dm}$ works as a derivative of $F$ as well!
+derivative. It's immediate from the definitions that 
+$F = F_{m_f}$ acts like an antiderivative of $f$, since
+$F_{m_f}(x) = \int_0^x f\ dm$. 
+Now we see $f = \frac{d \mu_F}{dm}$ works as a derivative of $F$ as well!
 
-In fact, yet more analogies are true! Let's take a look at the 
+In fact, we can push this even further! Let's take a look at the 
 <span class="defn">Lebesgue Differentiation Theorem</span>
 
 <div class=boxed markdown=1>
