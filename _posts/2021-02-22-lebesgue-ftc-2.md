@@ -117,7 +117,7 @@ is a function $\nu : \mathcal{A} \to \mathbb{C}$ so that
 Moreover, we require this sum to converge absolutely.
 
 Notice $\nu E$ is never allowed to be $\infty$! This is an important difference
-between complex and positive measures.
+between complex and positive measures[^7].
 </div>
 
 ⚠ Be careful! Now that our measures allow nonpositive values, we might 
@@ -380,6 +380,38 @@ The answer is Functions of [Bounded Variation][8]!
     Any space with a computable notion of integration _also_ admits a computable
     notion of integrating complex measures by application of Radon-Nikodym!
 
+[^7]:
+    It's easy to wonder what complex measures are good for. One justification
+    is the one we're giving in this post: they provide a clean way of extending
+    the fundamental theorem of calculus to a broader class of functions.
+
+    There's actually much more to say, though. Complex measures are linear
+    functionals, where we take a function $f$ and send it to the number
+    $\int f\ d\nu$. One version of the [Riesz Representation Theorem][15] 
+    says that _every_ linear functional on $C_0 X$ is of this form
+    (when $X$ is locally compact, hausdorff).
+
+    This is great, because it means we can bring measure theory to bear on 
+    problems in pure functional analysis. As one quick corollary, this lets
+    us transfer the dominated convergence theorem to the setting of functionals.
+    Of course, without the knowledge of complex measures, we wouldn't be able
+    to talk about this, since most functionals are complex valued!
+
+    At this point, the category theorist in me _needs_ to mention a cute
+    result from Emily Riehl's _Category Theory in Context_. There are two 
+    functors $\mathsf{cHaus} \to \mathsf{Ban}$ 
+    (that is, from compact hausdorff spaces with continuous maps 
+    to (real) banach spaces with bounded linear maps). The first sends $X$
+    to its banach space of signed measures, and the second sends $X$ to the
+    (real) dual of its continuous functions $X \mapsto CX^*$. It turns out 
+    these functors are naturally isomorphic 
+    (see also Hartig's _The Riesz Representation Theorem Revisited_).
+
+    It seems reasonable to me that there would also be a natural isomorphism 
+    between the complex dual of the functions vanishing at infinity and the
+    space of compelx valued measures, but I can't find a reference and I'm
+    feeling too lazy to work it out myself right now... Maybe one day a kind
+    reader will leave a comment letting me know?
 
 
 [1]: https://math.stackexchange.com/q/1523829/655547
@@ -396,3 +428,4 @@ The answer is Functions of [Bounded Variation][8]!
 [12]: https://en.wikipedia.org/wiki/Total_variation#Total_variation_norm_of_complex_measures
 [13]: https://en.wikipedia.org/wiki/Haar_measure
 [14]: https://en.wikipedia.org/wiki/Counting_measure
+[15]: https://en.wikipedia.org/wiki/Riesz%E2%80%93Markov%E2%80%93Kakutani_representation_theorem#The_representation_theorem_for_the_continuous_dual_of_C0(X)
