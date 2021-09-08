@@ -16,6 +16,11 @@ to be a "definition by examples" of sorts. I'll try to show examples from as
 many brances of math as possible, and hopefully by the end it becomes clear 
 what the flavor of these theorems is, as well as how ubiquitous they are!
 
+This post has been in the pipeline for a few months now, and I'm glad to
+have it finished! It was pretty tiring to revise, but was also a welcome
+break from all the analysis I've been reading lately. I hope you find it 
+interesting ^_^!
+
 As a reminder, <span class="defn">Syntax</span> is the part of mathematics that
 deals with symbols, and rules for manipulating them. So the _syntax_ associated
 to groups are variables and the symbols $1$, $\cdot$, and ${}^{-1}$. There 
