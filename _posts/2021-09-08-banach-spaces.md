@@ -276,7 +276,8 @@ See you soon! ^_^
 
     I had some interesting stuff to say, since it's analogous to a theorem 
     in [universal algebra][1].
-    Terry Tao talks some about this in one of his [blog posts][2], but it's true
+    Terry Tao talks some about this in one of his [blog posts][2] 
+    (and gives a _very_ interesting application in [another][21]), but it's true
     in very high generality:
 
     <div class=boxed markdown=1>
@@ -459,3 +460,4 @@ See you soon! ^_^
 [18]: https://terrytao.wordpress.com/2009/02/01/245b-notes-9-the-baire-category-theorem-and-its-banach-space-consequences/
 [19]: https://en.wikipedia.org/wiki/Closed_graph_theorem_(functional_analysis)
 [20]: https://ncatlab.org/nlab/show/compactum
+[21]: https://terrytao.wordpress.com/2016/04/22/a-quick-application-of-the-closed-graph-theorem/
