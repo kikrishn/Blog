@@ -267,7 +267,7 @@ def stats(f,n=10,N=5):
 
   show(histogram(tests, bins=50, title="frequency of various signed errors (actual $-$ approximation)"))
 
-show("Type in $f$ with fixed point $0$ and $0 < |f'| < 1")
+show(html("Type in $f$ with fixed point $0$ and $0 < |f'| < 1$"))
 
 @interact
 def _(f=input_box(-2*x / (3*x + 4), width=20, label="$f$"), 
@@ -281,13 +281,13 @@ def _(f=input_box(-2*x / (3*x + 4), width=20, label="$f$"),
   # it's convenient, though, because it also lets us modify the latex
   # to print the error bounds
 
-  show(f"$$f = {latex(f().series(x,N).power_series(QQbar))}")
+  show(html(f"$$f = {latex(f().series(x,N).power_series(QQbar))}$$"))
 
-  show(f"$$\\omega = {latex(omega(f,x,N).power_series(QQbar))}$$")
+  show(html(f"$$\\omega = {latex(omega(f,x,N).power_series(QQbar))}$$"))
 
   series = f"x_n = {latex(iterationAsymptotics(f,N).truncate())}"
   error = f"O \\left ( \\left ( {latex(abs(a1))} \\right )^n x^{N} \\right )"
-  show("$$" + series + " \\pm " + error + "$$")
+  show(html("$$" + series + " \\pm " + error + "$$"))
 
   show("How good is this approximation?")
   stats(f,n,N)
