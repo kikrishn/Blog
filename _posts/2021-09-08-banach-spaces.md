@@ -129,6 +129,74 @@ then we got blindsided by the lack of complements.
 Thankfully, there are lots of foundational theorems in banach space theory
 which tell us that certain things work exactly as we'd like!
 
+For instance, in the finite dimensional case, if we've defined a functional
+on some subspace, then we can always extend it to the whole space. But the 
+proof crucially relies on a choice of basis, so in the infinite dimensional case,
+we need to be a bit careful to guarantee that the extension is still continuous.
+
+Thankfully, everything works out:
+
+<div class=boxed markdown=1>
+<span class=defn>The Hahn-Banach Theorem</span>[^11]
+
+If $f$ is a continuous linear functional defined on a subspace of $X$,
+then $f$ extends to a continuous linear functional $F$ defined on all of $X$.
+
+Moreover, $\lVert F \rVert = \lVert f \rVert$.
+</div>
+
+Another piece of intuition from the finite dimensional case is that a
+bijective linear map is automatically an isomorphism 
+(that is, the inverse map is automatically linear). Is it the case that
+a _continuous_ bijective linear map is automatically an isomorphism?
+That is, must its inverse _also_ be continuous? Again, the answer is "yes"!
+
+<div class=boxed markdown=1>
+<span class=defn>The Open Mapping Theorem</span>
+
+Let $X$ and $Y$ be banach spaces. If $T \in \mathcal{L}(X,Y)$ is surjective,
+then it is [open][14]. 
+
+In particular, if $T$ is bijective, then $T^{-1}$ is continuous.
+</div>
+
+There's another nice corollary of the open mapping theorem too. Topologically
+we expect a quotient map to be open, and we know from the homomorphism theorems
+that we can factor any surjection $T : X \to Y$ as 
+
+$$X \to X / \text{Ker}(T) \cong Y$$
+
+the open mapping theorem says that this quotient map is open, as we would expect.
+In fact, the projection $\pi : X \to X / A$ (for $A$ closed, of course) always
+has norm $1$.
+
+Continuing with our examples, in the finite dimensional case, we think of 
+subspaces as being "much smaller" than the ambient space. For instance, the
+$xy$-plane is measure $0$ inside $\mathbb{R}^3$ (with lebesgue measure) because
+it has no thickness. One can ask if sub-banach spaces (that is, closed subspaces)
+must be "small" in some sense. Again, the answer is "yes"[^12], but we 
+have to use a different notion of "small"[^14]:
+
+<div class=boxed markdown=1>
+<span class=defn>The (Strong) Open Mapping Theorem</span>
+
+If $X$ and $Y$ are banach spaces[^13] and $T \in \mathcal{L}(X,Y)$, then if
+the image $T[X]$ is nonmeagre in $Y$, we automatically have surjectivity
+and open-ness.
+
+As a simple corollary, every proper closed subspace is meagre.
+</div>
+
+---
+
+Of course, we can't talk about banach spaces without talking about a theorem
+which honestly feels like magic.
+
+<div class=boxed markdown=1>
+<span class=defn>The Uniform Boundedness Principle</span>
+
+
+</div>
 
 
 
@@ -156,7 +224,13 @@ in exchange.
 [^2]:
     Intuitively this makes sense, but formally it is far from obvious
     (at least to me!). That said, you can find a smattering of proofs
-    [here][5]. I'm a fan of the proof by Radon-Nikodym, personally.
+    [here][5]. I like the proof by Radon-Nikodym, if you want to do it directly. 
+
+    The most conceptual way to see this is by
+    citing the [Riesz Representation Theorem][11], which says that this
+    space of measures is actually isometric to $C_0^*$, and thus is banach.
+    Of course, that only works when $X$ is locally compact hausdorff. The 
+    theorem as proven in that mse link works more generally.
 
 [^3]:
     In fact, this accounts for _all_ banach spaces!
@@ -224,6 +298,51 @@ in exchange.
     $X \hookrightarrow X^**$, we can define the completion of $X$ to be the 
     closure of $X$ under this embedding.
 
+[^11]:
+    The proof of this fact makes use of the fact that any vector space is 
+    the filtered colimit of its finite dimensional subspaces. We show how to
+    extend by one basis element at a time in a way that preserves the norm,
+    then we apply Zorn's Lemma to the partial order of these extensions.
+
+    It turns out this appeal to Zorn's Lemma is somewhat unavoidable. There
+    are models of $\mathsf{ZFC}$ where Hahn-Banach fails in full generality,
+    so we need _some_ amount of choice to prove it. However it's strictly
+    weaker than full AC (see [here][12] for more discussion).
+
+    Thankfully, in many concrete situations, we _don't_ need choice! If $X$
+    is [separable][13], then we can extend one dimension at a time, making 
+    sure we eventually choose each element of our countable dense subset. 
+    At the end of this (countable length!) process, we can extend to the whole
+    space by continuity.
+
+[^12]:
+    Interestingly, we can ask about more general subspaces 
+    (which are necessarily not closed). It turns out the answer here is
+    a firm "no". 
+
+    Every infinite dimensional banach space has a proper nonmeagre subspace
+    (which is necessarily not closed). It turns out such a subspace must be
+    dense and cannot have [BP][15].
+
+    These subspaces arise as kernels of discontinuous functionals, so the
+    next question is "does every discontinuous functional work?", and the 
+    answer here is "it's subtle".
+
+    Using [Martin's Axiom][16] one can show that every separable
+    banach space has a discontinuous functional whose kernel is still meagre.
+    See [here][17] for more info.
+
+
+[^13]:
+    Actually we only need $X$ to be banach -- 
+    a priori $Y$ can be any normed vector space. 
+
+    Interestingly, though. As soon as we know that $T[X] = Y$, we also know
+    that $Y \cong X / \text{Ker}(T)$ is banach.
+
+[^14]:
+    The post about the baire category theorem is coming up!
+
 
 [1]: https://en.wikipedia.org/wiki/Universal_algebra
 [2]: https://terrytao.wordpress.com/2012/11/20/the-closed-graph-theorem-in-various-categories/
@@ -235,3 +354,10 @@ in exchange.
 [8]: https://en.wikipedia.org/wiki/Sobolev_space
 [9]: https://arxiv.org/pdf/math/0501048v1.pdf
 [10]: https://math.stackexchange.com/questions/2176497/banach-space-with-non-complemented-subspace
+[11]: https://en.wikipedia.org/wiki/Riesz%E2%80%93Markov%E2%80%93Kakutani_representation_theorem
+[12]: https://mathoverflow.net/questions/5351/whats-an-example-of-a-space-that-needs-the-hahn-banach-theorem
+[13]: https://en.wikipedia.org/wiki/Separable_space
+[14]: https://en.wikipedia.org/wiki/Open_and_closed_maps
+[15]: https://en.wikipedia.org/wiki/Property_of_Baire
+[16]: https://en.wikipedia.org/wiki/Martin%27s_axiom
+[17]: https://mathoverflow.net/questions/3188/are-proper-linear-subspaces-of-banach-spaces-always-meager
