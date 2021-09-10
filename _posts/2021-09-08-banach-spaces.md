@@ -83,10 +83,10 @@ linear algebra.
     Again, this is the categorical coproduct in $\mathsf{Ban}_1$, and since 
     one can show $\mathsf{Ban}_1$ has coequalizers, we see it is cocomplete.
 
-- If $A$ is a _closed_ subspace of $X$, then $A$ is itself a banach space
+- If $A$ is a closed subspace of $X$, then $A$ is itself a banach space
     with the induced norm[^7]. 
 
-- If $A$ is a _closed_ subspace of $X$, then $X / A$ is a banach space with
+- If $A$ is a closed subspace of $X$, then $X / A$ is a banach space with
     the norm
 
     $$\lVert x + A \rVert \triangleq \inf_{a \in A} \lVert x + a \rVert$$
@@ -270,15 +270,15 @@ See you soon! ^_^
 ---
 
 [^1]:
-    I also didn't forget about the [closed graph theorem][19], I just couldn't
+    I didn't forget about the [closed graph theorem][19], I just couldn't
     find a way to make it fit into the narrative of this blog post
     (comparing finite dimensional and infinite dimensional banach spaces).
 
-    I had some interesting stuff to say, since it's analogous to a theorem 
+    I have some interesting stuff to say, though, since it's analogous to a theorem 
     in [universal algebra][1].
     Terry Tao talks some about this in one of his [blog posts][2] 
-    (and gives a _very_ interesting application in [another][21]), but it's true
-    in very high generality:
+    (and gives a _very_ interesting application in [another][21]), but the
+    idea behind the closed graph theorem is true in very high generality:
 
     <div class=boxed markdown=1>
       Show that $f : A \to B$ is a homomorphism of algebras if and only if
@@ -380,7 +380,7 @@ See you soon! ^_^
     a normed space.
 
     Since $X$ (isometrically!) embeds into its double dual 
-    $X \hookrightarrow X^**$, we can define the completion of $X$ to be the 
+    $X \hookrightarrow X^{**}$, we can define the completion of $X$ to be the 
     closure of $X$ under this embedding.
 
 [^11]:
