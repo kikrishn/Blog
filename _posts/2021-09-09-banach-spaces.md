@@ -220,6 +220,18 @@ on a lot of practice quals:
   for every continuous functional $T$.
 </div>
 
+And here's one that says a certain pathology you might remember from an 
+undergraduate analysis class doesn't happen in the banach space setting:
+
+<div class=boxed markdown=1>
+  Show that if $X$, $Y$, and $Z$ are banach spaces, then every _separately_
+  continuous bilinear map $X \times Y \to Z$ is automatically _jointly_ 
+  continuous[^18].
+
+  Here $X \times Y$ is meant as merely the product of topological spaces, 
+  rather than as the product of banach spaces defined earlier.
+</div>
+
 As with the open mapping princple, it's actually enough to know that you're 
 pointwise bounded on some set that isn't small:
 
@@ -438,6 +450,18 @@ See you soon! ^_^
 
 [^17]:
     In particular neither needs to be complete.
+
+[^18]:
+    It might be helpful to recall that a bilinear operator is jointly
+    continuous if and only if it is "jointly bounded" in the sense that
+    $$\sup \{ \lVert f(x,y) \rVert \ \mid \ \lVert x \rVert = 1, \lVert y \rVert = 1 \} \lt \infty$$.
+
+    As a bigger hint, you might try applying the uniform boundedness principle
+    to the family of maps $f(x,-) : Y \to Z$.
+
+    Also, as a fun ~ bonus game ~ for particularly enthusiastic readers, 
+    it turns out we don't need all of $X$, $Y$, and $Z$ to be banach spaces! 
+    How weak can you make the assumptions and still prove this theorem?
 
 
 [1]: https://en.wikipedia.org/wiki/Universal_algebra
