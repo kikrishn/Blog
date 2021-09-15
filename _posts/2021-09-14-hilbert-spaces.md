@@ -215,6 +215,14 @@ hilbert basis.  This is nice since most hilbert spaces arising in practice
 For us, we note that $$\{ e^{inx} \}_{n \in \mathbb{Z}}$$ is a hilbert
 basis for $L^2(S^1)$.
 
+TODO: figure out if using the physicist notation is going to break things
+when you try to sum a fourier series (it shouldn't?)
+
+TODO: talk about some historical questions about fourier series, and how
+hilbert space theory absolutely _slaughters_ the problem
+
+TODO: also talk about counterexamples for $L^1$. 
+
 
 ---
 
