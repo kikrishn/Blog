@@ -159,7 +159,7 @@ The answer, of course, is "yes":
 
 <div class=boxed markdown=1>
 If $$\{u_\alpha\} \subseteq \mathcal{H}$$ is orthonormal 
-(that is, mutually orthogonal and of norm $1$), the following are equivalent:
+(that is, pairwise orthogonal and of norm $1$), the following are equivalent:
 
 1. (Completeness) If $\langle u_\alpha, x \rangle = 0$ for every $\alpha$, then $x = 0$
 
@@ -207,21 +207,103 @@ Let's work with $L^2(S^1)$, the hilbert space of square-integrable functions
 on the unit circle. Classically, we would extend these to be _periodic_
 functions on $\mathbb{R}$, but that turns out to be the wrong point of view[^8].
 
-It turns out a hilbert space is separable if and only if it has a countable 
+A hilbert space is separable if and only if it has a countable 
 hilbert basis.  This is nice since most hilbert spaces arising in practice 
 (including $L^2(S^1)$) _are_ separable, so we can work with a _countable_ sum 
 (even though the theorem is true in more generality).
-
 For us, we note that $$\{ e^{inx} \}_{n \in \mathbb{Z}}$$ is a hilbert
-basis for $L^2(S^1)$.
+basis for $L^2(S^1)$, sj we would expect periodic functions to decompose
+into an infinite sum of these basic functions.
 
-TODO: figure out if using the physicist notation is going to break things
-when you try to sum a fourier series (it shouldn't?)
+Historically, it was a very important problem to understand the convergence
+of "fourier series". That is, if we define
 
-TODO: talk about some historical questions about fourier series, and how
-hilbert space theory absolutely _slaughters_ the problem
+$$\hat{f}(n) \triangleq \int e^{-inx} f$$
 
-TODO: also talk about counterexamples for $L^1$. 
+(which we, with the benefit of hindsight, recognize as $\langle e^{inx}, f \rangle$)
+
+when is it the case that we can recover $f$ as the sum 
+$\displaystyle \sum_{-\infty}^\infty \hat{f}(n) e^{inx}$?
+That is, as the $n \to \infty$ limit of the _partial_ fourier series 
+
+$$S_n f \triangleq \sum_{-n}^n \hat{f}(n) e^{inx}$$
+
+In particular, for "nice" functions $f$, is it the case that
+$\displaystyle \lim_{n \to \infty} S_n f(x) \to f(x)$ pointwise?
+If not, is there _some_ sense in which $S_n f \to f$? 
+
+This problem was fundamental for hundreds of years, with Fourier publishing
+his treatise on the theory of heat in $1822$, and there are textbooks written
+as recently as $1957$ which says it is unknown whether the fourier coefficients
+of a continuous function has to converge at even _one_ point! See the 
+historical survey [here][6] for more information, as well as the full course
+notes [here][7] by the same author.
+
+The language of $L^p$ and Hilbert spaces wasn't developed until the $1910$s, 
+and they are _integral_ (pun intended) in phrasing the solution of the 
+fourier series convergence problem ([Carleson's Theorem][8]). 
+
+Carleson's theorem is famously hard to prove, be we can get a partial solution
+for free using the theory of hilbert spaces! 
+
+<div class=boxed markdown=1>
+For any $L^2$ function $f$, we have
+
+$$S_n f \overset{L^2}{\longrightarrow} f$$
+</div>
+
+This is _exactly_ the "density" part of the equivalence above! 
+With some work, one can show that $S_n f \to f$ in the $L^p$ norm for any
+$p \neq 1, \infty$[^9]. 
+
+Hilbert spaces are _also_ useful in the world of [ergodic theory][11]. 
+Say we have a function $T$ from some space $X$ to itself, which we should
+consider as describing how $X$ evolves over one time-step.
+One might expect that if we _average_ the position of a point $x$ over time,
+we should converge on a fixed point of the transformation[^10].
+
+A result in hilbert space theory tells us we aren't off base!
+
+<div class=boxed markdown=1>
+<span class=defn>Von Neumann Ergodic Theorem</span>
+
+If $U : \mathcal{H} \to \mathcal{H}$ is a unitary operator on a separable
+hilbert space, then for every $x \in \mathcal{H}$ we have
+
+$$\lim_{n \to \infty} \frac{1}{n} \sum_{k=0}^{n-1} U^k x = \pi(x)$$
+
+where $\pi$ is the orthogonal projection onto the subspace of $U$-fixed points
+$$\{ x \mid Ux = x \}$$.
+</div>
+
+This gives us the <span class=defn>Mean Ergodic Theorem</span> as a corollary!
+
+<div class=boxed markdown=1>
+If $T : X \to X$ is measure preserving and $f \in L^2(X)$, then
+
+$$\frac{1}{n} \sum_{k=0}^{n-1} T^n f \to \pi(f)$$
+
+where $\pi$ is (orthogonal) projection onto the $T$-invariant functions.
+</div>
+
+---
+
+Alright! We've seen some of the foundational results in hilbert space theory,
+and it's worth remembering our techniques from the banach space world still
+apply. Hilbert spaces are very common in analysis, with application in
+PDEs, Ergodic Theory, Fourier Theory and more. The ability to 
+basically do algebra as we would expect, and leverage our geometric intuition,
+is extremely useful in practice.
+
+Next time, we'll give a quick tour of applications of the 
+[Baire Category Theorem][10], and then it's on to the Fourier Transform
+on $\mathbb{R}$!
+
+The qual is a week from today, but I'm starting to feel better about the
+material. This has been super useful in organizing my thoughts, and if I'm
+lucky, you all might find them helpful as well.
+
+If you have been, thanks for reading! And I'll see you next time ^_^.
 
 
 ---
@@ -294,9 +376,32 @@ TODO: also talk about counterexamples for $L^1$.
     when I have the time. It seems to have a lot of connections to
     representation theory, which is also on my to-learn list.
 
+[^9]:
+    The case of $L^1$ and $L^\infty$ are both interesting, and the disproofs 
+    proceed by the [uniform boundedness principle][9]!
+
+    If $S_N f \to f$ in $L^1$ or $L^\infty$, we would know the maps
+    $S_N$ are bounded pointwise. 
+    But then by banach space-ness we have the uniform boundedness principle,
+    and we would know that the $S_N$s would need to be _uniformly_ bounded.
+    But we can find functions so that $S_N f$ have arbitrarily high $L^1$
+    and $L^\infty$ norm, giving us the contradiction.
+ 
+[^10]:
+    This idea of averaging to land on a fixed point is both common and powerful.
+    It is the key idea behind [Maschke's Theorem][12] and many other results.
+    I've actually been meaning to write a blog post on these kinds of 
+    averaging arguments, but I haven't gotten around to it yet...
 
 [1]: https://en.wikipedia.org/wiki/Polarization_identity
 [2]: https://en.wikipedia.org/wiki/Parallelogram_law
 [3]: https://en.wikipedia.org/wiki/Orthonormal_basis
 [4]: https://en.wikipedia.org/wiki/Unitary_operator
 [5]: https://en.wikipedia.org/wiki/Pontryagin_duality
+[6]: https://golem.ph.utexas.edu/category/2013/01/carlesons_theorem.html
+[7]: https://www.maths.ed.ac.uk/~tl/fa/fa_notes.pdf
+[8]: https://en.wikipedia.org/wiki/Carleson%27s_theorem
+[9]: https://en.wikipedia.org/wiki/Uniform_boundedness_principle
+[10]: https://en.wikipedia.org/wiki/Baire_category_theorem
+[11]: https://en.wikipedia.org/wiki/Ergodic_theory
+[12]: https://en.wikipedia.org/wiki/Maschke%27s_theorem
