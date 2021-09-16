@@ -62,7 +62,7 @@ of their basis, we can distinguish hilbert spaces by the cardinality of their
 "hilbert basis".
 
 First, though, why should we care about inner products? How much extra structure
-does it _really_ buy us? The ansewr is: lots! 
+does it _really_ buy us? The answer is: lots! 
 
 As is so often the case in mathematics, _theorems_ in a concrete setting become
 _definitions_ in a more general setting, and once we do this much of the 
