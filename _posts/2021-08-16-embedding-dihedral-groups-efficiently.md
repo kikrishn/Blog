@@ -25,7 +25,9 @@ looking at the vertices/edges/faces individually.
 
 Since a picture is worth a thousand words, I'll steal pjs36's picture:
 
+<center>
 <img src="/assets/images/embedding-dihedral-groups-efficiently/stolen-image.png">
+</center>
 
 If you know where these $5$ subpolygons get sent, you actually know where the
 whole hexagon gets sent! This witnesses $D_{12} \leq \mathfrak{S}_5$ in a 
