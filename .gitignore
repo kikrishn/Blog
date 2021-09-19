@@ -2,6 +2,7 @@ Gemfile.lock
 _site/*
 */_site/*
 .jekyll-cache
+.DS_Store
 
 # Local Netlify folder
 .netlify
