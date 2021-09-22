@@ -112,7 +112,7 @@ succeeded in that regard, haha. I was originally going to also prove that
 if $f : S^1 \to \mathbb{C}$ is merely continuous, we can't guarantee pointwise
 convergence. Indeed, "most functions" diverge at "many points" in the sense
 that for any countable dense set of points in $S^1$, we can find
-comeagrely many functions in $C(S^1)$ whose fourier series diverges 
+comeagrely many functions in $C(S^1)$ whose fourier series diverge
 at every point in that set.
 
 I know there _is_ a BCT argument, but I'm feeling too lazy to come up with
