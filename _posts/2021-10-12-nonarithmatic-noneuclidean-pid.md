@@ -5,7 +5,7 @@ tags:
   - 
 ---
 
-This blog post changed dramatically over the course of writing it. 
+This blog post changed dramatically over the course of writing it... 
 I'm keeping the title, because I like the alliteration of 
 "nonarithmetic noneuclidean", but by the end I actually understood the
 arithmetic example better too. Perhaps a better title would be
