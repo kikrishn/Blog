@@ -14,7 +14,7 @@ finally makes sense to me".
 
 ---
 
-Every first course on rings wlil prove the chain of inclusions
+Every first course on rings will prove the chain of inclusions
 
 $$\text{Fields} \subset \text{Euclidean Domains} \subset \text{PIDs} \subset \text{UFDs} \subset \text{Domains}$$
 
