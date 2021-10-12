@@ -5,6 +5,15 @@ tags:
   - 
 ---
 
+This blog post changed dramatically over the course of writing it. 
+I'm keeping the title, because I like the alliteration of 
+"nonarithmetic noneuclidean", but by the end I actually understood the
+arithmetic example better too. Perhaps a better title would be
+"In which algebraic geometry explains noneuclidean PIDs in a way that
+finally makes sense to me".
+
+---
+
 Every first course on rings wlil prove the chain of inclusions
 
 $$\text{Fields} \subset \text{Euclidean Domains} \subset \text{PIDs} \subset \text{UFDs} \subset \text{Domains}$$
