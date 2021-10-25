@@ -29,18 +29,18 @@ $$
 \frac{\partial u}{\partial y} = - \frac{\partial v}{\partial x} 
 $$
 
-Many sources then introduce the [Wirtinger derivatives][1][^5],
+Many sources then introduce the [Wirtinger derivatives][1],
 
 $$
 \frac{\partial}{\partial z} 
 = \frac{1}{2} \left ( \frac{\partial}{\partial x} - i \frac{\partial}{\partial y} \right )
 $$
 
-and
+and[^5]
 
 $$
 \frac{\partial}{\partial z^\ast} 
-= \frac{1}{2} \left ( \frac{\partial}{\partial x} + i \frac{\partial}{\partial y} \right )
+= \frac{1}{2} \left ( \frac{\partial}{\partial x} + i \frac{\partial}{\partial y} \right ),
 $$
 
 then reformulate the Cauchy-Riemann equations in the much simpler form:
@@ -53,7 +53,7 @@ $$\frac{\partial f}{\partial z^\ast} = 0$$
 
 The benefit of this is that $$\frac{\partial f}{\partial z^\ast} = 0$$
 is very memorable. The difficult part is that, formally, this doesn't make 
-much sense. I've known many students who were confused by this[^2] notation, 
+much sense. I've known many students who were confused by this notation[^2], 
 since how a function depends on $z$ is intimately related to how it depends on 
 $$z^\ast$$. After all, we can recover $$z$$ and $$z^\ast$$ from each other,
 so they aren't obviously independent in the same way $x$ and $y$ are[^3]! 
