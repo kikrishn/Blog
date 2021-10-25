@@ -72,6 +72,9 @@ of the following excellent quote:
 
 With the introduction out of the way, let's see some mathematical games we might play!
 
+TODO: Should these be multiple posts in a series? That would be more modular,
+and would let me get this up sooner/add more examples later...
+
 ---
 
 ## Fold and Cut
