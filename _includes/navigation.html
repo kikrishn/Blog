@@ -1,0 +1,29 @@
+
+   
+<nav>
+  <section class="info">
+    <a href="/" aria-label="links home">
+      <img src="/assets/images/icon.svg" alt="Site logo"/>
+    </a>
+    <section class="title">
+      <a href="/">
+        <h1>Chris Grossack / </h1>
+      </a>
+      <p>Math/Music. They/Them.</p>
+    </section>
+  </section>
+
+  <!-- Mobile nav -->
+  <div id="mobile-nav" onclick="openNav()">
+    <i class="fas fa-bars"></i>
+  </div>
+
+  <section id="mySidenav" class="main-links">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    {% for item in site.data.navigation %}
+    <a href="{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>
+      {{ item.name }}
+    </a>
+    {% endfor %}
+  </section>
+</nav>
