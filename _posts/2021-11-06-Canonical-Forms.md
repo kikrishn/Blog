@@ -26,19 +26,16 @@ A nonzero function $f$ is an eigenvector of $d$ if for some $\alpha \in \mathbb{
 
 <strong> Theorem </strong> An element $\alpha \in F$ is an eigenvalue of $T$ if and only if $\textrm{det}(T - \alpha 1) = 0$, where $1$ is the identity transformation on $V$.
 
-This result can be used to prove that the set $e^{\alpha_1 t}, \ldots, e^{\alpha_s t}$, where $\alpha_i$ are distinct, is linearly independent. Indeed, the differentiation operator takes be the subspace $V$ spanned by them to itself, so that $d$ restricts to a linear operator on $V$, and the above vectors (functions $e^{\alpha_i t} : \mathbb{R} \to \mathbb{R}$) are the eigenvectors corresponding to distinct eigenvalues $\alpha_1, \ldots, \alpha_s$ of $d|_{V}$.
+This result can be used to prove that the set $e^{\alpha_1 t}, \ldots, e^{\alpha_s t}$, where $\alpha_i$ are distinct, is linearly independent. Indeed, the differentiation operator takes be the subspace $V$ spanned by them to itself, so that $d$ restricts to a linear operator on $V$, and the above vectors (functions $e^{\alpha_i t} : \mathbb{R} \to \mathbb{R}$) are the eigenvectors corresponding to distinct eigenvalues $\alpha_1, \ldots, \alpha_s$ of $d_{V}: V \to V$.
 
 
 
 There is yet another way to view eigenvectors. A nonzero vector $v \in V$ is an eigenvector of $T$ if and only if the one-dimensional subspace spanned by $v$ is invariant under $T$. In general, we may search for invariant subspaces of $T$ in $V$.
 
 **Example**: Let $T$ be a linear transformation $\mathbb{R}^2$ such that for some basis $\{ v_1, v_2 \}$ of $\mathbb{R}^2$, 
+
 $$T(v_1) = v_2, T(v_2) = v_1.$$
 
-\begin{align*}
-T(v_1) &= v_2\\
-T(v_2) &= v_1
-\end{align*}
 
 
 
