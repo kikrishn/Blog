@@ -41,7 +41,11 @@ T(v_2) &= v_1.
 \end{align}
 $$
 
-The eigenvectors of $T$ are $w_1 = v_1 + v_2$ and $w_2 = v_1 - v_2$ and the matrix of $T$ with respect to the basis ${w_1, w_2}$ is $A = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}$.  We can now see that $T$ is a reflection with respect to the line through the origin in the direction of the vector $w_1$; it sends each vectors in $<w_1>$ onto itself and sends $w_2$ onto $-w_2$ with respect to the line $<w_1>$.  This concept leads to the notion of **$T$-invariant subspace**, namely $W$ is a <strong> $T$-invariant subspace </strong> of $V$ if $Tw \in W$ for all $w \in W$. 
+The eigenvectors of $T$ are $w_1 = v_1 + v_2$ and $w_2 = v_1 - v_2$ and the matrix of $T$ with respect to the basis ${w_1, w_2}$ is 
+$$
+A=\begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}.
+$$
+We can now see that $T$ is a reflection with respect to the line through the origin in the direction of the vector $w_1$; it sends each vectors in $w_1$ onto itself and sends $w_2$ onto $-w_2$ with respect to the line $<w_1>$.  This concept leads to the notion of **$T$-invariant subspace**, namely $W$ is a <strong> $T$-invariant subspace </strong> of $V$ if $Tw \in W$ for all $w \in W$. 
 
 Given $f(t) \in F[t]$, the null space of $f(T)$, namely 
 $$
