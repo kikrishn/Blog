@@ -15,16 +15,30 @@ In other words, $T$ satisfies the polynomial $a_0 + a_1 t + \ldots + a_{n^2} t^{
 
 One more observation in order. The minimal polynomial $m(T)$ kills the entire space $V$. The first idea that might be expected to give additional information is to study not only polynomials $f(t)$ such that $f(T)$ annihilates $V$, but also polynomials in $T$ which send individual vectors to zero. The simplest case is that of a polynomial $t-\alpha$. That is, given $\alpha \in F$, we ask for vectors $v \in V$ such that $(T - \alpha)v = 0$, and we call $\alpha$ an eigenvalue of $T$ if there exists a nonzero vector $v \in V$ such that $T(v) = \alpha v$, and any nonzero vector satisfying this equation is called a **eigenvector** corresponding to the eigenvalue $\alpha$. 
 
-**Example:** Consider the vector space $\mathcal{F}(\mathbb{R})$ of all functions $f: \mathbff{R} \to \mathbb{R}$, and $V$ be the subspace consisting of differentiable functions. Clearly the operation of differentiation defines a linear transformation 
+**Example:** Consider the vector space $\mathcal{F}(\mathbb{R})$ of all functions $f: \mathbb{R} \to \mathbb{R}$, and $V$ be the subspace consisting of differentiable functions. Clearly the operation of differentiation defines a linear transformation 
 
 $$d: V \to \mathcal{F}(\mathbb{R}).$$
 
 A nonzero function $f$ is an eigenvector of $d$ if for some $\alpha \in \mathbb{R}$, we have $d(f) = \alpha f$. Clearly the exponential functions $e^{\alpha t}$ are the eigenvectors of $d$, and the theory of linear differential equations of the first order shows that these are the only eigenvectors of $d$.
 
 
+<strong> Theorem </strong>: Eigenvectors belonging to distinct eigenvalues (of $T$) are linearly independent.
+
+<strong> Theorem </strong> An element $\alpha \in F$ is an eigenvalue of $T$ if and only if $\textrm{det}(T - \alpha 1) = 0$, where $1$ is the identity transformation on $V$.
+
+This result can be used to prove that the set $e^{\alpha_1 t}, \ldots, e^{\alpha_s t}$, where $\alpha_i$ are distinct, is linearly independent. Indeed, the differentiation operator takes be the subspace $V$ spanned by them to itself, so that $d$ restricts to a linear operator on $V$, and the above vectors (functions $e^{\alpha_i t} : \mathbb{R} \to \mathbb{R}$) are the eigenvectors corresponding to distinct eigenvalues $\alpha_1, \ldots, \alpha_s$ of $d|_{V}$.
 
 
 
+There is yet another way to view eigenvectors. A nonzero vector $v \in V$ is an eigenvector of $T$ if and only if the one-dimensional subspace spanned by $v$ is invariant under $T$. In general, we may search for invariant subspaces of $T$ in $V$.
+
+**Example**: Let $T$ be a linear transformation $\mathbb{R}^2$ such that for some basis $\{ v_1, v_2 \}$ of $\mathbb{R}^2$, 
+$$T(v_1) = v_2, T(v_2) = v_1.$$
+
+\begin{align*}
+T(v_1) &= v_2\\
+T(v_2) &= v_1
+\end{align*}
 
 
 
