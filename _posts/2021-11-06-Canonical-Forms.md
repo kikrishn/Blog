@@ -5,7 +5,10 @@ tags:
   - Linear Algebra
 ---
 
-Let $n$ be a positive integer $\geq 1$. Let $V$ be an $n$ dimensional vector space over a field $F$, and $L(V,V)$ be the set of endomorphisms of $V$. The set $L(V,V)$ has a canonical structure of a vector space over $F$, and its dimension is $n^2$. Fix a nonzero element $T$ in $L(V,V)$. Then the set of endomorphisms $1, T, \ldots , T^{n^2}$ are linearly dependent over $F$, so that there exist elements $a_0, \ldots, a_{n^2}$ in $F$, not all zero, such that 
+Let $n$ be a positive integer $\geq 1$. Let $V$ be an $n$ dimensional vector space over a field $F$, and $L(V,V)$ be the set of endomorphisms of $V$. The set $L(V,V)$ has a canonical structure of a vector space over $F$, and its dimension is $n^2$. 
+
+
+Fix a nonzero element $T$ in $L(V,V)$. Then the set of endomorphisms $1, T, \ldots , T^{n^2}$ are linearly dependent over $F$, so that there exist elements $a_0, \ldots, a_{n^2}$ in $F$, not all zero, such that 
 $$
 a_0 \cdot 1 + a_1 \cdot T + \ldots + a_{n^2} \cdot T^{n^2} = 0.
 $$
