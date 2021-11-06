@@ -34,9 +34,12 @@ There is yet another way to view eigenvectors. A nonzero vector $v \in V$ is an 
 
 **Example**: Let $T$ be a linear transformation $\mathbb{R}^2$ such that for some basis $\{ v_1, v_2 \}$ of $\mathbb{R}^2$, 
 
-$$T(v_1) = v_2, T(v_2) = v_1.$$
-
-
+$$
+\begin{align*}
+T(v_1) &= v_2,\\
+T(v_2) &= v_1.$$
+\end{align*}
+$$
 
 
 
