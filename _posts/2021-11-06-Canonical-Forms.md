@@ -41,12 +41,24 @@ T(v_2) &= v_1.
 \end{align}
 $$
 
+The eigenvectors of $T$ are $w_1 = v_1 + v_2$ and $w_2 = v_1 - v_2$ and the matrix of $T$ with respect to the basis ${w_1, w_2}$ is $A = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}$.  We can now see that $T$ is a reflection with respect to the line through the origin in the direction of the vector $w_1$; it sends each vectors in $<w_1>$ onto itself and sends $w_2$ onto $-w_2$ with respect to the line $<w_1>$.  This concept leads to the notion of **$T$-invariant subspace**, namely $W$ is a <strong> $T$-invariant subspace </strong> of $V$ if $Tw \in W$ for all $w \in W$. 
 
+Given $f(t) \in F[t]$, the null space of $f(T)$, namely 
+$$
+{ v \in V | f(T)v = 0 }
+$$
+is a $T$-invariant subspace. In the previous example $w_1$ generates the null space corresponding to the polynomial $t - 1$ and $w_2$ generates the null space corresponding to the polynomial $t + 1$. The polynomials $t + 1$ and $t-1$ are exactly the irreducible factors of the minimal polynomial $x^2 - 1$ of $T$. We will see below that this is a special instance of the theorem we intend to exhibit. First, some definitions.
 
+The vector space $V$ is said to be <strong>direct sum</strong> of subspaces $V_1, \ldots, V_s$,  if every vector in $V$ is a unique sum of vectors in $V_1, \ldots, V_s$. Equivalently, if every vector $v$ in $V$ can be expressed as 
+$$
+v = v_1 + \ldots + v_s, \hspace{0.5cm} v_i \in V_i
+$$
+and if a sum $v_1 + \ldots + v_s$ is zero then each $v_i$ is zero. We have the following useful criterion to verify whether a vector space can be expressed as a direct sum.
 
-
-
-
+<strong> Lemma </strong> Suppose there exist nonzero linear maps $E_1, \ldots, E_s$ in $L(V,V)$ such that their sum is $1$ and the products $E_i E_j = 0$ for $i \neq j$ ,then $E_i$ are idempotent linear transformations and $V$ can be expressed as the direct sum 
+$$
+V = E_1 V \oplus \ldots \oplus E_s V
+$$
 
 
 
