@@ -45,7 +45,7 @@ The eigenvectors of $T$ are $w_1 = v_1 + v_2$ and $w_2 = v_1 - v_2$ and the matr
 $$
 A=\begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}.
 $$
-We can now see that $T$ is a reflection with respect to the line through the origin in the direction of the vector $w_1$; it sends each vectors in $w_1$ onto itself and sends $w_2$ onto $-w_2$ with respect to the line $w_1$.  This concept leads to the notion of **$T$-invariant subspace**, namely $W$ is a <strong> $T$-invariant subspace </strong> of $V$ if $Tw \in W$ for all $w \in W$. 
+We can now see that $T$ is a reflection with respect to the line through the origin in the direction of the vector $w_1$; it sends each vectors in $w_1$ onto itself and sends $w_2$ onto $w_2$ with respect to the line $w_1$.  This concept leads to the notion of **$T$-invariant subspace**, namely $W$ is a <strong> $T$-invariant subspace </strong> of $V$ if $Tw \in W$ for all $w \in W$. 
 
 Given $f(t) \in F[t]$, the null space of $f(T)$, namely 
 $$
@@ -65,8 +65,41 @@ V = E_1 V \oplus \ldots \oplus E_s V
 $$
 
 
+<strong>Theorem</strong>: Let $T \in L(V,V)$, and let
+$$
+m(x) = p_1(x)^{e_1} \cdots p_s(x)^{e_s}
+$$
+be the minimal polynomial of $T$, factored into powers of distinct primes $p_i(x) \in F[t]$. Then there exist polynomials $f_1(x), \ldots, f_s(x)$ in $F[x]$ such that linear transformations $E_i = f_i(T)$, $1 \leq i \leq s$, satisfy
+$$
+\begin{align}
+E_i &\neq 0, 1 \leq i \leq s,\\
+1 &= E_1 + \ldots +E_s \\
+E_i E_j &= E_j E_i = 0 , i \neq j \\
+E_i V &= n(p_i(T)^{e_i}
+\end{align}
+$$
+where $n(p_i(T)^{e_i})$ denotes the null space of the transformation $p_i(T)^{e_i}$, which are $T$-invariant subspaces. We have
+$$
+V = n(p_1(T)^{e_1}) \oplus \ldots \oplus n(p_s(T)^{e_s}).
+$$
 
 
+As an application of this theorem, we consider the question of when a basis for $V$ can be chosen that consists of eigenvectors of $T$.  $T$ is diagonalisable if there exists a basis for $V$ consisting of eigenvectors of $T$. A matrix of $T$ with respect to a basis of eigenvectors is called a diagonal matrix; it has the form 
+$$
+\begin{bmatrix} \alpha_1 & & 0 \\  & \ddots &  \\ 0 & & \alpha_n \end{bmatrix}
+$$
+where $\alpha_i \in F$.
+
+It follows almost immediately that 
+
+**Theorem**: $T$ is diagonalisable if and only if the minimal polynomial of $T$ is a product of distinct linear factors, i.e. 
+$$
+m(x) = (x - \alpha_1) \cdots (x - \alpha_s)
+$$
+where $\alpha_1, \ldots, \alpha_s$ are distinct elements of $F$.
+
+
+There are two ways in which $T$ can fail to be diagonalisable. One is that its minimal polynomial $m(x)$ cannot be factored into linear factors in $F[x]$: for example, $m(x) = x^2 +1$ in $\mathbb{R}[x]$. The other is that $m(x)$ is a product of linear factors, but at least one linear factor is repeated. In this latter case it is desirable to have a theorem that applies to all linear transformations and that comes close to the diagonal form.
 
 
 
