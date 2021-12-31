@@ -52,7 +52,7 @@ $$
 
 The crucial point to note here that the above equations holds for $any$ bilinear map $V \times W \to F$ and not just for $f$.
 
-Here is the reformulation to avoid repetition of the phrase "valid for all bilinear maps $V \times W \to F$": Let $\mathcal{B}_X$ denote the set of bilinear maps $V \times W \to X$, and for each $v \in V$ and $w \in W$ let $[v,w]$ denote the _function_
+Here is the reformulation to avoid repetition of the phrase "valid for all bilinear maps $V \times W \to F$": Let $\mathcal{B}$ denote the set of bilinear maps $V \times W \to X$, and for each $v \in V$ and $w \in W$ let $[v,w]$ denote the _function_
 
 $$
 [v,w] : \mathcal{B} \to F, \hspace{0.5cm} f \mapsto f(v,w)
