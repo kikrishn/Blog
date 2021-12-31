@@ -8,6 +8,6 @@ Likewise, any bilinear map from $V \times W$ to a finite dimensional vector spac
 f(e_1 + e_2, e_1 + e_2) = f(e_1, e_1) + f(e_1, e_2) + f(e_2, e_1) + f(e_2, e_2) \\
 f(e_1 + 2 e_2 , e_1 + e_2) = f(e_1, e_1) + f(e_1, e_2) + 2 f(e_2, e_1) + 2 f(e_2, e_2)
 \]
-In contrast, the scalars $f(e_1, e_1), f(e_2, e_2), f(e_1 + e_2, e_1 + e_2)$, and $f(e_1 - e_2, e_1 - e_2)$ do \textit{not} determine $f$ unambiguously. In fact, all these values are $0$ then one may define $f(ae_1 + b e_2, c e_1 + d e_2)$ to be either $0$ or $ad- bc$. 
+In contrast, the scalars $f(e_1, e_1), f(e_2, e_2), f(e_1 + e_2, e_1 + e_2)$, and $f(e_1 - e_2, e_1 - e_2)$ do \textit{not} determine $f$ unambiguously. In fact, if these values are defined to $0$ then one may define $f(ae_1 + b e_2, c e_1 + d e_2)$ to be either $0$ or $ad- bc$. 
 
 
