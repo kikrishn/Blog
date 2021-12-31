@@ -1,4 +1,12 @@
 ---
 published: true
 ---
-Let $F$ be a field and $V$ and $W$ be vector spaces over $F$ of dimensions $m$ and $n$ respectively. Let $f: V \to W$ be a linear map. Given a basis of $V$ and a basis of $W$, the map $f$ is completely determined by the $\textrm{dim} V \times \textrm{dim} W$ number of scalars in $F$. In analogy, let $g: V \times W \to X$ be a $F$-bilinear map, where $X$ is some finite dimensional vector space over $F$. Given a bases of $V, W$ and $X$, the map $g$ is unambiguously determined by $\textrm{dim} V \times \textrm{dim} W \times \textrm{dim} X$ number of scalars in $F$. Conversely, we would like to know whether the $g$ is determined uniquely by its values on the pairs in a given subset of $V \times W$. In the linear case, $f$ is determined uniquely provided $f$ is known on a set that is a basis of $V$; in other words, $f$ is known on a set that is linearly independent over $F$ and spans $V$. 
+Let $F$ be a field and $V$ and $W$ be finite dimensional vector spaces over $F$. Any linear map from $V$ to $W$ is determined uniquely by its values on a set that is a basis of $V$, i.e. that which is linearly independent over $F$ and spans $V$. In other words, a given set of vectors in $V$ determines $f$ unambiguously if and only it is a basis of $V$. 
+
+Likewise, any bilinear map from $V \times W$ to a finite dimensional vector space $X$ over $F$ is completely determined by a set of tuples $(v,w)$ where the $v$'s constitute a basis of $V$ and $w$'s constitute a basis of $W$. It is the converse question that leads to the notion of the tensor product, namely given a set of pairs $(v,w)$ we would like to investigate whether they determine $f$ uniquely or not. Taking cues from the linear case, we would like to come up notions of 'linear independence' and 'span' in the bilinear case. An example might clarify. Let $V = W = \R^2$ and $X = \R$. Let $e_1, e_2$ be the standard basis of $V$. Then $f(e_1, e_1), f(e_2, e_2), f(e_1 + e_2, e_1 + e_2)$ and $f(e_1 + 2 e_2, e_1 + e_2)$ competely determines $f$, because $f(e_1, e_2)$ and $f(e_2, e_1)$ can be deduced from these values. Indeed,
+$$
+f(e_1 + e_2, e_1 + e_2) = f(e_1, e_1) + f(e_1, e_2) + f(e_2, e_1) + f(e_2, e_2) \\
+f(e_1 + 2 e_2 , e_1 + e_2) = f(e_1, e_1) + f(e_1, e_2) + 2 f(e_2, e_1) + 2 f(e_2, e_2)\\
+$$
+
+
