@@ -18,26 +18,33 @@ one obtains $f(e_1, e_2)$ and $f(e_2, e_1)$, which in turn determine $f$ complet
 $f(e_1, e_1), f(e_2, e_2), f(e_1 + e_2, e_1 + e_2)$, and $f(e_1 - e_2, e_1 - e_2)$. 
 
 In general, suppose we know $f(v_1, w_1), f(v_2, w_2), f(v_3, w_3)$ and $f(v_4, w_4)$. If, say, $v_1, v_2 $ and $v_3$ are multiples of a single vector in $V$ then some of the information is redundant, for $w_1, w_2$ and $w_3$ are not linearly dependent in $F^2$ so that if, say, $w_3$ is a linear combination of $w_1$ and $w_2$ then $f(v_3,w_3)$ can be obtained from $f(v_1, w_1)$ and $f(v_2, w_2)$. So assume that no three vectors in the set $\{v_1, v_2, v_3, v_4 \}$ is a scalar multiple of a vector in $V$ and $\{ w_1, w_2, w_3, w_4 \}$ is a scalar multiple of a vector in $W$. Clearly then there can be at most one zero vector in the set $\{v_1, v_2, v_3, v_4\}$, for otherwise if $v_1 = v_2 = 0$ then $v_1 = 0.v_3, v_2 = 0.v_3$ and $v_3 = 1. v_3$, so that the three vectors $v_1, v_2$ and $v_3$ is a scalar multiple of $v_3$, contrary to the hypothesis. Similarly for the set $\{w_1, w_2, w_3, w_4 \}$. So, in the degenerate case when at least one of $v_i$ is zero and at least one of $w_i$ is zero,  we may, with out loss of generality, relabel the vectors in such way that the $v_1, v_2, w_1$ and $w_2$ in the pairs $(v_1, w_1)$ and $(v_2, w_2)$ are all nonzero. If $v_1$ and $v_2$ is a multiple of a vector in $V$, in other words, if $v_2$ is a multiple of $v_1$ then together with the zero vector they violate the hypothesis, since $0 = 0 \cdot v_1$. Thus $v_1, v_2$, and likewise $w_1, w_2$ must be linearly independent. Let 
+
 $$
 \begin{align} 
 v_3 &= a v_1 + b v_2, v_4 = c v_1 + d v_2 \\
 w_3 &= \alpha w_1 + \beta w_2, w_4 = \gamma w_1 + \delta w_4
 \end{align}
 $$
+
 Then 
+
 $$
 \begin{align}
 f(v_3, w_3) &= f(a v_1 + b v_2, \alpha w_1 + \beta w_2) \\
 &= a \alpha f(v_1, w_1) + a \beta f(v_1, w_2) + b \alpha f(v_2, w_1) + b \beta f(v_2, w_2)
 \end{align}
 $$
+
 and 
+
 $$
 \begin{align}
 f(v_4, w_4) &= f( c v_1 + d v_2, \gamma w_1 + \delta w_2) \\
 &= c \gamma f(v_1, w_1) + c \delta f(v_1, w_2) + d \gamma f(v_2, w_1) + d \delta f(v_2, w_2)
 \end{align}
 $$
+
+
 
 
 
