@@ -58,7 +58,7 @@ $$
 [v,w] : \mathcal{B} \to F, \hspace{0.5cm} f \mapsto f(v,w)
 $$
 
-The set $\mathcal{C}$ of all functions $\mathcal{B}_X \to F$ is a vector space over $F$ under the usual additional and scalar multiplication, and the functions of the form $[v,w]$ form a $F$-linear subspace $\mathcal{T}$ of $\mathcal{C}$. Now, in $\mathcal{C}$ we can define the notion of linear independence and spanning of functions like $[v,w]$. Thus, "vectors" (which are functions) $[v_i, w_i]$, $1 \leq i \leq r$ are linearly dependent if, there exist scalars $a_i \in F$, not all zero, such that 
+The set $\mathcal{C}$ of all functions $\mathcal{B}X \to F$ is a vector space over $F$ under the usual additional and scalar multiplication, and the functions of the form $[v,w]$ form a $F$-linear subspace $\mathcal{T}$ of $\mathcal{C}$. Now, in $\mathcal{C}$ we can define the notion of linear independence and spanning of functions like $[v,w]$. Thus, "vectors" (which are functions) $[v_i, w_i]$, $1 \leq i \leq r$ are linearly dependent if, there exist scalars $a_i \in F$, not all zero, such that 
 
 $$
 a_1 [v_1, w_1] + \ldots + a_r [v_r, w_r] = 0 
