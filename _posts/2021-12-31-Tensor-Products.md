@@ -52,13 +52,13 @@ $$
 
 The crucial point to note here that the above equations holds for $any$ bilinear map $V \times W \to F$ and not just for $f$.
 
-Here is the reformulation to avoid "valid for all bilinear maps $V \times W \to F$": Let $\mathcal{B}_X$ denote the set of bilinear maps $V \times W \to X$, and for each $v \in V$ and $w \in W$ let $[v,w]$ denote the $function$
+Here is the reformulation to avoid repetition of the phrase "valid for all bilinear maps $V \times W \to F$": Let $\mathcal{B}_X$ denote the set of bilinear maps $V \times W \to X$, and for each $v \in V$ and $w \in W$ let $[v,w]$ denote the $function$
 
 $$
 [v,w] : \mathcal{B} \to F, \hspace{0.5cm} f \mapsto f(v,w)
 $$
 
-The set $\mathcal{C}$ of all functions $\mathcal{B} \to F$ is a vector space over $F$ under the usual additional and scalar multiplication, and the functions of the form $[v,w]$ form a $F$-linear subspace $\mathcal{T}$ of $\mathcal{C}$. Now, in $\mathcal{C}$ we can define the notion of linear independence and spanning of functions like $[v,w]$. Thus, "vectors" (which are functions) $[v_i, w_i]$, $1 \leq i \leq r$ are linearly dependent if, there exist scalars $a_i \in F$, not all zero, such that 
+The set $\mathcal{C}$ of all functions $\mathcal{B}_X \to F$ is a vector space over $F$ under the usual additional and scalar multiplication, and the functions of the form $[v,w]$ form a $F$-linear subspace $\mathcal{T}$ of $\mathcal{C}$. Now, in $\mathcal{C}$ we can define the notion of linear independence and spanning of functions like $[v,w]$. Thus, "vectors" (which are functions) $[v_i, w_i]$, $1 \leq i \leq r$ are linearly dependent if, there exist scalars $a_i \in F$, not all zero, such that 
 
 $$
 a_1 [v_1, w_1] + \ldots + a_r [v_r, w_r] = 0 
@@ -67,7 +67,7 @@ $$
 equivalently,
 
 $$
-a_1f(v_1, w_1) + \ldots + a_r f(v_r, w_r) = 0 \textrm{ for all bilinear maps } f \in \mathcal{B}
+a_1f(v_1, w_1) + \ldots + a_r f(v_r, w_r) = 0 \textrm{ for all bilinear maps } f \in \mathcal{B}_X
 $$
 
 This is the notion of linear independence that fits the above discussion. Similarly, the notion of spanning can be defined. For example, we recognize the following dependence relations:
@@ -81,10 +81,10 @@ $$
 \end{align}
 $$
 
-Clearly these relations are honored by each and every bilinear function $f \in \mathcal{B}$. We may ask whether there are any other relations apart from the $F$-linear combinations of the left-hand side of the above equations, satisfied by every bilinear function $\mathcal{B}_X$ for all vector spaces $X$.
+Clearly these relations are honored by each and every bilinear function $f \in \mathcal{B}_X$. We may ask whether there are any other relations apart from the $F$-linear combinations of the left-hand side of the above equations, satisfied by every bilinear function $\mathcal{B}_X$ for all vector spaces $X$.
 
 
-The answer is 'None'. Indeed, let $\mathcal{Z}$ be the $F$-linear subspace of $\mathcal{T}$ spanned by the vectors $[v , w_1 + w_2] - [v, w_1] - [v, w_2]$, $[v_1 + v_2, w] - [v_1, w] - [v_2, w]$, $[v, a w] - a[v,w]$ and $[a v, w] - a [v,w]$. Consider the quotient vector space $\mathcal{T}/ \mathcal{Z}$ and construct the bilinear map 
+The answer is 'None'. Indeed, let $\mathcal{Z}$ be the $F$-linear subspace of $\mathcal{T}$ spanned by the vectors $[v , w_1 + w_2] - [v, w_1] - [v, w_2]$, $[v_1 + v_2, w] - [v_1, w] - [v_2, w]$, $[v, a w] - a[v,w]$ and $[a v, w] - a [v,w]$. Consider the quotient vector space $\mathcal{T}/ \mathcal{Z}$ and construct the bilinear map in $\mathcal{B}_{\mathcal{T}/\mathcal{Z}}$
 
 $$
 V \times W \to \mathcal{T}/\mathcal{Z}, \hfill{0.5cm} (v,w) \mapsto [v,w] + Z
