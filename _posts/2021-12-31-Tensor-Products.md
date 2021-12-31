@@ -50,9 +50,9 @@ $$
 d \gamma f(v_3, w_3) - a \beta f(v_4, w_4) =  (d \gamma a  \alpha - a \beta c \gamma) f(v_1, w_1) + (d \gamma b \beta - a \beta d \delta) f(v_2, w_2)
 $$
 
-The crucial point to note here that the above equations holds for \textit{any} bilinear map $V \times W \to F$ and not just for $f$.
+The crucial point to note here that the above equations holds for $any$ bilinear map $V \times W \to F$ and not just for $f$.
 
-Here is the reformulation to avoid "valid for all bilinear maps $V \times W \to F$": Let $\mathcal{B}_X$ denote the set of bilinear maps $V \times W \to X$, and for each $v \in V$ and $w \in W$ let $[v,w]$ denote the \textit{function} 
+Here is the reformulation to avoid "valid for all bilinear maps $V \times W \to F$": Let $\mathcal{B}_X$ denote the set of bilinear maps $V \times W \to X$, and for each $v \in V$ and $w \in W$ let $[v,w]$ denote the $function$
 
 $$
 [v,w] : \mathcal{B} \to F, \hspace{0.5cm} f \mapsto f(v,w)
