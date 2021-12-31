@@ -81,7 +81,7 @@ $$
 \end{align}
 $$
 
-Clearly these relations are honored by each and every bilinear function $f \in \mathcal{B}_X$. We may ask whether there are any other relations apart from the $F$-linear combinations of the left-hand side of the above equations, satisfied by every bilinear function $\mathcal{B}_X$ for _all_ vector spaces $X$.
+Clearly these relations are honored by each and every bilinear function $f \in \mathcal{B}$. We may ask whether there are any other relations apart from the $F$-linear combinations of the left-hand side of the above equations, satisfied by every bilinear function $\mathcal{B}_X$ for _all_ vector spaces $X$.
 
 
 The answer is 'None'. Indeed, let $\mathcal{Z}$ be the $F$-linear subspace of $\mathcal{T}$ spanned by the vectors $[v , w_1 + w_2] - [v, w_1] - [v, w_2]$, $[v_1 + v_2, w] - [v_1, w] - [v_2, w]$, $[v, a w] - a[v,w]$ and $[a v, w] - a [v,w]$. Consider the quotient vector space $\mathcal{T}/ \mathcal{Z}$ and construct the bilinear map in $\mathcal{B}_{\mathcal{T}/\mathcal{Z}}$
