@@ -58,10 +58,10 @@ $$
 [v,w] : \mathcal{B} \to F, \hspace{0.5cm} f \mapsto f(v,w)
 $$
 
-The set $\mathcal{C}$ of all functions $\mathcal{B}X \to F$ is a vector space over $F$ under the usual additional and scalar multiplication, and the functions of the form $[v,w]$ form a $F$-linear subspace $\mathcal{T}$ of $\mathcal{C}$. Now, in $\mathcal{C}$ we can define the notion of linear independence and spanning of functions like $[v,w]$. Thus, "vectors" (which are functions) $[v_i, w_i]$, $1 \leq i \leq r$ are linearly dependent if, there exist scalars $a_i \in F$, not all zero, such that 
+The set $\mathcal{C}$ of all functions $\mathcal{B}X \to F$ is a vector space over $F$ under the usual additional and scalar multiplication, and the functions of the form $[v,w]$ form a $F$-linear subspace $\mathcal{T}$ of $\mathcal{C}$. Now, in $\mathcal{C}$ we can define the notion of linear independence and spanning of functions like $[v,w]$. Thus, "vectors" (which are functions) $[v_i,w_i]$, $1 \leq i \leq r$ are linearly dependent if, there exist scalars $a_i \in F$, not all zero, such that 
 
 $$
-a_1 [v_1, w_1] + \ldots + a_r [v_r, w_r] = 0 
+a_1 [v_1,w_1] + \ldots + a_r [v_r,w_r] = 0 
 $$
 
 equivalently,
@@ -74,8 +74,8 @@ This is the notion of linear independence that fits the above discussion. Simila
 
 $$
 \begin{align}
-[v , w_1 + w_2] - [v, w_1] - [v, w_2] & = 0 \\
-[v_1 + v_2, w] - [v_1, w] - [v_2, w] &= 0\\
+[v,w_1 + w_2] - [v,w_1] - [v,w_2] & = 0 \\
+[v_1 + v_2, w] - [v_1, w] - [v_2,w] &= 0\\
 [v, a w] - a[v,w] &= 0 \\
 [a v, w] - a [v,w] &= 0 
 \end{align}
