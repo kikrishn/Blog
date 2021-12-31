@@ -44,6 +44,8 @@ f(v_4, w_4) &= f( c v_1 + d v_2, \gamma w_1 + \delta w_2) \\
 \end{align}
 $$
 
+Since we know $f(v_1, w_1), f(v_2, w_2), f(v_3, w_3)$ and $f(v_4, w_4)$, from the above equations we can find $f(v_1, w_2)$ and $f(v_2,w_1)$ provided $(a \beta d \gamma) \neq (b \alpha c \delta)$ 
+
 
 
 
