@@ -89,19 +89,3 @@ The answer is 'None'. Indeed, let $\mathcal{Z}$ be the $F$-linear subspace of $\
 $$
 V \times W \to \mathcal{T}/\mathcal{Z}, \hfill{0.5cm} (v,w) \mapsto [v,w] + Z
 $$
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
