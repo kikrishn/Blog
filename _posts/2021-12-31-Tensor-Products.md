@@ -44,12 +44,19 @@ f(v_4, w_4) &= f( c v_1 + d v_2, \gamma w_1 + \delta w_2) \\
 \end{align}
 $$
 
-Since we know $f(v_1, w_1), f(v_2, w_2), f(v_3, w_3)$ and $f(v_4, w_4)$, from the above equations we can find $f(v_1, w_2)$ and $f(v_2,w_1)$, and hence determine $f$ completely, provided $(a \beta d \gamma) \neq (b \alpha c \delta)$. In the case when $a d \beta \gamma = b c \alpha \delta$ we have the following equation 
+Since we know $f(v_1, w_1), f(v_2, w_2), f(v_3, w_3)$ and $f(v_4, w_4)$, from the above equations we can find $f(v_1, w_2)$ and $f(v_2,w_1)$, and hence determine $f$ completely, provided $(a \beta d \gamma) \neq (b \alpha c \delta)$. In the case when $a d \beta \gamma = b c \alpha \delta$ we have the following equation,
 
 $$
 d \gamma f(v_3, w_3) - a \beta f(v_4, w_4) =  (d \gamma a  \alpha - a \beta c \gamma) f(v_1, w_1) + (d \gamma b \beta - a \beta d \delta) f(v_2, w_2)
 $$
 
+The crucial point to note here that the above equations holds for \textit{any} bilinear map $V \times W \to F$ and not just for $f$.
+
+Here is the reformulation to avoid "valid for all bilinear maps $V \times W \to F$": Let $\mathcal{B}$ denote the set of bilinear maps $V \times W \to F$, and for each $v \in V$ and $w \in W$ let $[v,w]$ denote the \textit{function} 
+
+$$
+[v,w] : \mathcal{B} \to F, \hspace{0.5cm} f \mapsto f(v,w)
+$$
 
 
 
