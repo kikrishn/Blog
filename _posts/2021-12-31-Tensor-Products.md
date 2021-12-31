@@ -1,7 +1,7 @@
 ---
 published: true
 ---
-... after Timothy Gowers'[writeup](https://www.dpmms.cam.ac.uk/~wtg10/tensors3.html)
+... after Timothy Gowers'  [article](https://www.dpmms.cam.ac.uk/~wtg10/tensors3.html)
 
 Let $F$ be a field and $V$ and $W$ be finite dimensional vector spaces over $F$. Any linear map from $V$ to $W$ is determined uniquely by its values on a set that is a basis of $V$, i.e. that which is linearly independent over $F$ and spans $V$. In other words, a given set of vectors in $V$ determines $f$ unambiguously if and only it is a basis of $V$. 
 
