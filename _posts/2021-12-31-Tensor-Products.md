@@ -96,7 +96,9 @@ Elements of $T/Z$ are called tensors, and an element $[v,w] + Z$ is usually deno
 We have seen that the $F$-linear combination of vectors (which are functions on $B_X$ for all vector spaces $X$) $a_1 [v_1, w_1] + \ldots + a_k [v_k, w_k]$ is $0$ if and only if for all vector spaces $X$ and for all bilinear maps $f: V \times W \to X$, $a_1f(v_1,w_1) + \ldots + a_k f(v_k, w_k) = 0$.
 
 
-"It would be nice if there were a vector space $X$ and bilinear map $g: V \times W \to X$ that was so 'generic' that we could regard it as an 'arbitrary' bilinear map". Indeed there is, and we have already constructed one: let $X = T/Z$ and $g : V \times W \to X$. 
+"It would be nice if there were a vector space $X$ and bilinear map $g: V \times W \to X$ that was so 'generic' that we could regard it as an 'arbitrary' bilinear map". Indeed there is, and we have already constructed one: let $X = T/Z$ and $g : V \times W \to X$ defined by $g(v,w) = v \otimes w$ . In other words, the vector space $X = T/Z$ together with the above map $g$ satisfies the universal property: every bilinear map $f: V \times W \to Y$, where $Y$ is any vector space, factors uniquely through the 'general' map $V \times W \to T/Z$ as $f = \widetilde{f} \circ g$ where $\widetilde{f} : V \otimes W \to Y$ is a linear map. This factorization is similar to the factorisation of natural numbers: $6 = 2 \times 3$, except that in the present case we have factorisation of maps. The general map is so 'general' that the 'remainder' is a unique linear map.
+
+
 
 
 
