@@ -27,37 +27,28 @@ v_3 &= a v_1 + b v_2, v_4 = c v_1 + d v_2 \\
 w_3 &= \alpha w_1 + \beta w_2, w_4 = \gamma w_1 + \delta w_4
 \end{align}
 $$
-
 Then 
-
 $$
 \begin{align}
 f(v_3, w_3) &= f(a v_1 + b v_2, \alpha w_1 + \beta w_2) \\
 &= a \alpha f(v_1, w_1) + a \beta f(v_1, w_2) + b \alpha f(v_2, w_1) + b \beta f(v_2, w_2)
 \end{align}
 $$
-
 and 
-
 $$
 \begin{align}
 f(v_4, w_4) &= f( c v_1 + d v_2, \gamma w_1 + \delta w_2) \\
 &= c \gamma f(v_1, w_1) + c \delta f(v_1, w_2) + d \gamma f(v_2, w_1) + d \delta f(v_2, w_2)
 \end{align}
 $$
-
 Since we know $f(v_1, w_1), f(v_2, w_2), f(v_3, w_3)$ and $f(v_4, w_4)$, from the above equations we can find $f(v_1, w_2)$ and $f(v_2,w_1)$, and hence determine $f$ completely, provided $(a \beta d \gamma) \neq (b \alpha c \delta)$. In the case when $a d \beta \gamma = b c \alpha \delta$ we have the following equation,
-
 $$
 d \gamma f(v_3, w_3) - a \beta f(v_4, w_4) =  (d \gamma a  \alpha - a \beta c \gamma) f(v_1, w_1) + (d \gamma b \beta - a \beta d \delta) f(v_2, w_2)
 $$
-
 The crucial point to note here that the above equations holds for any bilinear map $V \times W \to X$, where $X$ is an arbitrary vector space over $F$ (perhaps infinite-dimensional too). Here is the reformulation to avoid repetition of the phrase "valid for all bilinear maps $V \times W \to X$": Let $B_X$ denote the set of bilinear maps $V \times W \to X$, and for each $v \in V$ and $w \in W$ let $[v,w]$ denote the function
-
 $$
 [v,w] : B_X \to X, \hspace{0.5cm} f \mapsto f(v,w)
 $$
-
 Let $C$ denote the vector space of all functions $B_X \to X$ equipped with the usual addition and scalar multiplication.  Functions of the form $[v,w]$ form a $F$-linear subspace of $C$; let us denote it by $T$ (for "tensor"). In $C$ we can define the notion of linear independence and spanning of functions like $[v,w]$. Thus, "vectors"  $[v_i,w_i]$, $1 \leq i \leq r$ are linearly dependent if, there exist scalars $a_i \in F$, not all zero, such that 
 
 \begin{equation}
