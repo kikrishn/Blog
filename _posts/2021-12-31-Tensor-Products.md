@@ -91,11 +91,12 @@ $$
 
 Elements of $T/Z$ are called tensors, and an element $[v,w] + Z$ is usually denoted by $v \otimes w$. The above procedure may be used to verify whether an element, say $v \otimes w$ is nonzero in $T/Z$: it suffices to find a bilinear map $f: V \times W \to X$, where $X$ may be chosen arbitrarily so that $f(v,w) \neq 0$.
 
+------------------------
+
+We have seen that the $F$-linear combination of vectors (which are functions on $B_X$ for all vector spaces $X$) $a_1 [v_1, w_1] + \ldots + a_k [v_k, w_k]$ is $0$ if and only if for all vector spaces $X$ and for all bilinear maps $f: V \times W \to X$, $a_1f(v_1,w_1) + \ldots + a_k f(v_k, w_k) = 0$.
 
 
- if f is an arbitrary bilinear function, then the above linear equation will always be satisfied.
-
-It would be nice if there were a bilinear map g on VxW that was so `generic' that we could regard it itself as an `arbitrary' bilinear map.
+"It would be nice if there were a vector space $X$ and bilinear map $g: V \times W \to X$ that was so 'generic' that we could regard it as an 'arbitrary' bilinear map". Indeed there is, and we have already constructed one: let $X = T/Z$ and $g : V \times W \to X$. 
 
 
 
