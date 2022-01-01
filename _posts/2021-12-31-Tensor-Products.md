@@ -56,7 +56,7 @@ $$
 [v,w] : \mathcal{B} \to F, \hspace{0.5cm} f \mapsto f(v,w)
 $$
 
-The set $\mathcal{C}$ of all functions $\mathcal{B}X \to F$ is a vector space over $F$ under the usual additional and scalar multiplication, and the functions of the form $[v,w]$ form a $F$-linear subspace $\mathcal{T}$ of $\mathcal{C}$. Now, in $\mathcal{C}$ we can define the notion of linear independence and spanning of functions like $[v,w]$. Thus, "vectors" (which are functions) $[v_i,w_i]$, $1 \leq i \leq r$ are linearly dependent if, there exist scalars $a_i \in F$, not all zero, such that 
+The set $\mathcal{C}$ of all functions $\mathcal{B}_X \to F$ is a vector space over $F$ under the usual additional and scalar multiplication, and the functions of the form $[v,w]$ form a $F$-linear subspace $\mathcal{T}$ of $\mathcal{C}$. Now, in $\mathcal{C}$ we can define the notion of linear independence and spanning of functions like $[v,w]$. Thus, "vectors" (which are functions) $[v_i,w_i]$, $1 \leq i \leq r$ are linearly dependent if, there exist scalars $a_i \in F$, not all zero, such that 
 
 $$
 a_1 [v_1,w_1] + \ldots + a_r [v_r,w_r] = 0 
@@ -79,17 +79,13 @@ $$
 \end{align}
 $$
 
-Clearly these relations are honored by each and every bilinear function $f \in \mathcal{B}$. We may ask whether there are any other relations apart from the $F$-linear combinations of the left-hand side of the above equations, satisfied by every bilinear function $B_X$
+Clearly these relations are honored by each and every bilinear function $f \in \mathcal{B}$. We may ask whether there are any other relations apart from the $F$-linear combinations of the left-hand side of the above equations, satisfied by every bilinear function $\mathcal{B}_X$
 for all vector spaces $X$.
 
-
 The answer is 'None'. Indeed, let $\mathcal{Z}$ be the $F$-linear subspace of $\mathcal{T}$ spanned by the vectors $[v , w_1 + w_2] - [v, w_1] - [v, w_2]$, $[v_1 + v_2, w] - [v_1, w] - [v_2, w]$, $[v, a w] - a[v,w]$ and $[a v, w] - a [v,w]$. Consider the quotient vector space $\mathcal{T}/ \mathcal{Z}$ and construct the bilinear map in 
-$\mathcal{B}({\mathcal{T}/\mathcal{Z}})$
+$\mathcal{B}_{\mathcal{T}/\mathcal{Z}}$
 
 $$
 V \times W \to T/Z, (v,w) \mapsto [v,w] + Z
 $$
 
-$$
-V \times W \to T/Z, \hfill{0.5cm} (v,w) \mapsto [v,w] + Z
-$$
