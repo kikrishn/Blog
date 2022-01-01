@@ -55,7 +55,7 @@ $$
 The crucial point to note here that the above equations holds for any bilinear map $V \times W \to X$, where $X$ is an arbitrary vector space over $F$ (perhaps infinite-dimensional too). Here is the reformulation to avoid repetition of the phrase "valid for all bilinear maps $V \times W \to X$": Let $B_X$ denote the set of bilinear maps $V \times W \to X$, and for each $v \in V$ and $w \in W$ let $[v,w]$ denote the function
 
 $$
-[v,w] : B \to Xw, \hspace{0.5cm} f \mapsto f(v,w)
+[v,w] : B_X \to X, \hspace{0.5cm} f \mapsto f(v,w)
 $$
 
 Let $C$ denote the vector space of all functions $B_X \to X$ equipped with the usual addition and scalar multiplication.  Functions of the form $[v,w]$ form a $F$-linear subspace of $C$; let us denote it by $T$ (for "tensor"). In $C$ we can define the notion of linear independence and spanning of functions like $[v,w]$. Thus, "vectors"  $[v_i,w_i]$, $1 \leq i \leq r$ are linearly dependent if, there exist scalars $a_i \in F$, not all zero, such that 
