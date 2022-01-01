@@ -54,13 +54,13 @@ $$
 d \gamma f(v_3, w_3) - a \beta f(v_4, w_4) =  (d \gamma a  \alpha - a \beta c \gamma) f(v_1, w_1) + (d \gamma b \beta - a \beta d \delta) f(v_2, w_2)
 $$
 
-The crucial point to note here that the above equations holds for any bilinear map $V \times W \to X$, where $X$ is an arbitrary vector space over $F$ (perhaps infinite-dimensional too). Here is the reformulation to avoid repetition of the phrase "valid for all bilinear maps $V \times W \to X$": Let $\mathcal{B}_X$ denote the set of bilinear maps $V \times W \to X$, and for each $v \in V$ and $w \in W$ let $[v,w]$ denote the function
+The crucial point to note here that the above equations holds for any bilinear map $V \times W \to X$, where $X$ is an arbitrary vector space over $F$ (perhaps infinite-dimensional too). Here is the reformulation to avoid repetition of the phrase "valid for all bilinear maps $V \times W \to X$": Let $B_X$ denote the set of bilinear maps $V \times W \to X$, and for each $v \in V$ and $w \in W$ let $[v,w]$ denote the function
 
 $$
-[v,w] : \mathcal{B} \to Xw, \hspace{0.5cm} f \mapsto f(v,w)
+[v,w] : B \to Xw, \hspace{0.5cm} f \mapsto f(v,w)
 $$
 
-Let $\mathcal{C}$ denote the vector space of all functions $\mathcal{B}_X \to X$ equipped with the usual addition and scalar multiplication.  Functions of the form $[v,w]$ form a $F$-linear subspace of $\mathcal{C}$; let us denote it by $\mathcal{T}$ (for "tensor"). In $\mathcal{C}$ we can define the notion of linear independence and spanning of functions like $[v,w]$. Thus, "vectors"  $[v_i,w_i]$, $1 \leq i \leq r$ are linearly dependent if, there exist scalars $a_i \in F$, not all zero, such that 
+Let $C$ denote the vector space of all functions $B_X \to X$ equipped with the usual addition and scalar multiplication.  Functions of the form $[v,w]$ form a $F$-linear subspace of $C$; let us denote it by $T$ (for "tensor"). In $C$ we can define the notion of linear independence and spanning of functions like $[v,w]$. Thus, "vectors"  $[v_i,w_i]$, $1 \leq i \leq r$ are linearly dependent if, there exist scalars $a_i \in F$, not all zero, such that 
 
 $$
 a_1 [v_1,w_1] + \ldots + a_r [v_r,w_r] = 0 
@@ -69,12 +69,10 @@ $$
 equivalently,
 
 $$
-a_1f(v_1, w_1) + \ldots + a_r f(v_r, w_r) = 0 \textrm{ for all bilinear maps } f \in \mathcal{B}_X
+a_1f(v_1, w_1) + \ldots + a_r f(v_r, w_r) = 0 \textrm{ for all bilinear maps } f \in B_X
 $$
 
-This is the notion of linear independence that fits the above discussion. Similarly, the notion of "spanning set" makes sense in the subspace $\mathcal{T}$. 
-
-For example, we recognize the following dependence relations:
+This is the notion of linear independence that fits the above discussion. Similarly, the notion of "spanning set" makes sense in the subspace $T$. For example, we recognize the following dependence relations:
 
 $$
 \begin{align}
@@ -85,23 +83,23 @@ $$
 \end{align}
 $$
 
-Clearly these relations are honored by each and every bilinear function $f \in \mathcal{B}_X $. 
+Clearly these relations are honored by each and every bilinear function $f \in B_X $. 
 
-We may ask whether there are any other relations apart from the $F$-linear combinations of the left-hand side of the above equations satisfied by every element in $\mathcal{B}_X$ and 
-\underline{for all vector spaces $X$}.  The answer is 'None'. Indeed, let $\mathcal{Z}$ be the $F$-linear subspace of $\mathcal{T}$ spanned by the vectors $[v,w_1 + w_2] - [v, w_1] - [v, w_2]$, $[v_1 + v_2, w] - [v_1, w] - [v_2, w]$, $[v, a w] - a[v,w]$ and $[a v, w] - a [v,w]$. Consider the quotient vector space $\mathcal{T}/ \mathcal{Z}$ and construct the following bilinear map, which is an element in $\mathcal{B}_{\mathcal{T}/\mathcal{Z}}$:
+We may ask whether there are any other relations apart from the $F$-linear combinations of the left-hand side of the above equations satisfied by every element in $B_X$ and 
+\underline{for all vector spaces $X$}.  The answer is 'None'. Indeed, let $Z$ be the $F$-linear subspace of $\mathcal{T}$ spanned by the vectors $[v,w_1 + w_2] - [v, w_1] - [v, w_2]$, $[v_1 + v_2, w] - [v_1, w] - [v_2, w]$, $[v, a w] - a[v,w]$ and $[a v, w] - a [v,w]$. Consider the quotient vector space $T/ Z$ and construct the following bilinear map, which is an element in $B_{T/Z}$:
 
 $$
-V \times W \to \mathcal{T}/\mathcal{Z}, \hspace{0.5cm} (v,w) \mapsto [v,w] + \mathcal{Z}
+V \times W \to T/Z, \hspace{0.5cm} (v,w) \mapsto [v,w] + Z
 $$
 
-Then if $a_1[v_1,w_1] + \ldots + a_k[v_k,w_k] \not \in \mathcal{Z}$ then its image under the above map is nonzero. In other words, we constructed a vector space $\mathcal{T}/\mathcal{Z}$ and a bilinear map $f : V \times W \to \mathcal{T}/\mathcal{Z}$ so that 
+Then if $a_1[v_1,w_1] + \ldots + a_k[v_k,w_k] \not \in Z$ then its image under the above map is nonzero. In other words, we constructed a vector space $T/Z$ and a bilinear map $f : V \times W \to T/Z$ so that 
 
 $$
 (a_1[v_1, w_1] + \ldots + a_k[v_k, w_k])(f) = a_1 f(v_1, w_1) + \ldots + a_k f(v_k, w_k) \neq 0.
 $$
 
 
-Elements of $\mathcal{T}/\mathcal{Z}$ are called tensors, and an element $[v,w] + Z$ is usually denoted by $v \otimes w$. The above procedure may be used to verify whether an element, say $v \otimes w$ is nonzero in $\mathcal{T}/\mathcal{Z}$: it suffices to find a bilinear map $f: V \times W \to X$, where $X$ may be chosen arbitrarily so that $f(v,w) \neq 0$.
+Elements of $T/Z$ are called tensors, and an element $[v,w] + Z$ is usually denoted by $v \otimes w$. The above procedure may be used to verify whether an element, say $v \otimes w$ is nonzero in $T/Z$: it suffices to find a bilinear map $f: V \times W \to X$, where $X$ may be chosen arbitrarily so that $f(v,w) \neq 0$.
 
 
 
