@@ -19,8 +19,6 @@ $$
 one obtains $f(e_1, e_2)$ and $f(e_2, e_1)$, which in turn determine $f$ completely. In contrast, the scalars $f(e_1, e_1), f(e_2, e_2), f(e_1 + e_2, e_1 + e_2)$, and $f(e_1 - e_2, e_1 - e_2)$ do \textit{not} determine $f$ unambiguously. In fact, if these values are defined to $0$, it follows that $f(e_1, e_2) = - f(e_2, e_1)$ so that if $f(e_1, e_2)$ is assigned $0$ then $f(e_2, e_1)$ is also $0$ and therefore $f$ is the $0$ map, but if $f(e_1, e_2) = 1$ then $f(e_2, e_1) = -1$ so that $f(ae_1 + be_2, ce_1 + de_2) = a d - b c $. Thus $f$ is not unambiguously determined from 
 $f(e_1, e_1), f(e_2, e_2), f(e_1 + e_2, e_1 + e_2)$, and $f(e_1 - e_2, e_1 - e_2)$. 
 
-
-
 In general, consider a bilinear form $f: V \times W \to X$, where $X$ is any vector space over $F$. Suppose we know $f(v_1, w_1), f(v_2, w_2), f(v_3, w_3)$ and $f(v_4, w_4)$. If, say, $v_1, v_2 $ and $v_3$ are multiples of a single vector in $V$ then some of the information is redundant, for $w_1, w_2$ and $w_3$ are not linearly dependent in $F^2$ so that if, say, $w_3$ is a linear combination of $w_1$ and $w_2$ then $f(v_3,w_3)$ can be obtained from $f(v_1, w_1)$ and $f(v_2, w_2)$. So assume that no three vectors in the set $\{v_1, v_2, v_3, v_4 \}$ is a scalar multiple of a vector in $V$ and $\{ w_1, w_2, w_3, w_4 \}$ is a scalar multiple of a vector in $W$. Clearly then there can be at most one zero vector in the set $\{v_1, v_2, v_3, v_4\}$, for otherwise if $v_1 = v_2 = 0$ then $v_1 = 0.v_3, v_2 = 0.v_3$ and $v_3 = 1. v_3$, so that the three vectors $v_1, v_2$ and $v_3$ is a scalar multiple of $v_3$, contrary to the hypothesis. Similarly for the set $\{w_1, w_2, w_3, w_4 \}$. So, in the degenerate case when at least one of $v_i$ is zero and at least one of $w_i$ is zero,  we may, with out loss of generality, relabel the vectors in such way that the $v_1, v_2, w_1$ and $w_2$ in the pairs $(v_1, w_1)$ and $(v_2, w_2)$ are all nonzero. If $v_1$ and $v_2$ is a multiple of a vector in $V$, in other words, if $v_2$ is a multiple of $v_1$ then together with the zero vector they violate the hypothesis, since $0 = 0 \cdot v_1$. Thus $v_1, v_2$, and likewise $w_1, w_2$ must be linearly independent. Let 
 
 $$
@@ -62,15 +60,10 @@ $$
 
 Let $C$ denote the vector space of all functions $B_X \to X$ equipped with the usual addition and scalar multiplication.  Functions of the form $[v,w]$ form a $F$-linear subspace of $C$; let us denote it by $T$ (for "tensor"). In $C$ we can define the notion of linear independence and spanning of functions like $[v,w]$. Thus, "vectors"  $[v_i,w_i]$, $1 \leq i \leq r$ are linearly dependent if, there exist scalars $a_i \in F$, not all zero, such that 
 
-$$
-a_1 [v_1,w_1] + \ldots + a_r [v_r,w_r] = 0 
-$$
-
-equivalently,
-
-$$
+\begin{equation}
+a_1 [v_1,w_1] + \ldots + a_r [v_r,w_r] = 0 \iff
 a_1f(v_1, w_1) + \ldots + a_r f(v_r, w_r) = 0 \textrm{ for all bilinear maps } f \in B_X
-$$
+\end{equation}
 
 This is the notion of linear independence that fits the above discussion. Similarly, the notion of "spanning set" makes sense in the subspace $T$. For example, we recognize the following dependence relations:
 
@@ -97,6 +90,12 @@ $$
 $$
 
 Elements of $T/Z$ are called tensors, and an element $[v,w] + Z$ is usually denoted by $v \otimes w$. The above procedure may be used to verify whether an element, say $v \otimes w$ is nonzero in $T/Z$: it suffices to find a bilinear map $f: V \times W \to X$, where $X$ may be chosen arbitrarily so that $f(v,w) \neq 0$.
+
+
+
+ if f is an arbitrary bilinear function, then the above linear equation will always be satisfied.
+
+It would be nice if there were a bilinear map g on VxW that was so `generic' that we could regard it itself as an `arbitrary' bilinear map.
 
 
 
