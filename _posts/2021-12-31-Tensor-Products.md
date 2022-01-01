@@ -96,7 +96,6 @@ $$
 \left(a_1[v_1, w_1] + \ldots + a_k[v_k, w_k] \right)(f) = a_1 f(v_1, w_1) + \ldots + a_k f(v_k, w_k) \neq 0.
 $$
 
-
 Elements of $T/Z$ are called tensors, and an element $[v,w] + Z$ is usually denoted by $v \otimes w$. The above procedure may be used to verify whether an element, say $v \otimes w$ is nonzero in $T/Z$: it suffices to find a bilinear map $f: V \times W \to X$, where $X$ may be chosen arbitrarily so that $f(v,w) \neq 0$.
 
 
