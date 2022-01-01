@@ -102,5 +102,9 @@ $a_1f(v_1,w_1) + \ldots + a_k f(v_k, w_k) = 0$.
 The vector space $T/Z$ is usually denoted by $V \otimes W$, called the tensor product of $V$ and $W$ over $F$. It is characterised by the universal property, and is therefore unique up to a unique isomorphism. 
 
 
+**Application:** Let $U, V$ and $W$ be vector spaces over $F$. Then 
 
+$$
+U \otimes (V \otimes W)  \cong (U \otimes V) \otimes W
+$$
 
