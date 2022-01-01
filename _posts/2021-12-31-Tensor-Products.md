@@ -95,7 +95,7 @@ $$
 Then if $a_1[v_1,w_1] + \ldots + a_k[v_k,w_k] \not \in Z$ then its image under the above map is nonzero. In other words, we constructed a vector space $T/Z$ and a bilinear map $f : V \times W \to T/Z$ so that 
 
 $$
-(a_1[v_1, w_1] + \ldots + a_k[v_k, w_k])(f) = a_1 f(v_1, w_1) + \ldots + a_k f(v_k, w_k) \neq 0.
+\left(a_1[v_1, w_1] + \ldots + a_k[v_k, w_k] \right)(f) = a_1 f(v_1, w_1) + \ldots + a_k f(v_k, w_k) \neq 0.
 $$
 
 
