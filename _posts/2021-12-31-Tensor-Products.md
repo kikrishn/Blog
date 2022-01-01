@@ -99,7 +99,7 @@ $$
 $$
 
 
-Elements of $\mathcal{T}/\mathcal{Z}$ are called Tensors, and an element $[v,w] + Z$ is usually denoted by $v \otimes w$. 
+Elements of $\mathcal{T}/\mathcal{Z}$ are called tensors, and an element $[v,w] + Z$ is usually denoted by $v \otimes w$. The above procedure may be used to verify whether an element, say $v \otimes w$ is nonzero in $\mathcal{T}/\mathcal{Z}$: it suffices to find a bilinear map $f: V \times W \to X$, where $X$ may be chosen arbitrarily so that $f(v,w) \neq 0$.
 
 
 
