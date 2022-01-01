@@ -86,12 +86,20 @@ $$
 $$
 
 Clearly these relations are honored by each and every bilinear function $f \in \mathcal{B}_X$. We may ask whether there are any other relations apart from the $F$-linear combinations of the left-hand side of the above equations satisfied by every element in $\mathcal{B}_X$ and 
-\underline{for all vector spaces $X$}.  The answer is 'None'. Indeed, let $\mathcal{Z}$ be the $F$-linear subspace of $\mathcal{T}$ spanned by the vectors $[v , w_1 + w_2] - [v, w_1] - [v, w_2]$, $[v_1 + v_2, w] - [v_1, w] - [v_2, w]$, $[v, a w] - a[v,w]$ and $[a v, w] - a [v,w]$. Consider the quotient vector space $\mathcal{T}/ \mathcal{Z}$ and construct the bilinear map in 
-$\mathcal{B}_{\mathcal{T}/\mathcal{Z}}$
+\underline{for all vector spaces $X$}.  The answer is 'None'. Indeed, let $\mathcal{Z}$ be the $F$-linear subspace of $\mathcal{T}$ spanned by the vectors $[v,w_1 + w_2] - [v, w_1] - [v, w_2]$, $[v_1 + v_2, w] - [v_1, w] - [v_2, w]$, $[v, a w] - a[v,w]$ and $[a v, w] - a [v,w]$. Consider the quotient vector space $\mathcal{T}/ \mathcal{Z}$ and construct the following bilinear map, which is an element in $\mathcal{B}_{\mathcal{T}/\mathcal{Z}}$:
 
 $$
 V \times W \to \mathcal{T}/\mathcal{Z}, (v,w) \mapsto [v,w] + \mathcal{Z}
 $$
+
+Then if $a_1[v_1,w_1] + \ldots + a_k[v_k,w_k] \not \in \mathcal{Z}$ then its image under the above map is nonzero. In other words, we constructed a vector space $\mathcal{T}/\mathcal{Z}$ and a bilinear map $f : V \times W \to \mathcal{T}/\mathcal{Z}$ so that 
+
+$$
+(a_1[v_1, w_1] + \ldots + a_k[v_k, w_k])(f) = a_1 f(v_1, w_1) + \ldots + a_k f(v_k, w_k) \neq 0.
+$$
+
+
+Elements of $\mathcal{T}/\mathcal{Z}$ are called Tensors, and an element $[v,w] + Z$ is usually denoted by $v \otimes w$. 
 
 
 
