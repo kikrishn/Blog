@@ -114,7 +114,7 @@ $$
 \sum u_i \otimes (v_i \otimes w_i) = 0 &\iff \sum f(u_i, (v_i \otimes w_i)) = 0, \forall \textrm{ vector spaces } X \textrm{ and for all bilinear maps } f: U \times ( V \otimes W) \to X,  \\
 &\iff \sum f_{u_i}(v_i \otimes w_i) = 0 \textrm{ where } f_u(v \otimes w) = f(u, v \otimes w) \\
 &\iff \sum f_{u_i} \circ \pi( v_i , w_i) = 0 \textrm{ where } \pi : V \times W \to V \otimes W \textrm{ is the canonical map } \\
-&\iff \sum e(u_i,v_i, w_i) = 0 \textrm{ where } e(u,v,w) = f_u(v, w) \\
+&\iff \sum e(u_i,v_i, w_i) = 0 \textrm{ where e is the trilinear map } e(u,v,w) = f_u(v, w) \\
 &\iff \sum g_{w_i}(u_i ,v_i) = 0 \textrm{ where } g_{w} : V \times W \to X \textrm{ is a blinear map } \\
 &\iff \sum g_{w_i} (u_i \otimes v_i) = 0 \\
 &\iff \sum g((u_i \otimes v_i) , w_i) = 0 \\
