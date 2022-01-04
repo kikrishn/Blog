@@ -107,3 +107,16 @@ $$
 U \otimes (V \otimes W)  \cong (U \otimes V) \otimes W
 $$
 
+Given $u \in U, v \in V$ and $w \in W$ the "tensor" $u \otimes (v \otimes w)$ is mapped to $(u \otimes v) \otimes w$. We must show that the map is well-defined, in other words, for $a_i \in F$ 
+
+$$
+a_1 (u_1 \otimes (v_1 \otimes w_1) ) + \ldots + a_n (u_n \otimes (v_n \otimes w_n)) = 0
+$$
+
+if, and only if,
+
+$$
+a_1 (u_1 \otimes v_1) \otimes w_1 + \ldots a_n (u_n \otimes v_n) \otimes w_n = 0.
+$$
+
+
