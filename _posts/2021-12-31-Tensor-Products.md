@@ -111,14 +111,14 @@ Given $u \in U, v \in V$ and $w \in W$ the "tensor" $u \otimes (v \otimes w)$ is
 
 $$
 \begin{align}
-\sum u_i \otimes (v_i \otimes w_i) = 0 &\iff \forall \trm{ vector spaces } X \trm{ and for all bilinear maps } f: U \times ( V \otimes W) \to X, \sum f(u_i, (v_i \otimes w_i)) = 0. \\
-&\iff \sum f_{u_i}(v_i \otimes w_i) = 0 \trm{ where } f_u(v \otimes w) = f(u, v \otimes w) \\
-&\iff \sum f_{u_i} \circ \pi( v_i , w_i) = 0 \trm{ where } \pi : V \times W \to V \otimes W \trm{ is the canonical map } \\
-&\iff \sum e(u_i,v_i, w_i) = 0 \trm{ where } e(u,v,w) = f_u(v, w) \\
-&\iff \sum g_{w_i}(u_i ,v_i) = 0 \trm{ where } g_{w} : V \times W \to X \trm{ is a blinear map } \\
+\sum u_i \otimes (v_i \otimes w_i) = 0 &\iff \forall \textrm{ vector spaces } X \textrm{ and for all bilinear maps } f: U \times ( V \otimes W) \to X, \sum f(u_i, (v_i \otimes w_i)) = 0. \\
+&\iff \sum f_{u_i}(v_i \otimes w_i) = 0 \textrm{ where } f_u(v \otimes w) = f(u, v \otimes w) \\
+&\iff \sum f_{u_i} \circ \pi( v_i , w_i) = 0 \trm{ where } \pi : V \times W \to V \otimes W \textrm{ is the canonical map } \\
+&\iff \sum e(u_i,v_i, w_i) = 0 \textrm{ where } e(u,v,w) = f_u(v, w) \\
+&\iff \sum g_{w_i}(u_i ,v_i) = 0 \textrm{ where } g_{w} : V \times W \to X \textrm{ is a blinear map } \\
 &\iff \sum g_{w_i} (u_i \otimes v_i) = 0 \\
 &\iff \sum g((u_i \otimes v_i) , w_i) = 0 \\
-&\iff \sum g((u_i \otimes v_i) \otimes w_i) = 0 \trm{ for all bilinear maps } g : (U \otimes V) \otimes W \to X \\
+&\iff \sum g((u_i \otimes v_i) \otimes w_i) = 0 \textrm{ for all bilinear maps } g : (U \otimes V) \otimes W \to X \\
 &\iff \sum (u_i \otimes v_i) \otimes w_i) = 0.
 \end{align}
 $$
