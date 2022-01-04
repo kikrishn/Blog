@@ -107,16 +107,31 @@ $$
 U \otimes (V \otimes W)  \cong (U \otimes V) \otimes W
 $$
 
-Given $u \in U, v \in V$ and $w \in W$ the "tensor" $u \otimes (v \otimes w)$ is mapped to $(u \otimes v) \otimes w$. We must show that the map is well-defined, in other words, for $a_i \in F$ 
+Given $u \in U, v \in V$ and $w \in W$ the "tensor" $u \otimes (v \otimes w)$ is mapped to $(u \otimes v) \otimes w$. We must show that the map is well-defined. A typical element of $U \otimes(V \otimes W)$ looks like $\sum a_i (u_i \otimes (v_i \otimes w_i))$, $a_i \in F$. Since $a \cdot (u \otimes (v \otimes w)) = (a \cdot u \otimes (v \otimes w))$, we may take a typical element of the form $\sum u_i \otimes(v_i \otimes w_i)$. Thus we need to show that if $\sum (u_i \otimes (v_i \otimes w_i) = 0$ if, and only if, $\sum (u_i \otimes v_i) \otimes w_i = 0$. Now, 
 
 $$
-a_1 (u_1 \otimes (v_1 \otimes w_1) ) + \ldots + a_n (u_n \otimes (v_n \otimes w_n)) = 0
+\begin{align}
+\sum u_i \otimes (v_i \otimes w_i) = 0 &\iff \forall \trm{ vector spaces } X \trm{ and for all bilinear maps } f: U \times ( V \otimes W) \to X, \sum f(u_i, (v_i \otimes w_i)) = 0. \\
+&\iff \sum f_{u_i}(v_i \otimes w_i) = 0 \trm{ where } f_u(v \otimes w) = f(u, v \otimes w) \\
+&\iff \sum f_{u_i} \circ \pi( v_i , w_i) = 0 \trm{ where } \pi : V \times W \to V \otimes W \trm{ is the canonical map } \\
+&\iff \sum e(u_i,v_i, w_i) = 0 \trm{ where } e(u,v,w) = f_u(v, w) \\
+&\iff \sum g_{w_i}(u_i ,v_i) = 0 \trm{ where } g_{w} : V \times W \to X \trm{ is a blinear map } \\
+&\iff \sum g_{w_i} (u_i \otimes v_i) = 0 \\
+&\iff \sum g((u_i \otimes v_i) , w_i) = 0 \\
+&\iff \sum g((u_i \otimes v_i) \otimes w_i) = 0 \trm{ for all bilinear maps } g : (U \otimes V) \otimes W \to X \\
+&\iff \sum (u_i \otimes v_i) \otimes w_i) = 0.
+\end{align}
 $$
 
-if, and only if,
 
-$$
-a_1 (u_1 \otimes v_1) \otimes w_1 + \ldots a_n (u_n \otimes v_n) \otimes w_n = 0.
-$$
+
+
+
+
+
+
+
+
+
 
 
