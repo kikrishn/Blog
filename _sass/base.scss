@@ -21,9 +21,10 @@
   clear: both;
 }
 
+// font-family: $body-font;
 body {
   font-size: $base-font-size;
-  font-family: $body-font;
+  font-family: Cardo, sans-serif;
   line-height: 1.4;
   color: $main-body;
 }
