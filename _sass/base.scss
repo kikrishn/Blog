@@ -21,11 +21,14 @@
   clear: both;
 }
 
+
+// font-size: $base-font-size;
 // font-family: $body-font;
+// line-height: 1.4;
 body {
-  font-size: $base-font-size;
+  font-size: 18px;
   font-family: Cardo, sans-serif;
-  line-height: 1.4;
+  line-height: 29px;
   color: $main-body;
 }
 
