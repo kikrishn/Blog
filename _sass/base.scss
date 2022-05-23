@@ -28,7 +28,7 @@
 body {
   font-size: 18px;
   font-family: Cardo;
-  line-height: 29px;
+  line-height: 29.25px;
   color: $main-body;
 }
 
@@ -97,7 +97,9 @@ main {
 
 // gives each paragraph a lil room to breathe
 p {
+  margin: 40px 40px 40px 40px;
   padding-bottom: 0.5rem;
+
 }
 
 em {
