@@ -82,12 +82,13 @@ h3 {
 }
 
 //base styling for all content sections
+// I guess the margin here should be adjusted: 24 05 22 1520
 main {
   max-width: $content-width;
   @media only screen and (max-width: $mobile) {
     max-width: $mobile-content-width;
   }
-  margin: auto;
+  margin: 0px 10px 0px 25px;
   padding: 1rem 0;
   min-height: calc(100vh - 16rem);
   // This fixed value makes it so the footer
