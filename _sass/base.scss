@@ -88,7 +88,11 @@ main {
   @media only screen and (max-width: $mobile) {
     max-width: $mobile-content-width;
   }
-  margin: 0px 10px 0px 25px;
+  //margin: 0px 10px 0px 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  margin-left: 25px
   padding: 1rem 0;
   min-height: calc(100vh - 16rem);
   // This fixed value makes it so the footer
