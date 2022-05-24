@@ -30,6 +30,8 @@ body {
   font-family: Cardo, serif;
   line-height: 29.25px;
   color: $main-body;
+  margin-top: 100px 0px 75px 0px;
+  
 }
 
 img, svg {
@@ -97,7 +99,6 @@ main {
 
 // gives each paragraph a lil room to breathe
 p {
-  margin: 40px 40px 40px 40px;
   padding-bottom: 0.5rem;
 
 }
