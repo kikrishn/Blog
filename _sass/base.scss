@@ -30,6 +30,8 @@ body {
   font-family: Cardo, serif;
   line-height: 29.25px;
   color: $main-body;
+  margin: 25px 0px 75px 0px;
+  
 }
 
 img, svg {
@@ -80,12 +82,13 @@ h3 {
 }
 
 //base styling for all content sections
+// I guess the margin here should be adjusted: 24 05 22 1520
 main {
   max-width: $content-width;
   @media only screen and (max-width: $mobile) {
     max-width: $mobile-content-width;
   }
-  margin: auto;
+  //margin: 0px 10px 0px 25px;
   padding: 1rem 0;
   min-height: calc(100vh - 16rem);
   // This fixed value makes it so the footer
@@ -97,7 +100,10 @@ main {
 
 // gives each paragraph a lil room to breathe
 p {
+<<<<<<< HEAD
   //margin: 40px 40px 40px 40px;
+=======
+>>>>>>> 1d38d8996bb8627e28cbfdc724c2359e2e12aea9
   padding-bottom: 0.5rem;
 
 }
