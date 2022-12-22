@@ -43,7 +43,7 @@ This result is used in induction. If $M = M_1 \oplus M_2$ and if we know the ran
 
 
 
-**Theorem:** Let $R$ be a PID,  $M$ be a free module of rank $n$ over $R$ and $N$ be a submodule of $M$. Then $N$ is a free $R$-module of rank at most $n$. Furthermore there exists a basis $y_1, \ldots, y_n$ of $M$ and elements $a_1, \ldots, a_m$ of $R$ satisfying the divisibility conditions $a_1 \mid \ldots \mid a_m$ such that $a_1 y_1, \cdots a_m y_m$ is a basis of $N$.
+**Theorem:** Let $R$ be a PID,  $M$ be a free module of rank $n$ over $R$ and $N$ be a submodule of $M$. Then $N$ is a free $R$-module of rank at most $n$. Furthermore there exists a basis $y_1, \ldots, y_n$ of $M$ and elements $a_1, \ldots, a_m$ of $R$ satisfying the divisibility conditions $a_1 \mid \ldots \mid a_m$ such that $a_1 y_1, \cdots a_m y_m$ is a basis of $N$. The elements $a_i$ of $R$ are called the **invariant factors** of $M$.
 
 **Proof:**
 
@@ -65,6 +65,15 @@ Let $M$ be a finitely generated module over a PID $R$ of rank $n$. Let $x_1, \ld
 $$
 M \cong Ry_1 \oplus \ldots \oplus R y_n / R a_1 y_1 \oplus \ldots \oplus a_m y_m \cong R/a_1 \oplus \ldots \oplus R/a_m \oplus R^{n-m}.
 $$
+
+The submodule of $M$ corresponding to the torsion part $R/a_1 \oplus R/a_m$ is the torsion submodule of $M$ and to that of $R^{n-m}$ is the free part with **free rank** $r = n-m$. Thus $M$ can be decomposed into torsion submodule and a free submodule, but note that there is no canonical way to do it. Note that such a decomposition is not possible if $R$ is not a PID. For example, if $R = \mathbb{Z}\[ X \]$ then the module $M = (2,X)$ has rank $1$ and both $\{ 2 \}$ and $\{ X \}$ are linearly independent subsets over $R$, but $M$ has free rank $1$ with no torsion and $M$ is not free.
+
+
+By the Chinese Remainder Theorem, each summand of the form $R/a$ in the above decomposition is a direct sum of finitely many summands of the form $R/p^k$ for some $k \geq 1$. Collecting all the summands belonging to various summand $R/a_i$ in the above decomposition, we obtain what is called decomposition of $M$ in **elementary divisor form**. Thus every finitely generated module over a PID $R$ is of the form 
+$$
+M \cong R^r \oplus R/(p_1^{\alpha_1} \oplus \ldots \oplus R/(p_r^{\alpha_r})
+$$
+where $r \geq 0$ and $p_1, \ldots, p_r$ are primes of $R$ and not necessarily distinct.
 
 
 
