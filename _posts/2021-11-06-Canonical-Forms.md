@@ -75,6 +75,9 @@ M \cong R^r \oplus R/(p_1^{\alpha_1} \oplus \ldots \oplus R/(p_r^{\alpha_r})
 $$
 where $r \geq 0$ and $p_1, \ldots, p_r$ are primes of $R$ and not necessarily distinct.
 
+We now see that the elementary divisor of $M$ is essentially unique. Since the torsion parts and the free parts of a module $M$ are invariant under isomorphism we may assume that $M$ is a torsion module. Now note that if $M = R/(a)$ and if $p$ is not a divisor of $a$ then $M/pM$ is $0$ otherwise $R/(p)$ a field. Thus, if $M$ is a decomposition of $p$-primary components which are direct sum of $R/p^{\alpha_i}$ then by reducing $M$ modulo $pM$ we are left with a direct sum of the form $R/p^{\alpha_i} \oplus R/p^{\alpha_k}$ for some positive integers $\alpha_1, \ldots, \alpha_k$. Clearly it suffices to prove the uniqueness assuming that $M$ is a $p$-primary component. Now consider the submodule $pM$ and do the induction on the power of $p$ in the annihilator of $M$ to obtain the uniqueness. 
+
+We finally note that the elementary divisors of $M$ are the prime power factors of the invariant factors of $M$. Conversely, the largest invariant factor of $M$ is the product of the largest of the distinct prime powers among the elementary divisors of $M$, the next largest invariant factor is the product of the largest of the distinct prime powers among the remainaing elementary divisors of $M$, and so on. Thus orresponding to invariant factor decomposition of $M$ there is a unique decomposition of $M$ in elementary divisor form and conversely.
 
 
 
