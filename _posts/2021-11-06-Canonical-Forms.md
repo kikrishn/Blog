@@ -14,7 +14,12 @@ We want to understand the structure of finitely generated modules $M$ over a pri
 
 (**Determinant Trick**) First recall the Cramer's rule for solving a system of equations, say in the form $Ax = b$ where $A$ is an $n \times n$ matrix over $F$, and $b$ is a column vector over $F$ and $x = \[ x_1, \ldots, x_n \]^T$ the solution column vector. The determinant is an alternating $n$-linear map $\textrm{ det } : V \ldots V \to F$ where $V = F^n$, and the determinant of a matrix $A$ is, by definition, the value of the determinant with $A$ considered as an element of $V^n$ where each column of $A$ is considered as an element of $V$. The equation $Ax = b$ can be written in the vector form as $x_1 A_1 + \ldots + x_n A_n = b$ where $A_i$ is the $i$th column of $A$; in other words, is the vector $b$ in the column space of $A$? Consider the determinant of $A$ viewed as the value of the function $\textrm{ det }$ at the "point" $(A_1, \ldots, A_n)$ and let $B_i =  (A_1, \ldots,A_{i-1}, b, A_{i+1} \cdots, A_n)$ be the matrix obtained by replacing the $i$th column of $A$ by $b$. Since the determinant function is multilinear and alternating,
 $$
-\textrm{ det }(B_i) = \textrm{ det } (A_1, \ldots, A_{i-1}, \sum x_k A_k, A_{i+1}, \ldots, A_n) = x_k \textrm{ det }(A_1, \ldots , A_{i-1}, A_i, A_{i+1}, \ldots, A_n) = x_k \textrm{ det }(A).
+\begin{align*}
+\textrm{ det }(B_i) &= \textrm{ det } (A_1, \ldots, A_{i-1}, \sum x_k A_k, A_{i+1}, \ldots, A_n)
+\\
+&= x_k \textrm{ det }(A_1, \ldots , A_{i-1}, A_i, A_{i+1}, \ldots, A_n) \\
+&= x_k \textrm{ det }(A).
+\end{align*}
 $$
 So, if the columns are not linearly dependent \underline{over $R$}, hence over $F$, then $Ax = 0$ has a nontrivial solution $\[x_1, \ldots, x_n \]^T$, with $x_i$ nonzero for some $i$. Replacing the $i$th column of $A$ by $0$ and expanding its determinant in two ways as above we see that $x_i \textrm{ \det } (A)$ is $0$ for all $i$. Since $R$ is a domain and $x_i$ is nonzero for some $i$ it follows that the determinant of $A$ is $0$. Conversely, suppose that the columns of $A$ are linearly dependent over $R$. Then they are linearly independent over $F$ too, otherwise any linear dependence relation over $F$ yields one over $R$ by multiplying the relation over $F$ by the common denominator of its coefficients. Therefore the columns of $A$ form a basis of $F^n$ over $F$. In particular, the standard basis vectors can be expressed as a linear combination of the columns over $F$. Now expanding the determinant $\textrm{ det }(e_1, \cdots, e_n)$ in terms of the columns of $A$, we see that $1 = x \textrm{ det } (A)$ for some $x$ in $F$, so that the determinant of $A$ is nonvanishing.
 
