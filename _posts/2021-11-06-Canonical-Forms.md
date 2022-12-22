@@ -41,11 +41,9 @@ $$
 1. Fix a basis $x_1, \ldots, x_n$ of $M$. Assuming that $N$ is nontrivial, consider the set of $R$-linear functionals $M \to R$, and the family of ideals $\{ \phi(N) : \phi \in Hom(M,R) \}$ in $R$. Since $R$ is Noetherian (every ideal of $R$ is finitely generated, n fact by a single element) it follows that the set contains a maximal element, say $(a_1)$ with $\nu(y) = a_1$ for some linear functional $\nu: M \to R$. Since $N$ is nonzero, at least one of the ideals $\pi_i(N)$ is nonzero, where $\pi_i$ is the canonical projections with respect to the above choice of basis of $M$. In particular, $a_1$ is nonzero, hence $y$ is nonzero. 
 
 2. Now show that $a_1$ divides the generator of $\phi(N)$ for all linear functionals $\phi: N \to R$. In particular, it divides $\pi_i(N)$ so that $\pi_i(N) = a_1 b_i$ for some $b_i$ in $R$. Define the "partitions-of-unity" 
-
 $$
 y_1 = b_1 x_1 + \ldots  + b_n x_n
 $$
-
 Then 
 $$
 a_1 y_1 = (a_1 b_1) x_1 + \ldots + (a_1 b_n) x_n = \pi_1(y)x_1 + \ldots + \pi_n(y) x_n = y
@@ -54,7 +52,6 @@ and
 $$
 a_1 = \nu(y) = \nu(a_1 y_1) = a_1 \nu(y_1) \implies \nu(y_1) = 1.
 $$
-
 
 3. Now show that $y_1$, resp. $a_1 y_1$ can be taken as a basis element of $M$, resp. $N$. Furthermore $M = Ry_1 \oplus ker \nu$ and $N = a_1 y_1 \oplus (ker \nu) \cap N$. 
 
