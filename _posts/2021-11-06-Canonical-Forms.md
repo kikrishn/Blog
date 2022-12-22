@@ -34,14 +34,34 @@ $$
 **Rank**: Let $M$ be a finitely generated module over an integral domain $R$. The rank of $M$ is the maximal number of elements that are linearly independent over $R$. By the above discussion, it is clear that the rank is a well-defined notion. 
 
 
-```{theorem}
-Let $R$ be a PID,  $M$ be a free module of rank $n$ over $R$ and $N$ be a submodule of $M$. Then $N$ is a free $R$-module of rank at most $n$. Furthermore there exists a basis $y_1, \ldots, y_n$ of $M$ and elements $a_1, \ldots, a_m$ of $R$ satisfying the divisibility conditions a_1 \mid \ldots \mid a_m$ such that $a_1 y_1, \cdots a_m y_m$ is a basis of $N$.
-```
+**Theorem** Let $R$ be a PID,  $M$ be a free module of rank $n$ over $R$ and $N$ be a submodule of $M$. Then $N$ is a free $R$-module of rank at most $n$. Furthermore there exists a basis $y_1, \ldots, y_n$ of $M$ and elements $a_1, \ldots, a_m$ of $R$ satisfying the divisibility conditions a_1 \mid \ldots \mid a_m$ such that $a_1 y_1, \cdots a_m y_m$ is a basis of $N$.
+
 **Proof**
 
 1. Fix a basis $x_1, \ldots, x_n$ of $M$. Assuming that $N$ is nontrivial, consider the set of $R$-linear functionals $M \to R$, and the family of ideals $\{ \phi(N) : \phi \in Hom(M,R) \}$ in $R$. Since $R$ is Noetherian (every ideal of $R$ is finitely generated, n fact by a single element) it follows that the set contains a maximal element, say $(a_1)$ with $\nu(y) = a_1$ for some linear functional $\nu: M \to R$. Since $N$ is nonzero, at least one of the ideals $\pi_i(N)$ is nonzero, where $\pi_i$ is the canonical projections with respect to the above choice of basis of $M$. In particular, $a_1$ is nonzero, hence $y$ is nonzero. 
 
-2. Now show that $a_1$ divides the generator of $\phi(N)$ for all linear functionals $\phi: N \to R$. In particular, it divides $\pi_i(N)$ so that $\pi_i(N) = a_1 b_i$ for some $b_i$ in $R$. 
+2. Now show that $a_1$ divides the generator of $\phi(N)$ for all linear functionals $\phi: N \to R$. In particular, it divides $\pi_i(N)$ so that $\pi_i(N) = a_1 b_i$ for some $b_i$ in $R$. Define the "partitions-of-unity" 
+
+$$
+y_1 = b_1 x_1 + \ldots  + b_n x_n
+$$
+
+Then 
+$$
+a_1 y_1 = (a_1 b_1) x_1 + \ldots + (a_1 b_n) x_n = \pi_1(y)x_1 + \ldots + \pi_n(y) x_n = y
+$$
+and
+$$
+a_1 = \nu(y) = \nu(a_1 y_1) = a_1 \nu(y_1) \implies \nu(y_1) = 1.
+$$
+
+
+3. Now show that $y_1$, resp. $a_1 y_1$ can be taken as a basis element of $M$, resp. $N$. Furthermore $M = Ry_1 \oplus ker \nu$ and $N = a_1 y_1 \oplus (ker \nu) \cap N$. 
+
+4. We shall show that $\ker \nu$ has rank $n-1$ below; for a while accept this and proceed and apply the induction hypothesis to conclude that $ker(\nu)$ has a basis $y_2, \ldots, y_n$ and there exists elements $a_2, \ldots, a_m$  satisyfing $a_2 \mid \ldots \mid a_m$ such that $a_2 y_2, \ldots, a_m y_m$ is a basis of $ker(\nu) \cap N$. 
+
+5. It remains to show that $a_1 \mid a_2$. Construct a $R$-linear functional $\psi$ that sends $y_1$ and $y_2$ to $1$ and the remaining $y_i$ to $0$. Then $(a_1) \subset \psi(N)$ becaue $a_1 = \phi(a_1y_1) = a_1 \phi(y_1)$, and so an equality because $(a_1)$ is a maximal element of the family of ideals $\phi(N)$ as $\phi$ varies over all the linear functionals $M \to R$. Since $a_2 = \phi(a_2 y_2) \in \phi(N) = (a_1)$ we have $a_1 \mid a_2$ as desired. 
+
 
 
 
