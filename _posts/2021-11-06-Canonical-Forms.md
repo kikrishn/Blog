@@ -22,14 +22,3 @@ In summary, if $R$ is an integral domain and $A$ is a $n\times n$ matrix over $R
 $$
 \sum \alpha_i y_i = \sum \alpha_i \sum_{j = 1}^n a_{j i} e_j = \sum_{j = 1}^n  \left( \sum_{i=1}^n \alpha_i a_{ji} \right) e_j = 0.
 $$
-
-
-
-
-
-
-
-
-
-
-
