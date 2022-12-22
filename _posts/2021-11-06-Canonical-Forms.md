@@ -34,9 +34,9 @@ $$
 **Rank**: Let $M$ be a finitely generated module over an integral domain $R$. The rank of $M$ is the maximal number of elements that are linearly independent over $R$. By the above discussion, it is clear that the rank is a well-defined notion. 
 
 
-**Theorem** Let $R$ be a PID,  $M$ be a free module of rank $n$ over $R$ and $N$ be a submodule of $M$. Then $N$ is a free $R$-module of rank at most $n$. Furthermore there exists a basis $y_1, \ldots, y_n$ of $M$ and elements $a_1, \ldots, a_m$ of $R$ satisfying the divisibility conditions a_1 \mid \ldots \mid a_m$ such that $a_1 y_1, \cdots a_m y_m$ is a basis of $N$.
+**Theorem:** Let $R$ be a PID,  $M$ be a free module of rank $n$ over $R$ and $N$ be a submodule of $M$. Then $N$ is a free $R$-module of rank at most $n$. Furthermore there exists a basis $y_1, \ldots, y_n$ of $M$ and elements $a_1, \ldots, a_m$ of $R$ satisfying the divisibility conditions $a_1 \mid \ldots \mid a_m$ such that $a_1 y_1, \cdots a_m y_m$ is a basis of $N$.
 
-**Proof**
+**Proof:**
 
 1. Fix a basis $x_1, \ldots, x_n$ of $M$. Assuming that $N$ is nontrivial, consider the set of $R$-linear functionals $M \to R$, and the family of ideals $\{ \phi(N) : \phi \in Hom(M,R) \}$ in $R$. Since $R$ is Noetherian (every ideal of $R$ is finitely generated, n fact by a single element) it follows that the set contains a maximal element, say $(a_1)$ with $\nu(y) = a_1$ for some linear functional $\nu: M \to R$. Since $N$ is nonzero, at least one of the ideals $\pi_i(N)$ is nonzero, where $\pi_i$ is the canonical projections with respect to the above choice of basis of $M$. In particular, $a_1$ is nonzero, hence $y$ is nonzero. 
 
