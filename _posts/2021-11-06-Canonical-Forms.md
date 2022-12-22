@@ -16,10 +16,10 @@ We want to understand the structure of finitely generated modules $M$ over a pri
 
 $$
 \begin{align*}
-det(B_i) &= det(A_1, \ldots, A_{i-1}, \sum x_k A_k, A_{i+1}, \ldots, A_n)
+det(B_i) &= det \left( A_1, \ldots, A_{i-1}, \sum x_k A_k, A_{i+1}, \ldots, A_n \right)
 \\
-&= x_k \cdot det (A_1, \ldots , A_{i-1}, A_i, A_{i+1}, \ldots, A_n) \\
-&= x_k \cdot det(A).
+&= x_i \cdot det \left(A_1, \ldots , A_{i-1}, A_i, A_{i+1}, \ldots, A_n \right) \\
+&= x_i \cdot det(A).
 \end{align*}
 $$
 
