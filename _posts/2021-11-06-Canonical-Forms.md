@@ -33,6 +33,12 @@ $$
 
 **Rank**: Let $M$ be a finitely generated module over an integral domain $R$. The rank of $M$ is the maximal number of elements that are linearly independent over $R$. By the above discussion, it is clear that the rank is a well-defined notion. 
 
+An element $m \in M$ is called a torsion element if there is a nonzero element of $R$ that annihilates it. A module is said to be a torsion module if every element in it is a torsion element. 
+
+Suppose the rank of $M$ is $n$ (and $M$ not necessarily free), let $x_1, \ldots, x_n$ be a maximal set of linearly independent elements. Then $N := Rx_1 + \ldots + R x_n$ is a free submodule of rank $n$, and for any $x \in M - N$ the set $\{ x, x_1, \ldots, x_n \}$ is not linearly dependent, so that $r \cdot x + \sum_{i =1}^n r_i x_i = 0$ with, clearly, $r$ nonzero (if $r$ is $0$ then some $r_i$ is nonzero so that $\{x_1, \ldots x_n \}$ is not linearly independent). Therefore the quotient module $M/N$ is a torsion module.  Conversely, if $M$ contains a free module $N$ of rank $n$ such that $M/N$ is a torsion module then $M$ has rank $n$. Indeed, let $y_1, \ldots, y_{n+1}$ be $n+1$ elements in $M$, and $x_1, \ldots, x_n$ be a basis of $N$. Since $M/N$ is a torsion module $r_i y_i = \sum_{j = 1}^n a_{ji} x_i$ for all $1 \leq i \leq (n+1)$. Proceeding as in the **(Determinant trick)** above, we see that the $(n+1)$ elements $r_i y_i$ are linearly dependent, hence $y_i$ are linearly dependent. Thus $M$ has rank at most $n$, but since $x_1, \ldots, x_n$ are linearly independent it follows that $M$ has rank exactly $n$.
+
+We use the above assertions to show the following: let $R$ be a domain and $M$ an module with $N$ a submodule. Suppose $M$ has rank $n$, $N$ has rank $r$ and $M/N$ has rank $s$. Then $n = r + s$. 
+
 
 **Theorem:** Let $R$ be a PID,  $M$ be a free module of rank $n$ over $R$ and $N$ be a submodule of $M$. Then $N$ is a free $R$-module of rank at most $n$. Furthermore there exists a basis $y_1, \ldots, y_n$ of $M$ and elements $a_1, \ldots, a_m$ of $R$ satisfying the divisibility conditions $a_1 \mid \ldots \mid a_m$ such that $a_1 y_1, \cdots a_m y_m$ is a basis of $N$.
 
@@ -50,6 +56,7 @@ $$
 4. We shall prove that $\ker \nu$ has rank $n-1$ below; for a while accept this and proceed and apply the induction hypothesis to conclude that $ker(\nu)$ has a basis $y_2, \ldots, y_n$ and there exists elements $a_2, \ldots, a_m$  satisyfing $a_2 \mid \ldots \mid a_m$ such that $a_2 y_2, \ldots, a_m y_m$ is a basis of $ker(\nu) \cap N$. 
 
 5. By considering the $R$-linear functional $\psi$ that sends $y_1$ and $y_2$ to $1$ and the remaining $y_i$ to $0$, show that $a_1 \mid a_2$.
+
 
 
 
