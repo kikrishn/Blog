@@ -61,6 +61,12 @@ $$
 5. By considering the $R$-linear functional $\psi$ that sends $y_1$ and $y_2$ to $1$ and the remaining $y_i$ to $0$, show that $a_1 \mid a_2$.
 
 
+Let $M$ be a finitely generated module over a PID $R$ of rank $n$. Let $x_1, \ldots, x_n$ be a choice of maximal linearly independent elements of $M$, and consider the natural surjection $\pi: R^n \to M$ obtained by mapping $e_i \to x_i$. Then $ker \phi$ is free of rank at most $m$ and there exists a choice of basis $y_1, \ldots, y_n$ of $R^n$ (not necessarily equal to the standard basis $e_1, \ldots, e_n$) and elements $a_1, \ldots, a_m$ satisfying the divisibility conditions $a_1 \mid \ldots \mid a_m$ such that $a_1 y_1, \ldots, a_m y_m$ is a basis of $ker \pi$. Therefore
+$$
+M \cong Ry_1 \oplus \ldots \oplus R y_n / R a_1 y_1 \oplus \ldots \oplus a_m y_m \cong R/a_1 \oplus \ldots \oplus R/a_m \oplus R^{n-m}.
+$$
+
+
 
 
 
